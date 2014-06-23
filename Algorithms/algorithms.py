@@ -75,10 +75,60 @@ def fib(n) :
       return fib(n-1) + fib(n-2)
      
 
- 	 
-           
+# P4 : Reduce redundant operations in the computation in P3
+ # problem => l(4) = 5th number in the fibonacci sequence
+ # l(4) = l(3) + l(2) 
+ # l(3) = l(2) + l(1) 
+ # l(2) = l(1) + l(0)
+ # l(1) = 1
+ # l(0) = 1
+ # l = [-1 -1 -1 -1 -1]
+ # fibo(l,4) = fibo(l,3) + fibo(l,2) 
+ # fibo(l,3) = fibo(l,2) + fibo(l,1) 
+ # fibo(l,2) = fibo(l,1) + fibo(l,0) 
+ # fibo(l,1) = l[1] = 1
+ # fibo(l,0) = l[0] = 0
+ # fibo(l,2) = 1 + 0 = 1	  
+
+def fibo(l,start) : 
+   if start<2 : 
+      l[start] = start
+   else :
+      l[start] = l[start-1] + l[start-2]
+      print l
+      print 'start =',start
+      if start==len(l)-1 :
+         return l[start]         
+   if start<len(l)-1 :
+      return fibo(l,start+1)
+
+
+# P5 : Implement a swap function 
+
+def swap(a,b) : 
+   return b,a
+
+# P6 : Implement insertion sort for a list of numbers
+
+def insertion_sort(list_num) :
+   j = 1
+   while j<len(list_num) :
+      i = 0
+      while i<=j-1 :
+         if list_num[j] < list_num[i] :
+            tmp = list_num[i] 
+            list_num[i] = list_num[j]
+            list_num[j] = tmp
+         i = i + 1
+      j = j + 1
+   return list_num  
+
 
 if __name__== '__main__' :
    #print_fibonacci(1.9) 
    #print_fibonacci_recurse(6.5)
-   print fib(5)     
+   #l = [-1] * 10
+   #print fibo(l,0)
+   #list_num = [8, 2, 4, 9, 3, 6] 
+   #list_num = insertion_sort(list_num)  
+   #print list_num 
