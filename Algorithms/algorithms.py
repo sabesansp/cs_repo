@@ -124,6 +124,68 @@ def insertion_sort(list_num) :
    return list_num  
 
 
+# P7 : Implement a 2-way merge of numbers sorted in ascending order
+#      list l1 = l[start] -> l[mid] || list l2 = l[mid+1] -> l[end] 
+
+def merge(l1,l2) : 
+   i = 0
+   j = 0
+   k = 0
+   l = [None] * (len(l1) + len(l2))  
+   while i<len(l1) and j<len(l2)  :
+      if l1[i] < l2[j] :
+         l[k] = l1[i] 
+         i = i + 1
+      else :
+         l[k] = l2[j]
+         j = j + 1 
+      k = k + 1
+   # If the left list was not exhausted
+   if i<len(l1) :
+      while i<len(l1) :
+         l[k] = l1[i] 
+         i = i + 1
+         k = k + 1
+
+   # If the right list was not exhausted
+   if j<len(l2) :
+      while j<len(l2) :
+         l[k] = l2[j]
+         j = j + 1
+         k = k + 1
+   return l
+
+
+# P8 : Implement the merge sort function using "merge" function
+# Picture a 4-element list = [4,2,9,1] 
+# n = 4, l = [4,2,9,1], left = merge_sort([4.2])
+# n = 2, l = [4,2], left = merge_sort([4]) 
+# n = 1, l = [4], returned
+# n = 2, l = [4,2], right = merge_sort([2]) 
+# n = 1, l = [2], returned
+# n = 2, l = [4,2] , left = [4], right = [2] 
+# merge => [2,4] returned
+# n = 4, l = [4,2,9,1], left = [2,4], right = merge_sort([9,1]) 
+# n = 2, l = [9,1], left = merge_sort([9]) 
+# n = 1, l = [9], returned
+# n = 2, l = [9,1], left = [9], right = merge_sort([1]) 
+# n = 1, l = [1], returned
+# n = 2, l = [9,1], left = [9], right = [1]
+# merge => [1,9] returned
+# n = 4, l = [4,2,9,1], left = [2,4], right = [1,9]
+# merge => [1,2,4,9] 
+ 
+def merge_sort(l) :
+  
+   n = len(l)
+   if n<=1 :
+      return l 
+   left = merge_sort(l[:n/2]) 
+   right = merge_sort(l[n/2:])
+   return merge(left,right)  
+   
+
+
 if __name__== '__main__' :
    #print_fibonacci(1.9) 
    #print_fibonacci_recurse(6.5)
@@ -131,4 +193,7 @@ if __name__== '__main__' :
    #print fibo(l,0)
    #list_num = [8, 2, 4, 9, 3, 6] 
    #list_num = insertion_sort(list_num)  
-   #print list_num 
+   #print list_num
+   print merge_sort([2, 5, 9, 253,-25,0,7,32,89])
+    
+    
