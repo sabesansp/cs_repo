@@ -203,12 +203,14 @@ def build_graph():
 
 def is_path_exists(graph,start_node,end_node):
 
-   l = graph[start_node]
-   if end_node in l :
-      return True
-   else :
-      for node in l :
-         return is_path_exists(graph,node,end_node)
+   # check if start_node is a key in the graph
+   if graph.has_key(start_node) :
+      l = graph[start_node]
+      if end_node in l :
+         return True
+      else :
+         for node in l :
+            return is_path_exists(graph,node,end_node)
    return False
 
 
@@ -223,4 +225,4 @@ if __name__== '__main__' :
    #print list_num
    #print merge_sort([2, 5, 9, 253,-25,0,7,32,89])
    #print build_graph()  
-   print is_path_exists(build_graph(),'A','F')  
+   print is_path_exists(build_graph(),'C','D')  
