@@ -186,6 +186,33 @@ def merge_sort(l) :
    
 
 
+# P9 : Build a sample graph datastructure 
+
+def build_graph():
+
+   graph = {'A' : ['B','D'],
+            'B' : ['C'],
+            'C' : ['F','E'],
+            'D' : ['E'],
+            'E' : ['F'],
+           }
+   return graph
+
+
+# P10 : Check if there exists a path between two nodes in a graph
+
+def is_path_exists(graph,start_node,end_node):
+
+   l = graph[start_node]
+   if end_node in l :
+      return True
+   else :
+      for node in l :
+         return is_path_exists(graph,node,end_node)
+   return False
+
+
+
 if __name__== '__main__' :
    #print_fibonacci(1.9) 
    #print_fibonacci_recurse(6.5)
@@ -194,6 +221,6 @@ if __name__== '__main__' :
    #list_num = [8, 2, 4, 9, 3, 6] 
    #list_num = insertion_sort(list_num)  
    #print list_num
-   print merge_sort([2, 5, 9, 253,-25,0,7,32,89])
-    
-    
+   #print merge_sort([2, 5, 9, 253,-25,0,7,32,89])
+   #print build_graph()  
+   print is_path_exists(build_graph(),'A','F')  
