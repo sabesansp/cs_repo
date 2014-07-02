@@ -66,5 +66,27 @@ Lecture_notes [1: Roadmap || 2:Lab0 || 3:Memory_Addressing]
   1:C[0x0004] = 0x00|00|01|5F {points to a data value} 
   2:C[0x001C] = 0x00|00|00|04 {pointer to an address location} 
   3:C[0x0024] = 0x00|00|00|1C {pointer to a pointer}
- 16:Data_Representations [2-3] {sizes of objects in bytes}
-     
+ 16:Data_Representations
+  1:Java || C || 32-bit || 64-bit
+  2:boolean || bool || 1 || 1
+  3:byte || char || 1 || 1
+  4:char ||      || 2 || 2
+  5:short || short int || 2 || 2
+  6:int || int || 4 || 4
+  7:float || float || 4 || 4
+  8:     || long int || 4 || 8 
+  9:double || double || 8 || 8
+  10:long || long long || 8 || 8
+  11:     || long double || 8 || 16
+  12:(reference) || pointer* || 4 || 8
+ 17:Byte ordering
+  1:Big endian(PowerPC, Sun, Internet) => most significant byte has lowest address
+    Ex: 0x01234567 => 01||23||45||67 [left -> right = lowest_addr -> highest_addr] 
+  2:Little endian(x86) => least significant byte has lowest address
+    Ex: 0x01234567 => 67||45||23||01 [lowest_addr -> highest_addr]
+  3:int A = 12345; || Hex_Value = 0x00003039
+   1:Little endian => {39||30||00||00} 
+   2:Big endian => {00||00||30||39}
+  4:int B = -12345; || Hex_Value = 0xFFFFCFC7
+   1:Little endian => {C7||CF||FF||FF}
+   2:Big endian => {FF||FF||CF||C7}  
