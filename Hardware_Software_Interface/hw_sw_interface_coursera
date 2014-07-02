@@ -1,4 +1,4 @@
-Lecture_notes [1: Roadmap || 2:Lab0 || 
+Lecture_notes [1: Roadmap || 2:Lab0 || 3:Memory_Addressing] 
 
 1:Roadmap
  1:Memory & Data
@@ -39,4 +39,32 @@ Lecture_notes [1: Roadmap || 2:Lab0 ||
   2:fillArray((int *)fourInts_ptr,4);
   3:free(fourInts_ptr);
   4:Run "valgrind --leak-check=full ./arrays" to make sure that there are no memory leaks
- 10:Received the grade for the exercise that was submitted => "Score : 10/10"  
+ 10:Received the grade for the exercise that was submitted => "Score : 10/10"
+
+3:Memory_Addressing
+ 1:CPU ------Memory
+   |         |
+   -------BUS------
+   |   |    |    |
+   D   N    U    [Etc.]
+ 2:CPU needs to retrieve instructions, data from memory in order to know what to do and what to operate on
+ 3:Load data from memory into the register for processing, and then put the processed data back into memory
+ 4:CPU also has an instruction cache to maintain a list of "next" instructions (if it needs to go into the memory
+   to fetch it or that which is already present like a loop or a common procedure that it already executed) 
+ 5:Key performance issue => data moved from memory to CPU
+ 6:Two improvements => Move more pieces of data in one move from mem->CPU and CPU->mem ||
+   Put some memory in CPU chip itself, this will be "cache" memory
+ 7:351 => 0000000101011111 (16-bit representation) 
+ 8:Electronics are designed to be able to easily represent 0s and 1s
+ 9:[1 = (2.8V-3.3V) || 0 = (0.0V-0.5V)] || Ignore the stuff between {0.5V - 2.8V}
+ 10:Expand 0x0FA1D37B into binary => 0000|1111|1010|0001|1101|0011|0111|1011 {32-bit string}
+ 11:Byte-Oriented memory organization => OS provides an address space private to each "process" = <x> bytes
+ 12:32-bit machines = 32-bit address || 64-bit machines = 64-bit address
+ 13:Memory locations= 0x00000000 - 0xFFFFFFFF {on a 32-bit machine) 
+ 14:32-bit word => M_1 = 0x0000 || M_2 = 0x0004 || C[M_2] =  00|00|01|5F
+ 15:Pointer to an address || Pointer to a pointer
+  1:C[0x0004] = 0x00|00|01|5F {points to a data value} 
+  2:C[0x001C] = 0x00|00|00|04 {pointer to an address location} 
+  3:C[0x0024] = 0x00|00|00|1C {pointer to a pointer}
+ 16:Data_Representations [2-3] {sizes of objects in bytes}
+     
