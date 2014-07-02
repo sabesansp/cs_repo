@@ -1,0 +1,42 @@
+Lecture_notes [1: Roadmap || 2:Lab0 || 
+
+1:Roadmap
+ 1:Memory & Data
+ 2:Integers & Floats
+ 3:Machine Code & C
+ 4:x86 Assembly
+ 5:Procedures & Stacks
+ 6:Arrays & Structs
+ 7:Memory & Caches
+ 8:Processes
+  1:Figure out how to give an illusion that one process gains control over the entire processor
+ 9:Virtual memory  
+ 10:Memory allocation
+ 11:Java versus C
+ 12:Themes
+  1:Representation - Numbers, Characters, Instructions, Pointers
+  2:Translation - Work the way down to 0s and 1s of computers
+  3:Control flow - Keep track of when we call a method, what do we do upon return
+
+2:Lab0
+ 1:User => HappyUser || Password => "streetdan"
+ 2:Go to "CourseMaterials" folder (Everytime update course is done, new course materials are downloaded) 
+ 3:"submit-hw lab0" => Submission login : "sabesansp@gmail.com" || Submission Password : "<X>" listed on coursera page
+ 4:File to be submitted => "arrays.c"
+ 5:compilation => "gcc -g -Wall -std=gnu99 -o arrays arrays.c"
+  1:output => Filling an array at address 0x7fff82e82ec0 with 10 values etc. 
+ 6:TODO(1): Replace the parameter 10 with 11 in the "fillArray" function
+  1:Able to fill an array with 11 values with no problem
+  2:For 100,1000 got a segmentation fault(core dumped)
+ 7:TODO(2): "int value" => &value is the same value in "int values[1]" 
+  1:fillArray(&value,1) = fillArray(values,1) 
+ 8:TODO(3): What happens if "free()" call is absent
+  1:20 bytes in 1 block are definitely lost in loss record 1 of 1
+  2:at 0x4C2981C: malloc(vg_replace_malloc.c:270)
+  3:by 0x40077E: main(arrays.c:110) 
+ 9:TODO(4): allocate a FourInts struct dynamically on the heap and use fillArray to populate it with values
+  1:FourInts* fourInts_ptr = (FourInts*)malloc(sizeof(FourInts));
+  2:fillArray((int *)fourInts_ptr,4);
+  3:free(fourInts_ptr);
+  4:Run "valgrind --leak-check=full ./arrays" to make sure that there are no memory leaks
+ 10:Received the grade for the exercise that was submitted => "Score : 10/10"  
