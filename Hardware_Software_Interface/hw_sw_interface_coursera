@@ -1,4 +1,4 @@
-Lecture_notes [1: Roadmap || 2:Lab0 || 3:Memory_Addressing] 
+Lecture_notes [1: Roadmap || 2:Lab0 || 3:Memory_Addressing || 4:Lab1 ||] 
 
 1:Roadmap
  1:Memory & Data
@@ -89,4 +89,46 @@ Lecture_notes [1: Roadmap || 2:Lab0 || 3:Memory_Addressing]
    2:Big endian => {00||00||30||39}
   4:int B = -12345; || Hex_Value = 0xFFFFCFC7
    1:Little endian => {C7||CF||FF||FF}
-   2:Big endian => {FF||FF||CF||C7}  
+   2:Big endian => {FF||FF||CF||C7}
+ 18:Addresses and Pointers in C
+  1:What is &(*x) equivalent to? => x
+  2:x = 0x0 || y = 0x3CD02700 || int x,y; || x = y+3; || x= 0x3CD02703
+  3:int *x;int y;x=&y + 3; &y = 0018 || &y+3 = 0x0024 || x = 0x0024
+  4:*x=y;Content pointed to by address x = value of y || value at address 0x0024 = 0x3CD02700
+ 19:Arrays
+  1:int big_array[128]; || allocates 512 adjacent bytes starting from 0x00ff0000
+  2:int *array_ptr; array_ptr=big_array; [array_ptr = 0x00FF0000] 
+  3:array_ptr = &big_array[0]; [array_ptr = 0x00FF0000] 
+  4:array_ptr = &big_array[3]; [array_ptr = 0x00FF000C]
+ 20:Boolean_Algebra
+  1:~(A|B) = ~A & ~B
+  2:~(A&B) = ~A | ~B
+  3:Bit vectors for manipulating sets
+   1:width 'w' bit vector represents subsets of {0,...,w-1} 
+   2:01111000 = {3,4,5,6}
+   3:& => Intersection of two sets
+   4:| => Union of two sets
+   5:^ => symmetric difference 
+   6:~ => complement
+
+
+4: Lab1
+ 1:Rules for bits.c
+  1:Each expression = {Integer constants 0-255,function_args + local_var,! ~,& ^ | + << >>} 
+  2:bitAnd(int x, int y) || using only '~' and '|'
+   1:return ~x | ~y => problem happens when both integers are negative
+   2:x = -2147483648(0x80000000) || y = -2147483648(0x80000000) 
+     ~x = 0x7FFFFFFF || ~y = 0x7FFFFFFF || ~x | ~y = 0x7FFFFFFF {expected_output = 0x80000000}
+   3:solution = ~(~x | ~y)= complement the final result
+   4:score = 1/1
+  3:bitXor(int x, int y) || using only ~ &
+   1:x = 4(0x00000004) || y = 5(0x00000005)
+   2:x ^ y = 1(0x00000001) 
+   3:possible expression = ~(~(x & ~y) & ~(~x & y))
+   4:score = 1/1
+  4:thirdBits(void) => no input
+   1:Start with x = 0x00000000
+   2:x = x << 4;
+   3:x = x & 0x04;
+   4: 
+        
