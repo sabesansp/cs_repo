@@ -1,6 +1,9 @@
 #!/usr/bin/python
 
 import types
+from ctypes import c_int,addressof
+import sys
+
 
 # P1 : Print 'n' numbers in the fibonacci sequence using iteration
  # n = 5 => sequence = [0,1,1,2,3]
@@ -215,6 +218,34 @@ def is_path_exists(graph,start_node,end_node):
 
 
 
+# P11 : Print the address of the stored variable
+def print_address() :
+
+   a = 5;
+   print "address of a  = ",hex(addressof(c_int(a)))
+ 
+   # Expected value would be 24 bytes, reason being
+   # every python object contains atleast a refcount
+   # and a reference to the object's type in addition
+   # to other storage on a 64-bit machine, that takes 
+   # upto 16 bytes	
+   # typedef struct	 {
+   #   PyObject_HEAD
+   #   long ob_ival;
+   # }PyIntObject;
+   # 
+   # struct _intblock {
+   #  struct _intblock *next;
+   #  PyIntObject objects[N_INTOBJECTS];
+   # };
+   # typedef struct _intblock PyIntBlock;
+
+   print "size of 'a' using getsizeof function= ",sys.getsizeof(a)
+   print "size of 'a' using bit length = ",a.bit_length() 
+   
+
+
+
 if __name__== '__main__' :
    #print_fibonacci(1.9) 
    #print_fibonacci_recurse(6.5)
@@ -225,4 +256,5 @@ if __name__== '__main__' :
    #print list_num
    #print merge_sort([2, 5, 9, 253,-25,0,7,32,89])
    #print build_graph()  
-   print is_path_exists(build_graph(),'C','D')  
+   #print is_path_exists(build_graph(),'C','D')
+   print_address()  
