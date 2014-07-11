@@ -244,6 +244,12 @@ def print_address() :
    print "size of 'a' using bit length = ",a.bit_length() 
    
 
+#P12 : Print the bytes in the passed variable
+def show_bytes(input):
+
+   print "Entire input in bytes = ",hex(input)
+   print "last_byte = ",hex(input&0xFF)
+
 
 
 if __name__== '__main__' :
@@ -257,4 +263,7 @@ if __name__== '__main__' :
    #print merge_sort([2, 5, 9, 253,-25,0,7,32,89])
    #print build_graph()  
    #print is_path_exists(build_graph(),'C','D')
-   print_address()  
+   #print_address()
+   show_bytes(-64)
+
+  
