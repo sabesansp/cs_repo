@@ -248,8 +248,10 @@ def print_address() :
 def show_bytes(input):
 
    print "Entire input in bytes = ",hex(input)
-   print "last_byte = ",hex(input&0xFF)
-
+   while input!=0 and input!=-1 :
+      print "input = ",input
+      print "byte = ",hex(input&0xFF)
+      input = input >> 8
 
 
 if __name__== '__main__' :
@@ -264,6 +266,6 @@ if __name__== '__main__' :
    #print build_graph()  
    #print is_path_exists(build_graph(),'C','D')
    #print_address()
-   show_bytes(-64)
+   #show_bytes(-214734894)
 
   
