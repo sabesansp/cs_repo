@@ -1,0 +1,19 @@
+# Problem : Automate the test cases on CAT for nioc version 3
+
+ # Goals :
+
+  # nioc v3 test cases running in CAT [71]
+  # transfer to CPD after automation
+
+ # Algorithm :
+   
+   # Activity Decomposition
+    # Writing code for test cases (W)
+    # Executing code for test cases (E)
+    # Testcase - CAT integration (C) 
+
+   # Write one simple testcase "ResourcePoolSmallVmnics"
+    # Files
+     # vdnet/automation/VDNetLib/TestData/TestbedSpecs/TestbedSpec.pm
+      # add one more vds to "OneHostNIOCv3VDS"  
+     # vdnet/automation/TDS/EsxServer/NetIORM/NetIOCv3Tds.pm	
