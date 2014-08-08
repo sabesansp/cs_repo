@@ -10,10 +10,16 @@
    # Activity Decomposition
     # Writing code for test cases (W)
     # Executing code for test cases (E)
-    # Testcase - CAT integration (C) 
+    # Testcase - CAT integration (TC)
+    # Cycle - W->E->C 
 
    # Write one simple testcase "ResourcePoolSmallVmnics"
     # Files
      # vdnet/automation/VDNetLib/TestData/TestbedSpecs/TestbedSpec.pm
       # add one more vds to "OneHostNIOCv3VDS"  
-     # vdnet/automation/TDS/EsxServer/NetIORM/NetIOCv3Tds.pm	
+     # vdnet/automation/TDS/EsxServer/NetIORM/NetIOCv3Tds.pm
+    # Negative test case, no understanding of how vdnet processes negative test cases
+     # Is it worth spending time on this activity ?
+     # No : Creation of negative test cases in automation framework is an external activity
+     # Postponing this activity would be a better solution
+     # Post a "TO_DO" comment in the TDS 	
