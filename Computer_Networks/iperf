@@ -1,0 +1,6 @@
+# Problem : Understanding how iperf works
+
+ # What does it accomplish ?
+  # Measure TCP and UDP bandwidth performance
+  # Reports bandwidth, delay jitter, datagram loss
+  # 
