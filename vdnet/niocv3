@@ -1,4 +1,4 @@
-# Problem : Automate the test cases on CAT for nioc version 3 [450 min]
+# Problem : Automate the test cases on CAT for nioc version 3 [1207 min]
 
  # Goals :
 
@@ -11,7 +11,7 @@
     # Writing code for test cases (W)
     # Executing code for test cases (E)
     # Testcase - CAT integration (TC)
-    # Cycle - W->E->C
+    # Cycle - W->E->TC
     # U : unknown 
 
    # Write one simple testcase "ResourcePoolSmallVmnics"
@@ -54,4 +54,77 @@
        #                                        port 128657 establish_control could not establish the control connection from
        #                                        0.0.0.0 port 0 address family AF_UNSPEC to localhost port 12865 address family
        #                                        AF_UNSPEC] 
-       #            	
+       #
+       # postpone this activity
+      * SP => W:= "tc_creation(vm=1, run_IO_Session(vm.[1]), testbedspec = "oneHostNiocv3")
+       * Use the reuse option already available since the testbed has already been saved
+       * niocv3 alias caches the frequent access to te TDS "../TDS/EsxServer/NetIORM/NetIOCv3Tds.pm"
+       * testbedspec field can be picked up from elsewhere using the search term "OneHost"
+       * fill_up_workload_sequence(pick_workload_from_tc("BasicScheduler"))
+       * compilation_error() {reason = "misplaced ] near the Sequence"}
+       # SP => Error() = "Node /testbed/host/1/vmknic/obj" does not exist" 
+        # The rootcause of the problem is that the testbedspec does not accomodate the required test inventory used in the tc
+        # The impact of this problem was pretty huge emotionally because it affects the state of mind
+        # come_back(state = "FEEL_GOOD") by writing down the solution [on paper/board/vim editor]
+        # copy_testbed_spec(no_of_lines=84) from 'BasicScheduler' testcase
+        # merge the spec with the available testbed spec and check if this works
+        # same error was produced
+        # problem_context = "run TCP traffic workload"
+        # change the TCP traffic workload to contain vmnic 1 as support adapter instead of vmknic 1 and reuse the same testbed
+       * SP => Error() => [@VDNetLib::Workloads::TrafficWorkload:1704] [31694] Unable to either OS type  or Arch
+        * First, get the latest git source
+        * vm is powered off, this is the reason for this error
+        * Power on both the vms and see if this works
+        * retry() => error did not get resolved
+        * problem_context() => re_run(tc='DefaultVMStarving')
+        # SP => Get the latest source available on git
+         # I was able to get the latest source on master after I did a "git stash"
+         # remove the commit from the master (Changes to Netioc TDS)
+          # git reset --hard HEAD^ => resets the branch to HEAD and removes all commits   
+         # merge stuff from one branch to another => git merge <branch> => merges changes made in <branch> into master
+	 # "git diff" to list all files that have conflicts
+         # "git commit -a" will commit the result of the merge
+         # "gitk" will show a graphical representation of the history
+         # Get the latest changes from master onto the new branch "niocv3_automation"
+          # git rebase master on "niocv3_automation" branch
+          # git stash apply stash@{1} => replay the changes made on top of the branch
+          # resulted in some conflicts
+          * SP => resolve_conflicts()
+           * In this case, there is no need to resolve conflicts
+           * Just add the file into the staged changes list
+           * stash the changes when needed and reapply after rebasing to master
+        * There was no controlIP in the netadapter object
+        * Input tuple = "vm.[1].vnic.[1]"
+        * controlIP = undef || macAddress = undef || vmOpsObj [vmIP => undef] 
+        * method = 'CreateNodes' || file = 'TrafficWorkload.pm' 
+        * inputs_to_method() || tuple = "vm.[1].vnic.[1]" || ref = <long_spec> || netobj = ref->[0]
+        * when inserting print statements, it is good to use "$vdLogger" rather than print
+        * ref : Array of objects || netobj : Object
+        * who calls into "CreateNodes" ? => How about printing the entire method call hierarchy ? 
+        # SP => Document the entire method hierarchy for this scenario
+         # Ground rules => no computational lines / only subroutines
+         # Format => Filename : Method_name()
+         # entry_point => vdnet [shell script to be run on bash] 
+         # environment => ../main/environment
+         # Perl entry_point  => ../main/vdNet.pl || $OPTION (a list of options to be passed)
+         # Program starts here and terminates here 
+         # Store all cli parameters in $cliParams
+         * SP => Write a simple perl script that accepts a cli parameter and outputs the same
+          * populate a parameter from the command line 
+          * store the parameter as a hash value in an object
+          * store all relevant files under a folder named "f = practice_problem_1"
+          * create a file called "entry_point.pl" which should contain the code for getting the options in
+          * GetOptions('filename=s' => \$cli_param->{filename}) is returning true all the time
+          * on mac perl version v5.16.3 => GetOptions always returns true whether the option was specified or not
+          * The value "mine.yaml" was passed from command line and successfully stored in the hash which was printed via "Dumper" subroutine
+          * Create a perl module named "Session.pm" => abstraction for a class
+          * Create a hash cli_param inside the class
+          * Create an object for Session inside the caller "entry_point.pl" 
+         # $session = VDNetLib::Session::Session->new('cliParams' => $cliParams); // Creating a new Session object
+         # Run the session || $session->Run() 
+         # Cleanup the session || $session->Cleanup
+         # Session->new() || Session->ConfigureLogging() || Utilities->GetLocalIP() || Session->ProcessAndValidateCLI()
+         * SP => Setup a cron job for extending nimbus leases everyday 5:00 AM 
+          * sample => 0 5 * * * /path/to/command
+         #           
+            		

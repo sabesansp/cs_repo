@@ -1,0 +1,17 @@
+use strict;
+use warnings;
+use Getopt::Long;
+
+# Declare a variable cli_param that is a 
+# hash reference
+my $cli_param = {};
+my $var=0;
+
+
+# Get the option as a command line parameter
+# Use an option like "filename"  
+print GetOptions('debug' => \$var)."\n";
+
+print $var."\n";
+
+
