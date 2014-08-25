@@ -255,6 +255,46 @@ def show_bytes(input):
 
 
 
+#P13 : Find a peak if it exists in an array of numbers
+def find_peak(a):
+
+   # Example : [5,4,2,1,7,9]
+   # Set the left and right ends of the list
+   l = 0 # points to 5
+   r = len(a)-1 # points to 9
+
+   while l<=r:
+
+      # Compute the mid-point of the list
+      m = (l + r)/2 # mid = 1
+ 
+      # If m=0, check a[m]>a[m+1] 
+      if m==0 :
+         if a[m]>=a[m+1] :
+            # condition => a[m] is a peak, output the same
+            return a[m]
+      else :
+         if m==len(a)-1 :
+            if a[m]>=a[m-1] :
+               # condition => a[m] is a peak, output the same
+               return a[m]
+         else :
+            # cond => 0 < m < len(a)-1
+            if a[m]>=a[m-1] and a[m]>=a[m+1] :
+               # condition => a[m] is a peak
+               return a[m]
+            else :
+               # cond => a[m] was not the peak
+               if a[m]<a[m-1] :
+                  r=m-1
+               else :
+                  if a[m]<a[m+1] :
+                     l=m+1    
+      
+   return None
+
+
+      
 if __name__== '__main__' :
    #print_fibonacci(1.9) 
    #print_fibonacci_recurse(6.5)
@@ -268,6 +308,6 @@ if __name__== '__main__' :
    #print is_path_exists(build_graph(),'C','D')
    #print_address()
    #show_bytes(-214734894)
-   
+   #print find_peak([5,4,2,1,7,9,10,8,4,0])   
 
   
