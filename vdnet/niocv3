@@ -1,4 +1,4 @@
-# Problem : Automate the test cases on CAT for nioc version 3 [1207 min]
+# Problem : Automate the test cases on CAT for nioc version 3 [1441 min]
 
  # Goals :
 
@@ -126,5 +126,22 @@
          # Session->new() || Session->ConfigureLogging() || Utilities->GetLocalIP() || Session->ProcessAndValidateCLI()
          * SP => Setup a cron job for extending nimbus leases everyday 5:00 AM 
           * sample => 0 5 * * * /path/to/command
-         #           
-            		
+          * as expected, only netfvt nimbus lease expiry email was received
+        * vc_ip = 10.114.166.197 || esx_ip = 10.115.174.115 || vm1_ip = 10.115.174.155 || vm2_ip = 10.115.174.156
+        # SP => save the vm ips in the yaml file and re-run the test case
+         # If I specify 'ip' in the yaml file, is it good enough ?
+         # Where is the code that processes 'vm' in the yaml file ?
+         # Session.pm => ProcessAnValidateCLI()
+         # $self->{userInputHash} => contains the hash that was defined in the yaml
+         # $self->deployTestbed => calls ../scripts/deployTestbed.py
+         # actual_action => VDNetLib/TestSession/VDNetv2.pm
+         # put ip values for vm.[1] and vm.[2] and save the testbed
+         * SP => Error : VDNetLib::Common::Utilities [3012] => Failed to get 10.115.174.155 os type, staf running? 	          
+          * Check if staf service is running on esxi host
+          * What is the command to check this ? => ps -P listed "STAFProc" => staf service was running on esxi host
+          * re-try() 
+          * vm_ip(1,2) are not pingable from outside but the ip addresses on the second adapter are pingable from outside
+          * add another network adapter on both the vms (check if new ip addresses are obtained on the adapters)
+          * hot plug operation failed after wasting considerable amount of time
+          * initiate a host reboot || host is not responding || remove from inventory
+          * host is in a disconnected state   		
