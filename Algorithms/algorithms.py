@@ -115,15 +115,23 @@ def swap(a,b) :
 
 def insertion_sort(list_num) :
    j = 1
+   # j moves from 1 to n-1 where n = length of list 'list_num'
    while j<len(list_num) :
+      # Set i to 0 each time this loop starts
       i = 0
+      # i moves from 0 to j-1
       while i<=j-1 :
+         # i < j => we need to make list_num[i] <= list_num[j]
          if list_num[j] < list_num[i] :
+            # swap the numbers if the condition list_num[i] <= list_num[j] is not maintained
             tmp = list_num[i] 
             list_num[i] = list_num[j]
             list_num[j] = tmp
+         # increment i for the inner loop
          i = i + 1
+      # increment j for the outer loop
       j = j + 1
+   # return the list
    return list_num  
 
 
@@ -293,6 +301,8 @@ def find_peak(a):
       
    return None
 
+
+# P14 : 
 
       
 if __name__== '__main__' :
