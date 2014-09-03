@@ -1,4 +1,4 @@
-# Problem : Automate the test cases on CAT for nioc version 3 [1441 min]
+# Problem : Automate the test cases on CAT for nioc version 3 [2009 min]
 
  # Goals :
 
@@ -127,6 +127,7 @@
          * SP => Setup a cron job for extending nimbus leases everyday 5:00 AM 
           * sample => 0 5 * * * /path/to/command
           * as expected, only netfvt nimbus lease expiry email was received
+          * need to test out a way if setting the cron job works
         * vc_ip = 10.114.166.197 || esx_ip = 10.115.174.115 || vm1_ip = 10.115.174.155 || vm2_ip = 10.115.174.156
         # SP => save the vm ips in the yaml file and re-run the test case
          # If I specify 'ip' in the yaml file, is it good enough ?
@@ -144,4 +145,45 @@
           * add another network adapter on both the vms (check if new ip addresses are obtained on the adapters)
           * hot plug operation failed after wasting considerable amount of time
           * initiate a host reboot || host is not responding || remove from inventory
-          * host is in a disconnected state   		
+          * host is in a disconnected state || not_anymore
+          * add_new_adapter() && remove_first_adapter()
+          * vm_locations = [VM-1 => vdtest-26658/VM-1/RHEL* , VM-2 => vdtest-26663/VM-2/RHEL*] 
+          * There was only one network interface in both the virtual machines but the ip addresses are pingable
+          * current_problem() || proceed_with_one_interface()
+          * hot_plug_operation_failed() => hot-add of ethernet adapter failed
+          * instead of going after this problem, turn towards deploying another vm like tty 
+          * unregister_vms() => vim-cmd /vmsvc/unregister <vm_id> 
+          * delete_vmx_from_datastore() => rm -rf vdtest-*
+        # SP => list all the vm templates in the inventory
+         # ./vdnet --listvms || choose tty_linux
+        * SP => save a testbed with the vms deployed on the esxi host (tty_linux) 
+         * Earlier, it fails at take snapshot step
+         * switch vm to "RHEL63_srv_64_new" template
+         * "tty_linux" deployment fails @ take_snapshot() step
+         * staf error while retrieving vmx path on <esx_ip> 
+         * similar_bug = "bug #1311733"
+         * method => CreateLinkedClone() || File => HostOperations.pm
+         * vmdk file here : /vmfs/volumes/vdnetSharedStorage/vdtest-8560/VM-1/*.vmdk -> /vmfs/volumes/40c1109a-f631fa0e/RHEL63_srv_64_new/*.vmdk
+         * vmx file was not created => Did the linked clone operation start ?
+         * modify the problem to deploy just one vm and comment out the "vc" portion || re_run()
+         * vm_file_path = /vmfs/volumes/vdnetSharedStorage/vdtest-12915/VM-1/
+         * Files_found = {3_vmdk, 1_vmsn, 1_vmsd, 1_vmx}
+         * Problem => Unable to take a snapshot || "Invalid_snapshot_format"
+         * last stack trace => VDNetLib::Testbed::Testbedv2::DeployVM
+         * Search for CreateVM => 'grep -i -r CreateVM vdnet/automation/VDNetLib/*'
+         * Method => VMOpsTakeSnapshot || Error => "a required file was not found"
+         # SP => Create the linked clone for vm 'tty_linux' and register it in esxi host
+          # register vm => vim-cmd /solo/registervm /vmfs/volumes/56106741-45556f9a/vdtest-12915/VM-1/tty4.vmx 
+          # create snapshot => vim-cmd /vmsvc/snapshot.create 16 delta-1 sample-snapshot true false
+          # the operation failed
+          # attempt to solve the problem of creating a linked clone of tty_linux vm in the following path : "/vmfs/volumes/vdnetSharedStorage/Sabesan/tty/*" 
+          # HALT_FUNCTION()
+         * Sequence : 
+          * Testbedv2::DeployVM()
+           - Fetch the host object via "GetComponentObject" call (passing the hostIndex)
+           - Invoke the "CreateVM" api call on the host object
+          * HALT_FUNCTION()
+         * It could be a storage array access issue
+        # SP => Create a local NFS share on ESXi box for the vm templates that you intend to use
+         # what is your ESXi box ip ? => 10.33.75.228
+         # HALT_FUNCTION()  	   		
