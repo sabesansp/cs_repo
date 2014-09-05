@@ -1,4 +1,5 @@
-# Problem : Automate the test cases on CAT for nioc version 3 [2009 min]
+# Problem : Automate the test cases on CAT for nioc version 3 [2289 min]
+[Search tage = Error(),Problem(),SP] 
 
  # Goals :
 
@@ -186,4 +187,33 @@
          * It could be a storage array access issue
         # SP => Create a local NFS share on ESXi box for the vm templates that you intend to use
          # what is your ESXi box ip ? => 10.33.75.228
-         # HALT_FUNCTION()  	   		
+         # HALT_FUNCTION()
+        * SP => Deploy required vms on the host in the testbed
+         * $cmd_to_list_nfs_mounts_esxi = "esxcli storage nfs list"
+         * remove(vdtest) : esxcli storage nfs remove -v vdtest
+         * remove(vdnetSharedStorage) : esxcli storage nfs remove -v vdnetSharedStorage
+         * remove(vdtest) => failed the second time
+         * this_is_a_bug => cmd executes right the first time || same cmd fails the second time || QA = reliability
+         * reboot_host() || retry() => able to remove the nfs share
+         * run_testbed_deployment() : unable to remove vdtest (1) and mount vdtest
+         * remove(vdtest (1)) & run_testbed_deployment() => FAIL
+         * Error() = "Failed to find the given VM : rhel53-srv-32 under /vmfs/volumes/vdtest"
+         * Problem() = "Addition of volume vdtest gets added as vdtest (1)"  
+         * solution() = "remove all mounts corresponding to host <prme-vmkqa-...storage-002-1...> and retry"
+         * vm "rhel53-srv-32" has been deployed || $vm_ip = "10.115.174.132"
+      * HALT_FUNCTION()
+      # SP => W:= "tc_creation(vm=1, TCPTraffic(vm.[1]),testbedspec={})"
+       # Error() = "[ERROR] - Node /testbed/vm/1/vnic/1/obj does not exist"
+       # Root_Cause() = "vnic 1 of the vm is not registered as part of the testbed to be accesssed"
+       # Problem() = "vnic_1 is not specified anywhere in the testbed spec that the test uses"
+       # Solution() = "specify vnic_1 as part of the vm in the testbed save portion"
+       # redeploy_vc(build = 2024545) || $cmd_vc = ". ~/public_html/scripts/deploy_vc.sh delta 2024545 2024545-nioc-vc-1"
+       # $cmd_vc => !(worked) : VDNET && worked : DBC || Reason = POSTPONED
+       # $vc_ip = "10.114.185.34"
+       # Error() = "Neither of VM ip, vmx or template was provided"
+       # Root_Cause() = "vm.[2] was commented from the yaml file"
+       # Error() = "[ERROR] - Failed to open YAML file /mts/home5/ssaidapetpach/yaml/netioc.yaml: YAML::XS::Load Error: The problem:
+                   #  did not find expected key
+                   #  was found at document: 1, line: 43, column: 6
+                   #  while parsing a block mapping at line: 2, column: 4
+          		
