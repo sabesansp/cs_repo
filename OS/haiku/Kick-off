@@ -29,4 +29,7 @@ P : Get started with haiku
     * mem = 2GB
     * Error was seen again
     * How much of space was allocated to /boot ? 
-     
+    * $cmd = "df -a" || /boot :: bfs :: 7.3M free :: /dev/disk/ata/0/master/raw/
+    * $cmd = "du -h" || disk_utilization printed in human-readable format
+    * resize_disk() => "link = https://www.haiku-os.org/community/forum/increase_the_disksize_of_vmware_image"
+   
