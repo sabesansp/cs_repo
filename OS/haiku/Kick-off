@@ -1,35 +1,48 @@
-P : Get started with haiku
-
+*P : Get started with haiku [40m]
+|
  # SP : What is necessary for coding ?
-  * SP : subcribe to mailing lists
-   * mailing lists = [haiku-development, haiku, haiku-commits]
-   * create_master_label('haiku-os') : gmail
-   * create_sub_labels('haiku','haiku-development','haiku-commits')
-   * create_filters() : To apply appropriate labels to incoming messages
-  # SP : What is the most convenient development environment for haiku ?
-   # Haiku comes with tools needed to compile haiku and the toolchain
-   # How do you think that this decision would impact the workflow ?
-   # haiku_image() -> get_source() -> compile() -> test_os_build()
-   # change_image() if host version is too outdated
-   # Download the latest official version => 
+ |
+ |* SP : subcribe to mailing lists
+ ||* mailing lists = [haiku-development, haiku, haiku-commits]
+ ||* create_master_label('haiku-os') : gmail
+ ||* create_sub_labels('haiku','haiku-development','haiku-commits')
+ ||* create_filters() : To apply appropriate labels to incoming messages
+ |-----------------------------------------------------------------------------------------------------------
+ |# SP : What is the most convenient development environment for haiku ?
+ ||# Haiku comes with tools needed to compile haiku and the toolchain
+ ||# How do you think that this decision would impact the workflow ?
+ ||# haiku_image() -> get_source() -> compile() -> test_os_build()
+ ||# change_image() if host version is too outdated
+ ||# Download the latest official version => 
      R1 / Alpha 4.1 | Release_Date : November 4th,2012 | Computer_Platform : x86-32
-  * SP : Set up a haiku vm on fusion
-   * Download the "VM" version containing the vmdk and vmx files => 1.26GB
-   * Boot up the vm and the vm runs
-  # SP : Get the latest source code of haiku on the vm
-   # Access the source from git using anonymous access
-   # is_git_available() => true
-   # create_git_repo(/boot/home) => git_src
-   # git_repo = /boot/home/git_src
-   # Error : Could not clone repo in $git_repo
-   # No space left on device
-   * SP : create_more_space() : haiku_vm
-    * backup() : haiku_vmdk -> external_drive
-    * hard_disk_size = 40GB
-    * mem = 2GB
-    * Error was seen again
-    * How much of space was allocated to /boot ? 
-    * $cmd = "df -a" || /boot :: bfs :: 7.3M free :: /dev/disk/ata/0/master/raw/
-    * $cmd = "du -h" || disk_utilization printed in human-readable format
-    * resize_disk() => "link = https://www.haiku-os.org/community/forum/increase_the_disksize_of_vmware_image"
-   
+ |----------------------------------------------------------------------------------------------------------- 
+ |* SP : Set up a haiku vm on fusion
+ ||* Download the "VM" version containing the vmdk and vmx files => 1.26GB
+ ||* Boot up the vm and the vm runs
+ |----------------------------------------------------------------------------------------------------------- 
+ |# SP : Get the latest source code of haiku on the vm
+ ||# Access the source from git using anonymous access
+ ||# is_git_available() => true
+ ||# create_git_repo(/boot/home) => git_src
+ ||# git_repo = /boot/home/git_src
+ ||# Error : Could not clone repo in $git_repo
+ ||# No space left on device
+ |----------------------------------------------------------------------------------------------------------  
+ |* SP : create_more_space() : haiku_vm
+ ||* backup() : haiku_vmdk -> external_drive
+ ||* hard_disk_size = 40GB
+ ||* mem = 2GB
+ ||* Error was seen again
+ ||* How much of space was allocated to /boot ? 
+ ||* $cmd = "df -a" || /boot :: bfs :: 7.3M free :: /dev/disk/ata/0/master/raw/
+ ||* $cmd = "du -h" || disk_utilization printed in human-readable format
+ ||* resize_disk() => "link = https://www.haiku-os.org/community/forum/increase_the_disksize_of_vmware_image"
+ |------------------------------------------------------------------------------------------------------------ 
+ |# SP : how do you build haiku from source ?
+ ||# run "./configure" from the haiku directory
+ ||# Error() = "./configure: line 671: nasm: command not found
+                nasm cannot generate ELF files.Please install a working version."
+ ||# 'nasm' is not installed in haiku [Netwide Assembler]
+ ||# 'ELF' => Executable and Linkable format 
+     [link => http://en.wikipedia.org/wiki/Executable_and_Linkable_Format]
+ ||# <To_be_Continued>      
