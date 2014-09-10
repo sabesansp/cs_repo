@@ -1,219 +1,291 @@
-# Problem : Automate the test cases on CAT for nioc version 3 [2289 min]
-[Search tage = Error(),Problem(),SP] 
+# Problem : Automate the test cases on CAT for nioc version 3 [2769 min]
+[Search tage = Error(),Problem(),SP]
+|-----------------------------------------------------------------------
+# Goals :
+|
+|-nioc v3 test cases running in CAT
+|-transfer to CPD after automation
+|-----------------------------------------------------------------------
+# Algorithm :
+|
+|-<Terminology>
+|--Writing code for test cases (W)
+|--Executing code for test cases (E)
+|--Testcase - CAT integration (TC)
+|--Cycle - W->E->TC
+|--U : unknown
+|------------------------------------
+|-<SP#1> : Write one simple testcase "ResourcePoolSmallVmnics"
+|--<Files>
+|---vdnet/automation/VDNetLib/TestData/TestbedSpecs/TestbedSpec.pm
+|---add one more vds to "OneHostNIOCv3VDS"
+|---vdnet/automation/TDS/EsxServer/NetIORM/NetIOCv3Tds.pm
+|--<Negative test case, no understanding of how vdnet processes negative test cases>
+|---Is it worth spending time on this activity ?
+|---No : Creation of negative test cases in automation framework is an external activity
+|---Postponing this activity would be a better solution
+|---Post a "TO_DO" comment in the TDS
+|--<W : One positive test case [tc_chosen = 'DefaultVMStarving']>
+|---Find a random test case that is not yet automated
+|---Location : Inbox/Follow-up/action_items
+|---Open up the document "NETIOCV3status-1.docx"
+|---document's location in computer : "~/Documents/nioc_v3_automation/NETIOCV3status-1.docx"
+|---Update the current status for 'ResourcePoolSmallVmnics"
+|---tc_chosen = 'DefaultVMStarving'
+|---<tc_understanding() [number_of_vms = 4]>
+|----Verify impact on a default vm with no SLR on the same host where there are VMs with SLR
+|----3 vms : vm.[1], vm.[2], vm.[3] => 1/3 of available bandwidth
+|----SLR => Shares, Limits, Reservations
+|----run_IO_Session(vms) || All the four vms
+|----What does running IO session mean ?
+|----One more test case that is automated might have IO session
+|----tc = 'BasicScheduler'
+|----tool_used = 'netperf'
+|----parameters = [No_of_outbound = 1,SendMessageSize = 64512, LocalSendSocketSize = 131072, RemoteSendSocketSize = 131072,
+|----              test_duration = 60]
+|----Understand netperf
+|----primary focus => bulk data transfer & request/response performance using either TCP/UDP
+|----download netperf in windows 7 to see it in action
+|----On running netperf.exe msg received = [establish control: are you sure there is a netserver listening on localhost
+|                                           port 128657 establish_control could not establish the control connection from
+|                                           0.0.0.0 port 0 address family AF_UNSPEC to localhost port 12865 address family
+|                                           AF_UNSPEC]
+|
+|----postpone this activity
+|--------------------------------------------------------------------------------------------------------------------------
+|-<SP#2> => W:= "tc_creation(vm=1, run_IO_Session(vm.[1]), testbedspec = "oneHostNiocv3")
+|--Use the reuse option already available since the testbed has already been saved
+|--niocv3 alias caches the frequent access to te TDS "../TDS/EsxServer/NetIORM/NetIOCv3Tds.pm"
+|--testbedspec field can be picked up from elsewhere using the search term "OneHost"
+|--fill_up_workload_sequence(pick_workload_from_tc("BasicScheduler"))
+|--compilation_error() {reason = "misplaced ] near the Sequence"}
+|---------------------------------------------------------------------------------------------------------------------------
+|--<SP#2.1> => Error() = "Node /testbed/host/1/vmknic/obj" does not exist"
+|---The rootcause of the problem is that the testbedspec does not accomodate the required test inventory used in the tc
+|---The impact of this problem was pretty huge emotionally because it affects the state of mind
+|---come_back(state = "FEEL_GOOD") by writing down the solution [on paper/board/vim editor]
+|---copy_testbed_spec(no_of_lines=84) from 'BasicScheduler' testcase
+|---merge the spec with the available testbed spec and check if this works
+|---same error was produced
+|---problem_context = "run TCP traffic workload"
+|---change the TCP traffic workload to contain vmnic 1 as support adapter instead of vmknic 1 and reuse the same testbed
+|---------------------------------------------------------------------------------------------------------------------------
+|---<SP#2.1.1> => Error() => [@VDNetLib::Workloads::TrafficWorkload:1704] [31694] Unable to either OS type  or Arch
+|----First, get the latest git source
+|----vm is powered off, this is the reason for this error
+|----Power on both the vms and see if this works
+|----retry() => error did not get resolved
+|----problem_context() => re_run(tc='DefaultVMStarving')
+|----Get the latest source available on git
+|----I was able to get the latest source on master after I did a "git stash"
+|----remove the commit from the master (Changes to Netioc TDS)
+|----gitreset--hardHEAD^=>resetsthebranchtoHEADandremovesallcommits
+|----merge stuff from one branch to another => git merge <branch> => merges changes made in <branch> into master
+|----"git diff" to list all files that have conflicts
+|----"git commit -a" will commit the result of the merge
+|----"gitk" will show a graphical representation of the history
+|----Get the latest changes from master onto the new branch "niocv3_automation"
+|----git rebase master on "niocv3_automation" branch
+|----git stash apply stash@{1} => replay the changes made on top of the branch
+|----resulted in some conflicts
+|----resolve_conflicts()
+|----In this case, there is no need to resolve conflicts
+|----Just add the file into the staged changes list
+|----stash the changes when needed and reapply after rebasing to master
+|----There was no controlIP in the netadapter object
+|----Input tuple = "vm.[1].vnic.[1]"
+|----controlIP = undef || macAddress = undef || vmOpsObj [vmIP => undef]
+|----method = 'CreateNodes' || file = 'TrafficWorkload.pm'
+|----inputs_to_method() || tuple = "vm.[1].vnic.[1]" || ref = <long_spec> || netobj = ref->[0]
+|----when inserting print statements, it is good to use "$vdLogger" rather than print
+|----ref : Array of objects || netobj : Object
+|----who calls into "CreateNodes" ? => How about printing the entire method call hierarchy ?
+|----Document the entire method hierarchy for this scenario
+|----Ground rules => no computational lines / only subroutines
+|----Format => Filename : Method_name()
+|----entry_point => vdnet [shell script to be run on bash]
+|----environment => ../main/environment
+|----Perl entry_point  => ../main/vdNet.pl || $OPTION (a list of options to be passed)
+|----Program starts here and terminates here
+|----Store all cli parameters in $cliParams
+|----Write a simple perl script that accepts a cli parameter and outputs the same
+|----populate a parameter from the command line
+|----store the parameter as a hash value in an object
+|----store all relevant files under a folder named "f = practice_problem_1"
+|----create a file called "entry_point.pl" which should contain the code for getting the options in
+|----on mac perl version v5.16.3 => GetOptions always returns true whether the option was specified or not
+|----The value "mine.yaml" was passed from command line and successfully stored in the hash which was printed via "Dumper" subroutine
+|----Create a perl module named "Session.pm" => abstraction for a class
+|----Create a hash cli_param inside the class
+|----Create an object for Session inside the caller "entry_point.pl"
+|----$session = VDNetLib::Session::Session->new('cliParams' => $cliParams); // Creating a new Session object
+|----Run the session || $session->Run()
+|----Cleanup the session || $session->Cleanup
+|----Session->new() || Session->ConfigureLogging() || Utilities->GetLocalIP() || Session->ProcessAndValidateCLI()
+|----SP => Setup a cron job for extending nimbus leases everyday 5:00 AM
+|----sample => 0 5 |---- |---- |---- /path/to/command
+|----as expected, only netfvt nimbus lease expiry email was received
+|----need to test out a way if setting the cron job works
+|----vc_ip = 10.114.166.197 || esx_ip = 10.115.174.115 || vm1_ip = 10.115.174.155 || vm2_ip = 10.115.174.156
+|----save the vm ips in the yaml file and re-run the test case
+|----If I specify 'ip' in the yaml file, is it good enough ?
+|----Where is the code that processes 'vm' in the yaml file ?
+|----Session.pm => ProcessAnValidateCLI()
+|----$self->{userInputHash} => contains the hash that was defined in the yaml
+|----$self->deployTestbed => calls ../scripts/deployTestbed.py
+|----actual_action => VDNetLib/TestSession/VDNetv2.pm
+|----put ip values for vm.[1] and vm.[2] and save the testbed
+|----Error : VDNetLib::Common::Utilities [3012] => Failed to get 10.115.174.155 os type, staf running?
+|----Check if staf service is running on esxi host
+|----What is the command to check this ? => ps -P listed "STAFProc" => staf service was running on esxi host
+|----re-try()
+|----vm_ip(1,2) are not pingable from outside but the ip addresses on the second adapter are pingable from outside
+|----add another network adapter on both the vms (check if new ip addresses are obtained on the adapters)
+|----hot plug operation failed after wasting considerable amount of time
+|----initiate a host reboot || host is not responding || remove from inventory
+|----host is in a disconnected state || not_anymore
+|----add_new_adapter() && remove_first_adapter()
+|----vm_locations = [VM-1 => vdtest-26658/VM-1/RHEL|---- , VM-2 => vdtest-26663/VM-2/RHEL|----]
+|----There was only one network interface in both the virtual machines but the ip addresses are pingable
+|----current_problem() || proceed_with_one_interface()
+|----hot_plug_operation_failed() => hot-add of ethernet adapter failed
+|----instead of going after this problem, turn towards deploying another vm like tty
+|----unregister_vms() => vim-cmd /vmsvc/unregister <vm_id>
+|----delete_vmx_from_datastore() => rm -rf vdtest-|----
+|----list all the vm templates in the inventory
+|----./vdnet --listvms || choose tty_linux
+|----save a testbed with the vms deployed on the esxi host (tty_linux)
+|----Earlier, it fails at take snapshot step
+|----switch vm to "RHEL63_srv_64_new" template
+|----"tty_linux" deployment fails @ take_snapshot() step
+|----staf error while retrieving vmx path on <esx_ip>
+|----similar_bug = "bug |----1311733"
+|----method => CreateLinkedClone() || File => HostOperations.pm
+|----vmdk file here : /vmfs/volumes/vdnetSharedStorage/vdtest-8560/VM-1/|----.vmdk -> /vmfs/volumes/40c1109a-f631fa0e/RHEL63_srv_64_new/|----.vmdk
+|----vmx file was not created => Did the linked clone operation start ?
+|----modify the problem to deploy just one vm and comment out the "vc" portion || re_run()
+|----vm_file_path = /vmfs/volumes/vdnetSharedStorage/vdtest-12915/VM-1/
+|----Files_found = {3_vmdk, 1_vmsn, 1_vmsd, 1_vmx}
+|----Problem => Unable to take a snapshot || "Invalid_snapshot_format"
+|----last stack trace => VDNetLib::Testbed::Testbedv2::DeployVM
+|----Search for CreateVM => 'grep -i -r CreateVM vdnet/automation/VDNetLib/|----'
+|----Method => VMOpsTakeSnapshot || Error => "a required file was not found"
+|----Create the linked clone for vm 'tty_linux' and register it in esxi host
+|----register vm => vim-cmd /solo/registervm /vmfs/volumes/56106741-45556f9a/vdtest-12915/VM-1/tty4.vmx
+|----create snapshot => vim-cmd /vmsvc/snapshot.create 16 delta-1 sample-snapshot true false
+|----the operation failed
+|----attempt to solve the problem of creating a linked clone of tty_linux vm in the following path : "/vmfs/volumes/vdnetSharedStorage/Sabesan/tty/|----"
+|----HALT_FUNCTION()
+|----Sequence :
+|----Testbedv2::DeployVM()
+|----Fetch the host object via "GetComponentObject" call (passing the hostIndex)
+|----Invoke the "CreateVM" api call on the host object
+|----HALT_FUNCTION()
+|----It could be a storage array access issue
+|----Create a local NFS share on ESXi box for the vm templates that you intend to use
+|----what is your ESXi box ip ? => 10.33.75.228
+|----HALT_FUNCTION()
+|----Deploy required vms on the host in the testbed
+|----$cmd_to_list_nfs_mounts_esxi = "esxcli storage nfs list"
+|----remove(vdtest) : esxcli storage nfs remove -v vdtest
+|----remove(vdnetSharedStorage) : esxcli storage nfs remove -v vdnetSharedStorage
+|----remove(vdtest) => failed the second time
+|----this_is_a_bug => cmd executes right the first time || same cmd fails the second time || QA = reliability
+|----reboot_host() || retry() => able to remove the nfs share
+|----run_testbed_deployment() : unable to remove vdtest (1) and mount vdtest
+|----remove(vdtest (1)) & run_testbed_deployment() => FAIL
+|----Error() = "Failed to find the given VM : rhel53-srv-32 under /vmfs/volumes/vdtest"
+|----Problem() = "Addition of volume vdtest gets added as vdtest (1)"
+|----solution() = "remove all mounts corresponding to host <prme-vmkqa-...storage-002-1...> and retry"
+|----vm "rhel53-srv-32" has been deployed || $vm_ip = "10.115.174.132"
+|---- HALT_FUNCTION()
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|-<SP#3> => W:= "tc_creation(vm=1, TCPTraffic(vm.[1]),testbedspec={})"
+|--Error() = "[ERROR] - Node /testbed/vm/1/vnic/1/obj does not exist"
+|--Root_Cause() = "vnic 1 of the vm is not registered as part of the testbed to be accesssed"
+|--Problem() = "vnic_1 is not specified anywhere in the testbed spec that the test uses"
+|--Solution() = "specify vnic_1 as part of the vm in the testbed save portion"
+|--redeploy_vc(build = 2024545) || $cmd_vc = ". ~/public_html/scripts/deploy_vc.sh delta 2024545 2024545-nioc-vc-1"
+|--$cmd_vc => !(worked) : VDNET && worked : DBC || Reason = POSTPONED
+|--$vc_ip = "10.114.185.34"
+|--Error() = "Neither of VM ip, vmx or template was provided"
+|--Root_Cause() = "vm.[2] was commented from the yaml file"
+|--Error() = "[ERROR] - Failed to open YAML file /mts/home5/ssaidapetpach/yaml/netioc.yaml: YAML::XS::Load Error: The problem:
+|--did not find expected key
+|--was found at document: 1, line: 43, column: 6
+|--while parsing a block mapping at line: 2, column: 4
+|--$search_term = "yaml error did not find expected key"
+|--adjust_spaces() : uniform spacing between characters
+|--Root_Cause() = "indentation / spacing"
+|--Link = "https://www.ruby-forum.com/topic/4411986"
+|--deploy_second_vm(vm.[2]) : =>  "on host host.[1]"
+|--$vm_2_ip = "10.115.174.160"
+|--encountered =>  Error():219
+|--Error() = "[ERROR] - Failed to find VMX file for the VM IP: 10.115.174.160
+|--"[ERROR] - STDERR: Use of uninitialized value $tuple in concatenation (.) or string at "
+   "/dbc/pa-dbc1109/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/..//VDNetLib/Workloads/ParentWorkload.pm"
+   "line 1348, <GEN13> line 148"
+|--cleanup_inventory() || "MANUAL"
+|--Location() = "[@VDNetLib::Host::HostOperations:18443]" ----> Error(){233}
+|--Method() = "GetVMX" ---> Location(){238} ---> Error(){233}
+|--$t_execute = 112 secs (setting up inventory / dc / vds / connect vms to vds)
+|--$cleanup_test() = "MANUAL"
+|--$output_print_statements =
 
- # Goals :
+   ----18393----inside the major if block
+   ----18397---inside eth failure branch---
+   ----18384----vmxFile = /vmfs/volumes/56106741-45556f9a/vdtest-16536/VM-1/rhel-53-srv-hw7-32-lsi-1gb-1cpu.vmx
+   ----18393----inside the major if block
+   "----18397---inside eth failure branch---" => leads to the root_cause{250}
 
-  # nioc v3 test cases running in CAT
-  # transfer to CPD after automation
+|--root_cause = VDNetLib::Common::Utilities::GetEthUnitNum($hostIP,$vmxFile, $mac);
+|--discard_changes("HostOperations.pm") => "git checkout -- vdnet/automation/VDNetLib/Host/HostOperations.pm"
+|--cleanup_inventory() || "MANUAL"
+|--Location() = "VDNetLib::Common::Utilities::GetEthUnitNum($hostIP,$vmxFile, $mac);"
+|--Method() = "GetEthUnitNum" || Parameters = {$hostIP,$vmxFile,$mac}
+|--$ops =
 
- # Algorithm :
+   ----2556--- Entry point ----10.115.174.115,/vmfs/volumes/56106741-45556f9a/vdtest-16536/VM-1/rhel-53-srv-hw7-32-lsi-1gb-1cpu.vmx,00:0C:29:C0:00:8C
+   ----2596----grep -i 00:0C:29:C0:00:8C /vmfs/volumes/56106741-45556f9a/vdtest-16536/VM-1/rhel-53-srv-hw7-32-lsi-1gb-1cpu.vmx
+   Code searches for "00:0C:29:C0:00:8C" in the vmx file and cannot be found
+
+|--root_cause = "mac address retrieved from ip address is different from the mac address published in vmx file"
+|--solution = "power cycle the vms"
+|--vm_ip_list = {10.115.174.237,10.115.174.238}
+|--cleanup_inventory() || "MANUAL"
+|--Error() resulted because the new vm ips were not changed in the yaml file
+|--cleanup_inventory() || "MANUAL"
+|---------testbed_save_mode = PASS => M [Milestone]-------------------------
+|--testbed_reuse_mode = FAIL
+|--Location = /VDNetLib/Workloads/TrafficWorkload.pm line 1713 | Method = "CreateNodes" |
+   Line : "my $mac = ($netObj->{intType} =~ /^vnic/i) ? $netObj->{macAddress} : $netObj->GetMACAddress();"
+|--strategy => change the support adapter to point to the second vm's vnic
+|--------problem_solved-------------M----------------------------------------
+|--Error() = ping connectivity test failed
+|--POST-MORTEM: Logs dir /tmp/vdnet/20140908-140157/1_TDS.EsxServer.NetIORM.NetIOCv3.DefaultVMStarving/traffic-20140908-140224/session-20140908-140224-834/
+|--[root@prme-vmkqa-net3002-dhcp237 ~]|---- 
    
-   # Terminology
-    # Writing code for test cases (W)
-    # Executing code for test cases (E)
-    # Testcase - CAT integration (TC)
-    # Cycle - W->E->TC
-    # U : unknown 
+   ping -c 5 -I 192.168.174.237 172.17.166.137
+   PING 172.17.166.137 (172.17.166.137) from 192.168.174.237 : 56(84) bytes of data.
+   --- 172.17.166.137 ping statistics ---
+   5 packets transmitted, 0 received, 100% packet loss, time 3999ms
 
-   # Write one simple testcase "ResourcePoolSmallVmnics"
+|--------------------------------------------------------------------------------------------------------------
+|--<SP#3.1> => Solve the problem of network connectivity between the network interfaces {264} 
+|---Choose a physical adapter like vmnic2 which is not connected to any vswitch
+|---It receives an ip address => 172.17.166.148
+|---It is on the "172" subnet
+|---<collab> : ssh_into_vm($cmd = "dhclient eth1") => got an ip on "172" subnet
+|---The two interfaces are pingable on the network
+|---------------------------------------------------------------------------------------------------------------
+|--Data from TCPTraffic workload 
+   
+   client1's session throughput => ipv4 = 2244.74 mbps(tcp_stream)/2394.83 mbps(udp_stream)
+                                   ipv6 = 1399.08 mbps(tcp_stream)/1786.16 mbps(udp_stream)	
+|--<Files_to_be_visited>:
+|---Folder => VDNetLib/Workloads/TrafficWorkload/ 
+|---Files => [ArpPing,FragRoute,iperf,lighttpd,macoftool,mcast,netperf,nmap,ping,
+              pptp,Session,SpirentAndPacketGenDesign,Spirent,TcpReplay,TrafficTool] 
+|--<TBC>
 
-    # Files
-     # vdnet/automation/VDNetLib/TestData/TestbedSpecs/TestbedSpec.pm
-      # add one more vds to "OneHostNIOCv3VDS"  
-     # vdnet/automation/TDS/EsxServer/NetIORM/NetIOCv3Tds.pm
 
-    # Negative test case, no understanding of how vdnet processes negative test cases
-     # Is it worth spending time on this activity ?
-     # No : Creation of negative test cases in automation framework is an external activity
-     # Postponing this activity would be a better solution
-     # Post a "TO_DO" comment in the TDS
-
-   # W : One positive test case [tc_chosen = 'DefaultVMStarving'] 
-
-    # Find a random test case that is not yet automated
-     # Location : Inbox/Follow-up/action_items
-     # Open up the document "NETIOCV3status-1.docx" 
-     # document's location in computer : "~/Documents/nioc_v3_automation/NETIOCV3status-1.docx"
-     # Update the current status for 'ResourcePoolSmallVmnics"
-     # tc_chosen = 'DefaultVMStarving'
-
-    # tc_understanding() [number_of_vms = 4]
-     # Verify impact on a default vm with no SLR on the same host where there are VMs with SLR
-     # 3 vms : vm.[1], vm.[2], vm.[3] => 1/3 of available bandwidth
-     # SLR => Shares, Limits, Reservations
-     # run_IO_Session(vms) || All the four vms
-      # What does running IO session mean ?
-      # One more test case that is automated might have IO session
-      # tc = 'BasicScheduler'
-      # tool_used = 'netperf'
-      # parameters = [No_of_outbound = 1,SendMessageSize = 64512, LocalSendSocketSize = 131072, RemoteSendSocketSize = 131072, 
-      #               test_duration = 60]
-      # Understand netperf 
-       # primary focus => bulk data transfer & request/response performance using either TCP/UDP
-       # download netperf in windows 7 to see it in action
-       # On running netperf.exe msg received = [establish control: are you sure there is a netserver listening on localhost
-       #                                        port 128657 establish_control could not establish the control connection from
-       #                                        0.0.0.0 port 0 address family AF_UNSPEC to localhost port 12865 address family
-       #                                        AF_UNSPEC] 
-       #
-       # postpone this activity
-      * SP => W:= "tc_creation(vm=1, run_IO_Session(vm.[1]), testbedspec = "oneHostNiocv3")
-       * Use the reuse option already available since the testbed has already been saved
-       * niocv3 alias caches the frequent access to te TDS "../TDS/EsxServer/NetIORM/NetIOCv3Tds.pm"
-       * testbedspec field can be picked up from elsewhere using the search term "OneHost"
-       * fill_up_workload_sequence(pick_workload_from_tc("BasicScheduler"))
-       * compilation_error() {reason = "misplaced ] near the Sequence"}
-       # SP => Error() = "Node /testbed/host/1/vmknic/obj" does not exist" 
-        # The rootcause of the problem is that the testbedspec does not accomodate the required test inventory used in the tc
-        # The impact of this problem was pretty huge emotionally because it affects the state of mind
-        # come_back(state = "FEEL_GOOD") by writing down the solution [on paper/board/vim editor]
-        # copy_testbed_spec(no_of_lines=84) from 'BasicScheduler' testcase
-        # merge the spec with the available testbed spec and check if this works
-        # same error was produced
-        # problem_context = "run TCP traffic workload"
-        # change the TCP traffic workload to contain vmnic 1 as support adapter instead of vmknic 1 and reuse the same testbed
-       * SP => Error() => [@VDNetLib::Workloads::TrafficWorkload:1704] [31694] Unable to either OS type  or Arch
-        * First, get the latest git source
-        * vm is powered off, this is the reason for this error
-        * Power on both the vms and see if this works
-        * retry() => error did not get resolved
-        * problem_context() => re_run(tc='DefaultVMStarving')
-        # SP => Get the latest source available on git
-         # I was able to get the latest source on master after I did a "git stash"
-         # remove the commit from the master (Changes to Netioc TDS)
-          # git reset --hard HEAD^ => resets the branch to HEAD and removes all commits   
-         # merge stuff from one branch to another => git merge <branch> => merges changes made in <branch> into master
-	 # "git diff" to list all files that have conflicts
-         # "git commit -a" will commit the result of the merge
-         # "gitk" will show a graphical representation of the history
-         # Get the latest changes from master onto the new branch "niocv3_automation"
-          # git rebase master on "niocv3_automation" branch
-          # git stash apply stash@{1} => replay the changes made on top of the branch
-          # resulted in some conflicts
-          * SP => resolve_conflicts()
-           * In this case, there is no need to resolve conflicts
-           * Just add the file into the staged changes list
-           * stash the changes when needed and reapply after rebasing to master
-        * There was no controlIP in the netadapter object
-        * Input tuple = "vm.[1].vnic.[1]"
-        * controlIP = undef || macAddress = undef || vmOpsObj [vmIP => undef] 
-        * method = 'CreateNodes' || file = 'TrafficWorkload.pm' 
-        * inputs_to_method() || tuple = "vm.[1].vnic.[1]" || ref = <long_spec> || netobj = ref->[0]
-        * when inserting print statements, it is good to use "$vdLogger" rather than print
-        * ref : Array of objects || netobj : Object
-        * who calls into "CreateNodes" ? => How about printing the entire method call hierarchy ? 
-        # SP => Document the entire method hierarchy for this scenario
-         # Ground rules => no computational lines / only subroutines
-         # Format => Filename : Method_name()
-         # entry_point => vdnet [shell script to be run on bash] 
-         # environment => ../main/environment
-         # Perl entry_point  => ../main/vdNet.pl || $OPTION (a list of options to be passed)
-         # Program starts here and terminates here 
-         # Store all cli parameters in $cliParams
-         * SP => Write a simple perl script that accepts a cli parameter and outputs the same
-          * populate a parameter from the command line 
-          * store the parameter as a hash value in an object
-          * store all relevant files under a folder named "f = practice_problem_1"
-          * create a file called "entry_point.pl" which should contain the code for getting the options in
-          * GetOptions('filename=s' => \$cli_param->{filename}) is returning true all the time
-          * on mac perl version v5.16.3 => GetOptions always returns true whether the option was specified or not
-          * The value "mine.yaml" was passed from command line and successfully stored in the hash which was printed via "Dumper" subroutine
-          * Create a perl module named "Session.pm" => abstraction for a class
-          * Create a hash cli_param inside the class
-          * Create an object for Session inside the caller "entry_point.pl" 
-         # $session = VDNetLib::Session::Session->new('cliParams' => $cliParams); // Creating a new Session object
-         # Run the session || $session->Run() 
-         # Cleanup the session || $session->Cleanup
-         # Session->new() || Session->ConfigureLogging() || Utilities->GetLocalIP() || Session->ProcessAndValidateCLI()
-         * SP => Setup a cron job for extending nimbus leases everyday 5:00 AM 
-          * sample => 0 5 * * * /path/to/command
-          * as expected, only netfvt nimbus lease expiry email was received
-          * need to test out a way if setting the cron job works
-        * vc_ip = 10.114.166.197 || esx_ip = 10.115.174.115 || vm1_ip = 10.115.174.155 || vm2_ip = 10.115.174.156
-        # SP => save the vm ips in the yaml file and re-run the test case
-         # If I specify 'ip' in the yaml file, is it good enough ?
-         # Where is the code that processes 'vm' in the yaml file ?
-         # Session.pm => ProcessAnValidateCLI()
-         # $self->{userInputHash} => contains the hash that was defined in the yaml
-         # $self->deployTestbed => calls ../scripts/deployTestbed.py
-         # actual_action => VDNetLib/TestSession/VDNetv2.pm
-         # put ip values for vm.[1] and vm.[2] and save the testbed
-         * SP => Error : VDNetLib::Common::Utilities [3012] => Failed to get 10.115.174.155 os type, staf running? 	          
-          * Check if staf service is running on esxi host
-          * What is the command to check this ? => ps -P listed "STAFProc" => staf service was running on esxi host
-          * re-try() 
-          * vm_ip(1,2) are not pingable from outside but the ip addresses on the second adapter are pingable from outside
-          * add another network adapter on both the vms (check if new ip addresses are obtained on the adapters)
-          * hot plug operation failed after wasting considerable amount of time
-          * initiate a host reboot || host is not responding || remove from inventory
-          * host is in a disconnected state || not_anymore
-          * add_new_adapter() && remove_first_adapter()
-          * vm_locations = [VM-1 => vdtest-26658/VM-1/RHEL* , VM-2 => vdtest-26663/VM-2/RHEL*] 
-          * There was only one network interface in both the virtual machines but the ip addresses are pingable
-          * current_problem() || proceed_with_one_interface()
-          * hot_plug_operation_failed() => hot-add of ethernet adapter failed
-          * instead of going after this problem, turn towards deploying another vm like tty 
-          * unregister_vms() => vim-cmd /vmsvc/unregister <vm_id> 
-          * delete_vmx_from_datastore() => rm -rf vdtest-*
-        # SP => list all the vm templates in the inventory
-         # ./vdnet --listvms || choose tty_linux
-        * SP => save a testbed with the vms deployed on the esxi host (tty_linux) 
-         * Earlier, it fails at take snapshot step
-         * switch vm to "RHEL63_srv_64_new" template
-         * "tty_linux" deployment fails @ take_snapshot() step
-         * staf error while retrieving vmx path on <esx_ip> 
-         * similar_bug = "bug #1311733"
-         * method => CreateLinkedClone() || File => HostOperations.pm
-         * vmdk file here : /vmfs/volumes/vdnetSharedStorage/vdtest-8560/VM-1/*.vmdk -> /vmfs/volumes/40c1109a-f631fa0e/RHEL63_srv_64_new/*.vmdk
-         * vmx file was not created => Did the linked clone operation start ?
-         * modify the problem to deploy just one vm and comment out the "vc" portion || re_run()
-         * vm_file_path = /vmfs/volumes/vdnetSharedStorage/vdtest-12915/VM-1/
-         * Files_found = {3_vmdk, 1_vmsn, 1_vmsd, 1_vmx}
-         * Problem => Unable to take a snapshot || "Invalid_snapshot_format"
-         * last stack trace => VDNetLib::Testbed::Testbedv2::DeployVM
-         * Search for CreateVM => 'grep -i -r CreateVM vdnet/automation/VDNetLib/*'
-         * Method => VMOpsTakeSnapshot || Error => "a required file was not found"
-         # SP => Create the linked clone for vm 'tty_linux' and register it in esxi host
-          # register vm => vim-cmd /solo/registervm /vmfs/volumes/56106741-45556f9a/vdtest-12915/VM-1/tty4.vmx 
-          # create snapshot => vim-cmd /vmsvc/snapshot.create 16 delta-1 sample-snapshot true false
-          # the operation failed
-          # attempt to solve the problem of creating a linked clone of tty_linux vm in the following path : "/vmfs/volumes/vdnetSharedStorage/Sabesan/tty/*" 
-          # HALT_FUNCTION()
-         * Sequence : 
-          * Testbedv2::DeployVM()
-           - Fetch the host object via "GetComponentObject" call (passing the hostIndex)
-           - Invoke the "CreateVM" api call on the host object
-          * HALT_FUNCTION()
-         * It could be a storage array access issue
-        # SP => Create a local NFS share on ESXi box for the vm templates that you intend to use
-         # what is your ESXi box ip ? => 10.33.75.228
-         # HALT_FUNCTION()
-        * SP => Deploy required vms on the host in the testbed
-         * $cmd_to_list_nfs_mounts_esxi = "esxcli storage nfs list"
-         * remove(vdtest) : esxcli storage nfs remove -v vdtest
-         * remove(vdnetSharedStorage) : esxcli storage nfs remove -v vdnetSharedStorage
-         * remove(vdtest) => failed the second time
-         * this_is_a_bug => cmd executes right the first time || same cmd fails the second time || QA = reliability
-         * reboot_host() || retry() => able to remove the nfs share
-         * run_testbed_deployment() : unable to remove vdtest (1) and mount vdtest
-         * remove(vdtest (1)) & run_testbed_deployment() => FAIL
-         * Error() = "Failed to find the given VM : rhel53-srv-32 under /vmfs/volumes/vdtest"
-         * Problem() = "Addition of volume vdtest gets added as vdtest (1)"  
-         * solution() = "remove all mounts corresponding to host <prme-vmkqa-...storage-002-1...> and retry"
-         * vm "rhel53-srv-32" has been deployed || $vm_ip = "10.115.174.132"
-      * HALT_FUNCTION()
-      # SP => W:= "tc_creation(vm=1, TCPTraffic(vm.[1]),testbedspec={})"
-       # Error() = "[ERROR] - Node /testbed/vm/1/vnic/1/obj does not exist"
-       # Root_Cause() = "vnic 1 of the vm is not registered as part of the testbed to be accesssed"
-       # Problem() = "vnic_1 is not specified anywhere in the testbed spec that the test uses"
-       # Solution() = "specify vnic_1 as part of the vm in the testbed save portion"
-       # redeploy_vc(build = 2024545) || $cmd_vc = ". ~/public_html/scripts/deploy_vc.sh delta 2024545 2024545-nioc-vc-1"
-       # $cmd_vc => !(worked) : VDNET && worked : DBC || Reason = POSTPONED
-       # $vc_ip = "10.114.185.34"
-       # Error() = "Neither of VM ip, vmx or template was provided"
-       # Root_Cause() = "vm.[2] was commented from the yaml file"
-       # Error() = "[ERROR] - Failed to open YAML file /mts/home5/ssaidapetpach/yaml/netioc.yaml: YAML::XS::Load Error: The problem:
-                   #  did not find expected key
-                   #  was found at document: 1, line: 43, column: 6
-                   #  while parsing a block mapping at line: 2, column: 4
-          		
