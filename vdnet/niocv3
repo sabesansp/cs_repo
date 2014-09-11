@@ -1,4 +1,4 @@
-# Problem : Automate the test cases on CAT for nioc version 3 [2769 min]
+# Problem : Automate the test cases on CAT for nioc version 3 [2889 min]
 [Search tage = Error(),Problem(),SP]
 |-----------------------------------------------------------------------
 # Goals :
@@ -286,6 +286,13 @@
 |---Folder => VDNetLib/Workloads/TrafficWorkload/ 
 |---Files => [ArpPing,FragRoute,iperf,lighttpd,macoftool,mcast,netperf,nmap,ping,
               pptp,Session,SpirentAndPacketGenDesign,Spirent,TcpReplay,TrafficTool] 
-|--<TBC>
+|--Search for all possible traffic verification mechanisms in the existing tds
+|--<Testcases_already_automated>
+|--Format = <reservation>:<shares>:<limits>
+|---sample_list = [VerifyResources => {change_rsl} 
+                   VMUpgrade => {upgrade_hw_version,verify_placement}
+                   InfraReservationLimits => {change_rsl,netperf}
+                  ]
+|--              	
 
 
