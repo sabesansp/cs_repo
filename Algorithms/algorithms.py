@@ -302,7 +302,42 @@ def find_peak(a):
    return None
 
 
-# P14 : 
+# P14 : Implement a binary search algorithm for finding a number in the list of numbers
+#       Return position if found, -1 otherwise
+def binary_search(a,n):
+
+   # Example: a = [3,9,27,100,150,200]
+   # n = 9 | 0 
+   # Assumption: Input list is sorted already
+   # Fix l to be left end of array ; r to be right end of array
+   l = 0 # a[l] = 3
+   r = len(a)-1 # a[r] = 200
+
+   while l<=r:
+      
+      # Compute the mid-point of the list
+      m = (l+r)/2
+
+      # If a[m] > n => r = m - 1
+      if a[m] > n :
+         r = m - 1
+      else :
+         # If a[m] < n => l = m + 1
+         if a[m] < n:
+            l = m + 1
+         else:
+            # a[m] will be the element that is being searched for
+            # return the position m
+            return m
+   
+   # if there was no return statement executed
+   # within the while loop, it means that 
+   # the number was not found, return -1
+
+   return -1 
+         
+
+     
 
       
 if __name__== '__main__' :
@@ -319,5 +354,7 @@ if __name__== '__main__' :
    #print_address()
    #show_bytes(-214734894)
    #print find_peak([5,4,2,1,7,9,10,8,4,0])   
-
-  
+   #print binary_search([-3,-4,1,2,6,250],250)
+   #print binary_search([0,1],0)
+   #print binary_search([2,3,4],5) 
+   
