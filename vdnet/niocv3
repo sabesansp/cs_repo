@@ -1,4 +1,4 @@
-# Problem : Automate the test cases on CAT for nioc version 3 [3049 m]
+# Problem : Automate the test cases on CAT for nioc version 3 [3116 m]
 [Search tage = Error(),Problem(),SP]
 |-----------------------------------------------------------------------
 # Goals :
@@ -297,7 +297,8 @@
 |--------------------------------------------------------------------------------------
 |-<SP#4>: Document all the unknowns in the list of test cases that remain
 |--------------------------------------------------------------------------------------
-|--<{1,2,6,9,10,11,17,18,27,28,29,31,71}>:
+|--Duplicates = {55,61} 
+|--<{1,2,6,9,10,11,17,18,27,28,29,31,71,50,52,53,54,60,64}>: (n=19)
 |---(Risk = MAX | Procedure = TBD | Setup/test/test_verification = UNKNOWN)
 |---setup_unknown(vxlan,sriov,vsan)
 |---Unknowns = [9:configure QOS marking from src to dst ?
@@ -311,9 +312,17 @@
                 27:continue setting values for 802.1p 0-7 ?
                 28:continue setting values for DSCP 0-63 ?
                 71:why was this ommitted from the document list ?
-                	 
+                50:what is meant by reload vmnic driver ? Can it be done within an automated testcase ?
+                52:how do you enable stress option to simulate zero bandwidth ?
+                53:setup/test_procedure/verification/lacp ?
+                54:interop_cdp_and_lldp similar to 53
+                55:interop_sriov similar to 53
+                60:interop_vcops : what stats are being exposed to vcops ? How can we get it via automation ?
+                64:what is the limit on the number of resource pools ?
+                         
+  	 
 |--------------------------------------------------------------------------------------
-|--<{4,5,7,8,12,14,15,16,23,24,26,32}>:
+|--<{4,5,7,8,12,14,15,16,23,24,26,32,35,46,47,49,51,57,59,62,63,65}>: (n=22)
 |---(Risk = LOW | Procedure = known)
 |---setup = (h-1(vm-1,vm-2), generate_vm_traffic(), generate_nfs_traffic())
 |---Unknowns = [4:How do you generate nfs traffic io session ?,
@@ -322,8 +331,6 @@
                 8:Should a separate netflow collector be configured for the interop with netflow ?
                 14:vmotion to all older versions of ESXi 4.0,4.1,5.0,5.1,5.5 ? (how can this accomplished ?)
                 24:why do we need 4 vms for this test case ?
-                32:expected result TBD for slr configuration on pci passthru device ?
-                 
+                32:expected result TBD for slr configuration on pci passthru device ?    
                ]
-|---
 
