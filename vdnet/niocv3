@@ -1,4 +1,4 @@
-# Problem : Automate the test cases on CAT for nioc version 3 [2889 min]
+# Problem : Automate the test cases on CAT for nioc version 3 [3049 m]
 [Search tage = Error(),Problem(),SP]
 |-----------------------------------------------------------------------
 # Goals :
@@ -293,6 +293,37 @@
                    VMUpgrade => {upgrade_hw_version,verify_placement}
                    InfraReservationLimits => {change_rsl,netperf}
                   ]
-|--              	
-
+|--HALT_FUNCTION()
+|--------------------------------------------------------------------------------------
+|-<SP#4>: Document all the unknowns in the list of test cases that remain
+|--------------------------------------------------------------------------------------
+|--<{1,2,6,9,10,11,17,18,27,28,29,31,71}>:
+|---(Risk = MAX | Procedure = TBD | Setup/test/test_verification = UNKNOWN)
+|---setup_unknown(vxlan,sriov,vsan)
+|---Unknowns = [9:configure QOS marking from src to dst ?
+                9:QOS marked IO on vlan should be successful ?
+                10:configure guest vlan tagging on src/dst vms ?
+                10:QOS marked IO on guest vlan packets should be successful ?
+                11:Perform (no) shutdown on switchport ?
+                17:'LimitsVerifyAllSpeeds' => testcase description is very vague
+                18:verify reservations are honored over shares ?
+                27:set QOS to mark packets with a 802.1q tag ?
+                27:continue setting values for 802.1p 0-7 ?
+                28:continue setting values for DSCP 0-63 ?
+                71:why was this ommitted from the document list ?
+                	 
+|--------------------------------------------------------------------------------------
+|--<{4,5,7,8,12,14,15,16,23,24,26,32}>:
+|---(Risk = LOW | Procedure = known)
+|---setup = (h-1(vm-1,vm-2), generate_vm_traffic(), generate_nfs_traffic())
+|---Unknowns = [4:How do you generate nfs traffic io session ?,
+                4:How do you verify that the nfs traffic got the right slr ?
+                8:What is meant by "netflow packets should not be affected by NIOC" ?
+                8:Should a separate netflow collector be configured for the interop with netflow ?
+                14:vmotion to all older versions of ESXi 4.0,4.1,5.0,5.1,5.5 ? (how can this accomplished ?)
+                24:why do we need 4 vms for this test case ?
+                32:expected result TBD for slr configuration on pci passthru device ?
+                 
+               ]
+|---
 
