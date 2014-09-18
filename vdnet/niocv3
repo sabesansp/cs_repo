@@ -1,4 +1,4 @@
-# Problem : Automate the test cases on CAT for nioc version 3 [3116 m]
+# Problem : Automate the test cases on CAT for nioc version 3 [3596 m]
 [Search tage = Error(),Problem(),SP]
 |-----------------------------------------------------------------------
 # Goals :
@@ -209,48 +209,48 @@
 |--$cmd_vc => !(worked) : VDNET && worked : DBC || Reason = POSTPONED
 |--$vc_ip = "10.114.185.34"
 |--Error() = "Neither of VM ip, vmx or template was provided"
-|--Root_Cause() = "vm.[2] was commented from the yaml file"
+   |--Root_Cause() = "vm.[2] was commented from the yaml file"
 |--Error() = "[ERROR] - Failed to open YAML file /mts/home5/ssaidapetpach/yaml/netioc.yaml: YAML::XS::Load Error: The problem:
-|--did not find expected key
-|--was found at document: 1, line: 43, column: 6
-|--while parsing a block mapping at line: 2, column: 4
-|--$search_term = "yaml error did not find expected key"
-|--adjust_spaces() : uniform spacing between characters
-|--Root_Cause() = "indentation / spacing"
-|--Link = "https://www.ruby-forum.com/topic/4411986"
+   |--did not find expected key
+   |--was found at document: 1, line: 43, column: 6
+   |--while parsing a block mapping at line: 2, column: 4
+   |--$search_term = "yaml error did not find expected key"
+   |--adjust_spaces() : uniform spacing between characters
+   |--Root_Cause() = "indentation / spacing"
+   |--Link = "https://www.ruby-forum.com/topic/4411986"
 |--deploy_second_vm(vm.[2]) : =>  "on host host.[1]"
 |--$vm_2_ip = "10.115.174.160"
 |--encountered =>  Error():219
 |--Error() = "[ERROR] - Failed to find VMX file for the VM IP: 10.115.174.160
-|--"[ERROR] - STDERR: Use of uninitialized value $tuple in concatenation (.) or string at "
-   "/dbc/pa-dbc1109/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/..//VDNetLib/Workloads/ParentWorkload.pm"
-   "line 1348, <GEN13> line 148"
-|--cleanup_inventory() || "MANUAL"
-|--Location() = "[@VDNetLib::Host::HostOperations:18443]" ----> Error(){233}
-|--Method() = "GetVMX" ---> Location(){238} ---> Error(){233}
-|--$t_execute = 112 secs (setting up inventory / dc / vds / connect vms to vds)
-|--$cleanup_test() = "MANUAL"
-|--$output_print_statements =
+   |--"[ERROR] - STDERR: Use of uninitialized value $tuple in concatenation (.) or string at "
+      "/dbc/pa-dbc1109/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/..//VDNetLib/Workloads/ParentWorkload.pm"
+      "line 1348, <GEN13> line 148"
+   |--cleanup_inventory() || "MANUAL"
+   |--Location() = "[@VDNetLib::Host::HostOperations:18443]" ----> Error(){233}
+   |--Method() = "GetVMX" ---> Location(){238} ---> Error(){233}
+   |--$t_execute = 112 secs (setting up inventory / dc / vds / connect vms to vds)
+   |--$cleanup_test() = "MANUAL"
+   |--$output_print_statements =
 
-   ----18393----inside the major if block
-   ----18397---inside eth failure branch---
-   ----18384----vmxFile = /vmfs/volumes/56106741-45556f9a/vdtest-16536/VM-1/rhel-53-srv-hw7-32-lsi-1gb-1cpu.vmx
-   ----18393----inside the major if block
-   "----18397---inside eth failure branch---" => leads to the root_cause{250}
+     ----18393----inside the major if block
+     ----18397---inside eth failure branch---
+     ----18384----vmxFile = /vmfs/volumes/56106741-45556f9a/vdtest-16536/VM-1/rhel-53-srv-hw7-32-lsi-1gb-1cpu.vmx
+     ----18393----inside the major if block
+     "----18397---inside eth failure branch---" => leads to the root_cause{250}
 
-|--root_cause = VDNetLib::Common::Utilities::GetEthUnitNum($hostIP,$vmxFile, $mac);
-|--discard_changes("HostOperations.pm") => "git checkout -- vdnet/automation/VDNetLib/Host/HostOperations.pm"
-|--cleanup_inventory() || "MANUAL"
-|--Location() = "VDNetLib::Common::Utilities::GetEthUnitNum($hostIP,$vmxFile, $mac);"
-|--Method() = "GetEthUnitNum" || Parameters = {$hostIP,$vmxFile,$mac}
-|--$ops =
+   |--root_cause = VDNetLib::Common::Utilities::GetEthUnitNum($hostIP,$vmxFile, $mac);
+   |--discard_changes("HostOperations.pm") => "git checkout -- vdnet/automation/VDNetLib/Host/HostOperations.pm"
+   |--cleanup_inventory() || "MANUAL"
+   |--Location() = "VDNetLib::Common::Utilities::GetEthUnitNum($hostIP,$vmxFile, $mac);"
+   |--Method() = "GetEthUnitNum" || Parameters = {$hostIP,$vmxFile,$mac}
+   |--$ops =
 
    ----2556--- Entry point ----10.115.174.115,/vmfs/volumes/56106741-45556f9a/vdtest-16536/VM-1/rhel-53-srv-hw7-32-lsi-1gb-1cpu.vmx,00:0C:29:C0:00:8C
    ----2596----grep -i 00:0C:29:C0:00:8C /vmfs/volumes/56106741-45556f9a/vdtest-16536/VM-1/rhel-53-srv-hw7-32-lsi-1gb-1cpu.vmx
    Code searches for "00:0C:29:C0:00:8C" in the vmx file and cannot be found
 
-|--root_cause = "mac address retrieved from ip address is different from the mac address published in vmx file"
-|--solution = "power cycle the vms"
+   |--root_cause = "mac address retrieved from ip address is different from the mac address published in vmx file"
+   |--solution = "power cycle the vms"
 |--vm_ip_list = {10.115.174.237,10.115.174.238}
 |--cleanup_inventory() || "MANUAL"
 |--Error() resulted because the new vm ips were not changed in the yaml file
@@ -313,12 +313,12 @@
                 28:continue setting values for DSCP 0-63 ?
                 71:why was this ommitted from the document list ?
                 50:what is meant by reload vmnic driver ? Can it be done within an automated testcase ?
-                52:how do you enable stress option to simulate zero bandwidth ?
+                52:how do you enable stress option to simulate zero bandwidth ?<NOT_VALID>
                 53:setup/test_procedure/verification/lacp ?
                 54:interop_cdp_and_lldp similar to 53
                 55:interop_sriov similar to 53
                 60:interop_vcops : what stats are being exposed to vcops ? How can we get it via automation ?
-                64:what is the limit on the number of resource pools ?
+                64:what is the limit on the number of resource pools ? <MANAGEMENT_PLANE>
                          
   	 
 |--------------------------------------------------------------------------------------
@@ -326,11 +326,112 @@
 |---(Risk = LOW | Procedure = known)
 |---setup = (h-1(vm-1,vm-2), generate_vm_traffic(), generate_nfs_traffic())
 |---Unknowns = [4:How do you generate nfs traffic io session ?,
+
                 4:How do you verify that the nfs traffic got the right slr ?
+                 - throughput = (esxtop => manual | vsi node)
+                 - entitlement computation (first level => entitlement for infrastructure traffic)
                 8:What is meant by "netflow packets should not be affected by NIOC" ?
                 8:Should a separate netflow collector be configured for the interop with netflow ?
                 14:vmotion to all older versions of ESXi 4.0,4.1,5.0,5.1,5.5 ? (how can this accomplished ?)
                 24:why do we need 4 vms for this test case ?
                 32:expected result TBD for slr configuration on pci passthru device ?    
                ]
+|------------------------------------------------------------------------------------------------
+|-<SP#5>: Attack testcase "4" => generating nfs traffic io session and verifying the throughput  
+|------------------------------------------------------------------------------------------------
+|--redeploy_vc(build = 2024545) || $cmd_vc = ". ~/public_html/scripts/deploy_vc.sh delta 2024545 2024545-nioc-vc-1"
+|--vc_ip = 10.114.170.49
+|--diskio => "vdnet/automatin/TDS/EsxServer/VSAN/CommonWorkloads.pm" => storageio related key
+|--method => CreateIOSession => "vdnet/automation/VDNetLib/Root/Root.pm"
+|--sample call to disk_io
 
+   Type => "Root",
+   TestNode => "root.[1]"
+   diskio => {
+      '[1]' => {
+         toolname => "dt",
+         testdisk => "vm.[1]",
+         testduration => "120",
+         operation => "startsession",
+      },
+|--vsan+netioc usecase is already present in vsan tds (remove from the netioc document)
+|--vm_ip = [10.115.174.237,10.115.174.238]
+|--insert "rundt" workload in the infratrafficnfs testcase
+|--test_operation() || => failed to get vm ip address
+|--HALT_FUNCTION()
+|----------------------------------------------------------------------------------------
+|-<SP#6>: Meeting notes on unknowns
+|----------------------------------------------------------------------------------------
+|--take care of putting existing test cases that are automated in CAT
+|--<CHANGE_IN_APPROACH>:
+   |--Put existing testcases that were already automated in CAT
+   |--kill the existing inventory
+   |--get all the vms in esx => "vim-cmd vmsvc/getallvms"
+   |--"computeEntitlement" => 
+|----------------------------------------------------------------------------------------
+|-<SP#7>: upgrade_inventory() && recreate_setup()
+|----------------------------------------------------------------------------------------
+|--vsphere-2015-rel builds [ESXi = 2124407 || Cloud_vm = 2124880]
+|--vc_ip = 10.114.169.144
+|--upgrade_esxi() 
+|--deploy_vms()
+|-----------------------------------------------------------------------------------------
+|-<SP#8>: Run the BasicScheduler testcase
+|-----------------------------------------------------------------------------------------
+|--vm_ips = [10.115.174.203, 10.115.174.205,10.115.174.204,10.115.174.207]
+|--Error() = 
+
+   |-- 2014-09-16 15:12:18.912 - [ERROR] - STDERR: Use of uninitialized value in string ne at /dbc/pa-dbc1109/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/..
+       //VDNetLib/Workloads/WorkloadsManager.pm line 767.Use of uninitialized value in concatenation (.) or string at 
+       /dbc/pa-dbc1109/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/..//VDNetLib/Workloads/WorkloadsManager.pm line 768.
+       2014-09-16 15:12:36.913 - [ERROR] - Caught exception in child process whileexecuting TCPTraffic: Can't use string ("FAILURE") as a HASH ref while "strict refs" in use
+       at /dbc/pa-dbc1109/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/..//VDNetLib/Verification/NIOCVerification.pm line 510, <GEN3> line 233.
+ 
+   |-- 2014-09-16 15:12:18.899 - [ERROR] - [@VDNetLib::Common::LocalAgent:191] [5485] Error while executing remote method GetPortEntitlement with args (vmnic3) on 10.115.174.115, Exit code:9 returned
+       2014-09-16 15:12:18.912 - [ERROR] - [@VDNetLib::Common::LocalAgent:191] [5485] STDERR: Use of uninitialized value in string ne at
+                                           /dbc/pa-dbc1109/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/     ..//VDNetLib/Workloads/WorkloadsManager.pm line 767.
+       Use of uninitialized value in concatenation (.) or string at /dbc/pa-dbc1109/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/..//VDNetLib/Workloads/WorkloadsManager.pm line 768.
+       2014-09-16 15:12:31.906 - [DEBUG] - [@VDNetLib::NetAdapter::Vnic::Vnic:2785] [5485] Executing command:vsish -pe get /net/portsets/DvsPortset-0/ports/50331658/niocVnicInfo
+       2014-09-16 15:12:32.899 - [DEBUG] - [@VDNetLib::NetAdapter::Vnic::Vnic:2788] [5485] niocInfo:$VAR1 = {
+           'rc' => 0,
+           'stderr' => '',
+           'exitCode' => '0',
+           'stdout' => '{
+           "uplinkDev" : "vmnic3",
+           "reservation" : 100,
+           "shares" : 50,
+           "limit" : 1000,
+           "worldID" : 41582,
+           "vnicIndex" : 0,
+           "tag" : 0,
+           "niocVersion" : 3,
+           "activeUplinks" : 1,
+           "ppoolId" : "netsched.pools.persist.vm",
+       }
+       '
+         };
+      2014-09-16 15:12:35.898 - [DEBUG] - [@VDNetLib::NetAdapter::Vnic::Vnic:2846] [5485] GetNetSchedulerInfo command:vsish -pe get 
+      /vmkModules/netsched/hclk/devs/vmnic3/qleaves/netsched.pools.vm.50331658/info
+      2014-09-16 15:12:36.912 - [TRACE] - [@VDNetLib::Common::Iterator:879] [5485] Closed file handle of 
+      /tmp/vdnet/20140916-150856/1_TDS.EsxServer.NetIORM.NetIOCv3.BasicScheduler/traffic-20140916-151122/IteratorCombo-20140916-151123-5485. Now deleting it...
+      2014-09-16 15:12:36.912 - [DEBUG] - [@VDNetLib::Common::Iterator:889] [5485] Deleted Iterator's combination file: 
+      /tmp/vdnet/20140916-150856/1_TDS.EsxServer.NetIORM.NetIOCv3.BasicScheduler/traffic-201409     16-151122/IteratorCombo-20140916-151123-5485
+      2014-09-16 15:12:36.912 - [ERROR] - [@VDNetLib::Workloads::WorkloadsManager:614] [5485] Caught exception in child process whileexecuting TCPTraffic: 
+      Can't use string ("FAILURE") as a HASH ref while "strict refs" in use at 
+      /dbc/pa-dbc1109/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/..//VDNetLib/Verification/NIOCVerification.pm line 510, <GEN3> line 233.
+
+|--Log_location() = "/tmp/vdnet/20140916-150856/1_TDS.EsxServer.NetIORM.NetIOCv3.BasicScheduler/testcase.log"
+|--Decomposition()
+   |--Why is "vmnic3" being queried ? => all the vm vnics are on a vds portgroup whose pnic is "vmnic3"
+   |--What is the first line where the error occurs ?
+      -[@VDNetLib::Common::LocalAgent:191] [5485] Error while executing remote method GetPortEntitlement with args (vmnic3) on 10.115.174.115, Exit code:9 returned
+   |--What was the call that resulted in this error ?
+      -[@VDNetLib::Common::LocalAgent:171] [5485] Executing START SHELL COMMAND :34:/automation/scripts/remoteAgent.pl PARMS "-m GetPortEntitlement -p vmnic3"
+   |--What is the corresponding subroutine that is linked in remoteAgent.pl ?
+      -VDNetLib::Common::EsxUtils::GetPortEntitlement
+   |--Restart STAF and check if this error is gone ?
+      -STAF restarted with PID 10245 but this did not solve the problem
+   |--sync_latest_code() && check() ?
+      -"Problem_Not_Solved()"
+   |--file_bug() => bug #1325365
+   |--copy test_log to bug folder || "cp -r /tmp/vdnet/20140917-121600/ /bugs/files/0/1/3/2/5/3/6/5"   
