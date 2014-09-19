@@ -1,4 +1,4 @@
-# Problem : Automate the test cases on CAT for nioc version 3 [3596 m]
+# Problem : Automate the test cases on CAT for nioc version 3 [3996 m]
 [Search tage = Error(),Problem(),SP]
 |-----------------------------------------------------------------------
 # Goals :
@@ -434,4 +434,25 @@
    |--sync_latest_code() && check() ?
       -"Problem_Not_Solved()"
    |--file_bug() => bug #1325365
-   |--copy test_log to bug folder || "cp -r /tmp/vdnet/20140917-121600/ /bugs/files/0/1/3/2/5/3/6/5"   
+   |--copy test_log to bug folder || "cp -r /tmp/vdnet/20140917-121600/ /bugs/files/0/1/3/2/5/3/6/5"
+   |--flip the STAF library to a path that points to perl 5.10 => "ln -sf /build/toolchain/lin32/staf-3.4.1/lib/perl510/libPLSTAF.so /lib"
+   |--Command to check if the staf call is working ? =>
+
+      "/build/toolchain/lin32/staf-3.4.1/bin/STAF 10.115.174.115 process START SHELL COMMAND :34:/automation/scripts/remoteAgent.pl 
+       PARMS "-m GetPortEntitlement -p vmnic3" RETURNSTDOUT STDERRTOSTDOUT WAIT 600000 ENV PARENT_SHARED_VAR=GetPortEntitlement-12-19-25-12042 
+       ENV PARENT_SHARED_ERR=GetPortEntitlement-ERR-12-19-2512042 ENV VDNET_LOGLEVEL=9 ENV VDNET_LOGTOFILE=0 ENV VDNET_VERBOSE=1"
+
+   |--problem isolated to vdnet_esx_setup.py
+   |--retest() # with testbed reuse option, check if this works
+   |--"PROBLEM_SOLVED"
+|--<SP#8.1>: "git pushreview" failed with the following error :
+
+          Total 0 (delta 0), reused 0 (delta 0)
+          remote: Processing changes: refs: 1, done    
+          To ssh://ssaidapetpach@gitreview.eng.vmware.com:29418/nsx-qe
+          ! [remote rejected] HEAD -> refs/for/master (no new changes)
+          error: failed to push some refs to 'ssh://ssaidapetpach@gitreview.eng.vmware.com:29418/nsx-qe'
+   |--"post-review <commit-id>" posted the diff to a "reviewboard" url
+   |--issue "git pushreview" now to get a url like "https://gitreview.eng.vmware.com:8443/7495"
+   |--link => "https://sites.google.com/a/vmware.com/nsbu-engineering/home/engineering-process/getting-started-with-git-and-review-gerrit?pli=1"     
+   
