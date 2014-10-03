@@ -1,0 +1,63 @@
+# P : Come up with a project having step-by-step instructions for collaborative
+      problem solving
+
+ # SP_1 : What is the theme of the project ? 
+  # learning & collaborative problem solving
+  # learning => picking up new concepts
+  # collaborative problem solving => implementing solutions by communication
+
+ # SP_2 : Propose a project and state what problem is being solved
+  # Dijkstra's shortest path algorithm
+  # problem => Given a graph and a source vertex in the graph, find shortest paths from source to all
+    vertices in the given graph
+  # link => http://www.geeksforgeeks.org/greedy-algorithms-set-6-dijkstras-shortest-path-algorithm/
+
+ # SP_3 : Definition of a graph 
+  # Graph : Set of vertices/nodes and edges
+  # Node : Any object
+  # Edge : pair(n1, n2) where n1,n2 are nodes 
+           n1 -> n2 = ordered pair(direction imposed)
+           unordered pair => direction does not matter
+  # Edge_value : value associated with the edge
+                 cost,capacity,length etc. 
+
+ # SP_4 : Graph representations
+  # Sample graph : |V| = 5 ; |E| = 7
+    A - [B,C]
+    B - [C]
+    C - [F,E]
+    D - [E]
+    E - [F]  
+  # Adjacency list : Equivalent to the sample graph notation
+  
+   # Storage : O(|V| + |E|) 
+   # add_vertex() : O(1) 
+   # add_edge() : O(1) 
+   # remove_vertex() : O(|E|) 
+   # remove_edge() : O(|V|) 
+   # adjacent(u,v) ? => 
+     # adjacent(u,v) => There is atleast one edge connecting u and v
+     # O(|V|) 
+  
+  # Adjacency matrix : {cost for edges will be stored here}  
+ 
+       A  B  C  D  E  F    
+    A  0  1  1  0  0  0
+    B  0  0  1  0  0  0
+    C  0  0  0  0  1  1 
+    D  0  0  0  0  1  0
+    E  0  0  0  0  0  1
+    F  0  0  0  0  0  0
+
+    # Storage : O(|V|^2)
+    # add_vertex() : 
+
+  # Incidence matrix : 
+
+       E1  E2  E3  E4  E5  E6  E7
+    A  1   1   0   0   0   0   0
+    B  1   0   1   0   0   0   0
+    C  0   1   1   1   0   1   0
+    D  0   0   0   0   1   0   0
+    E  0   0   0   1   1   0   1
+    F  0   0   0   0   0   1   1
