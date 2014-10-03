@@ -1,17 +1,13 @@
 # Problem : Automate the test cases on CAT for nioc version 3 [4036 m]
-[Search tage = Error(),Problem(),SP]
-|-----------------------------------------------------------------------
+ #[Search tage = Error(),Problem(),SP]
 # Goals :
-|
-|-nioc v3 test cases running in CAT
-|-transfer to CPD after automation
-|-----------------------------------------------------------------------
+ # nioc v3 test cases running in CAT 
+ # transfer to CPD after automation
 # Algorithm :
-|
-|-<Terminology>
-|--Writing code for test cases (W)
-|--Executing code for test cases (E)
-|--Testcase - CAT integration (TC)
+ # Terminology
+ # Writing code for test cases (W)
+ # Executing code for test cases (E)
+ # Testcase - CAT integration (TC)
 |--Cycle - W->E->TC
 |--U : unknown
 |------------------------------------
@@ -456,4 +452,14 @@
    |--issue "git pushreview" now to get a url like "https://gitreview.eng.vmware.com:8443/7495"
    |--link => "https://sites.google.com/a/vmware.com/nsbu-engineering/home/engineering-process/getting-started-with-git-and-review-gerrit?pli=1"     
   
- 
+#[SP_7] : upgrade_inventory() && recreate_setup()
+ # <Fill out the build numbers from RC builds>
+ # vsphere-2015-rel builds [ESXi = <build> || Cloud_vm = <build>]
+ # vc_ip = <ip>
+ # upgrade_esxi() 
+ # deploy_vms()
+
+#[SP_8] : Putting a workload on CAT  
+ # Components of CAT => [UI,builder,controller,launcher]
+ # builder => builds deliverables based on changesets that can be consumed (esx,cloudvm etc.)
+ # tester => monitoring a test   

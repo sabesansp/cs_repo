@@ -1,12 +1,9 @@
-P :  Understanding of vim editor
+# P :  Understanding of vim editor
 
- # SP =>  Implement a stop watch in vim editor status line
-  #  Print time in vim editor status line
-  # .vimrc => set ruler, 
-       set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%) 
-  # Change the ruler format to hold just minutes
-  # Update the ruler to print 000
-  # Update this value to hold a variable
-   
+ # Navigate within a line faster
+  # 10l => move 10 cursor spaces to the right
+  # 60h => move 60 cursor spaces to the left
+
+ #    
     
           
