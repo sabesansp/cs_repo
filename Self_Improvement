@@ -1,6 +1,35 @@
 # P : Notes about self-improvement
-|------------------------------------------------------------------------------------------
-|-<SP#1> : Collaborate with people to expand the things that you want to work on
-|--Discuss with people about various other projects and see things going on around yourself
-|--Don't remain closed and worry about only the tasks at hand
+ # Collaborate with people to expand the things that you want to work on
+ # Discuss with people about various other projects and see things going on around yourself
+ # Don't remain closed and worry about only the tasks at hand
+
+ # SP_1 : plan for transition
+  # Interviews => [Google/Theranos/Baidu/Palantir/Coursera/Stanford/UCB/CMU]
+   # Wish I had a cs department being set up in CMU silicon valley campus
+   # material =>
+   # coursera => 
+    # software engineer (infrastructure) => develop a set of tools that developers can use to build, deploy and test their code        
+    # responsibilities => {app_platform, social_learning, event_pipeline, data_systems} 
+     # skills => {Java, scala, python, ruby, C++, service oriented architecture, db, caches, queues, proxies, load balancers and more}      
+     #            ability to decompose complex problems into manageable units of work, innovate, prioritize, build MVPs etc} 
+      # bonus_points => {scala/functional_pl, building public_apis, noSQL dbs, full_web_stack, AWS/cloud-based environments} 
+    # software engineer (ios) => 
+      #
+   # google => 
+    *# software engineer, Machine learning & Artificial Intelligence
+      # responsibilities => {cutting edge research in AI & machine learning applications} 
+      # preferred => {MS/PhD, Strong background in NLP/Computer_vision, C/C++/Java/python}
+   # baidu =>
+   *# research scientist - Machine learning
+     # Familiarity with machine learning
+     # Math of machine learning {linear algebra, optimization problems} 
+     # Write code {C++/python/CUDA/java}
+ 
+  # "*" => machine learning
+   # Languages => C++/java/python {pick one language and attack the depth} 
+   # Course => ML, DA-1
+   # deep understanding of python {programming language and features not implementation of algorithms and/or design patterns} 
+   # Strong in concepts of machine learning and artificial intelligence
+   # ability to code up algorithms in python (Algorithms/algorithms.py) 
+   # Passionate/Motivated in solving problems in the domain      
 

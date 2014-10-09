@@ -1,4 +1,4 @@
-# Problem : Automate the test cases on CAT for nioc version 3 [4036 m]
+# Problem : Automate the test cases on CAT for nioc version 3 [4264 m]
  #[Search tage = Error(),Problem(),SP]
 # Goals :
  # nioc v3 test cases running in CAT 
@@ -459,7 +459,40 @@
  # upgrade_esxi() 
  # deploy_vms()
 
-#[SP_8] : Putting a workload on CAT  
+#[SP_8] : Putting a workload on CAT
+ # link => https://wiki.eng.vmware.com/CAT  
  # Components of CAT => [UI,builder,controller,launcher]
  # builder => builds deliverables based on changesets that can be consumed (esx,cloudvm etc.)
- # tester => monitoring a test   
+ # tester => monitoring a test
+ # host => prme-vmkqa-116 {10.115.174.116} 
+ # machines_link => https://cat.eng.vmware.com/machine/machines/
+ # no_esx_machines = 1830
+ # prme-vmkqa-115 = https://nsx-cat.eng.vmware.com/machine/6038/ = tester 4846 (stopped state)
+ # prme-vmkqa-116 = https://nsx-cat.eng.vmware.com/machine/6039/
+ # NSX area = https://nsx-cat.eng.vmware.com/area/3016/ {2hr-production-not-visible} 
+ # NSX tester = https://nsx-cat.eng.vmware.com/tester/3279/ {associated with prme-vmkqa-116} 
+ # CAT views
+  # production => monitoring product/branch stability
+  # staging => monitoring new tests that would eventually go into production
+  # experimental => monitoring any other tests
+ # create a new area with slatype 2hr under experimental 
+  # link => https://nsx-cat.eng.vmware.com/area/3740/
+ # create a new workload and I would need the following details :
+  # name => NETIOCV3-P0
+  # launchhost => {base_esx_host = 10.33.75.228} || ip = 10.33.74.138 
+  # executable => /build/trees/vdnet/main/automation/main/offsutVDNetWorkload.py --userconfig /mts/home5/ssaidapetpach/yaml/cat-netioc.yaml  
+    #             --framework=vdnet --vdnetOptions "' --consoleLog 0 -t EsxServer.NetIORM.NetIOCv3.BasicScheduler '"
+  # timeout => 72000
+  # skipboot, visible (checked) && needsreboot (unchecked) 
+  # there is an existing NSX workload
+   # link => https://nsx-cat.eng.vmware.com/workload/8382/
+  # creation_of_workunit() 
+   # error while adding the workunit :
+     # CAT Error 500 : ValidationError: [u'BuildDef validation error. Add a builder for the primary site: nsx.'] 
+   # tester has been started => owner {ssaidapetpach} 
+   # tester link => https://nsx-cat.eng.vmware.com/tester/3279/
+  # swap nsx build with the stuff coming from management plane
+ 
+#[SP_9] : workunit failed on CAT
+  # link =>  
+
