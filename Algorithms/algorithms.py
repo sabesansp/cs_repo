@@ -336,9 +336,69 @@ def binary_search(a,n):
 
    return -1 
          
+# P15 : Compute the pth power of n
+def compute_power(n,p):
+  
+   # initialize variables here
+   i = 1
+   power = 1
 
-     
+   # run the while loop from 1 to p
+   while i<=p:
+      power *= n
+      i += 1
+   
+   return power
+   
+# SP1 : Check whether a number is even or odd 
+def is_odd(n):
 
+   return n%2 != 0
+
+# SP2 : Split a number into two parts, 
+#       a => first 'p' digits
+#       b => rest of the digits together
+def split_num(n,p,t) :
+
+   # n=5567, p=2, expected_output = (55, 67)
+   # n=330, p=2, expected_output = (33,0)
+   # t=3 (total number of digits) 
+   #   
+   d = compute_power(10,t-p)
+   print "p = ",p
+   print "d = ",d
+   print "n = ",n
+   print "t = ",t
+   a = n/d
+   b = n%d
+   print "a = ",a
+   print "b = ",b
+   return (a,b) 
+
+
+
+# P16 : Compute integer multiplication of n digits recursively 
+def int_mult(x,y,n):
+
+   if n==1:
+      return x*y
+
+   # x = 330 , y = 225, n = 3
+   # compute a,b,c,d
+   # a = 33, b = 0, c = 22, d = 5
+   # when n is odd, p = (n/2 + 1) digits in the number
+   if is_odd(n) :
+      p = n/2 + 1
+   else :
+      p = n/2 
+
+   # Compute a,b,c,d 
+   (a,b) = split_num(x,p,n)
+   (c,d) = split_num(y,p,n)
+  
+   # Complete return statement
+   # there is a bug hidden for odd values of 'n' => figure out the bug
+   return compute_power(10,n)*int_mult(a,c,p) + compute_power(10,n/2)*(int_mult(a,d,p) + int_mult(b,c,p)) + int_mult(b,d,p)
       
 if __name__== '__main__' :
    #print_fibonacci(1.9) 
@@ -357,4 +417,6 @@ if __name__== '__main__' :
    #print binary_search([-3,-4,1,2,6,250],250)
    #print binary_search([0,1],0)
    #print binary_search([2,3,4],5) 
+   #print compute_power(10,2)
+   print int_mult(3000,2000,4) 
    
