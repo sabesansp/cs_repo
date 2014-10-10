@@ -6,15 +6,20 @@
  # SP_1 : plan for transition
   # Interviews => [Google/Theranos/Baidu/Palantir/Coursera/Stanford/UCB/CMU]
    # Wish I had a cs department being set up in CMU silicon valley campus
-   # material =>
    # coursera => 
-    # software engineer (infrastructure) => develop a set of tools that developers can use to build, deploy and test their code        
-    # responsibilities => {app_platform, social_learning, event_pipeline, data_systems} 
-     # skills => {Java, scala, python, ruby, C++, service oriented architecture, db, caches, queues, proxies, load balancers and more}      
-     #            ability to decompose complex problems into manageable units of work, innovate, prioritize, build MVPs etc} 
-      # bonus_points => {scala/functional_pl, building public_apis, noSQL dbs, full_web_stack, AWS/cloud-based environments} 
-    # software engineer (ios) => 
-      #
+    -> "software engineer (infrastructure)" => develop a set of tools that developers can use to build, deploy and test their code        
+       # responsibilities => {app_platform, social_learning, event_pipeline, data_systems} 
+       # skills => {Java, scala, python, ruby, C++, service oriented architecture, db, caches, queues, proxies, load balancers and more}      
+       #            ability to decompose complex problems into manageable units of work, innovate, prioritize, build MVPs etc} 
+       # bonus_points => {scala/functional_pl, building public_apis, noSQL dbs, full_web_stack, AWS/cloud-based environments} 
+   # palantir (best candidate for a practice_ground) 
+    # Software engineer 
+     # requirements
+      -> BS/MS in computer science {PhD a plus}
+      -> "JAVA" experience
+      -> Enthusiasm for solving interesting problems and a willingness to take on new product features 
+      -> Interest in working on a rapidly changing, ever-evolving system
+      -> Software engineering positions are available on multiple teams 
    # google => 
     *# software engineer, Machine learning & Artificial Intelligence
       # responsibilities => {cutting edge research in AI & machine learning applications} 
