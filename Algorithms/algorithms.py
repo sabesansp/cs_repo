@@ -375,30 +375,55 @@ def split_num(n,p,t) :
    print "b = ",b
    return (a,b) 
 
+# SP3 : Compute the number of digits in a number
+def num_digits(x) :
 
+   if x==0:
+      return 1
+   c=0
+   # ex : 330 => number of digits = 3
+   # 330 % 10 = 0
+   # 330 / 10 = 33
+   # 33 % 10 = 3
+   # 33 / 10 = 3
+   while x!=0 :
+      c+=1
+      x/=10
+   print "number of digits = ",c
+   return c      
 
 # P16 : Compute integer multiplication of n digits recursively 
-def int_mult(x,y,n):
+def int_mult(x,y):
 
+   # iter_1: nx=3,ny=3,x=330,y=225,n=3,p=2,a=33,b=0,c=22,d=5
+   # iter_2: nx=2,ny=2,x=33,y=22,a=3,b=3,c=2,d=2,n=2
+   # iter_3: x=3,y=2, ret(6)
+   # iter_2: 100*6 + 10*(6+6) + 6
+   #         ret(600 + 120 + 6) = ret(726) 
+   # iter_4: x=3,y=2, ret(6)
+   # iter_5: =iter_4
+   # iter_6: =iter_4
+   # iter_1: 1000*mult(33,22) + 10*(mult(33,5)+mult(0,22)) + mult(0,5)
+   #         726000 
+   nx = num_digits(x)
+   ny = num_digits(y) 
+   n = nx if nx>ny else ny
    if n==1:
       return x*y
 
-   # x = 330 , y = 225, n = 3
-   # compute a,b,c,d
-   # a = 33, b = 0, c = 22, d = 5
-   # when n is odd, p = (n/2 + 1) digits in the number
    if is_odd(n) :
       p = n/2 + 1
    else :
       p = n/2 
-
-   # Compute a,b,c,d 
    (a,b) = split_num(x,p,n)
    (c,d) = split_num(y,p,n)
-  
-   # Complete return statement
-   # there is a bug hidden for odd values of 'n' => figure out the bug
-   return compute_power(10,n)*int_mult(a,c,p) + compute_power(10,n/2)*(int_mult(a,d,p) + int_mult(b,c,p)) + int_mult(b,d,p)
+   if is_odd(n) :
+      return compute_power(10,p)*int_mult(a,c) + compute_power(10,n/2)*(int_mult(a,d) + int_mult(b,c)) + int_mult(b,d)
+   else :
+      return compute_power(10,n)*int_mult(a,c) + compute_power(10,n/2)*(int_mult(a,d) + int_mult(b,c)) + int_mult(b,d)
+
+# P17 : Implement a three-way merge on sorted lists in ascending order
+
       
 if __name__== '__main__' :
    #print_fibonacci(1.9) 
@@ -418,5 +443,5 @@ if __name__== '__main__' :
    #print binary_search([0,1],0)
    #print binary_search([2,3,4],5) 
    #print compute_power(10,2)
-   print int_mult(3000,2000,4) 
-   
+   print int_mult(33,5) 
+   #print num_digits(32984)
