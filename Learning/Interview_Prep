@@ -1,0 +1,19 @@
+(1) How does "printf" statement in C output the characters to the console ?
+  -> link {vprintf} => printf(calls the vprintf function with stdout) 
+     http://sourceware.org/git/?p=glibc.git;a=blob;f=stdio-common/vfprintf.c;h=fc370e8cbc4e9652a2ed377b1c6f2324f15b1bf9;hb=3321010338384ecdc6633a8b032bb0ed6aa9b19a
+  -> 
+
+(2) Implement a 3-way merge on three sorted lists ?
+
+  -> Example : a(4){i} = [3,7,9,10], b(3){j} = [45,78,98], c(4){k} = [87,567,1000,3456] 
+  -> output list m{o} = [ ] 3<45<87 => 3 || m=[3] || o=1,i=1,j=0,k=0
+  -> 7<45<87 => m=[3,7] || o=2,i=2,j=0,k=0
+  -> 9<45<87 => m=[3,7,9] || o=3,i=3,j=0,k=0
+  -> 10<45<80 => m=[3,7,9,10] || o=4,i=4(>len(a)-1),j=0,k=0
+  -> discard(a) because i = len(a)
+  -> 45<87 => m=[3,7,9,10,45] || o=5, j=1, k=0
+  -> 78<87 => m=[3,7,9,10,45,78] || o=6, j=2, k=0
+  -> 98>87 => m=[3,7,9,10,45,78,87] || o=7, j=2, k=1
+  -> 98<567 => m=[3,7,9,10,45,78,87,98] || o=8,j=3,k=1
+  -> discard(b) because j = len(b) 
+  -> copy rest of the elements from c, k=2..3 
