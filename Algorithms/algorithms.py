@@ -423,6 +423,27 @@ def int_mult(x,y):
       return compute_power(10,n)*int_mult(a,c) + compute_power(10,n/2)*(int_mult(a,d) + int_mult(b,c)) + int_mult(b,d)
 
 # P17 : Implement a three-way merge on sorted lists in ascending order
+def merge(l1,l2,l3):
+
+   # l1,l2,l3 : input lists
+   # l : output list that is returned to the caller
+   # index pointers to point to the lists
+   i = 0 # i tracks 'l1'
+   j = 0 # j tracks 'l2'
+   k = 0 # k tracks 'l3'
+   m = 0 # m tracks 'l'
+   # output list 
+   l = [None] * (len(l1) + len(l2) + len(l3)) 
+   # copy all elements from l1 and l2
+   while i<len(l1) and j<len(l2):
+      if l1[i] < l2[j]:
+         l[m] = l1[i]
+         i++
+         m++
+      else :
+         l[m] = l2[j]
+         j++
+         m++    
 
       
 if __name__== '__main__' :
