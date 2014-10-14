@@ -427,6 +427,16 @@ def merge_three(l1,l2,l3):
 
    return merge(merge(l1,l2),l3)        
 
+
+# P18 : Implement an algorithm that outputs the item whose key is the 
+#       lower median in the union of 's' and 't'.
+def union_median(s,t):
+
+   # Compute the length of 's' and assume that this
+   # is the same as 't. Later, we will figure out
+   # how to write assertions 
+   n = len(s)
+   
       
 if __name__== '__main__' :
    #print_fibonacci(1.9) 

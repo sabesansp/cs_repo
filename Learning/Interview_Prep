@@ -16,4 +16,33 @@
   -> 98>87 => m=[3,7,9,10,45,78,87] || o=7, j=2, k=1
   -> 98<567 => m=[3,7,9,10,45,78,87,98] || o=8,j=3,k=1
   -> discard(b) because j = len(b) 
-  -> copy rest of the elements from c, k=2..3 
+  -> copy rest of the elements from c, k=2..3
+
+(3) Suppose S and T are two ordered dictionaries each containing n items. Both are implemented via 
+sorted arrays and do not have any keys in common. Describe an O(log n) time algorithm that outputs the 
+item whose key is the lower median in the union of S and T. For example, when the keys stored in S and
+T are S = [3,6,7,9] and T = [-1,1,2,8], the lower median key is 3
+
+  -> ex : S = [3,6,7,9] ; T = [-1,1,2,8] n = 4
+  -> S U T = [3,6,7,9,-1,1,2,8]
+  -> What is a median key ? (q)
+  -> median is the mid-value of a set of observations
+  -> n is odd (3) => median value would be A(n/2) (zero-indexed) {3/2 = 1}
+  -> n is even (4) => median value would be [A(n/2-1) + A[n/2])/2
+  -> In S, median value = (6+7)/2 = 6.5 (floating-point) technically
+  -> In T, median value = (1+2)/2 = 1.5 (floating-point) technically
+  -> U = merge(S,T) = [-1,1,2,3,6,7,8,9] 
+  -> median(U) = U(n/2-1) if n is even
+  ->           = U(n/2) if n is odd
+  -> merge the sorted arrays (preserving the sorted order and apply the formula to get the result) 
+  -> this approach produces a O(n) algorithm
+  -> but I am solving this problem for a O(log n) algorithm
+  -> the expensive operation here was the merge step
+  -> I could actually accomplish this without the merge step
+  -> pick first element of S => 3
+  -> compare with T(n/2) 3>2 => search in the right half T(n/2+1) .. T(n-1)
+  -> take the median value of S and T {S(n/2-1), T(n/2-1)} 
+  -> m(S) = 6, m(T) = 1
+  -> first value between 1 and 6 is the median of the union of the list
+  -> search in left half of S (1..n/2-2) and search in right half of T(n/2...n-1)
+  ->     
