@@ -428,15 +428,69 @@ def merge_three(l1,l2,l3):
    return merge(merge(l1,l2),l3)        
 
 
+# SP : Calculate the median in a sorted array "a"
+def median(a,n):
+   if is_odd(n):
+      return a[n/2],n/2
+   else :
+      return a[n/2 - 1],n/2-1 
+            
+
+# SP : test pythonic behavior when list references are passed in incremental form
+#      '+' is actually treated as a concatenation operator
+def test_list(a):
+   print a
+
+
+# SP : Return the maximum of two numbers
+def max(a,b):
+   if a>b:
+      return a
+   else :
+      return b
+
+
+# SP : Return the minimum of two numbers
+def min(a,b):
+   if a<b:
+      return a
+   else :
+      return b
+
+
 # P18 : Implement an algorithm that outputs the item whose key is the 
 #       lower median in the union of 's' and 't'.
-def union_median(s,t):
-
-   # Compute the length of 's' and assume that this
-   # is the same as 't. Later, we will figure out
-   # how to write assertions 
-   n = len(s)
-   
+# t(n) => 84m
+# idea => http://www.geeksforgeeks.org/median-of-two-sorted-arrays/
+def union_median(s,t,n):
+   print "s = ",s
+   print "t = ",t
+   # call_1 : 
+   #   s=[3,6,7,9]; t=[-1,1,2,8]; 
+   #   s_start = 0; s_end = n-1
+   #   t_start = 0; t_end = n-1
+   #          
+   (m1,m1_index) = median(s,n)
+   (m2,m2_index) = median(t,n) 
+   if n==0:
+      return
+   if n==1:
+      return min(s[0],t[0]) 
+   if n==2:
+      return max(s[0],t[0])
+   # call_1 : m1 = 6 ; m2 = 1
+   if m1==m2 :
+      return m1 
+   if m1>m2:
+      if is_odd(n):
+         return union_median(s[:m1_index+1],t[m2_index:],n/2+1)
+      else :
+         return union_median(s[:m1_index+1],t[m2_index:],n/2)            
+   else :
+      if is_odd(n):
+         return union_median(s[m1_index:],t[:m2_index+1],n/2+1)
+      else :
+         return union_median(s[m1_index:],t[:m2_index+1],n/2)   
       
 if __name__== '__main__' :
    #print_fibonacci(1.9) 
@@ -459,4 +513,7 @@ if __name__== '__main__' :
    #print int_mult(33,5) 
    #print num_digits(32984)i
    #print merge_three([2,3,4],[21,67,90],[35,45,55,76,95])
-   
+   #a = [34, 67, 89, 91]
+   #test_list(a[2:2:2])
+   #print union_median([3,6,7,9],[-1,1,2,8],4) ## Works for even numbers in the list
+   #print union_median([5,10,34,65,78],[2,3,4,6,9],5) ## Works for odd numbers in the list as well
