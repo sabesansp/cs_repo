@@ -492,6 +492,55 @@ def union_median(s,t,n):
       else :
          return union_median(s[m1_index:],t[:m2_index+1],n/2)   
       
+# P19 : Implement a 2-way merge of numbers sorted in ascending order
+#       list l1 = l[start] -> l[mid] || list l2 = l[mid+1] -> l[end]
+#       and count the number of inversions 
+
+def count_inversions(l1,l2) : 
+   i = 0
+   j = 0
+   k = 0
+   print "left = ",l1
+   print "right = ",l2
+   c =0
+   l = [None] * (len(l1) + len(l2))
+   while i<len(l1) and j<len(l2)  :
+      if l1[i] < l2[j] :
+         l[k] = l1[i] 
+         i = i + 1
+      else :
+         l[k] = l2[j]
+         j = j + 1
+         c = c + (len(l1)-1-i) 
+      k = k + 1
+   # If the left list was not exhausted
+   if i<len(l1) :
+      while i<len(l1) :
+         l[k] = l1[i] 
+         i = i + 1
+         k = k + 1
+
+   # If the right list was not exhausted
+   if j<len(l2) :
+      while j<len(l2) :
+         l[k] = l2[j]
+         j = j + 1
+         k = k + 1
+   return l,c
+
+
+# P20 : Implement the merge sort function for computing inversions
+ 
+def sort_count(l) :
+  
+   n = len(l)
+   if n<=1 :
+      return l,0 
+   (left,x) = sort_count(l[:n/2]) 
+   (right,y) = sort_count(l[n/2:]) 
+   (merged,z) = count_inversions(left,right)
+   return merged,x+y+z 
+ 
 if __name__== '__main__' :
    #print_fibonacci(1.9) 
    #print_fibonacci_recurse(6.5)
@@ -517,3 +566,5 @@ if __name__== '__main__' :
    #test_list(a[2:2:2])
    #print union_median([3,6,7,9],[-1,1,2,8],4) ## Works for even numbers in the list
    #print union_median([5,10,34,65,78],[2,3,4,6,9],5) ## Works for odd numbers in the list as well
+   (l,c) = sort_count([5,4,3,2,1]) # this code does not work
+   print c
