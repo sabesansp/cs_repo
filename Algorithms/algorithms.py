@@ -500,10 +500,10 @@ def count_inversions(l1,l2) :
    i = 0
    j = 0
    k = 0
-   print "left = ",l1
-   print "right = ",l2
    c =0
    l = [None] * (len(l1) + len(l2))
+   print "left list in count_inversions : ",l1
+   print "right list in count_inversions : ",l2
    while i<len(l1) and j<len(l2)  :
       if l1[i] < l2[j] :
          l[k] = l1[i] 
@@ -526,19 +526,35 @@ def count_inversions(l1,l2) :
          l[k] = l2[j]
          j = j + 1
          k = k + 1
+   print "merged_list in count_inversions = ",l
+   print "count in count_inversions = ",c
    return l,c
 
 
 # P20 : Implement the merge sort function for computing inversions
- 
+# T(n) => 106m 
 def sort_count(l) :
   
+   # call_1 : l = [5,4,3,2,1] 
+   #          n = 5
+   # call_2 : l = [5,4]
+   #          n = 2
+   # call_3 : l = [5],n = 2,left=[5],x=0,  
+   # call_4 : l = [4,3,2,1], n = 4,           
    n = len(l)
    if n<=1 :
       return l,0 
-   (left,x) = sort_count(l[:n/2]) 
-   (right,y) = sort_count(l[n/2:]) 
+   
+   
+   (left,x) = sort_count(l[ :n/2]) 
+   print "left = ", left
+   print "x = ",x
+   (right,y) = sort_count(l[n/2:])
+   print "right = ",right
+   print "y = ",y 
    (merged,z) = count_inversions(left,right)
+   print "merged = ",merged
+   print "z = ",z 
    return merged,x+y+z 
  
 if __name__== '__main__' :
