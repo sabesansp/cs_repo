@@ -511,7 +511,7 @@ def count_inversions(l1,l2) :
       else :
          l[k] = l2[j]
          j = j + 1
-         c = c + (len(l1)-1-i) 
+         c = c + (len(l1) - i) 
       k = k + 1
    # If the left list was not exhausted
    if i<len(l1) :
@@ -582,5 +582,5 @@ if __name__== '__main__' :
    #test_list(a[2:2:2])
    #print union_median([3,6,7,9],[-1,1,2,8],4) ## Works for even numbers in the list
    #print union_median([5,10,34,65,78],[2,3,4,6,9],5) ## Works for odd numbers in the list as well
-   (l,c) = sort_count([5,4,3,2,1]) # this code does not work
+   (l,c) = sort_count([6,5,4,3,2,1]) # this code does not work
    print c
