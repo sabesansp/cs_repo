@@ -45,4 +45,46 @@ T are S = [3,6,7,9] and T = [-1,1,2,8], the lower median key is 3
   -> m(S) = 6, m(T) = 1
   -> first value between 1 and 6 is the median of the union of the list
   -> search in left half of S (1..n/2-2) and search in right half of T(n/2...n-1)
-  ->     
+
+(4) Google interviewing process :
+
+  -> (1-2) phone interviews
+  -> upto 5 on-site interviews
+  -> Local hiring committee(HC) review
+  -> Regional & company HC review
+  -> Offer
+  -> link = https://www.youtube.com/watch?v=oWbUtlUhwa8
+  -> What to expect => {Short Introduction/"The Meat" or a technical assessment/Close with your questions}
+  -> Engineering skills assessment  => {write good code/algorithms & data_structures/analytical_skills/sound_design}
+  -> review algorithms & data structures
+  -> practice in a language you are familiar with, like java {most of the time, I have used Java}
+  -> no pseudo-code
+  -> "Think out loud => ask_questions()"
+  -> in-depth => how do we think about complicated problems
+  -> right answer would be nice but it is not necessary => your thought process is more important
+  -> sample_interview_question : Write a program that breaks up a string of words with no spaces into a string with the appropriate spaces
+     # example : fastman => fast man
+     # disambiguate expected result => More than 2 words ? empty string ?
+     # State and clarify key assumptions : expected result, any memory or performance reqts etc
+     # where do the words come from ? use a dictionary
+     # clarify the function signature
+     # going to the whiteboard and solving problems directly is a bad thing
+     # look for edge cases
+     # refine solution {clarify_assumptions(), rinse_repeat(), compare_solutions()} 
+     # I do not need to remember apis
+
+(5) Implement a function to find the first character in a string which only appears once
+
+  -> Example => abcdeeffghh {answer => a}
+  -> questions => String = null, repeat characters {1111111}, unique character at the end of a string, 1-character string 'a'
+  -> Programming Language => Java
+  -> findFirst(String str) {java} 
+  -> a => 1 {index} = 0
+  -> b => 1
+  -> c => 1
+  -> d => 1
+  -> e => 2
+  -> f => 2
+  -> g => 1
+  -> h => 2  
+

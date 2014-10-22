@@ -556,6 +556,54 @@ def sort_count(l) :
    print "merged = ",merged
    print "z = ",z 
    return merged,x+y+z 
+
+
+# SP : Function returns the absolute value of a number
+def abs(a):
+
+   if a < 0 :
+      return -a
+   else :
+      return a
+   
+# SP : compute the euclidean distance in 1 dimension
+def compute_linear_distance(a,b):
+   
+   return abs(a - b) 
+
+
+# P21 : Implement a function that takes a list and 
+# outputs the minimum distance value between the numbers  
+def min_dist(input_list):
+
+   # Example : [3,4,6,9,11,45,87,99,101] 
+   # n = 9 
+  
+   # if input list was none, -1 should be returned 
+   if input_list==None :
+      return -1
+
+   merged_list = merge_sort(input_list) 
+
+   # compute the length of the input list
+   n = len(merged_list)
+   
+   # i : counter to keep track of the array
+   i = 0
+   min_delta = merged_list[0]
+   output_list = [0,min_delta]
+
+   while i<n-1 :
+      delta = compute_linear_distance(merged_list[i],
+                                      merged_list[i+1])   
+      if delta<min_delta :
+         min_delta = delta
+         output_list= [merged_list[i],merged_list[i+1]]
+
+      i = i + 1
+      
+   return output_list      
+
  
 if __name__== '__main__' :
    #print_fibonacci(1.9) 
@@ -582,5 +630,8 @@ if __name__== '__main__' :
    #test_list(a[2:2:2])
    #print union_median([3,6,7,9],[-1,1,2,8],4) ## Works for even numbers in the list
    #print union_median([5,10,34,65,78],[2,3,4,6,9],5) ## Works for odd numbers in the list as well
-   (l,c) = sort_count([6,5,4,3,2,1]) # this code does not work
-   print c
+   #(l,c) = sort_count([6,5,4,3,2,1]) # this code does not work
+   #print c
+   #print abs(8)
+   print min_dist([6,4,3,18,9,45,25]) # runs in O(nlogn) time
+   
