@@ -605,6 +605,8 @@ def min_dist(input_list):
    return output_list      
 
  
+
+
 if __name__== '__main__' :
    #print_fibonacci(1.9) 
    #print_fibonacci_recurse(6.5)
@@ -630,8 +632,14 @@ if __name__== '__main__' :
    #test_list(a[2:2:2])
    #print union_median([3,6,7,9],[-1,1,2,8],4) ## Works for even numbers in the list
    #print union_median([5,10,34,65,78],[2,3,4,6,9],5) ## Works for odd numbers in the list as well
-   #(l,c) = sort_count([6,5,4,3,2,1]) # this code does not work
+   #(l,c) = sort_count([6,5,4,3,2,1]) # this code  works
    #print c
    #print abs(8)
-   print min_dist([6,4,3,18,9,45,25]) # runs in O(nlogn) time
-   
+   #print min_dist([6,4,3,18,9,45,25]) # runs in O(nlogn) time
+   #-----------Programming_Question_Coursera_Design_And_Analysis_of_Algorithms_Part_1-------
+   #with open('Algorithms/IntegerArray.txt','r') as f:
+   #   numbers = [int(x.strip()) for x in f] 
+   #-----------100,000----------------------------------------------------------------------
+   #(l,c) = sort_count(numbers)
+   #print c
+    
