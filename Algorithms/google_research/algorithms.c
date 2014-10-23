@@ -11,7 +11,7 @@ void write_billion(char *file_name)
    
    fp = fopen(file_name,"w");
    // execute the for loop a billion times
-   for(unsigned int i=1;i<=1000000000;i++) 
+   for(int i=1;i<=1000000000;i++) 
    {
       fprintf(fp,"%d\n",i);
    }
