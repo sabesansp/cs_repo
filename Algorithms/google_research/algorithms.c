@@ -19,6 +19,28 @@ void write_billion(char *file_name)
 }
 
 
+// SP : returns the maximum element in "cost" which is less than "sum"
+// make sure that "cost" is in a sorted order
+int compute_max_element_less_than_element(int sum, int* cost, int n)
+{
+   // perform a binary search here
+   // design issue : how do you know where to stop in the set of elements
+   // that cost points to 
+   int i = 0, left = 0, right = n-1;
+   
+}      
+
+
+
+// P2 : dynamic programming problem
+int compute_min_number_of_coins(int sum,int* cost, int n)
+{
+   if(sum == 0) 
+      return 0;
+   else 
+      return 1 + compute_min(
+
+}
 	
 // entry point of code execution
 int main()

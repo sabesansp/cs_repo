@@ -605,6 +605,40 @@ def min_dist(input_list):
    return output_list      
 
  
+# P22 : Implement a function that returns the maximum element
+# less than the value of 'a'
+def compute_max_less_than_element(s,a,l,r):
+   
+   # Example : a =  [5,9,10,11,13,15] 
+   # s = 12
+  
+   m = (l+r)/2
+     
+   if a[m]<=s :
+      if m==(len(a)-1) or a[m+1]>s :
+         return a[m]
+      if m<(len(a)-1) :
+         if a[m+1]<=s :
+            l = m + 1
+            return compute_max_less_than_element(s,a,l,r)
+          
+
+   else :
+      if m>0:
+         r = m - 1
+         return compute_max_less_than_element(s,a,l,r)
+   
+
+
+# P23 : Implement a function that returns min. no of coins
+# required to sum up to "s"
+def compute_min(s,a):
+
+   if s==0 :
+      return 0
+   else :
+      return 1+compute_min(s-compute_max_less_than_element(s,a,0,len(a)-1),a)
+
 
 
 if __name__== '__main__' :
@@ -642,4 +676,5 @@ if __name__== '__main__' :
    #-----------100,000----------------------------------------------------------------------
    #(l,c) = sort_count(numbers)
    #print c
-    
+   #print compute_max_less_than_element(12,[5,9,10,11,13,15],0,5)
+   print compute_min(11,[1,2])  
