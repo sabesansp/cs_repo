@@ -22,11 +22,13 @@ void write_billion(char *file_name)
 
 // SP : returns the maximum element in "a" which is less than "s"
 // make sure that "a" is in a sorted order
-int compute_max_element_less_than_element(int s, int* a, int l,int r,int n)
+int compute_max_element_less_than_element(int s, int a[], int l,int r,int n)
 {
    // compute mid-point 'm'
    int m = (l+r)/2;
    
+   
+
    if(a[m]<=s)
    {
       if(m==(n-1) || a[m+1]>s) 
@@ -35,22 +37,27 @@ int compute_max_element_less_than_element(int s, int* a, int l,int r,int n)
       {
          if(a[m+1]<=s)
          {
-            return compute_max_element_less_than_element(s,a,m+1,r,n);
+            l=m+1;
+            return compute_max_element_less_than_element(s,a,l,r,n);
          }
       }
-   } else 
+   }
+   else 
    {
       if(m>0)
-      {
-         return compute_max_element_less_than_element(s,a,l,m+1,n);
+      {  
+         r=m-1;
+         return compute_max_element_less_than_element(s,a,l,r,n);
       }
-   }   
+   }  
+   // return -1 in the case where no other return statement is executed
+   return -1; 
 }      
 
 
 
 // P2 : dynamic programming problem
-int compute_min(int s,int* a, int n)
+int compute_min(int s,int a[], int n)
 {
    if(s == 0) 
       return 0;
@@ -58,13 +65,41 @@ int compute_min(int s,int* a, int n)
       return 1 + compute_min(s - compute_max_element_less_than_element(s,a,0,n-1,n),a,n);
 
 }
+
+// P3 : Print the subarray within 'a' which has the maximum sum
+void print_subarray(int a[],int n)
+{ 
+   // define what the variables stand for
+   int l=-1,r=-1,sum=0,max_sum=0;   
+   for(int i=0,j=0;j<n;j++)
+   {
+      sum+=a[j];
+      if(sum>max_sum)
+      {
+         if(a[j]>sum)
+         {
+            i=j;
+            sum = a[j];
+         }    
+         l=i;
+         r=j;
+         max_sum=sum;
+      }
+   }
+   for(int i=l;i<=r;i++)
+      printf("%d\t",a[i]);
+   printf("\n");   
+}
+   
 	
 // entry point of code execution
 int main()
 {
    //write_billion("/Volumes/My Passport/data/billion.txt");
-   int a[] = {5,9,10,11,13,15};
-   printf("%d",compute_max_element_less_than_element(12,a,0,5,6));
+   //int a[] = {5,9,10,11,13,15};
+   //printf("%d\n",compute_min(41,a,6));
+   int b[] = {1,-2,3,10,-4,7,2,9};
+   print_subarray(b,8);
    return 0;
 }
 
