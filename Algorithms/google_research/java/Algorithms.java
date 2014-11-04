@@ -1,4 +1,6 @@
 import java.util.*;
+import java.io.*;
+import java.math.*;
 
 public class Algorithms
 {
@@ -155,40 +157,134 @@ public class Algorithms
       a[j] = t;
    } 
 
+
+   // SP : compute the median index of three elements
+   int computeMedianIndex(int[] a, int l, int r)
+   {
+      int m = (l+r)/2;
+      // l=0, r=4, m=2
+      // a[l]=5, a[r]=5, a[m]=2
+      // median_index=2
+      int median_index = m;
+      // 2>5 => no
+      if(a[m] > a[l])
+      {
+         if(a[m] > a[r]) 
+         {
+            median_index = (a[l] < a[r]) ? r : l;          
+         } 
+         else if(a[m] == a[r]) 
+         {
+            median_index = l;
+         }  
+      } 
+      else if(a[m] == a[l])
+      {
+         if(a[m] > a[r]) 
+            median_index = r;
+      } 
+      else
+      {
+         // 2<5 
+         if(a[m] < a[r]) 
+         { 
+            if(a[l] != a[r]) 
+               median_index = (a[l] > a[r]) ? r : l;
+         }
+      }
+      return median_index;
+   }  
+       
   
 
    // SP : Choose pivot and partition the array
    int qsortPartition(int[] a, int l, int r)
    {
+      // a = {5,4,6,3,2,9,1}
+      // l = 0, r = 6
+      // p = a[0] = 5
+      // i = 1
+      // choose the final element as the pivot
+      // choose the median element of the three
+      
       int p = a[l]; 
       int i = l + 1;
-      for(int j=i+1;j<=r;j++)
+      //System.out.println("The value of i at init time : " + i);
+      for(int j=l+1;j<=r;j++)
       {
+         // 5>4 => swap(a,1,2) => {5,6,4,3,2,9,1}, i=2,j=3
+         // 5>3 => swap(a,2,3) => {5,6,3,4,2,9,1}, i=3,j=4
+         // 5>2 => swap(a,3,4) => {5,6,3,2,4,9,1}, i=4,j=5
+         // 5<9 => {5,6,3,2,4,9,1},i=4,j=6
+         // 5>1 => swap(a,4,6) => {5,6,3,2,1,9,4}, i=5,j=7
          if(p>a[j])
          {
             swap(a,i,j);
             i++;
          }
+         //printArray(populateArrayList(a));
       }
+      // swap(a,0,4) => {1,6,3,2,5}
       swap(a,l,i-1);
+      //System.out.println("The value of i before return : " + i);
       return i-1;
    } 
 
 
    // P4 : Routine to perform quick sort on array a
-   void qsort(int[] a,int l,int r)
+   int qsort(int[] a,int l,int r)
    {
-   
       if(l<r) 
-      {
+      { 
+         int median_index = computeMedianIndex(a,l,r);
+         swap(a,l,median_index);
          int p = qsortPartition(a,l,r);
-         System.out.println("pivot position = "+p);
-         //qsort(a,l,p-1);
-         //qsort(a,p+1,r);
+         //System.out.println("The value of l = "+l);
+         //System.out.println("The value of r = "+r);
+         //System.out.println("The value of p = "+p);
+         return (r-l) + qsort(a,l,p-1) + qsort(a,p+1,r);
       }
+      return 0;
    }   
     
 
+   // 0 < alpha < 0.5
+   // suppose alpha = 0.2
+   // n=10
+   // what is the probability that the size of the smaller subarray >= alpha times the size of the original array ?
+   // probability of choosing a random element = 1/10 {1/n} 
+   // size of smaller subarray >= 0.2*10 = 2
+   // P(choosing pivot element such that size of smaller subarray>=2} = 1 - P(size<2) = 1- 1/n
+
+
+
+   // SP : Read integers from a given file in the programming assignment
+   List<Integer> readFile(String fileName)
+      throws Exception
+   {
+      FileReader file = new FileReader(fileName);
+      List<Integer> scores = new ArrayList<Integer>();
+      Scanner sc = new Scanner(file);
+      while(sc.hasNextInt())
+      {
+         scores.add(sc.nextInt());
+      }
+      return scores;
+   } 
+
+
+   //SP : Turn a list of integers into an array of ints
+   int[] toIntArray(List<Integer> list)
+   {
+      int[] ret = new int[list.size()];
+      int i=0;
+      for(Integer e:list)
+      {
+         ret[i++] = e.intValue();
+      } 
+      return ret;
+   }    
+  
   
    // code starts executing from here
    public static void main(String[] args)
@@ -204,9 +300,27 @@ public class Algorithms
       //int a[] = {1,2,3,4,5,6,7};
       //int index = al.commonAncestor(a,3,4);
       //System.out.println("The common ancestor = " +  a[index]);
-      int a[] = {5,4,6,3,2,9,1};
+      //int a[] = {5,4,6,3,2,9,1};
       // The following code does not work
-      al.qsort(a,0,6);
-      al.printArray(al.populateArrayList(a));      
+      //al.qsort(a,0,6);
+      //al.swap(a,0,2);
+      //al.printArray(al.populateArrayList(a));
+      try{
+         List<Integer> input = al.readFile("QuickSort.txt");
+         //al.printArray(input);
+         int a[] = al.toIntArray(input); 
+         //int a[] = {1,4,2,3,5};
+         //al.qsort(a,0,4,0);
+         //System.out.println("first element = " + a[0]);
+         //System.out.println("middle element = " + a[4999]);
+         //System.out.println("last element = " + a[9999]);
+         //System.out.println("median index = " + al.computeMedianIndex(new int[]{5,1,2,3,5},0,4)); 
+         System.out.println("number of comparisons = " + al.qsort(a,0,input.size()-1));    
+      } 
+      catch(Exception e)
+      {
+         e.printStackTrace();
+      }           
    }
 }
+
