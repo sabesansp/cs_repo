@@ -283,8 +283,118 @@ public class Algorithms
          ret[i++] = e.intValue();
       } 
       return ret;
-   }    
-  
+   }  
+
+
+   // SP : Swap the elements in the character array
+   public void swapCharArray(char[] a, int i, int j)
+   {
+      char temp = a[i];
+      a[i] = a[j];
+      a[j] = temp;
+   }        
+
+   // SP : Reverse an entire character array
+   public void reverse(char[] a,
+                       int start,
+                       int end)
+   {
+      for( int i=start,j=end;
+           i<j;
+           i++,j--
+         )
+      {
+         swapCharArray(a,i,j);
+      }
+   } 
+
+
+   //SP : Print all elements in the character array
+   public void printCharArray(char[] a)
+   {
+      for(int i=0;
+          i<a.length;
+          i++
+         )
+      {
+         System.out.print(a[i]);
+      }
+      System.out.print("\n");
+   }
+
+   // P4: Reverse the words in a sentence
+   public void reverseWordsInSentence(char[] a)
+   {
+      // reverse the entire array
+      reverse(a,0,a.length-1);   
+
+      // reverse the character array upto the space
+      for(int i=0,start=i;
+          i<a.length-1;
+          i++
+         ) 
+      {
+         if(a[i] == ' ' && 
+            i>0 &&
+            a[i-1] != ' '
+           )
+         {
+            reverse(a,start,i-1);
+            start = i+1;
+         }
+      } 
+   } 
+             
+      
+   // SP : Print the entire hash map                      
+   public void displayHashMap(Map<Character,Integer> map)
+   {
+      // Iterate through the hash map and print the key and the value
+      for(Map.Entry<Character,Integer> entry : 
+          map.entrySet()
+         )
+      {
+         System.out.println(entry.getKey() + 
+                            " : " + 
+                            entry.getValue());
+      }
+   }
+
+   // P5 : Count the number of occurrences for characters in the array 'a'
+   public Map<Character,Integer> 
+          countOccurrences(char[] a)
+   {
+      // Create the hash map
+      Map<Character,Integer> map = new HashMap<Character,Integer>();
+      
+      // Scan the array 
+      for(int i=0;
+          i<a.length;
+          i++
+         )
+      {
+         // ignore spaces
+         if(a[i] == ' ') 
+            continue;
+
+         // if map contains the key, increment the count
+         // else insert '1' as the value
+         if(map.containsKey(a[i]))
+         {
+            Integer count = map.get(a[i]);
+            map.put(a[i],count + 1);
+         } 
+         else 
+         {
+            map.put(a[i],1);
+         }
+      }
+      
+      // return map
+      return map;
+   }           
+                    
+
   
    // code starts executing from here
    public static void main(String[] args)
@@ -306,16 +416,21 @@ public class Algorithms
       //al.swap(a,0,2);
       //al.printArray(al.populateArrayList(a));
       try{
-         List<Integer> input = al.readFile("QuickSort.txt");
+         //List<Integer> input = al.readFile("QuickSort.txt");
          //al.printArray(input);
-         int a[] = al.toIntArray(input); 
+         //int a[] = al.toIntArray(input); 
          //int a[] = {1,4,2,3,5};
          //al.qsort(a,0,4,0);
          //System.out.println("first element = " + a[0]);
          //System.out.println("middle element = " + a[4999]);
          //System.out.println("last element = " + a[9999]);
          //System.out.println("median index = " + al.computeMedianIndex(new int[]{5,1,2,3,5},0,4)); 
-         System.out.println("number of comparisons = " + al.qsort(a,0,input.size()-1));    
+         //System.out.println("number of comparisons = " + al.qsort(a,0,input.size()-1));
+         char[] a = new char[]{'i',' ','a','m',' ','a',' ','y','o','g','i'}; 
+         //al.reverseWordsInSentence(a);
+         //al.printCharArray(a);
+         al.displayHashMap(al.countOccurrences(a));
+         
       } 
       catch(Exception e)
       {
