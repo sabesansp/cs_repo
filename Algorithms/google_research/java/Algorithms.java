@@ -392,10 +392,119 @@ public class Algorithms
       
       // return map
       return map;
-   }           
-                    
+   }     
+      
+   
 
+   // Display the matrix 
+   public void displayMatrix(int[][] a, 
+                             int r, 
+                             int c)
+   {
+      for(int i=0;
+          i<r;
+          i++)
+      {
+         for(int j=0;
+             j<c;
+             j++)
+         {
+            System.out.print(a[i][j] + " ");
+         }
+         System.out.print("\n"); 
+      }  
+   } 
+
+
+   // P6 : Display the edges of the matrix clockwise                    
+   public void displayMatrixEdgeClockwise(int[][] a,
+                                          int r,
+                                          int c)
+   {
+      int i,j;
+      for(i=0,j=0; j<(c-1); j++) System.out.print(a[i][j]+" ");
+      for(;i<(r-1);i++) System.out.print(a[i][j]+ " ");
+      for(;j>0;j--)System.out.print(a[i][j] + " ");
+      for(;i>0;i--)System.out.print(a[i][j] + " ");
+      System.out.print("\n");
+   }
+
+
+   // P7 : Copy one edge onto another edge in a nxn matrix at 90 degrees
+   public void rotateMatrix(int[][] A,
+                            int n) 
+   {
+      int[] t1 = copyColumnArray(A,n-1,n);
+      int[] t2 = copyRowArray(A,n-1,n);
+      int[] t3 = copyColumnArray(A,0,n);
+      int i,j,k;
+      // populate right edge
+      for(i=0,j=n-1,k=n-1;
+          k>=0;
+          k--)
+      {
+         A[k][j] = A[i][k];
+      }
+      // populate the bottom edge
+      for(i=n-1,k=0;
+          k<n-1;
+          k++)
+      {
+         A[i][k] = t1[n-2-k];
+      }  
+      // populate the left edge
+      for(i=0,k=0;
+          k<n-1;
+          k++)
+      {
+       
+         A[k][i] = t2[k];
+      }
+      printArray(populateArrayList(t3));
+      // populate the top edge
+      for(i=0,k=0;
+          k<n-1;
+          k++)
+      {
+         A[i][k] = t3[n-2-k];
+      }         
+   }   
+
+
+   // SP : Copy contents of a specific column of a matrix into 
+   //      an array and return the array
+   public int[] copyColumnArray(int[][] A,
+                          int j,
+                          int n)
+   {
+      int[] t  = new int[n-1];
+      for(int i=1;
+          i<n;
+          i++)
+      {
+         t[i-1] = A[i][j];
+      }
+      return t;
+   }   
+    
   
+   // SP : Copy contents of a specific row of a matrix into 
+   //      an array and return the array
+   public int[] copyRowArray(int[][] A,
+                          int j,
+                          int n)
+   {
+      int[] t  = new int[n-1];
+      for(int i=0;
+          i<n-1;
+          i++)
+      {
+         t[i] = A[j][i];
+      }
+      return t;
+   }
+
+   
    // code starts executing from here
    public static void main(String[] args)
    {
@@ -426,11 +535,25 @@ public class Algorithms
          //System.out.println("last element = " + a[9999]);
          //System.out.println("median index = " + al.computeMedianIndex(new int[]{5,1,2,3,5},0,4)); 
          //System.out.println("number of comparisons = " + al.qsort(a,0,input.size()-1));
-         char[] a = new char[]{'i',' ','a','m',' ','a',' ','y','o','g','i'}; 
+         //char[] a = new char[]{'i',' ','a','m',' ','a',' ','y','o','g','i'}; 
          //al.reverseWordsInSentence(a);
          //al.printCharArray(a);
-         al.displayHashMap(al.countOccurrences(a));
-         
+         //al.displayHashMap(al.countOccurrences(a));
+         int[][] a = new int[5][5];
+         a[0] = new int[]{2,3,7,9,11};
+         a[1] = new int[]{0,1,2,0,5};
+         a[2] = new int[]{6,2,1,5,6};
+         a[3] = new int[]{4,3,1,0,2};
+         a[4] = new int[]{1,1,3,5,6}; 
+         //al.displayMatrixEdgeClockwise(a,3,3); 
+         System.out.println("input :\n");           
+         al.displayMatrix(a,5,5);
+         al.rotateMatrix(a,5);
+         //al.displayMatrix(a,5,5); 
+         System.out.println("output :\n");           
+         al.displayMatrix(a,5,5);
+         //int[] temp = al.copyRowArray(a,4,5);
+         //al.printArray(al.populateArrayList(temp));   
       } 
       catch(Exception e)
       {
