@@ -504,7 +504,205 @@ public class Algorithms
       return t;
    }
 
-   
+
+   // SP : Build a sample graph for graph problems 
+   public ArrayList<ArrayList<Integer>> buildGraph()
+   {
+      ArrayList<ArrayList<Integer>> graph = 
+      new ArrayList<ArrayList<Integer>>();
+      // first list
+      ArrayList<Integer> l0 = new ArrayList<Integer>();
+      l0.add(1);
+      l0.add(3);
+      graph.add(l0);
+      // second list
+      ArrayList<Integer> l1 = new ArrayList<Integer>();
+      l1.add(4);
+      graph.add(l1);
+      // third list
+      ArrayList<Integer> l2 = new ArrayList<Integer>();
+      l2.add(4);
+      l2.add(5);
+      graph.add(l2);
+      // fourth list
+      ArrayList<Integer> l3 = new ArrayList<Integer>();
+      l3.add(1);
+      graph.add(l3);
+      // fifth list
+      ArrayList<Integer> l4 = new ArrayList<Integer>();
+      l4.add(3);
+      graph.add(l4);
+      // sixth list
+      ArrayList<Integer> l5 = new ArrayList<Integer>();
+      l5.add(5);
+      graph.add(l5);
+      return graph;
+   }   
+
+   // SP: Print a graph
+   public void printGraph(ArrayList<ArrayList<Integer>>
+                          graph)
+   {
+      for(ArrayList<Integer> l : graph)
+      {
+         for(Integer i : l)
+         {
+            System.out.print(" " + i);
+         }
+         System.out.print("\n");
+      }
+   }     
+
+
+   // SP : Check whether an element is found
+   public boolean isElementFound(ArrayList<Integer> list,
+                                 int n)
+   {
+      for(Integer i : list)
+      {
+         if(i==n)
+         {
+            return true;
+         }
+      }
+      return false;
+   } 
+
+
+   public void callDfs()
+   {
+
+         Graph g = new Graph(new int[]{0,1,2,3,4,5}); 
+         List<Graph.Node> nodeList = g.getNodes();
+         // add an edge between 2->3 and 2->4
+         List<Graph.Node> edgesList = new 
+         ArrayList<Graph.Node>(); 
+         edgesList.add(g.findNode(3));
+         edgesList.add(g.findNode(4));
+         Graph.Node currNode = g.findNode(2);
+         currNode.addEdge(edgesList);
+         // 0->1
+         edgesList = new ArrayList<Graph.Node>();
+         edgesList.add(g.findNode(1));
+         currNode = g.findNode(0);
+         currNode.addEdge(edgesList);
+         // 1->2
+         //edgesList = new ArrayList<Graph.Node>();
+         //edgesList.add(g.findNode(2));
+         //currNode = g.findNode(1);
+         //currNode.addEdge(edgesList);
+         // 3->0
+         edgesList = new ArrayList<Graph.Node>();
+         edgesList.add(g.findNode(0));
+         currNode = g.findNode(3);
+         currNode.addEdge(edgesList);
+         // 4->5
+         edgesList = new ArrayList<Graph.Node>();
+         edgesList.add(g.findNode(5));
+         currNode = g.findNode(4);
+         currNode.addEdge(edgesList);
+         // display graph
+         g.displayGraph();
+         // call isRoute
+         List<Integer> l = new ArrayList<Integer>();
+         g.dfs(l,0,4);
+         printArray(l);
+
+   } 
+
+
+
+   // P : Print all permutations of a string represented as a character 
+   // array
+   public void permute(char[] A, 
+                       int start, 
+                       int end)
+   {
+      if(start == end)
+      {
+         // display all the characters 
+         for(int j=0;j<=end;j++) 
+            System.out.print(A[j]);
+         System.out.print("\n");
+      }
+      else 
+      {
+         if(start < end)
+         {
+            for(int i=start;i<=end;i++)
+            {
+               swapCharArray(A,i,start);
+               permute(A,start+1,end);
+               swapCharArray(A,i,start);
+            }
+         }
+      }
+   }    
+
+
+
+   // P : combination of indices of number "l"
+   public void combineIndex(char[] A,
+                            int l) 
+   { 
+      if(l>0) 
+      {
+         if(l == A.length)
+         {
+            printCharArray(A);
+         } 
+         else
+         {
+            for(int i=0;i<A.length;i++)
+            {
+               for(int j=i,k=1;k<=l;k++,j++)
+               {
+                  if(j==A.length) j=0;
+                  System.out.print(A[j]);
+               }
+               System.out.print("\n");
+            } 
+         }
+         combineIndex(A,l-1);
+      }
+   }
+ 
+
+
+   // P : Count the number of occurrences of pattern "P" in "T"
+   public int naiveStringMatch(char[] T,
+                               char[] P)
+   {
+      int c = 0;
+      for(int i=0,j=0,start=i;
+          i < T.length;
+          i++,j++)
+      {
+         // if 'j' reaches the end of the array, please
+         // loop it from the start of 'P'
+         if(j>P.length-1)
+            j=0;
+         if(T[i] == P[j])
+         {
+            if(j == P.length-1)
+            {
+               c++;
+               j=0;
+            }
+         }
+         else 
+         {
+            i = start+1;
+            start = i;
+            j=0;
+         } 
+      }
+      return c; 
+   } 
+            
+
+
+
    // code starts executing from here
    public static void main(String[] args)
    {
@@ -539,21 +737,39 @@ public class Algorithms
          //al.reverseWordsInSentence(a);
          //al.printCharArray(a);
          //al.displayHashMap(al.countOccurrences(a));
-         int[][] a = new int[5][5];
-         a[0] = new int[]{2,3,7,9,11};
-         a[1] = new int[]{0,1,2,0,5};
-         a[2] = new int[]{6,2,1,5,6};
-         a[3] = new int[]{4,3,1,0,2};
-         a[4] = new int[]{1,1,3,5,6}; 
+         //int[][] a = new int[5][5];
+         //a[0] = new int[]{2,3,7,9,11};
+         //a[1] = new int[]{0,1,2,0,5};
+         //a[2] = new int[]{6,2,1,5,6};
+         //a[3] = new int[]{4,3,1,0,2};
+         //a[4] = new int[]{1,1,3,5,6}; 
          //al.displayMatrixEdgeClockwise(a,3,3); 
-         System.out.println("input :\n");           
-         al.displayMatrix(a,5,5);
-         al.rotateMatrix(a,5);
+         //System.out.println("input :\n");           
+         //al.displayMatrix(a,5,5);
+         //al.rotateMatrix(a,5);
          //al.displayMatrix(a,5,5); 
-         System.out.println("output :\n");           
-         al.displayMatrix(a,5,5);
+         //System.out.println("output :\n");           
+         //al.displayMatrix(a,5,5);
          //int[] temp = al.copyRowArray(a,4,5);
-         //al.printArray(al.populateArrayList(temp));   
+         //al.printArray(al.populateArrayList(temp)); 
+         //ArrayList<ArrayList<Integer>> graph = al.buildGraph(); 
+         //al.printGraph(graph); 
+         //System.out.println("Is there a route (0->5) ?" +  
+                            //al.isRoute(graph,0,5));
+         //char[] A = new char[]{'a','b','c','d'};
+         //al.permute(A,0,1);
+         //al.combineIndex(A,4);
+         //LList<Integer> head = new LList<Integer>();
+         // data insertion
+         //head.insertData(5);
+         //head.insertData(6);
+         //head.insertData(7);
+         // data deletion
+         //head.deleteData(5); 
+         char[] T = new char[]{'a','a','a','a','a'};
+         char[] P = new char[]{'a'};
+         System.out.println("Count of number of occurrences : " + 
+                            al.naiveStringMatch(T,P));     
       } 
       catch(Exception e)
       {

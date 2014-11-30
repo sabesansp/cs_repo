@@ -1,2 +1,2 @@
-javac Algorithms.java
+javac *.java
 java Algorithms
