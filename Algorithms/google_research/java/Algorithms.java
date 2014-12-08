@@ -701,6 +701,173 @@ public class Algorithms
    } 
             
 
+   // P : implement radix sort
+   public void radixSort(int[] A)
+   {
+
+      // compute the max number of digits in A
+      int d = maxDigits(A);
+
+      for(int k=d;
+          k>=1;
+          k--)
+      {
+         // sort A according to "extractDigits" routine
+         for(int i =0;
+             i<A.length;
+             i++)
+         {
+            for(int j=i+1;
+                j<A.length-1;
+                j++)
+            {
+               int d1 = extractDigits(A[i],k);
+               int d2 = extractDigits(A[j],k);
+               System.out.print(d1 + " " + d2 + "\n");
+               if(d1>d2)
+               {
+                  swap(A,i,j);
+                  dispArray(A);
+               }
+            }
+         }
+      } 
+   }  
+          
+
+   // P : display the entire integer array
+   public void dispArray(int[] A)
+   {
+      for(int a : A) {System.out.print(a + " ");}
+      System.out.print("\n");
+   } 
+
+
+   // P : Count the number of digits in x
+   public int countDigits(int x)
+   {
+   
+      x = Math.abs(x); 
+      int c=0;
+      if(x==0)
+      {
+         c=1;
+      } 
+      else
+      {
+         while(x>0)
+         {
+            x=x/10;
+            //System.out.println("The abs value of x = " + x);   
+            c++;
+         }
+      }
+      return c;
+   } 
+
+   // P: extract the digits in the specified place
+   public int extractDigits(int x,
+                            int y)
+   {
+   
+      int n = countDigits(x);
+      int[] dArray = new int[n];
+      int k=n-1;
+      while(x != 0 &&
+            k>=0)
+      {
+         dArray[k] = x%10;
+         x = x/10;
+         k--;
+      }
+      // take care of test cases like y = {0,-1,>n etc...}
+      return dArray[y-1];
+   } 
+
+
+   // P : Count the maximum number of digits in an array
+   public int maxDigits(int[] A)
+   {
+      int max = 0;
+      for(int a : A)
+      {  
+         // count the number of digits
+         int d = countDigits(a);      
+
+         if(d>max) max = d;
+      }
+      return max;
+   } 
+ 
+
+   // P : Max-heapify a tree
+   public void maxHeapify(int[] A,
+                          int i,
+                          int heapSize)
+   {
+      int largest=i;
+      if(i>=0 && i<A.length)
+      {
+         int left = 2*i+1;
+         int right = 2*i+2;
+         if(left < A.length &&
+            left <= heapSize)
+         {
+            if(A[left]>A[largest])
+               largest = left;
+         } 
+         if(right < A.length &&
+            right <= heapSize)
+         {
+            if(A[right]>A[largest])
+               largest = right;
+         }
+         if(largest != i)
+         {
+            swap(A,i,largest);
+            System.out.println("Max-heapify i : " + i);
+            dispArray(A); 
+            maxHeapify(A,largest,heapSize);
+         }
+      }
+   }    
+
+
+   // P : Build a max heap given the heap size
+   public void buildMaxHeap(int[] A,
+                            int heapSize)
+   {
+      if(heapSize>=0 &&
+         heapSize<A.length)
+      {
+         int p = (heapSize + 1)/2;
+         for(int i=p;
+             i>=0;
+             i--)
+         {
+            maxHeapify(A,i,heapSize);
+         }
+      }
+   }
+ 
+
+   // P : sort an array of elements using heap sort
+   public void heapSort(int[] A)
+   {
+      for(int i=A.length-1;
+          i>=1;
+          i--)
+      {
+         buildMaxHeap(A,i);
+         System.out.println("Max heap : ");
+         dispArray(A);
+         swap(A,0,i);
+         System.out.println("After swap : ");
+         dispArray(A);
+      }
+   }
+
+
 
 
    // code starts executing from here
@@ -766,10 +933,26 @@ public class Algorithms
          //head.insertData(7);
          // data deletion
          //head.deleteData(5); 
-         char[] T = new char[]{'a','a','a','a','a'};
-         char[] P = new char[]{'a'};
-         System.out.println("Count of number of occurrences : " + 
-                            al.naiveStringMatch(T,P));     
+         //char[] T = new char[]{'a','a','a','a','a'};
+         //char[] P = new char[]{'a'};
+         //System.out.println("Count of number of occurrences : " + 
+                            //al.naiveStringMatch(T,P));
+         
+         //int x = 845670909;
+         //int y = 8;
+         //System.out.println("The number of digits in " 
+                            //+  x  + " : " + 
+                            //al.countDigits(x));
+         //System.out.println("The digit extracted " + y +
+                            //" : " + al.extractDigits(x,y));
+         // this code does not work, need to debug 
+         int[] a = new int[]{6,8,0,2,4,21,2,21,874};
+         System.out.println("Original array : ");
+         al.dispArray(a);
+         al.heapSort(a);
+         System.out.println("Sorted array : ");
+         al.dispArray(a);
+                 
       } 
       catch(Exception e)
       {
