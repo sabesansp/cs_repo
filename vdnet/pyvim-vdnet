@@ -1,0 +1,42 @@
+P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
+
+[55mins]
+
+
+# S1: Download the api mac timer to record the time taken to complete this activity
+
+# S2: Write down a preliminary plan for completing this activity
+
+ # Pick one api like "powerOff" 
+ # Follow the same process as "powerOn" implemented by Prabuddh
+ # Initial definition of process : code -> test -> review -> rework * {goes back to code}
+                                   ------------------------> check-in 
+ # api_1 -> code -> test -> review -> rework
+         -> code -> test -> review -> rework
+         -> code -> test -> review -> check-in
+   [ a sample cycle which has two rework units based on comments ]
+
+
+# S3 :  To be able to implement the plan what would be required ? {"pre-req"}
+
+
+ # File a bug for completing the task
+  # bug_number = [#1374435]
+  # link_bookmark() // bookmarks the link for the bug
+
+ # Set up the vdnet code base on dbc
+  # command  = "ssh ssaidapetpach@pa-dbc1109.eng.vmware.com" | password = "*"
+  # n[files_modified] = 2
+  # SP : Issue a command like "dbc-connect" from command line and connect to the place where repo is checked out
+   #
+  # SP :  
+
+ # Go through the link Prabuddh sent :
+  # link l = [https://gitreview.eng.vmware.com:8443/#/c/10978/] 
+  # files
+    - TDS/EsxServer/Stability/RPMTTds.pm
+    - VDNetLib/VM/ESXSTAFVMOperations.pm
+    - pylib/vmware/vsphere/vm/api/vm10_power_impl.py
+    - pylib/vmware/vsphere/vm/api/vm_api_client.py
+  # Shashank's code link l1 = [nsx-qe/vdnet/automation/pylib/vmware/vsphere/] 
+  # 	
