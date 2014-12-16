@@ -868,6 +868,35 @@ public class Algorithms
    }
 
 
+   // P : compute the maximum sub array sum
+   public int computeMaxSubArraySum(int[] A)
+   {
+      int sum=A[0], maxSum=sum, start=0, end=0;
+      // loop through array
+      for(int i=1;
+          i<A.length;
+          i++)
+      {
+         if(A[i]>sum && 
+            A[i]>maxSum &&
+            sum+A[i] < A[i])
+         {
+            start=i;
+            sum=A[i];
+         }
+         else
+            sum+=A[i];
+         if(sum>maxSum)
+         {
+            maxSum=sum;
+            end=i;
+         }
+      }
+      System.out.println("Start = " + start + 
+                         "\t End  = "+ end);
+      return maxSum;
+   }
+
 
 
    // code starts executing from here
@@ -946,12 +975,17 @@ public class Algorithms
          //System.out.println("The digit extracted " + y +
                             //" : " + al.extractDigits(x,y));
          // this code does not work, need to debug 
-         int[] a = new int[]{6,8,0,2,4,21,2,21,874};
-         System.out.println("Original array : ");
-         al.dispArray(a);
-         al.heapSort(a);
-         System.out.println("Sorted array : ");
-         al.dispArray(a);
+         //int[] a = new int[]{6,8,0,2,4,21,2,21,874};
+         //System.out.println("Original array : ");
+         //al.dispArray(a);
+         //al.heapSort(a);
+         //System.out.println("Sorted array : ");
+         //al.dispArray(a);
+         //al.dispArray(a);
+         //int[] a = new int[]{1,-2,3,-10,-4,7,5};
+         //int sum = al.computeMaxSubArraySum(a);
+         //System.out.println("Max sum = " + sum);
+         
                  
       } 
       catch(Exception e)
