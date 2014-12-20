@@ -2,6 +2,7 @@ import java.util.*;
 import java.io.*;
 import java.math.*;
 
+
 public class Algorithms
 {
 
@@ -897,6 +898,97 @@ public class Algorithms
       return maxSum;
    }
 
+   
+   public String concatenateStr(String src,
+                                String dest)
+   {
+      String[] srcList = src.split(" ");
+      String[] destList = dest.split(" ");
+      if(srcList != null && srcList.length > 0 &&
+         destList != null && destList.length > 1 && 
+         srcList[0].equals(destList[1]))
+      {
+         return dest+" "+src;
+      } 
+      else 
+      if(destList != null && destList.length>0 &&
+         srcList != null && srcList.length>1 &&
+         destList[0].equals(srcList[1]))
+      {
+         return src+" "+dest;
+      }
+      else
+      {
+         return null;
+      } 
+   }
+
+
+   public String getRoute(List<String> l)
+   {
+      while(l.size()>1)
+      {
+         for(int i=0;
+             i<l.size()-1;
+             i++)
+         {
+            for(int j=i+1;
+                j<l.size();j++)
+            {
+               String str = concatenateStr(l.get(i),
+                                           l.get(j));
+               if(str != null)
+               {
+                  l.set(i,str);
+                  l.remove(j);
+                  j--;
+               }
+            }
+         }
+      }
+      return l.get(0);
+   }
+    
+               
+       
+
+
+   public void readInputString()
+   {
+      try{
+         BufferedReader br = 
+               new BufferedReader(
+                      new InputStreamReader(System.in));
+         List<String> strList = new ArrayList<String>();
+         String input = null;
+         do{
+         
+            // Enter null to terminate the prompt for list of pairs
+            System.out.print("Enter the list of pairs: ");
+            input = br.readLine();
+            System.out.print("\n");
+            if(!input.equals("null"))
+               strList.add(input);                   
+     
+         }while(input != null && 
+                !input.equals("null")); 
+         String route = getRoute(strList);
+         strList = new ArrayList<String>();
+         String[] graphArray = route.split(" ");
+         for(int i=0;i<graphArray.length;i+=2)
+         {
+            strList.add(graphArray[i]+" "+graphArray[i+1]);
+         } 
+         // Display the final array list
+         for(String s : strList)
+         {
+            System.out.println(s);
+         }
+      } catch(IOException e){
+         e.printStackTrace();
+      }
+   }
+
 
 
    // code starts executing from here
@@ -985,7 +1077,7 @@ public class Algorithms
          //int[] a = new int[]{1,-2,3,-10,-4,7,5};
          //int sum = al.computeMaxSubArraySum(a);
          //System.out.println("Max sum = " + sum);
-         
+         al.readInputString();         
                  
       } 
       catch(Exception e)
