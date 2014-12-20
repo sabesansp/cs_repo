@@ -1,10 +1,11 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[55mins]
+[195mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
-
+                 
+                 
 # S2: Write down a preliminary plan for completing this activity
 
  # Pick one api like "powerOff" 
@@ -15,7 +16,8 @@ P : Go through the python apis written by Shashank and replace the staf calls in
          -> code -> test -> review -> rework
          -> code -> test -> review -> check-in
    [ a sample cycle which has two rework units based on comments ]
-
+                 
+                 
 
 # S3 :  To be able to implement the plan what would be required ? {"pre-req"}
 
@@ -27,16 +29,84 @@ P : Go through the python apis written by Shashank and replace the staf calls in
  # Set up the vdnet code base on dbc
   # command  = "ssh ssaidapetpach@pa-dbc1109.eng.vmware.com" | password = "*"
   # n[files_modified] = 2
-  # SP : Issue a command like "dbc-connect" from command line and connect to the place where repo is checked out
-   #
-  # SP :  
+
+
+  # "SP" : Issue a command like "dbc-connect" from command line and connect to the place where repo is checked out
+   # use alias called "dbc-connect" and place $command as the value in bash_profile
+
+   # "SP" : makeLoginPasswordless()
+    # from host, generate key "ssh-keygen -t rsa"
+    # public key stored in "/Users/ssaidapetpach/.ssh/id_rsa"
+    # copy the key and move it to the target host using a command like
+      --- cat ~/.ssh/id_rsa.pub | ssh b@B 'cat >> ~/.ssh/authorized_keys'---
+  
+  # "SP" : setup the vdnet master controller to be able to execute the code
+   # login into the esx host and check the ip of the master controller 
+   # forgot the ip of the esxi host and unable to login
+   # use the kvm switch to check the console
+   # kvm switch not operational
+   # File a "HelpNow" ticket for this issue {INC0087727} 	  
+    # This is up for review tomorrow morning (12/17/2014}
+    # ---problem solved here---  
+   # esx_host_ip = 10.33.75.228
 
  # Go through the link Prabuddh sent :
-  # link l = [https://gitreview.eng.vmware.com:8443/#/c/10978/] 
+  # link l = [https://gitreview.eng.vmware.com:8443/#/c/10978/,
+              https://reviewboard.eng.vmware.com/r/656157/] 
   # files
     - TDS/EsxServer/Stability/RPMTTds.pm
     - VDNetLib/VM/ESXSTAFVMOperations.pm
     - pylib/vmware/vsphere/vm/api/vm10_power_impl.py
     - pylib/vmware/vsphere/vm/api/vm_api_client.py
   # Shashank's code link l1 = [nsx-qe/vdnet/automation/pylib/vmware/vsphere/] 
-  # 	
+  # Sent comments on the review on gitreview
+
+
+# S4 : Implement the vmops power off function first
+ 
+ # file = "VDNetLib/VM/ESXSTAFVMOperations.pm"
+ # precondition =  "Prabuddh checking in the file"
+ # plan what sort of implementation will go into the file
+ # comment in the bug about the precondition
+ # waitForCheckin()
+
+# S5 : Access the vdnet master controller [sub-problem from S3]
+
+ # Deploy a windows 7 enterprise edition vm in fusion
+  # Where can I find a windows 7 vm ? 
+  # search("source.vmware.com")
+  # link = "https://kb.eng.vmware.com/node/1813"
+  # follow the steps in the "link" above  
+ # Install vsphere client in the vm to access esx box (10.33.75.228)
+  # where can I get vsphere client ESXi 5.0.0 ?
+  # search("source.vmware.com",
+           "vsphere client for ESXi 5.0.0"))
+  # link = "vilib.eng.vmware.com/Binaries"
+  # bring_in("latest_vsphere_client_build")
+ # vdnet_mc_ip = 10.33.74.138
+ # find("vdnet_site_page)
+  # link = "https://sites.google.com/a/vmware.com/vdnet/" {bookmarked}
+
+# S6 : Evaluate if a new vdnet master controller can be deployed in wdc
+ 
+ # search("vdnet_site")
+ # mc_deployment_pod = ~netfvt/wdc-mc
+ # ucs_private_cloud = vc_ip = 10.144.136.10 {login (user:root/pwd:ca$...)}
+ # NIMBUS_ovf_deploy_command here:
+  # NIMBUS_CONFIG_FILE=~netfvt/master-config.json NIMBUS=wdc-mc /mts/git/bin/nimbus-ovfdeploy -d ssaidapetpach-mc-x86-1 <link_to_ovf>
+ # Do not use the nimbus-ovf-deploy command, instead deploy ovf in MC-depository directly
+  # vmware_client_integration plug-in needs to be installed first on the vsphere web client
+  # install("vmware_client_integration_plugin")
+  # manual deploy of ovf in "MC-depository" resource pool 
+  # wait("until_deployment_completes")
+
+# S7 : On the new vdnet master controller, test deployment of a sample vm with guest os
+
+ # search(src="vdnet_site",
+          keyword="vm_deployment")
+ # ip_recv = 172.* on vlan 27
+ # change vlan to fabric A 1360  and restart the vm
+ # vdnet_mc_ip {wdc-lab} = 10.144.137.217
+ # program_passwordless_login(vdnet_mc_ip)
+ # CONTINUE : use("~/yaml/sample.yaml") on dbc   
+	
