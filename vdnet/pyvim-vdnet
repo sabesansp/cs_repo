@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[367mins]
+[696 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -108,5 +108,48 @@ P : Go through the python apis written by Shashank and replace the staf calls in
  # change vlan to fabric A 1360  and restart the vm
  # vdnet_mc_ip {wdc-lab} = 10.144.137.217
  # program_passwordless_login(vdnet_mc_ip)
- # CONTINUE : use("~/yaml/sample.yaml") on dbc   
+ # use("~/yaml/sample.yaml") on dbc
+ # NOTE : 29 mins down, yet to find the "context"
+ # "SP": deploy vc, esxi, a vm with gos on esxi
+  # rpmt yaml => copied over to "~/yaml/rpmt.yaml"
+  # add "ssaidapetpach" to sudoers file => 
+    "sudo adduser ssaidapetpach sudo"
+  # "SP": No deploy_testbed.log gets created
+   # String = "Checking or deploying testbed, please wait.. watch deployment logs at 
+               /tmp/vdnet/20141222-172625/deploy_testbed.log"
+   # There is no file ("deploy_testbed.log") created in the specified folder
+   # Where is this log statement printed in code ?
+   # VDNetLib::Session::Session:2726
+   # "SP" : At what point in the code is "deploy_testbed.log" created ?
+    # search("deploy_testbed.log") : 
+      grep -i -r -v "deploy_testbed" <path_to_folder>
+    # The search results were not useful
+    # Start from the entry point "E" : vdnet/automation/main/vdnet
+    # calls "e1" : vdnet/automation/main/vdNet.pl
+    # calls "e2" : new() {vdnet/automation/VDNetLib/Session/Session.pm}
+    # calls "e3" : ConfigureLogging() {vdnet/automation/VDNetLib/Session/Session.pm}
+    # ...calls "e4" : setup_logging() {vdnet/automation/scripts/deployTestbed.py}
+     # does not create the file "deploy_testbed.log" even though it is defined as a file handler for logging
+     # a separate prototype for this works to create the file in the same directory as the code tries to do
+   # re-run the test case with a higher log level
+   # set up a dbc account in wdc
+   # 22 mins for the next line to be printed after "deploy_testbed.log"
+  # "SP": VM deployment fails
+   # vc.1 ip address: 10.144.137.107,
+     esx.1 ip address: 10.144.138.186, 
+     esx.2 ip address: 10.144.138.136
+     vm.1 => powered on || 
+     name => 1-RHEL63_srv_64-local-1056-582dae85-67af-48d1-9d18-0f1e8792cbe0 || 
+     path => /vmfs/volumes/datastore1/vdtest-12300/VM-1/RHEL63_srv_64.vmx
+     
+   # 322 secs [FAIL]
+   # useful links
+     Session log file: /tmp/vdnet/20141223-184933/vdnet.log
+     Racetrack link: http://racetrack.eng.vmware.com/result.php?id=1996575
+     Base log dir for this session: /tmp/vdnet/20141223-184933
+     Debugging tips	: http://goo.gl/Gllc1k
+     Perl exited with active threads:
+	1 running and unjoined
+	1 finished and unjoined
+	0 running and detached    
 	
