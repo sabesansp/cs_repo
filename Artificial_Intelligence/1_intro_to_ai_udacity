@@ -1,0 +1,4 @@
+# ai program = intelligent agent
+# sensors = interface between agent and environment which measure information
+# Ai => transform information into a desired information state
+# actuators = interface between agent and environment which effect the environment state
