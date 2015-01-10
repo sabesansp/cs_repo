@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[696 mins]
+[1325 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -152,4 +152,108 @@ P : Go through the python apis written by Shashank and replace the staf calls in
 	1 running and unjoined
 	1 finished and unjoined
 	0 running and detached    
-	
+
+
+# S8 : Complete "reboot()" method first in HostOperations.pm since it is taking time to check in
+
+ # update_bug(msg) : bug_1374435
+ # infrastructure : 1 esxi host
+ # reboot.yaml : one_esxi_host
+ 
+ # SP => Cannot login into mc {10.144.137.217} 
+  
+  # mc was powered down
+  # power up the mc
+  # ping the old ip => pingable
+  # vdnet_mc_ip changed
+  # vdnet_mc_ip = "10.144.138.31"
+  # login_problem_solved
+
+ # SP => mount point for w2-dbc201 was not present in mc 
+
+  # root_cause = "ip_changed" => "mount_points_lost"
+  # cmd  = "sudo mount w2-dbc201.eng.vmware.com:/dbc/w2-dbc201/ssaidapetpach /dbc/w2-dbc201/ssaidapetpach"
+  # logout and test_login()
+  # prompt = $vdnet_src_dir
+
+ # SP => Figure out a specific test case for reboot 
+
+ # SP => Code up the condition and understand the flow of the code 
+
+  # File = VDNetLib/Host/HostOperations.pm
+  # Set_of_Transformations 'T' = {
+   # Add "VDNetLib::InlinePython::VDNetInterface qw(CreateInlinePythonObject
+                                                    ConfigureLogger 
+                                                    CallMethodWithKWArgs);"
+     in the beginning
+    # qw => inserts quotes around the words and passes it to use function
+      which will use the functions from VDNetInterface
+   # In reboot() => add this line $pyObj = $self->GetInlinePyObject()
+   # $result = CallMethodWithKWArgs($pyObj, 'reboot', {});
+     {this method defined in pylib/vmware/vsphere/esx/api/esx55_power_impl.py}
+   # comment the old code and put in the new code
+   
+  # Test_Case : EsxServer.VMKTCPIP.VMKTCPIP.EEsxReboot
+   # comment out rest of the parts
+   # problem while executing the testcase 
+   # needs to be dealt with, as a separate sub-problem 
+
+
+
+# S9 : Come up with a strategy to comment lines 40-93
+
+ # comment : apply('#')
+ # try command = ":40,93s/^/#"
+ # this command works
+ # for uncommenting command = ":40,93s/^#/"
+ 
+
+# S10 : Solve sub-problem {node /testbed/host/1 obj does not exist}
+
+ # base log dir : /tmp/vdnet/20150106-200432
+ # Use this as the basis for solving this problem 
+ # changeDir(1_TDS...)
+ # error_msg_1 = "Node /testbed/host/1 does not exist"
+ # code_unit = "VDNetLib::Common:Zookeeper:412"  
+ # esx.1.ip address = 10.144.139.87 {extend_lease() as appropriate}
+ # try to save the testbed first 
+ # base log dir = /tmp/vdnet/20150107-154100
+ 
+ # search(zookeeper_base_log_dir)
+  # zookeeper_base_log_dir = "/tmp/vdnetsnap/rpmt/zookeeper-19816"
+  # changeDir(zookeeper_base_log_dir)
+  # found(bunch_of_scripts)
+
+
+ # reboot the mc and retry()
+ # saw the same error
+ # Reason : The testbedspec in the tds was empty and nothing got written to zookeeper node
+ # populated the testbedspec in tds and the error was gone
+
+
+# S11 : Received an exception "InvalidState" while executing the reboot api
+
+ # msg = "The operation is not allowed in the current state"
+ # The "Force" parameter needs to be set to true
+ # Pass this parameter in the KW arguments list 
+ # When 'True' is passed, there is a runtime error
+ # passHash('force' => 'True') : {ERROR} => expecting bool but got a str
+ # passHash('force' => True) : {SYNTAX_ERROR}
+ # passhash('force' => 1) : {NO_ERROR}
+
+
+# S12 : Implement the check-in 
+
+ # deploy 2 esxi => 10.144.139.91, 10.144.138.132
+ # test passes :  http://racetrack.eng.vmware.com/result.php?id=2023036
+ # prepare(code_checkin)
+  # post review => https://sites.google.com/a/vmware.com/vdnet/Miscellaneous/10-0-git-vs-perforce/use-case-1
+  # delete whitespaces at end of line & remove tabs => ":%s/\s\+$//"
+  # post-review <commit-id>
+  # git commit --amend <file>
+  # post-review <commit-id> -r <review_num> {re-post into the same review_num}
+  # git push review HEAD:refs/for/master {push to gerritt -> submit} 
+
+
+# S13 : 
+ 
