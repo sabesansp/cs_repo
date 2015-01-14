@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[1325 mins]
+[1666 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -255,5 +255,14 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # git push review HEAD:refs/for/master {push to gerritt -> submit} 
 
 
-# S13 : 
+# S13 : Pick second api to be completed
+
+ # LISTVSWITCH could be a candidate
+ # source_file = "...Switch/VSSwitch/VSSwitch.pm"
+ # line_number = 126 {first_usage_of_LISTVSWITCH}
+ # pylib_file = "pylib/vmware/vsphere/esx/vsswitch/api/esx55_crud_impl.py"
+ # usedPorts in tuple at source_file does not correspond to numPortsAvailablein SwitchSchema
+ # !correspondence(usedPorts{source_file},
+                   numPortsAvailable{pylib_file}) // code to convert the previous line
+  # -diversion-coursera      
  
