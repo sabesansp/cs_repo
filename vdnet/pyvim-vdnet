@@ -264,5 +264,6 @@ P : Go through the python apis written by Shashank and replace the staf calls in
  # usedPorts in tuple at source_file does not correspond to numPortsAvailablein SwitchSchema
  # !correspondence(usedPorts{source_file},
                    numPortsAvailable{pylib_file}) // code to convert the previous line
-  # -diversion-coursera      
- 
+  # N{tests(GetvSwitchProp)} => 0   
+ # -diversion-coursera      
+ # -diversion-gambit-scheme
