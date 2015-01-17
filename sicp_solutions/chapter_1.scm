@@ -37,3 +37,35 @@
 )
 (newline)
 
+; ex1.3 :
+
+; Define a procedure that takes three numbers as arguments and return the 
+; sum of the squares of the two larger numbers
+
+; procedure to calculate sum of squares
+; of two numbers
+
+(define (sum-of-squares a1 a2) 
+        (+ (* a1 a1) (* a2 a2))
+)
+
+(display (sum-of-squares 3 4))
+(newline)
+
+; procedure to calculate the greatest of two numbers
+
+(define (greater a1 a2)
+        (if (> a1 a2) 
+            a1 
+            a2
+        )
+)
+
+(display (greater 4 5))
+(newline)
+
+
+(define (sum-of-squares-greater-two a1 a2 a3))
+        (define n1 (greater (greater a1 a2) a3))
+        (define n2 (
+
