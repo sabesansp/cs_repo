@@ -64,8 +64,57 @@
 (display (greater 4 5))
 (newline)
 
+(define (lesser a1 a2)
+        (if (< a1 a2)
+            a1
+            a2
+        )
+)
 
-(define (sum-of-squares-greater-two a1 a2 a3))
-        (define n1 (greater (greater a1 a2) a3))
-        (define n2 (
+(display (lesser 3 4))
+(newline)
+
+(define (compute-mid a1 a2 a3)
+        ;(define n1 (greater (greater a1 a2) a3))
+        ;(define n2 (lesser (lesser a1 a2) a3))
+        (if (and (< a1 a2) (< a2 a3))
+            a2
+           (if (and (<= a3 a2) (<= a2 a1))
+              a2
+              (if (and (<= a2 a1) (<= a1 a3))
+                 a1
+                 (if (and (<= a3 a1) (<= a1 a2))
+                    a1
+                    (if (and (<= a1 a3) (<= a3 a2))
+                       a3
+                       (if (and (<= a2 a3) (<= a3 a1))
+                          a3
+                     
+                       )
+                    )
+                 )
+              )
+           )
+        )
+
+)
+      
+
+
+(display (compute-mid 3 4 5)) 
+(newline)
+
+
+
+(define (sum-of-squares-greater-two a1 a2 a3)
+        (define n1 (greater (greater a1 a2) a3))  
+        (define n2 (compute-mid a1 a2 a3))
+        (sum-of-squares n1 n2)
+)
+
+
+(display (sum-of-squares-greater-two 6 2 3))
+(newline)
+
+
 
