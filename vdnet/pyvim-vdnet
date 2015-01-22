@@ -267,3 +267,19 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # N{tests(GetvSwitchProp)} => 0   
  # -diversion-coursera      
  # -diversion-gambit-scheme
+
+
+# S14 : Unit test review { https://reviewboard.eng.vmware.com/r/731281/ }
+
+ # author : prabuddh
+ # review published : {optimization, blank_spaces}
+
+# S15 : shortlist a set of apis to be transformed into the pylib equivalent
+
+ # -diversion-send-solution-on-pyvim-sslthumbprintdata-add-host-to-cluster
+ # 
+
+
+
+
+
