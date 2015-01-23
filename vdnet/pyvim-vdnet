@@ -277,7 +277,7 @@ P : Go through the python apis written by Shashank and replace the staf calls in
 # S15 : shortlist a set of apis to be transformed into the pylib equivalent
 
  # -diversion-send-solution-on-pyvim-sslthumbprintdata-add-host-to-cluster
- # 
+ #  
 
 
 
