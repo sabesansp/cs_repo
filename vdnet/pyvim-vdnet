@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[1786 mins]
+[1816 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -277,9 +277,26 @@ P : Go through the python apis written by Shashank and replace the staf calls in
 # S15 : shortlist a set of apis to be transformed into the pylib equivalent
 
  # -diversion-send-solution-on-pyvim-sslthumbprintdata-add-host-to-cluster
- #  
+ # api_list_1 = [LISTVMKNIC, UPDATEPCIPASSTHRUCONFIG, LISTNICS, LISTDVPG, DISCONNECT]
 
 
+# S16 : Work on "api_list_1"
+
+ # api_list_1[0] = LISTVMKNIC
+  # api.location = Host/HostOperations.pm : 4724
+  # api.name = "ListVmknics"
+  # api.callers = ["/Workloads/HostWorkload.pm",
+                   "/Workloads/AbstractSwitchWorkload.pm"]
+  # function : transform()
+  # transform() { copy_transform(reboot);}
+  # lines = { my $pyObj = $self -> GetInlinePyObject(); ||
+              my $result = CallMethodWithKWArgs($pyObj,'listvmknics');
+  # pylib_api_location = "...pylib/vmware/vsphere/esx/api/esx55_adapter_impl.py"
+  # pylib_api_return = list_vnic() // returns nics to the caller 
+  # If there are no vmknics, "nics" datastructure would be empty from pylib
+  # There will be no case where this will return null
+  # Checks in the caller have to be modified accordingly
+  # 
 
 
 
