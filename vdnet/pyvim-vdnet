@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[1816 mins]
+[1867 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -296,7 +296,17 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # If there are no vmknics, "nics" datastructure would be empty from pylib
   # There will be no case where this will return null
   # Checks in the caller have to be modified accordingly
-  # 
+  # "list_vnic" method returns the list of virtual nics {python list}
+  # "ListVmknics" routine in HostOperations.pm expects a hash stored in $result -> {result} 
+  # what does $result -> {result} contain ?
+   # examine api.callers
+   # context(usage) :
+    # my $result = $hostObj -> ListVmknics()
+    # check() : ref($result) eq "ARRAY"
+    # foreach item : @$result
+    # if($item -> {'Interface'}  =~ m/$interface/i) {vssPortgroup = $item -> {'PortGroup'} [AbstractSwitchWorkload.pm]
+    # if($item -> {'PortGroup'} eq $hostOpsHash -> {testpg}) { $device = $item -> {'Interface'}; [HostWorkload.pm]
+    # 
 
 
 
