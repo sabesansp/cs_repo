@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[1867 mins]
+[1897 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -305,8 +305,22 @@ P : Go through the python apis written by Shashank and replace the staf calls in
     # check() : ref($result) eq "ARRAY"
     # foreach item : @$result
     # if($item -> {'Interface'}  =~ m/$interface/i) {vssPortgroup = $item -> {'PortGroup'} [AbstractSwitchWorkload.pm]
-    # if($item -> {'PortGroup'} eq $hostOpsHash -> {testpg}) { $device = $item -> {'Interface'}; [HostWorkload.pm]
-    # 
+    # if($item -> {'PortGroup'} eq $hostOpsHash -> {testpg}) { $device = $item -> {'Interface'}; [HostWorkload.pm] 
+  # find one test that uses ListVmknics
+   # test_case : "EsxServer.VMKTCPIP.VMKTCPIP.RFRoute" deletes vmknics in its workflow sequence
+   # needs only one esxi host {which is a good candidate for testing}
+   # reuse reboot.yaml for testing purposes
+   # spawn the testbed :  ./vdnet/automation/main/vdnet -c ~/yaml/reboot.yaml -t EsxServer.VMKTCPIP.VMKTCPIP.RFRoute --testbed save
+  # deployed_esx_ip : 10.144.138.63
+  # flip number of iterations to 1 instead of 20 in the TDS
+  # passed_log : http://racetrack.eng.vmware.com/result.php?id=2056531
+
+  # p1 : Unable to get a print statement to the log from ListVmknics (Is this method even being called ? )
+   # Need to start from this section tomorrow (verify the code flow path)
+
+  # p2 : changes had to be discarded because of a problem in git workflow
+   # Need to solve this problem of merging code before proceeding to avoid such pitfalls
 
 
+	  
 
