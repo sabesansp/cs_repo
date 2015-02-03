@@ -990,6 +990,60 @@ public class Algorithms
    }
 
 
+   public int[] mergeArrays(int[] A, int[] B, int[] C) {
+
+      // A = <0,2,4,6>
+      // B = <-1,7,9,25,98>
+      // C = <100,215>
+      // i=0, j=0 0>-1, copy B[j] into O[index] 
+   
+      int i,j,k;
+
+      int[] O = new int[A.length + B.length];
+      int[] output = new int[O.length + C.length];
+      int index = 0;
+
+      // Iterate through the A and B array
+
+      for( i=0,j=0; i<A.length && j<B.length;) {
+
+         if(A[i] < B[j]) {O[index++] = A[i++];} 
+
+         else {O[index++] = B[j++];}
+
+      }
+
+      if(i < A.length) {while(i<A.length) {O[index++] = A[i++];}}
+      if(j < B.length) {while(j<B.length) {O[index++] = B[j++];}}
+
+      // Array O = sorted merge output of A & B
+
+      int m;
+      int n=0; 
+      for(m=0,k=0;k<C.length && m<O.length;) {
+
+         // Iterate through O array and C array
+ 
+         if(O[m] < C[k]) { output[n++] = O[m++]; }
+         else { output[n++] = C[k++]; }
+
+      }
+
+      if(m<O.length) { while(m<O.length) { output[n++] = O[m++];}}
+      if(k<C.length) { while(k<C.length) { output[n++] = C[k++];}}
+      
+      return output;
+      
+     
+
+   }
+
+
+      
+  
+
+
+
 
    // code starts executing from here
    public static void main(String[] args)
@@ -1077,8 +1131,10 @@ public class Algorithms
          //int[] a = new int[]{1,-2,3,-10,-4,7,5};
          //int sum = al.computeMaxSubArraySum(a);
          //System.out.println("Max sum = " + sum);
-         al.readInputString();         
-                 
+         //al.readInputString();         
+         al.dispArray(al.mergeArrays(new int[]{0,2,4,6},
+                        new int[]{-1,7,9,25,98},
+                        new int[]{100,215}));
       } 
       catch(Exception e)
       {
