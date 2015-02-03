@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[1897 mins]
+[1937 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -322,5 +322,31 @@ P : Go through the python apis written by Shashank and replace the staf calls in
    # Need to solve this problem of merging code before proceeding to avoid such pitfalls
 
 
-	  
+
+# S17 : Choose one api to be worked upon and submit it in the git repo {api chosen = LISTNICS}
+
+ # Choose a test that exercises the GetPCIId code path 
+ # file that contains the pylib api = ...pylib/vmware/vsphere/esx/api/esx55_adapter_impl.py
+ # pylib api = "list_pnics"
+ # testcase to be run that involves "EnableFPT"
+ # key_handle = "...VDNetLib/Workloads/HostWorkload.pm" : method = "InitializeHostPhysicalComponents"
+ # what is the key used to init the vmnics ? => passthrough
+ # do not test this now : make changes for each api and make a local commit in a local git branch
+ # need to address S16.p2 ASAP with an urgency
+
+
+
+# S16.p2 : Resolve the git workflow for committing the changes to the pylib apis 
+
+ # Make a change for api_1 {LISTVMKNICS} for example and commit in a local branch
+ # Do not worry about testing this method yet 
+ # implement the change for LISTVMKNIC using the pylib api
+ # commit the change to the api in the local branch
+ # "delta-f" is stored in the local repository
+ # run a small experiment
+  # examine the file HostOperations.pm on master branch and check if the change was available
+  # the change is not available as expected which confirms the theory that the pylib-api-calls branch has an updated version of the file
+  # changes made to a certain file are only local to a given repo
+ # good read : http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+ # chapter 5 of git workflow also might be of importance to the reader
 
