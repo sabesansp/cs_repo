@@ -348,5 +348,4 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # the change is not available as expected which confirms the theory that the pylib-api-calls branch has an updated version of the file
   # changes made to a certain file are only local to a given repo
  # good read : http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
- # chapter 5 of git workflow also might be of importance to the reader
-
+ # chapter 5 of git workflow also might be of importance to the reader 
