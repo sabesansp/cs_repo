@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[1999 mins]
+[2039 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -360,4 +360,13 @@ P : Go through the python apis written by Shashank and replace the staf calls in
 # S19 : Implement a commit on the next set of apis [ UPDATEPCIPASSTHRUCONFIG, LISTNICS, LISTDVPG, DISCONNECT ] 
 
  # Make notes on why I am not taking up these apis now {on the google_docs}
- #     
+
+
+# S20 : Next api to be implemented => selectvnic()/deselectvnic() | pylib_api = "enable_vmotion"
+
+ # file_to_be_changed {fn} = "VDNetLib/NetAdapter/Vmknic/Vmknic.pm" {fn} 
+ # method_to_be_changed {mn} = "SetVMotion"
+ # lookup(fn) && change(mn) 
+ # Q1 => what object needs to be passed as "client_object" into the enable_vmotion api ? 
+ # Q1 needs to be answered first thing in the morning tomorrow
+     
