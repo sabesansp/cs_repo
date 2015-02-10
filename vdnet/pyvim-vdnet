@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[1937 mins]
+[1999 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -348,4 +348,16 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # the change is not available as expected which confirms the theory that the pylib-api-calls branch has an updated version of the file
   # changes made to a certain file are only local to a given repo
  # good read : http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
- # chapter 5 of git workflow also might be of importance to the reader 
+ # chapter 5 of git workflow also might be of importance to the reader
+
+
+# S18 : Take a count of the apis that have been completed to establish context
+ 
+ # 1 api => LISTVMKNICS 
+ # replay the commit on top of the existing commit => rebase to master from pylib-api-calls
+
+
+# S19 : Implement a commit on the next set of apis [ UPDATEPCIPASSTHRUCONFIG, LISTNICS, LISTDVPG, DISCONNECT ] 
+
+ # Make notes on why I am not taking up these apis now {on the google_docs}
+ #     
