@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[2039 mins]
+[2139 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -369,4 +369,39 @@ P : Go through the python apis written by Shashank and replace the staf calls in
  # lookup(fn) && change(mn) 
  # Q1 => what object needs to be passed as "client_object" into the enable_vmotion api ? 
  # Q1 needs to be answered first thing in the morning tomorrow
-     
+ # postpone(Q1)
+ # why is the portgroup name passed as a parameter to "mn" ?
+  # Enable/disable the vmknic connected to the portgroup that has the portgroup name
+  # enable_vmotion(vmknic | connected(vmknic, pgname))
+ # Design_question : Why is the portgroup name passed as a parameter to enable/disable vmknic ?
+  # probably due to the constraint imposed by the staf sdk call
+  # constraint{staf_sdk_call} - Probability
+ # What are the steps to be taken in order to transform this into a pyvim api call ?
+  # p1 : Get the vmknic object and call enable_vmotion on that object
+  # api : enable_vmotion(cls, client_object, enable=None)
+  # cls -> class, client_object -> object to be invoked, enable -> parameter
+  # steps for accomplishing p1 is not clear yet
+ # How can p1 be solved ?
+  # client_object -> instance_of(vmknicAPIClient)
+  # How can I create vmknicAPIClient instance ?
+   # Before solving this, how did the reboot api work ? {workflow}
+    # my $pyObj = $self->GetInlinePyObject();
+    # what does $self contain ?
+    # search for callers of reboot() api 
+    # caller = api : "RebootHostsInClusterSequentially()": 
+               file :  [..VDNetLib/VC/Cluster.pm]
+    # my $result = $hostObj->Reboot();
+    # what is the class of $hostObj ?
+    # class/type ($hostObj) = HypervisorOperations.pm
+  # For now, create the inline python object and leave a note stating that it needs to be tested
+    once Shashank is back
+ # Code has been committed : commit 64465ad35b91a88b2c0866c04b709c2496b33fa4
+   # Author: Sabesan Saidapet Pachai <ssaidapetpach@vmware.com>
+   # Date:   Fri Feb 13 15:48:55 2015 -0800
+
+      Modified SetVMotion api to use the pylib api enable_vmotion instead of the usual staf sdk call
+    
+      Issue: #
+      Change-Id: I8cdf144828ece68a91553fd09562f98c65f67bec  	      
+
+
