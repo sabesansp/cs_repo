@@ -1,0 +1,24 @@
+# print current working directory 
+ # import os
+ # os.getcwd() // prints current working directory
+# change current working directory
+ # os.chdir('Users/sabesansp/cs_repo')
+# open a file in read mode and display its contents
+ # f = open('Algorithms/algorithms.py','r')
+ # f.read()
+# create a file and write its contents
+ # f = open('Algorithms/clrs/sample.py','w')
+ # f.write('null')
+ # delete a file => os.remove('Algorithms/clrs/sample.py')
+# write a file with 10000 random integers chosen from a file
+ # generate a random integer between 1 and 100
+  # from random import randomint
+  # randomint(1,100) => 1 random number between 1 and 100
+ # write a loop to generate and display random integers between 1 and 10000
+  # for i in range(1,10001) :
+       s = randint(1,10000)
+       print s
+ # write the integer s into a file in every iteration
+  # f.write(str(s))
+  # f.write("\n")
+    
