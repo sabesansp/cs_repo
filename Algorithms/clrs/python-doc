@@ -21,4 +21,22 @@
  # write the integer s into a file in every iteration
   # f.write(str(s))
   # f.write("\n")
+# Measure time taken to load 10000 integers into memory
+ # python api to measure time
+ # from time import time
+ # time.time() => measured in seconds from epoch 
+ # load 10000 integers into a list
+  # method => load_dataset(file_path)
+  # read line from file => lines = f.read.splitlines()
+ # measure_time() => measure time in seconds
+# Pass a function to measure_time() to be invoked
+ # measure_time(load_dataset,'data.txt')
+ # function name passed as argument without quotes
+# change api "measure_time(func,file_path)" to "measure_time(func,data)"
+ # time taken for insertion sort [no_code] = 2.14576721191e-06
+ # how do I read a value xe-06 ?
+  # x * 10^-6
+# perform insertion sort on the dataset of 10000 integers and measure the time taken
+ # insertion_sort_algorithm ~ 6.844 secs [10000 integers]         
+
     
