@@ -90,6 +90,32 @@ def insertion_sort(int_list) :
       int_list[i+1] = key
 
 
+
+def addBinaryDigits(A,B) :
+
+   sum = 0
+   carry = 0
+   if(len(A) != len(B)):
+      raise invalid_input
+   k=len(A) -1
+   C = [0] * (k+2)
+   while k>=0 :
+      sum = A[k] + B[k] + carry
+      if(sum == 2) :
+         sum = 0
+         carry = 1
+      if(sum == 3) :
+         sum = 1
+         carry = 1
+      C[k+1] = sum 
+      k = k-1
+   C[0] = carry
+   return C
+
+
+      
+      
+
 ## Actual entry point of the program
 
 if __name__ == '__main__' :
@@ -97,11 +123,18 @@ if __name__ == '__main__' :
    # "data.txt" file exists in the current working directory
    # created through create_dataset api
 
-   int_list = load_dataset('data.txt')
+   #int_list = load_dataset('data.txt')
 
-   t_insertion_sort = measure_time(insertion_sort,int_list)
+   #t_insertion_sort = measure_time(insertion_sort,int_list)
   
-   display(int_list)
+   #display(int_list)
 
-   print "time_insertion_sort = ",t_insertion_sort
+   #print "time_insertion_sort = ",t_insertion_sort
 
+   A = [1,1,1,0,1,0,1,1,1]
+    
+   B = [1,1,0,1,0,1,1,0,1]
+
+   C = addBinaryDigits(A,B)
+ 
+   display(C)

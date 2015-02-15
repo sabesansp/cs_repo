@@ -38,5 +38,12 @@
   # x * 10^-6
 # perform insertion sort on the dataset of 10000 integers and measure the time taken
  # insertion_sort_algorithm ~ 6.844 secs [10000 integers]         
-
-    
+# add two n-bit binary integers A and B and store resultant element in C
+ # suppose n=3, A = [1,0,1] , B = [1,1,0] 
+ # C = [1,0,1,1], length of C array = 4
+ # sum = A[2] +  B[2] + carry{0} = 1 + 0 + 0 = 1 
+   constraint => if sum == 2, sum = 0, carry = 1
+                 if sum == 3, sum = 1, carry = 1
+ # Algorithm can be improved, revisit_later()
+ 
+   
