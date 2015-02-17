@@ -44,6 +44,44 @@
  # sum = A[2] +  B[2] + carry{0} = 1 + 0 + 0 = 1 
    constraint => if sum == 2, sum = 0, carry = 1
                  if sum == 3, sum = 1, carry = 1
- # Algorithm can be improved, revisit_later()
- 
-   
+ # Algorithm can be improved, revisit_later() 
+# insert the greek letter "alpha" in vim editor
+ # In insert mode, ctrl+k
+ # alpha = a*, beta = b*, epsilon = c*, gamma = g*, theta = h*
+ # powers = enter number, ctrl+k, <number>S => number^<number>
+# Write down Euclid's algorithm for finding the greatest common divisor of two integers {m,n}
+ # E0 : n<m => swap(m,n) {abstract_api} constraint => m>=n
+ # E1 : r <- m%n (remainder) constraint => 0<=r<n
+ # E2 : r=0 ? yes => n = answer | no => E3
+ # E3 : m <- n, n <- r => E0
+# Suppose m ranges over all positive integers and n is fixed, what is the avg number of times 'Tn' that E1 is executed
+ # suppose n=5, m=4,5,7,8,9,10
+  # m=1 => T = 1
+  # m=2 => T = 2
+  # m=3 => T = 3
+  # m=4 => T = 2
+  # m=5 => T = 1
+  # m=6 => T = 2
+  # m=7 => T = 3
+  # m=8 => T = 4
+  # m=9 => T = 3
+  # m=10 => T = 1
+  # Avg Tn = (1+2+3+2+1)/5 = 9/5 = 1.8
+  # possible to prove Tn is app. (12(ln2)/Π²)ln(n) [proportional to ln(n)]  
+# Formally define a computational method :
+ # quadruple => (Q,I,Ω,f) : 
+  # Q => set containing subsets I and Ω
+  # f : Q -> Q
+  # f should leave Ω pointwise fixed, f(q) = q, ∀ q ∈ Ω
+  # Q,I,Ω,f => states of the computation, input,output,computational rule
+  # input 'x' in the sequence x₀,x₁,...xn such that x₀ = x and x(k+1) = f(xk) k>=0
+  # algorithm terminates in k steps if k is the smallest integer such that f(xk) is in 'Ω' 
+ # how can this be applied to Euclid's algorithm ?
+  # Q : [(m,n),(n),(m,n,r,1),(m,n,r,2),(m,n,p,3)]
+  # I : (m,n) | Ω : (n) 
+  # f((m,n)) = (m,n,0,1)
+  # f((m,n,r,1)) = (m,n,remainder of m divided by n, 2)
+  # f((m,n,r,2)) = f((n)) , if r=0
+                 = (m,n,r,3) otherwise
+  # f((m,n,p,3)) = (n,p,p,1)
+    
