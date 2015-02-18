@@ -1038,24 +1038,7 @@ public class Algorithms
 
    }
 
-
-   public void printHierarchy(File file) 
-      throws Exception {
-
-      if(file == null) {
-         throw new 
-         IllegalArgumentException("Invalid_file_name");
-      }
-
-      // 
- 
-
-
-   }    
   
-
-
-
 
    // code starts executing from here
    public static void main(String[] args)
@@ -1147,7 +1130,7 @@ public class Algorithms
          //al.dispArray(al.mergeArrays(new int[]{0,2,4,6},
                         //new int[]{-1,7,9,25,98},
                         //new int[]{100,215}));
-         al.
+ 
       } 
       catch(Exception e)
       {

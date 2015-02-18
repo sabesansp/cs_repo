@@ -92,7 +92,6 @@
 # what is the plan for transition ?
  # what area interests you ? 
   # machine learning / ai space
-  # 
  # development/testing ?
   # sw_engg in test position -> (transition) -> research scientist role
    # most favorable at this point
@@ -115,5 +114,8 @@
  # develop a tree data structure that will store the left and the right
  # if right is already present in the tree, attach this as child node
  # if not, create right and attach left as child node
- # Q : do you wish to use an existing data structure or write a new data structure
- #        
+ # Q : do you wish to use an existing data structure or write a new data structure ?
+  # my own data structure -> n-ary tree 
+  # choose eclipse to code the solution
+  # write down the thought process of the design
+  #       
