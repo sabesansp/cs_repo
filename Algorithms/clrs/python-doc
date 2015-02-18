@@ -84,4 +84,36 @@
   # f((m,n,r,2)) = f((n)) , if r=0
                  = (m,n,r,3) otherwise
   # f((m,n,p,3)) = (n,p,p,1)
-    
+# rejected(google) 
+ # code was not upto the mark
+ # unleash(beast_within) 
+ # probable_condition => code quality versus competition
+ # goal => wrting high quality production code 
+# what is the plan for transition ?
+ # what area interests you ? 
+  # machine learning / ai space
+  # 
+ # development/testing ?
+  # sw_engg in test position -> (transition) -> research scientist role
+   # most favorable at this point
+   # time to transition < (6 months - 1 year)
+   # focus on problem-solving skills
+  # directly transitioning into the research role {this requires more time} 
+   # is there a constraint for the timeline of the shift into the new job ?
+    # no => even though i have mentioned that im gonna leave, it is probably not gonna happen
+      until I resign explicitly
+    # there is no blocker for this path
+    # time needed to walk the direction ~ [6 months - 1 year]    
+ # research in company ? cs {too_broad}, drill down to specifics
+ # >= 3 problems/day {{with coding}
+# P : given a list of employees and their bosses write out a function
+#     that will print out a hierarchy tree of the employees
+ # example : sab : alex | alex : meme | meme : ceo 
+ # left => employee, right => boss, | = separator
+ # left : right => right is the parent of the left 
+ # scan a line of text from the file and make left the child of right
+ # develop a tree data structure that will store the left and the right
+ # if right is already present in the tree, attach this as child node
+ # if not, create right and attach left as child node
+ # Q : do you wish to use an existing data structure or write a new data structure
+ #        
