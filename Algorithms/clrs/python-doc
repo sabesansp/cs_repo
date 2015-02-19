@@ -1,0 +1,121 @@
+# print current working directory 
+ # import os
+ # os.getcwd() // prints current working directory
+# change current working directory
+ # os.chdir('Users/sabesansp/cs_repo')
+# open a file in read mode and display its contents
+ # f = open('Algorithms/algorithms.py','r')
+ # f.read()
+# create a file and write its contents
+ # f = open('Algorithms/clrs/sample.py','w')
+ # f.write('null')
+ # delete a file => os.remove('Algorithms/clrs/sample.py')
+# write a file with 10000 random integers chosen from a file
+ # generate a random integer between 1 and 100
+  # from random import randomint
+  # randomint(1,100) => 1 random number between 1 and 100
+ # write a loop to generate and display random integers between 1 and 10000
+  # for i in range(1,10001) :
+       s = randint(1,10000)
+       print s
+ # write the integer s into a file in every iteration
+  # f.write(str(s))
+  # f.write("\n")
+# Measure time taken to load 10000 integers into memory
+ # python api to measure time
+ # from time import time
+ # time.time() => measured in seconds from epoch 
+ # load 10000 integers into a list
+  # method => load_dataset(file_path)
+  # read line from file => lines = f.read.splitlines()
+ # measure_time() => measure time in seconds
+# Pass a function to measure_time() to be invoked
+ # measure_time(load_dataset,'data.txt')
+ # function name passed as argument without quotes
+# change api "measure_time(func,file_path)" to "measure_time(func,data)"
+ # time taken for insertion sort [no_code] = 2.14576721191e-06
+ # how do I read a value xe-06 ?
+  # x * 10^-6
+# perform insertion sort on the dataset of 10000 integers and measure the time taken
+ # insertion_sort_algorithm ~ 6.844 secs [10000 integers]         
+# add two n-bit binary integers A and B and store resultant element in C
+ # suppose n=3, A = [1,0,1] , B = [1,1,0] 
+ # C = [1,0,1,1], length of C array = 4
+ # sum = A[2] +  B[2] + carry{0} = 1 + 0 + 0 = 1 
+   constraint => if sum == 2, sum = 0, carry = 1
+                 if sum == 3, sum = 1, carry = 1
+ # Algorithm can be improved, revisit_later() 
+# insert the greek letter "alpha" in vim editor
+ # In insert mode, ctrl+k
+ # alpha = a*, beta = b*, epsilon = c*, gamma = g*, theta = h*
+ # powers = enter number, ctrl+k, <number>S => number^<number>
+# Write down Euclid's algorithm for finding the greatest common divisor of two integers {m,n}
+ # E0 : n<m => swap(m,n) {abstract_api} constraint => m>=n
+ # E1 : r <- m%n (remainder) constraint => 0<=r<n
+ # E2 : r=0 ? yes => n = answer | no => E3
+ # E3 : m <- n, n <- r => E0
+# Suppose m ranges over all positive integers and n is fixed, what is the avg number of times 'Tn' that E1 is executed
+ # suppose n=5, m=4,5,7,8,9,10
+  # m=1 => T = 1
+  # m=2 => T = 2
+  # m=3 => T = 3
+  # m=4 => T = 2
+  # m=5 => T = 1
+  # m=6 => T = 2
+  # m=7 => T = 3
+  # m=8 => T = 4
+  # m=9 => T = 3
+  # m=10 => T = 1
+  # Avg Tn = (1+2+3+2+1)/5 = 9/5 = 1.8
+  # possible to prove Tn is app. (12(ln2)/Π²)ln(n) [proportional to ln(n)]  
+# Formally define a computational method :
+ # quadruple => (Q,I,Ω,f) : 
+  # Q => set containing subsets I and Ω
+  # f : Q -> Q
+  # f should leave Ω pointwise fixed, f(q) = q, ∀ q ∈ Ω
+  # Q,I,Ω,f => states of the computation, input,output,computational rule
+  # input 'x' in the sequence x₀,x₁,...xn such that x₀ = x and x(k+1) = f(xk) k>=0
+  # algorithm terminates in k steps if k is the smallest integer such that f(xk) is in 'Ω' 
+ # how can this be applied to Euclid's algorithm ?
+  # Q : [(m,n),(n),(m,n,r,1),(m,n,r,2),(m,n,p,3)]
+  # I : (m,n) | Ω : (n) 
+  # f((m,n)) = (m,n,0,1)
+  # f((m,n,r,1)) = (m,n,remainder of m divided by n, 2)
+  # f((m,n,r,2)) = f((n)) , if r=0
+                 = (m,n,r,3) otherwise
+  # f((m,n,p,3)) = (n,p,p,1)
+# rejected(google) 
+ # code was not upto the mark
+ # unleash(beast_within) 
+ # probable_condition => code quality versus competition
+ # goal => wrting high quality production code 
+# what is the plan for transition ?
+ # what area interests you ? 
+  # machine learning / ai space
+ # development/testing ?
+  # sw_engg in test position -> (transition) -> research scientist role
+   # most favorable at this point
+   # time to transition < (6 months - 1 year)
+   # focus on problem-solving skills
+  # directly transitioning into the research role {this requires more time} 
+   # is there a constraint for the timeline of the shift into the new job ?
+    # no => even though i have mentioned that im gonna leave, it is probably not gonna happen
+      until I resign explicitly
+    # there is no blocker for this path
+    # time needed to walk the direction ~ [6 months - 1 year]    
+ # research in company ? cs {too_broad}, drill down to specifics
+ # >= 3 problems/day {{with coding}
+# P : given a list of employees and their bosses write out a function
+#     that will print out a hierarchy tree of the employees
+ # example : sab : alex | alex : meme | meme : ceo 
+ # left => employee, right => boss, | = separator
+ # left : right => right is the parent of the left 
+ # scan a line of text from the file and make left the child of right
+ # develop a tree data structure that will store the left and the right
+ # if right is already present in the tree, attach this as child node
+ # if not, create right and attach left as child node
+ # Q : do you wish to use an existing data structure or write a new data structure ?
+  # my own data structure -> n-ary tree 
+  # choose eclipse to code the solution
+  # write down the thought process of the design
+  #       

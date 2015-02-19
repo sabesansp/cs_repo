@@ -1038,12 +1038,7 @@ public class Algorithms
 
    }
 
-
-      
   
-
-
-
 
    // code starts executing from here
    public static void main(String[] args)
@@ -1132,9 +1127,10 @@ public class Algorithms
          //int sum = al.computeMaxSubArraySum(a);
          //System.out.println("Max sum = " + sum);
          //al.readInputString();         
-         al.dispArray(al.mergeArrays(new int[]{0,2,4,6},
-                        new int[]{-1,7,9,25,98},
-                        new int[]{100,215}));
+         //al.dispArray(al.mergeArrays(new int[]{0,2,4,6},
+                        //new int[]{-1,7,9,25,98},
+                        //new int[]{100,215}));
+ 
       } 
       catch(Exception e)
       {
