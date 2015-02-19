@@ -118,4 +118,12 @@
   # my own data structure -> n-ary tree 
   # choose eclipse to code the solution
   # write down the thought process of the design
-  #       
+# PROJ-p1 : Automated debugger in python {all problem details here}
+ # simple addition function, takes two inputs, computes the output, returns the same
+ # pdb {existing python debugger} => understand code and apis()
+  # bookmark(https://hg.python.org/cpython/file/70a55b2dee71/Lib/pdb.py)
+  # invocation : python -m pdb proj_p1_sample_1.py
+  # pdb_code -> python version 3 {does that affect this thought process design ? => no} 
+  # p1 => write a function that takes as arguments the function_name, file_name and returns the line number of the function in the file
+   # signature => def find_function(func_name,file_name) : => returns the line no of the function definition in the file
+           
