@@ -404,4 +404,27 @@ P : Go through the python apis written by Shashank and replace the staf calls in
       Issue: #
       Change-Id: I8cdf144828ece68a91553fd09562f98c65f67bec  	      
 
+# S21 : next api => GETVMXFILEPATH (Common/Utilities.pm) 
+
+ # Transformation object
+  # staf_sdk_call = "GETVMXFILEPATH"
+  # file = "Common/Utilities.pm"
+  # pylib_file = "vmware/vsphere/vm/vm10_vm_impl.py"
+  # pylib_api = "get_vm_spec_path"
+ # 2 files that need to be opened 
+  # file to be manipulated = file {perl module file where the replacement is supposed to occur}
+ # associated problem => how do I create a vm client object first (GetInlinePyObject does not work here)
+ # there must be some way of instantiating a vm client object api instance from the vm name
+   which is not explicit here
+ # postpone all tasks related to Utilities.pm to the end until this thing is resolved
+ # Take notes in automation project plan
+
+
+# S22 : amend the existing commit (SetVmotion api) 
+
+ # drop local commits in the master branch => "git reset --hard origin/master"
+ # git commit --amend -m "DO NOT MERGE : blah blah blah"
+
+
+
 
