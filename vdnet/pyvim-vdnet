@@ -426,5 +426,23 @@ P : Go through the python apis written by Shashank and replace the staf calls in
  # git commit --amend -m "DO NOT MERGE : blah blah blah"
 
 
+# S23 : next api => LISTPORTGROUP
 
+ # keep the ssh connection on the client alive 
+  # locate ssh_config file on machine
+  # not_present => create one
+ # staf_call = LISTPG
+ # file = Portgroup/PortGroupConfig.pm
+ # pylib_file = pylib/vmware/vsphere/esx/vsswitch/portgroup/api/esx55_crud_impl.py 
+ # pylib_api = read() : 
+ # last statement in perl => break statement in C which breaks the loop
+ # need to include the discussions with Prabuddh., please take a photo on iphone
+  # write code for getting inline python objects in switch and portgroup objects 
+
+
+# S24 : gitreview compilation links 
+
+ # https://gitreview.eng.vmware.com:8443/15873
+ # https://gitreview.eng.vmware.com:8443/15874
+ # 
 
