@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[2139 mins]
+[2417 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -438,11 +438,66 @@ P : Go through the python apis written by Shashank and replace the staf calls in
  # last statement in perl => break statement in C which breaks the loop
  # need to include the discussions with Prabuddh., please take a photo on iphone
   # write code for getting inline python objects in switch and portgroup objects 
-
+  # filed bug_1403074 for a file called "VDNetLib/Portgroup/PortGroupConfig.pm"
+  # file = VDNetLib/Switch/VSSwitch/PortGroup.pm
+  # stash changes in the file
+  # reapply the stashed changes to the file
+  # before that, check that the old changes are in
+  # yes => the new changes that were stashed are gone {as_expected}
+  # reapply the stashed changes {git stash apply stash@{0} }
+  # delete stashed changes => {git stash drop}
+  # data_format = [VSwitch_name,PortGroup_Name,vlan] -> NetworkSchema
+  # pylib_api = read(cls, client_object) 
+  # how does the pylib_api get invoked using HypervisorOperations as an example ?
+   # files = [HyperVisorOperations]
+   # api : CreateInlinePythonObject($self->{_pyClass},
+                                    $self->{hostIP},
+                                    $self->{userid},
+                                    $self->{sshPassword});
+   # what does $self->{pyclass} contain ?
+   # HostOperations.pm -> constructor(new) -> pyclass{vmware.vsphere.esx.esx_facade.ESXFacade}
+   # what transformations are needed to accomplish this task ?
+    # [VSSwitch.pm]
+     # t1 => transform vsswitch_facade.py equivalent to logical_switch_facade.py
+      # file = pylib/vmware/nsx/manager/logical_switch/logical_switch_facade.py
+      # make sure that things are aligned in terms of signatures here
+      # prepare(infrastructure_to_test) : 
+       # reuse(reboot.yaml) 
+       # esx55 deployment, host_ip = 10.144.138.159, user =root , passwd = ca...
+       # test_command = python vsswitch_facade.py -s 10.144.138.159 -u root -p ca\$hc0w
+      # testing_method => produced an error (not worth debugging) 
+      # alternate_test_method() => find test code that uses "LISTPORTGROUP" api   
+     # t2 => introduce pyclass in new of VSSwitch.pm like this : $self->{_pyClass} = "vmware.vsphere.esx.vsswitch.vsswitch_facade.VSSwitchFacade"  
+     # t3 => GetInlinePyObject() => return CreateInlinePythonObject(
+                                    pyclass = "vmware.vsphere.esx.vsswitch.vsswitch_facade.VSSwitchFacade",
+                                    name = $self->{'switch'}, parent = $self->{'hostOpsObj'}->GetInlinePyObject()
+   # need to put this on hold and think about a different strategy 	
+      
+                                                                    
 
 # S24 : gitreview compilation links 
 
  # https://gitreview.eng.vmware.com:8443/15873
  # https://gitreview.eng.vmware.com:8443/15874
+
+ 
+
+# S25 : Understand the pylib api design
+
+ # choose a folder : vdnet/automation/pylib/vmware/vsphere/esx/api/
+ # esx_impl -> {adapter, hypervisor, network, power, service, vm}
+ # esx_api_client.py, __init__.py
+ # why is __init__.py used ?
+  # no content in __init__.py
+  # in general, why would you need this file ?
+  # __init__.py => tells the interpreter that the directory is a pythonic module
+ # what is adapter impl ?
+  # contains adapter info related to the esx host
+  # extends from AdapterInterface
+ # class(object): definition -> what is this ?
+  # new style classes inherit from object
+  # class methods => methods that belong to a class
+    and need not be invoked using a class instance, rather the class
+    itself
  # 
 
