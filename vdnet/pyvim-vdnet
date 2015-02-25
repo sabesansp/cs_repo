@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[2417 mins]
+[2766 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -499,5 +499,15 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # class methods => methods that belong to a class
     and need not be invoked using a class instance, rather the class
     itself
- # 
+ # trace the function call flow from the entry point to the end for reboot api
+  # strategy_1 : dump all function names in the log file
+   # deploy 2 esxi hosts using reboot.yaml to prepare for running the test
+   # copy the vdnet test log directory
+    # /tmp/vdnet/20150224-194847/1_TDS.EsxServer.VMKTCPIP.VMKTCPIP.EEsxReboot/testcase.log
+    # write a python script to parse this log with brackets and reuse the script here  
+
+# S26 : Onboarding tasks for Shashank 
+
+ # file_bug(1404961)
+ # get_vm_by_name errored: AttributeError("'NoneType' object has no attribute 'GetChildEntity'",) 
 
