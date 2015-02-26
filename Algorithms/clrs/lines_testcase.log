@@ -1,0 +1,344 @@
+2015-02-24 19:50:19.984 - [DEBUG] - [@VDNetLib::TestSession::VDNetv2:372] [25005] User Input Hash$VAR1 = {
+2015-02-24 19:50:19.984 - [DEBUG] - [@VDNetLib::TestSession::VDNetv2:413] [25005] UserConfig Spec$VAR1 = {
+2015-02-24 19:50:19.984 - [DEBUG] - [@VDNetLib::Common::Utilities:5684] [25005] Spec of host :$VAR1 = {
+2015-02-24 19:50:19.984 - [DEBUG] - [@VDNetLib::Common::Utilities:5684] [25005] Spec of host.2.vmnic :$VAR1 = {
+2015-02-24 19:50:19.985 - [DEBUG] - [@VDNetLib::Common::Utilities:5684] [25005] Spec of host.1.vmnic :$VAR1 = {
+2015-02-24 19:50:19.985 - [TRACE] - [@VDNetLib::Common::Utilities:6101] [25005] installtype is not a component
+2015-02-24 19:50:19.985 - [TRACE] - [@VDNetLib::Common::Utilities:6101] [25005] password is not a component
+2015-02-24 19:50:19.985 - [TRACE] - [@VDNetLib::Common::Utilities:6101] [25005] ip is not a component
+2015-02-24 19:50:19.985 - [TRACE] - [@VDNetLib::Common::Utilities:6101] [25005] username is not a component
+2015-02-24 19:50:19.985 - [TRACE] - [@VDNetLib::Common::Utilities:6101] [25005] installtype is not a component
+2015-02-24 19:50:19.985 - [TRACE] - [@VDNetLib::Common::Utilities:6101] [25005] password is not a component
+2015-02-24 19:50:19.985 - [TRACE] - [@VDNetLib::Common::Utilities:6101] [25005] ip is not a component
+2015-02-24 19:50:19.985 - [TRACE] - [@VDNetLib::Common::Utilities:6101] [25005] username is not a component
+2015-02-24 19:50:19.986 - [DEBUG] - [@VDNetLib::Common::Utilities:5684] [25005] Spec of host :$VAR1 = {
+2015-02-24 19:50:19.986 - [DEBUG] - [@VDNetLib::Common::Utilities:5684] [25005] Spec of host.2.vmnic :$VAR1 = {
+2015-02-24 19:50:19.986 - [DEBUG] - [@VDNetLib::Common::Utilities:5684] [25005] Spec of host.2.portgroup :$VAR1 = {
+2015-02-24 19:50:19.986 - [DEBUG] - [@VDNetLib::Common::Utilities:5684] [25005] Spec of host.2.vmknic :$VAR1 = {
+2015-02-24 19:50:19.986 - [DEBUG] - [@VDNetLib::Common::Utilities:5684] [25005] Spec of host.2.vss :$VAR1 = {
+2015-02-24 19:50:19.987 - [DEBUG] - [@VDNetLib::Common::Utilities:5684] [25005] Spec of host.1.vmnic :$VAR1 = {
+2015-02-24 19:50:19.987 - [DEBUG] - [@VDNetLib::Common::Utilities:5684] [25005] Spec of host.1.portgroup :$VAR1 = {
+2015-02-24 19:50:19.987 - [DEBUG] - [@VDNetLib::Common::Utilities:5684] [25005] Spec of host.1.vmknic :$VAR1 = {
+2015-02-24 19:50:19.987 - [DEBUG] - [@VDNetLib::Common::Utilities:5684] [25005] Spec of host.1.vss :$VAR1 = {
+2015-02-24 19:50:19.988 - [DEBUG] - [@VDNetLib::TestSession::VDNetv2:153] [25005] Testbed Spec after initialization:$VAR1 = {
+2015-02-24 19:50:19.989 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:158] [25005] Zookeeper handle created:$VAR1 = bless( {
+2015-02-24 19:50:20.025 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:496] [25005] StackTrace:
+2015-02-24 19:50:20.025 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:498] [25005] Zookeeper handle destroyed:$VAR1 = bless( {
+2015-02-24 19:50:20.044 - [INFO]  - [@VDNetLib::Testbed::Testbedv2:134] [25005] master controller IP is: 10.144.138.31
+2015-02-24 19:50:20.143 - [DEBUG] - [@VDNetLib::Workloads::AbstractSwitchWorkload:222] [25005] Logs for this switch workload: /tmp/switchworkload-20150224-195020/
+2015-02-24 19:50:21.829 - [DEBUG] - [@VDNetLib::Workloads::AbstractSwitchWorkload:222] [25005] Logs for this switch workload: /tmp/switchworkload-20150224-195021/
+2015-02-24 19:50:23.121 - [DEBUG] - [@VDNetLib::Workloads::AbstractSwitchWorkload:222] [25005] Logs for this switch workload: /tmp/switchworkload-20150224-195023/
+2015-02-24 19:50:30.605 - [DEBUG] - [@VDNetLib::TestSession::TestSession:245] [25005] Test case hash: $VAR1 = {
+2015-02-24 19:50:30.606 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:534] [25005] Parameter invalid for zookeeper handler
+2015-02-24 19:50:30.606 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:493] [25005] Zookeeper handle not defined or invalid
+2015-02-24 19:50:30.606 - [INFO]  - [@VDNetLib::Workloads::WorkloadsManager:317] [25005] Number of testcase Iterations to run 1
+2015-02-24 19:50:30.629 - [INFO]  - [@VDNetLib::Workloads::WorkloadsManager:329] [25005] Running workloads under Sequence key for Iteration = 2
+2015-02-24 19:50:30.642 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:534] [25005] Parameter invalid for zookeeper handler
+2015-02-24 19:50:30.642 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:493] [25005] Zookeeper handle not defined or invalid
+2015-02-24 19:50:30.646 - [DEBUG] - [@VDNetLib::Workloads::WorkloadsManager:1187] [25005] Workload VmknicStaticSUT started, pid: 26532
+2015-02-24 19:50:30.650 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:158] [26532] Zookeeper handle created:$VAR1 = bless( {
+2015-02-24 19:50:30.675 - [DEBUG] - [@VDNetLib::Workloads::WorkloadsManager:983] [26532] Workload: VmknicStaticSUT has max timeout value of 3600
+2015-02-24 19:50:31.599 - [INFO]  - [@VDNetLib::Workloads::WorkloadsManager:1013] [26532] Starting the workload: VmknicStaticSUT
+2015-02-24 19:50:31.616 - [INFO]  - [@VDNetLib::Workloads::NetAdapterWorkload:898] [26532] Number of Iterations to run: 1
+2015-02-24 19:50:31.629 - [INFO]  - [@VDNetLib::Workloads::NetAdapterWorkload:900] [26532] Running Iteration: 1
+2015-02-24 19:50:31.642 - [TRACE] - [@VDNetLib::Common::Iterator:142] [26532] Combination file created:/tmp/IteratorCombo-20150224-195031-26532
+2015-02-24 19:50:31.642 - [DEBUG] - [@VDNetLib::Common::Iterator:781] [26532] No array is provided for ordering preference
+2015-02-24 19:50:31.642 - [TRACE] - [@VDNetLib::Common::Iterator:361] [26532] Input to iterator are flag:ignoreSingleton and:$VAR1 = {
+2015-02-24 19:50:31.642 - [TRACE] - [@VDNetLib::Common::Iterator:502] [26532] Set the seek to 0 for reading the file from byte 0
+2015-02-24 19:50:31.642 - [TRACE] - [@VDNetLib::Common::Iterator:540] [26532] Read string:ipv4==='192.168.0.10';;; from file:/tmp/IteratorCombo-20150224-195031-26532
+2015-02-24 19:50:31.642 - [TRACE] - [@VDNetLib::Common::Iterator:584] [26532] Converting string to Hash
+2015-02-24 19:50:31.643 - [DEBUG] - [@VDNetLib::Common::Iterator:548] [26532] Returning next combination as $VAR1 = {
+2015-02-24 19:50:31.643 - [INFO]  - [@VDNetLib::Workloads::NetAdapterWorkload:928] [26532] Working on configuration set 1
+2015-02-24 19:50:31.657 - [INFO]  - [@VDNetLib::Workloads::NetAdapterWorkload:929] [26532] $VAR1 = {
+2015-02-24 19:50:31.667 - [INFO]  - [@VDNetLib::Workloads::NetAdapterWorkload:955] [26532] Running NetAdapter workload on host.[1].vmknic.[1]
+2015-02-24 19:50:31.703 - [DEBUG] - [@VDNetLib::Workloads::NetAdapterWorkload:1191] [26532] Running NetAdapter workload on host.[1].vmknic.[1] in ProcessTestKeys()
+2015-02-24 19:50:31.704 - [INFO]  - [@VDNetLib::Workloads::ParentWorkload:1380] [26532] Configuring component host.[1].vmknic.[1] with spec: $VAR1 = {
+2015-02-24 19:50:31.720 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:1403] [26532] Skipping non parameter type argument: ipv4
+2015-02-24 19:50:31.720 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:1442] [26532] Parameter processing completed, now process action keys
+2015-02-24 19:50:31.720 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:2450] [26532] Running method SetIPv4 for action key ipv4
+2015-02-24 19:50:31.720 - [DEBUG] - [@VDNetLib::NetAdapter::Vmknic::Vmknic:1169] [26532] Command is : /sbin/esxcli network ip interface ipv4 set -i vmk2  -t static -I 192.168.0.10 -N 255.255.0.0 
+2015-02-24 19:50:31.721 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26532] Executing command "/sbin/esxcli network ip interface ipv4 set -i vmk2  -t static -I 192.168.0.10 -N 255.255.0.0 " on 10.144.139.139
+2015-02-24 19:50:33.965 - [DEBUG] - [@VDNetLib::Host::HostOperations:4517] [26532] Refreshing network configuration on 10.144.139.139
+2015-02-24 19:50:33.965 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26532] Executing command "vim-cmd hostsvc/net/refresh" on 10.144.139.139
+2015-02-24 19:51:08.556 - [DEBUG] - [@VDNetLib::Common::Utilities:6046] [26532] Bcast ip for ip:192.168.0.10 and netmask:255.255.0.0 is 192.168.255.255
+2015-02-24 19:51:08.557 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26532] Executing command "/sbin/esxcli network ip interface ipv6 address list | grep vmk2" on 10.144.139.139
+2015-02-24 19:51:09.964 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:2497] [26532] Skipping postprocess SetIPv4 for action key ipv4
+2015-02-24 19:51:09.964 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:2499] [26532] Deleting ipv4 from config hash
+2015-02-24 19:51:09.964 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:1493] [26532] action keys processing completed, now process verification keys
+2015-02-24 19:51:09.965 - [DEBUG] - [@VDNetLib::Common::Iterator:553] [26532] No more combinations to iterate on. Returning $VAR1 = {};
+2015-02-24 19:51:09.965 - [TRACE] - [@VDNetLib::Common::Iterator:879] [26532] Closed file handle of /tmp/IteratorCombo-20150224-195031-26532. Now deleting it...
+2015-02-24 19:51:09.965 - [DEBUG] - [@VDNetLib::Common::Iterator:889] [26532] Deleted Iterator's combination file: /tmp/IteratorCombo-20150224-195031-26532
+2015-02-24 19:51:09.965 - [INFO]  - [@VDNetLib::Workloads::WorkloadsManager:1069] [26532] Workload VmknicStaticSUT return value: PASS
+2015-02-24 19:51:09.987 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:6141] [26532] Result:PASS of workload VmknicStaticSUT matches the expected result: PASS
+2015-02-24 19:51:09.001 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:496] [26532] StackTrace:
+2015-02-24 19:51:10.002 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:498] [26532] Zookeeper handle destroyed:$VAR1 = bless( {
+2015-02-24 19:51:10.034 - [INFO]  - [@VDNetLib::Workloads::WorkloadsManager:1218] [25005] Workload VmknicStaticSUT, PID 26532 finished with exit code:0 and exit signal:0
+2015-02-24 19:51:10.054 - [DEBUG] - [@VDNetLib::Workloads::WorkloadsManager:1187] [25005] Workload VmknicStaticHelper started, pid: 26548
+2015-02-24 19:51:10.057 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:158] [26548] Zookeeper handle created:$VAR1 = bless( {
+2015-02-24 19:51:10.078 - [DEBUG] - [@VDNetLib::Workloads::WorkloadsManager:983] [26548] Workload: VmknicStaticHelper has max timeout value of 3600
+2015-02-24 19:51:11.004 - [INFO]  - [@VDNetLib::Workloads::WorkloadsManager:1013] [26548] Starting the workload: VmknicStaticHelper
+2015-02-24 19:51:11.028 - [INFO]  - [@VDNetLib::Workloads::NetAdapterWorkload:898] [26548] Number of Iterations to run: 1
+2015-02-24 19:51:11.047 - [INFO]  - [@VDNetLib::Workloads::NetAdapterWorkload:900] [26548] Running Iteration: 1
+2015-02-24 19:51:11.061 - [TRACE] - [@VDNetLib::Common::Iterator:142] [26548] Combination file created:/tmp/IteratorCombo-20150224-195111-26548
+2015-02-24 19:51:11.062 - [DEBUG] - [@VDNetLib::Common::Iterator:781] [26548] No array is provided for ordering preference
+2015-02-24 19:51:11.062 - [TRACE] - [@VDNetLib::Common::Iterator:361] [26548] Input to iterator are flag:ignoreSingleton and:$VAR1 = {
+2015-02-24 19:51:11.062 - [TRACE] - [@VDNetLib::Common::Iterator:502] [26548] Set the seek to 0 for reading the file from byte 0
+2015-02-24 19:51:11.062 - [TRACE] - [@VDNetLib::Common::Iterator:540] [26548] Read string:ipv4==='192.168.0.11';;; from file:/tmp/IteratorCombo-20150224-195111-26548
+2015-02-24 19:51:11.062 - [TRACE] - [@VDNetLib::Common::Iterator:584] [26548] Converting string to Hash
+2015-02-24 19:51:11.063 - [DEBUG] - [@VDNetLib::Common::Iterator:548] [26548] Returning next combination as $VAR1 = {
+2015-02-24 19:51:11.063 - [INFO]  - [@VDNetLib::Workloads::NetAdapterWorkload:928] [26548] Working on configuration set 1
+2015-02-24 19:51:11.079 - [INFO]  - [@VDNetLib::Workloads::NetAdapterWorkload:929] [26548] $VAR1 = {
+2015-02-24 19:51:11.096 - [INFO]  - [@VDNetLib::Workloads::NetAdapterWorkload:955] [26548] Running NetAdapter workload on host.[2].vmknic.[1]
+2015-02-24 19:51:11.132 - [DEBUG] - [@VDNetLib::Workloads::NetAdapterWorkload:1191] [26548] Running NetAdapter workload on host.[2].vmknic.[1] in ProcessTestKeys()
+2015-02-24 19:51:11.132 - [INFO]  - [@VDNetLib::Workloads::ParentWorkload:1380] [26548] Configuring component host.[2].vmknic.[1] with spec: $VAR1 = {
+2015-02-24 19:51:11.152 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:1403] [26548] Skipping non parameter type argument: ipv4
+2015-02-24 19:51:11.152 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:1442] [26548] Parameter processing completed, now process action keys
+2015-02-24 19:51:11.152 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:2450] [26548] Running method SetIPv4 for action key ipv4
+2015-02-24 19:51:11.152 - [DEBUG] - [@VDNetLib::NetAdapter::Vmknic::Vmknic:1169] [26548] Command is : /sbin/esxcli network ip interface ipv4 set -i vmk2  -t static -I 192.168.0.11 -N 255.255.0.0 
+2015-02-24 19:51:11.152 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26548] Executing command "/sbin/esxcli network ip interface ipv4 set -i vmk2  -t static -I 192.168.0.11 -N 255.255.0.0 " on 10.144.138.105
+2015-02-24 19:51:13.978 - [DEBUG] - [@VDNetLib::Host::HostOperations:4517] [26548] Refreshing network configuration on 10.144.138.105
+2015-02-24 19:51:13.979 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26548] Executing command "vim-cmd hostsvc/net/refresh" on 10.144.138.105
+2015-02-24 19:51:17.737 - [DEBUG] - [@VDNetLib::Common::Utilities:6046] [26548] Bcast ip for ip:192.168.0.11 and netmask:255.255.0.0 is 192.168.255.255
+2015-02-24 19:51:17.737 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26548] Executing command "/sbin/esxcli network ip interface ipv6 address list | grep vmk2" on 10.144.138.105
+2015-02-24 19:51:18.978 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:2497] [26548] Skipping postprocess SetIPv4 for action key ipv4
+2015-02-24 19:51:18.978 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:2499] [26548] Deleting ipv4 from config hash
+2015-02-24 19:51:18.978 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:1493] [26548] action keys processing completed, now process verification keys
+2015-02-24 19:51:18.978 - [DEBUG] - [@VDNetLib::Common::Iterator:553] [26548] No more combinations to iterate on. Returning $VAR1 = {};
+2015-02-24 19:51:18.978 - [TRACE] - [@VDNetLib::Common::Iterator:879] [26548] Closed file handle of /tmp/IteratorCombo-20150224-195111-26548. Now deleting it...
+2015-02-24 19:51:18.978 - [DEBUG] - [@VDNetLib::Common::Iterator:889] [26548] Deleted Iterator's combination file: /tmp/IteratorCombo-20150224-195111-26548
+2015-02-24 19:51:18.978 - [INFO]  - [@VDNetLib::Workloads::WorkloadsManager:1069] [26548] Workload VmknicStaticHelper return value: PASS
+2015-02-24 19:51:19.003 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:6141] [26548] Result:PASS of workload VmknicStaticHelper matches the expected result: PASS
+2015-02-24 19:51:19.023 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:496] [26548] StackTrace:
+2015-02-24 19:51:19.023 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:498] [26548] Zookeeper handle destroyed:$VAR1 = bless( {
+2015-02-24 19:51:19.053 - [INFO]  - [@VDNetLib::Workloads::WorkloadsManager:1218] [25005] Workload VmknicStaticHelper, PID 26548 finished with exit code:0 and exit signal:0
+2015-02-24 19:51:19.076 - [DEBUG] - [@VDNetLib::Workloads::WorkloadsManager:1187] [25005] Workload RebootHost started, pid: 26555
+2015-02-24 19:51:19.080 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:158] [26555] Zookeeper handle created:$VAR1 = bless( {
+2015-02-24 19:51:19.112 - [DEBUG] - [@VDNetLib::Workloads::WorkloadsManager:983] [26555] Workload: RebootHost has max timeout value of 3600
+2015-02-24 19:51:20.373 - [INFO]  - [@VDNetLib::Workloads::WorkloadsManager:1013] [26555] Starting the workload: RebootHost
+2015-02-24 19:51:20.395 - [INFO]  - [@VDNetLib::Workloads::HostWorkload:1009] [26555] Number of Iterations to run: 1
+2015-02-24 19:51:20.418 - [INFO]  - [@VDNetLib::Workloads::HostWorkload:1011] [26555] Running Iteration: 1
+2015-02-24 19:51:20.435 - [DEBUG] - [@VDNetLib::Common::Iterator:101] [26555] Setting the Combination flag to IgnoreSingleton
+2015-02-24 19:51:20.435 - [TRACE] - [@VDNetLib::Common::Iterator:142] [26555] Combination file created:/tmp/IteratorCombo-20150224-195120-26555
+2015-02-24 19:51:20.435 - [DEBUG] - [@VDNetLib::Common::Iterator:781] [26555] No array is provided for ordering preference
+2015-02-24 19:51:20.435 - [TRACE] - [@VDNetLib::Common::Iterator:361] [26555] Input to iterator are flag:IgnoreSingleton and:$VAR1 = {
+2015-02-24 19:51:20.436 - [TRACE] - [@VDNetLib::Common::Iterator:502] [26555] Set the seek to 0 for reading the file from byte 0
+2015-02-24 19:51:20.436 - [TRACE] - [@VDNetLib::Common::Iterator:540] [26555] Read string:reboot==='yes';;; from file:/tmp/IteratorCombo-20150224-195120-26555
+2015-02-24 19:51:20.436 - [TRACE] - [@VDNetLib::Common::Iterator:584] [26555] Converting string to Hash
+2015-02-24 19:51:20.436 - [DEBUG] - [@VDNetLib::Common::Iterator:548] [26555] Returning next combination as $VAR1 = {
+2015-02-24 19:51:20.436 - [INFO]  - [@VDNetLib::Workloads::HostWorkload:1044] [26555] Running Host workload on host.[1]
+2015-02-24 19:51:20.458 - [INFO]  - [@VDNetLib::Workloads::HostWorkload:1064] [26555] Working on configuration set 1$VAR1 = {
+2015-02-24 19:51:20.480 - [DEBUG] - [@VDNetLib::Common::Utilities:5684] [26555] Spec of host.[1] :$VAR1 = {
+2015-02-24 19:51:20.481 - [INFO]  - [@VDNetLib::Workloads::ParentWorkload:1361] [26555] Expanded spec for host.[1] : $VAR1 = {
+2015-02-24 19:51:20.507 - [INFO]  - [@VDNetLib::Workloads::ParentWorkload:1380] [26555] Configuring component host.[1] with spec: $VAR1 = {
+2015-02-24 19:51:20.524 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:1403] [26555] Skipping non parameter type argument: reboot
+2015-02-24 19:51:20.524 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:1442] [26555] Parameter processing completed, now process action keys
+2015-02-24 19:51:20.524 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:2450] [26555] Running method Reboot for action key reboot
+2015-02-24 19:51:20.524 - [DEBUG] - [@VDNetLib::InlinePython::VDNetInterface:87] [26555] Loading python vmware.vsphere.esx.esx_facade
+2015-02-24 19:51:25.867 - [DEBUG] - [@VDNetLib::InlinePython::VDNetInterface:283] [26555] Calling method reboot with args:$VAR1 = {
+2015-02-24 19:51:26.009 - [INFO]  - [@VDNetLib::Host::HostOperations:3706] [26555] Waiting for the Host to Reboot...
+2015-02-24 19:53:26.030 - [DEBUG] - [@VDNetLib::Common::Utilities:7482] [26555] Running IsAccessible with TIMEOUT: 1200 sleep: 60
+2015-02-24 19:53:29.127 - [DEBUG] - [@VDNetLib::Host::HostOperations:3618] [26555] 10.144.139.139 not accessible
+2015-02-24 19:54:31.246 - [INFO]  - [@VDNetLib::Host::HostOperations:3621] [26555] Host is accessible.
+2015-02-24 19:54:31.271 - [INFO]  - [@VDNetLib::Common::STAFHelper:1890] [26555] Disconnecting all STAF ANCHORs
+2015-02-24 19:54:31.370 - [INFO]  - [@VDNetLib::Common::Utilities:4363] [26555] Connection to 10.144.139.139 timed out, reconnecting..
+2015-02-24 19:54:31.393 - [DEBUG] - [@VDNetLib::Common::STAFHelper:1836] [26555] Setup service command:CONNECT AGENT 10.144.139.139 SSL USERID "root" PASSWORD "ca\$hc0w"
+2015-02-24 19:54:31.788 - [INFO]  - [@VDNetLib::Common::Utilities:4363] [26555] Connection to 10.144.139.139 timed out, reconnecting..
+2015-02-24 19:54:31.813 - [DEBUG] - [@VDNetLib::Common::STAFHelper:1762] [26555] Host service command:CONNECT AGENT 10.144.139.139 SSL USERID "root" PASSWORD "ca\$hc0w"
+2015-02-24 19:54:32.099 - [INFO]  - [@VDNetLib::Common::Utilities:4363] [26555] Connection to 10.144.139.139 timed out, reconnecting..
+2015-02-24 19:54:32.121 - [DEBUG] - [@VDNetLib::Common::STAFHelper:1695] [26555] host:local,VM service command:CONNECT AGENT 10.144.139.139 SSL USERID "root" PASSWORD "ca\$hc0w"
+2015-02-24 19:54:32.399 - [DEBUG] - [@VDNetLib::Host::HostOperations:3514] [26555] Trying to create staf anchor...
+2015-02-24 19:54:36.872 - [DEBUG] - [@VDNetLib::Common::Utilities:4369] [26555] Staf request=CONNECT AGENT 10.144.139.139 SSL USERID "root" PASSWORD "" on local failed with rc=5169:
+2015-02-24 19:55:07.353 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26555] Executing command "ls /tmp/vdnet-26555" on 10.144.139.139
+2015-02-24 19:55:07.556 - [DEBUG] - [@VDNetLib::Common::Utilities:4369] [26555] Staf request=START SHELL COMMAND :19:ls /tmp/vdnet-26555 RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.139.139@6500 failed with rc=16:
+2015-02-24 19:55:07.556 - [DEBUG] - [@VDNetLib::Host::HypervisorOperations:206] [26555] STAF command ls /tmp/vdnet-26555 failed on host 10.144.139.139$VAR1 = {
+2015-02-24 19:55:07.556 - [INFO]  - [@VDNetLib::Host::HostOperations:18780] [26555] Starting TSM-SSH service on 10.144.139.139
+2015-02-24 19:55:09.147 - [DEBUG] - [@VDNetLib::Common::Utilities:6639] [26555] Process ID 26592 will be written into file /tmp/vdnet/20150224-194847/1_TDS.EsxServer.VMKTCPIP.VMKTCPIP.EEsxReboot/../watchdog-pids
+2015-02-24 19:55:09.147 - [INFO]  - [@VDNetLib::Host::HypervisorOperations:68] [26555] Disabling firewall on 10.144.139.139
+2015-02-24 19:55:09.269 - [DEBUG] - [@VDNetLib::Host::HostOperations:8528] [26555] Sleep 20 seconds before set the acceptance level
+2015-02-24 19:55:18.449 - [DEBUG] - [@VDNetLib::Host::HostOperations:8574] [26555] Ran command: esxcli network firewall set -e false, RC: 0, output: 
+2015-02-24 19:55:18.913 - [INFO]  - [@VDNetLib::Host::HypervisorOperations:79] [26555] Running host setup script vdnet_esx_setup.py on 10.144.139.139
+2015-02-24 19:55:19.070 - [TRACE] - [@VDNetLib::Host::HypervisorOperations:117] [26555] Running setup command on 10.144.139.139: python /tmp/vdnet_esx_setup.py --vdnet scm-trees.eng.vmware.com:/trees/vdnet/main/automation --vmrepository 10.144.136.251:/wdc-protected-02 --sharedstorage 10.144.136.251:/wdc-fvt-1/wdc-vdnetSharedStorage --launcher 10.144.138.31
+2015-02-24 19:56:17.203 - [TRACE] - [@VDNetLib::Host::HypervisorOperations:119] [26555] output of vdnet_linux_setup on host 10.144.139.139 $VAR1 = [
+2015-02-24 19:56:18.734 - [INFO]  - [@VDNetLib::Host::HostOperations:14039] [26555] Installing test-certs on 10.144.139.139
+2015-02-24 19:56:19.241 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26555] Executing command "esxcli software vib install -f --no-sig-check -v /var/log/vmware/test-certs.vib" on 10.144.139.139
+2015-02-24 19:56:20.886 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26555] Executing command "vsish -e set /config/Misc/intOpts/BlueScreenTimeout 1" on 10.144.139.139
+2015-02-24 19:56:21.009 - [INFO]  - [@VDNetLib::Host::HostOperations:3668] [26555] The host reboot successfully.
+2015-02-24 19:56:21.031 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:2497] [26555] Skipping postprocess Reboot for action key reboot
+2015-02-24 19:56:21.031 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:2499] [26555] Deleting reboot from config hash
+2015-02-24 19:56:21.031 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:1493] [26555] action keys processing completed, now process verification keys
+2015-02-24 19:56:21.031 - [INFO]  - [@VDNetLib::Workloads::HostWorkload:1079] [26555] HostWorkload success execute the hash with retry 1 times
+2015-02-24 19:56:21.046 - [DEBUG] - [@VDNetLib::Common::Iterator:553] [26555] No more combinations to iterate on. Returning $VAR1 = {};
+2015-02-24 19:56:21.046 - [TRACE] - [@VDNetLib::Common::Iterator:879] [26555] Closed file handle of /tmp/IteratorCombo-20150224-195120-26555. Now deleting it...
+2015-02-24 19:56:21.046 - [DEBUG] - [@VDNetLib::Common::Iterator:889] [26555] Deleted Iterator's combination file: /tmp/IteratorCombo-20150224-195120-26555
+2015-02-24 19:56:21.046 - [INFO]  - [@VDNetLib::Workloads::WorkloadsManager:1069] [26555] Workload RebootHost return value: PASS
+2015-02-24 19:56:21.061 - [DEBUG] - [@VDNetLib::Workloads::ParentWorkload:6141] [26555] Result:PASS of workload RebootHost matches the expected result: PASS
+2015-02-24 19:56:21.075 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:496] [26555] StackTrace:
+2015-02-24 19:56:21.076 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:498] [26555] Zookeeper handle destroyed:$VAR1 = bless( {
+2015-02-24 19:56:21.288 - [INFO]  - [@VDNetLib::Workloads::WorkloadsManager:1218] [25005] Workload RebootHost, PID 26555 finished with exit code:0 and exit signal:0
+2015-02-24 19:56:21.307 - [DEBUG] - [@VDNetLib::Workloads::WorkloadsManager:1187] [25005] Workload PingTraffic started, pid: 26614
+2015-02-24 19:56:21.312 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:158] [26614] Zookeeper handle created:$VAR1 = bless( {
+2015-02-24 19:56:24.373 - [DEBUG] - [@VDNetLib::Workloads::WorkloadsManager:983] [26614] Workload: PingTraffic has max timeout value of 3600
+2015-02-24 19:56:24.373 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:153] [26614] Logs for this traffic workload: /tmp/vdnet/20150224-194847/1_TDS.EsxServer.VMKTCPIP.VMKTCPIP.EEsxReboot/traffic-20150224-195624/
+2015-02-24 19:56:24.373 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload::Session:259] [26614] Updating Key:testduration in CurrentSessionDefaults hash to value:10
+2015-02-24 19:56:24.374 - [INFO]  - [@VDNetLib::Workloads::WorkloadsManager:1013] [26614] Starting the workload: PingTraffic
+2015-02-24 19:56:24.390 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:229] [26614] Workload configured for parallel execution: no
+2015-02-24 19:56:24.391 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:244] [26614] Planned test execution iterations: 1
+2015-02-24 19:56:24.391 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:252] [26614] Workload expected result: PASS
+2015-02-24 19:56:24.391 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:260] [26614] Workload sleep amount between combinations: 0
+2015-02-24 19:56:24.391 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:297] [26614] Counting test iterations down to 0, current iteration: 0
+2015-02-24 19:56:24.391 - [DEBUG] - [@VDNetLib::Common::Iterator:101] [26614] Setting the Combination flag to IgnoreSingleton
+2015-02-24 19:56:24.420 - [TRACE] - [@VDNetLib::Common::Iterator:142] [26614] Combination file created:/tmp/vdnet/20150224-194847/1_TDS.EsxServer.VMKTCPIP.VMKTCPIP.EEsxReboot/traffic-20150224-195624/IteratorCombo-20150224-195624-26614
+2015-02-24 19:56:24.420 - [DEBUG] - [@VDNetLib::Common::Iterator:781] [26614] No array is provided for ordering preference
+2015-02-24 19:56:24.420 - [TRACE] - [@VDNetLib::Common::Iterator:361] [26614] Input to iterator are flag:IgnoreSingleton and:$VAR1 = {
+2015-02-24 19:56:24.421 - [TRACE] - [@VDNetLib::Common::Iterator:502] [26614] Set the seek to 0 for reading the file from byte 0
+2015-02-24 19:56:24.421 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:315] [26614] Iterating through workload combinations...
+2015-02-24 19:56:24.421 - [TRACE] - [@VDNetLib::Common::Iterator:540] [26614] Read string:toolname==='ping';;;testduration==='10';;;pingpktsize==='100';;; from file:/tmp/vdnet/20150224-194847/1_TDS.EsxServer.VMKTCPIP.VMKTCPIP.EEsxReboot/traffic-20150224-195624/IteratorCombo-20150224-195624-26614
+2015-02-24 19:56:24.421 - [TRACE] - [@VDNetLib::Common::Iterator:584] [26614] Converting string to Hash
+2015-02-24 19:56:24.421 - [DEBUG] - [@VDNetLib::Common::Iterator:548] [26614] Returning next combination as $VAR1 = {
+2015-02-24 19:56:24.422 - [INFO]  - [@VDNetLib::Workloads::TrafficWorkload:328] [26614] TrafficWorkload working on Combination 1:
+2015-02-24 19:56:24.436 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:331] [26614] Creating new TrafficWorkload session: port=, logdir=/tmp/vdnet/20150224-194847/1_TDS.EsxServer.VMKTCPIP.VMKTCPIP.EEsxReboot/traffic-20150224-195624/, staf=VDNetLib::Common::STAFHelper=HASH(0xd815830)
+2015-02-24 19:56:24.444 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:348] [26614] Checking for traffic parameter conflicts.
+2015-02-24 19:56:24.444 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload:350] [26614] Checking traffic session key for conflict: toolname
+2015-02-24 19:56:24.445 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload:371] [26614] RuleCheck success for key: toolname
+2015-02-24 19:56:24.445 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload:350] [26614] Checking traffic session key for conflict: testduration
+2015-02-24 19:56:24.446 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload:371] [26614] RuleCheck success for key: testduration
+2015-02-24 19:56:24.446 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload:350] [26614] Checking traffic session key for conflict: pingpktsize
+2015-02-24 19:56:24.447 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload:371] [26614] RuleCheck success for key: pingpktsize
+2015-02-24 19:56:24.447 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:389] [26614] Traffic session requested inbound and outbound, cloning session.
+2015-02-24 19:56:24.448 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:417] [26614] Set port on cloned traffic session: 49163
+2015-02-24 19:56:24.448 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:428] [26614] Set number of outbound traffic sessions: 1
+2015-02-24 19:56:24.448 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload:475] [26614] Creating traffic node for test adapter: host.[1].vmknic.[1]
+2015-02-24 19:56:26.057 - [DEBUG] - [@VDNetLib::Common::Utilities:6046] [26614] Bcast ip for ip:192.168.0.10 and netmask:255.255.0.0 is 192.168.255.255
+2015-02-24 19:56:26.057 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26614] Executing command "/sbin/esxcli network ip interface ipv6 address list | grep vmk2" on 10.144.139.139
+2015-02-24 19:56:28.484 - [DEBUG] - [@VDNetLib::Common::Utilities:6046] [26614] Bcast ip for ip:192.168.0.10 and netmask:255.255.0.0 is 192.168.255.255
+2015-02-24 19:56:28.484 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26614] Executing command "/sbin/esxcli network ip interface ipv6 address list | grep vmk2" on 10.144.139.139
+2015-02-24 19:56:30.379 - [DEBUG] - [@VDNetLib::Common::Utilities:6046] [26614] Bcast ip for ip:192.168.0.10 and netmask:255.255.0.0 is 192.168.255.255
+2015-02-24 19:56:30.380 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26614] Executing command "/sbin/esxcli network ip interface ipv6 address list | grep vmk2" on 10.144.139.139
+2015-02-24 19:56:31.107 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:2037] [26614] Network address is: $VAR1 = {
+2015-02-24 19:56:31.107 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload:488] [26614] Created traffic node at index: 0000-host.[1].vmknic.[1]
+2015-02-24 19:56:32.410 - [DEBUG] - [@VDNetLib::Common::Utilities:6046] [26614] Bcast ip for ip:192.168.0.11 and netmask:255.255.0.0 is 192.168.255.255
+2015-02-24 19:56:32.411 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26614] Executing command "/sbin/esxcli network ip interface ipv6 address list | grep vmk2" on 10.144.138.105
+2015-02-24 19:56:34.239 - [DEBUG] - [@VDNetLib::Common::Utilities:6046] [26614] Bcast ip for ip:192.168.0.11 and netmask:255.255.0.0 is 192.168.255.255
+2015-02-24 19:56:34.239 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26614] Executing command "/sbin/esxcli network ip interface ipv6 address list | grep vmk2" on 10.144.138.105
+2015-02-24 19:56:35.217 - [DEBUG] - [@VDNetLib::Common::Utilities:6046] [26614] Bcast ip for ip:192.168.0.11 and netmask:255.255.0.0 is 192.168.255.255
+2015-02-24 19:56:35.217 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26614] Executing command "/sbin/esxcli network ip interface ipv6 address list | grep vmk2" on 10.144.138.105
+2015-02-24 19:56:35.973 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:2037] [26614] Network address is: $VAR1 = {
+2015-02-24 19:56:35.974 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload:495] [26614] Creating traffic node for support adapter: host.[2].vmknic.[1]
+2015-02-24 19:56:35.974 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:538] [26614] User given nodes:2, nodes actually being used:2TestAdapter$VAR1 = [
+2015-02-24 19:56:35.974 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:551] [26614] Using traffic 'new verification': 1
+2015-02-24 19:56:35.975 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload:566] [26614] Skipping traffic for endpoints on same machine.
+2015-02-24 19:56:35.987 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:1108] [26614] Ping Connectivity test is enabled by default 
+2015-02-24 19:56:35.987 - [INFO]  - [@VDNetLib::Workloads::TrafficWorkload:1142] [26614] Ping connectivity test host.[1].vmknic.[1] --> host.[2].vmknic.[1] with 5 packets
+2015-02-24 19:56:36.016 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:629] [26614] Starting traffic tool with mode: server
+2015-02-24 19:56:36.017 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload::PingTool:300] [26614] PacketInterval not specified with TestDuration. Assuming default interval of 1 pkt/sec.
+2015-02-24 19:56:36.022 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:629] [26614] Starting traffic tool with mode: client
+2015-02-24 19:56:36.022 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:673] [26614] Starting traffic tool client in mode: sync
+2015-02-24 19:56:36.022 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:681] [26614] Checking health of server before launching client...
+2015-02-24 19:56:36.022 - [INFO]  - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:692] [26614] Launching traffic client-1 (vmkping) on 10.144.139.139
+2015-02-24 19:56:36.043 - [INFO]  - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:694] [26614] with testoptions:  -c 5  -I vmk2  192.168.0.11 
+2015-02-24 19:56:36.062 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26614] Executing command "vmkping  -c 5  -I vmk2  192.168.0.11  " on 10.144.139.139
+2015-02-24 19:56:41.104 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload::PingTool:628] [26614] Stdout of Client-1 from 10.144.139.139 to 10.144.138.105
+2015-02-24 19:56:41.104 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload::PingTool:683] [26614] Minimum packets expected to be received:49 %
+2015-02-24 19:56:41.104 - [INFO]  - [@VDNetLib::Workloads::TrafficWorkload::PingTool:694] [26614] Client-1's Ping packet loss is: 0 %
+2015-02-24 19:56:41.121 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload::Session:1171] [26614] Traffic passed with flying colors for session-20150224-195635-389
+2015-02-24 19:56:41.121 - [INFO]  - [@VDNetLib::Workloads::TrafficWorkload:1000] [26614] Starting 1 flow(s) from host.[1].vmknic.[1] --> host.[2].vmknic.[1]   flowID:session-20150224-195624-800
+2015-02-24 19:56:41.143 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:629] [26614] Starting traffic tool with mode: server
+2015-02-24 19:56:41.143 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:606] [26614] Traffic server session started.
+2015-02-24 19:56:41.143 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload:566] [26614] Skipping traffic for endpoints on same machine.
+2015-02-24 19:56:41.144 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload::PingTool:300] [26614] PacketInterval not specified with TestDuration. Assuming default interval of 1 pkt/sec.
+2015-02-24 19:56:41.149 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:629] [26614] Starting traffic tool with mode: client
+2015-02-24 19:56:41.149 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:673] [26614] Starting traffic tool client in mode: sync
+2015-02-24 19:56:41.149 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:681] [26614] Checking health of server before launching client...
+2015-02-24 19:56:41.149 - [INFO]  - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:692] [26614] Launching traffic client-1 (vmkping) on 10.144.139.139
+2015-02-24 19:56:41.163 - [INFO]  - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:694] [26614] with testoptions:  -c 10  -I vmk2  192.168.0.11  -s 100
+2015-02-24 19:56:41.179 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26614] Executing command "vmkping  -c 10  -I vmk2  192.168.0.11  -s 100 " on 10.144.139.139
+2015-02-24 19:56:51.105 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:632] [26614] Traffic client started for session: 0000-host.[1].vmknic.[1]--->0001-host.[2].vmknic.[1]outbound
+2015-02-24 19:56:51.105 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload::PingTool:628] [26614] Stdout of Client-1 from 10.144.139.139 to 10.144.138.105
+2015-02-24 19:56:51.105 - [INFO]  - [@VDNetLib::Workloads::TrafficWorkload::PingTool:694] [26614] Client-1's Ping packet loss is: 0 %
+2015-02-24 19:56:51.122 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload::Session:1171] [26614] Traffic passed with flying colors for session-20150224-195624-800
+2015-02-24 19:56:51.122 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:864] [26614] PASS session passed
+2015-02-24 19:56:51.122 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload::Session:1565] [26614] Freeing resources occupied by this session object
+2015-02-24 19:56:51.123 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload:566] [26614] Skipping traffic for endpoints on same machine.
+2015-02-24 19:56:51.135 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:1108] [26614] Ping Connectivity test is enabled by default 
+2015-02-24 19:56:51.135 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:1116] [26614] This connection already works. Thus not doing ping connectivity between 192.168.0.10<->192.168.0.11
+2015-02-24 19:56:51.135 - [INFO]  - [@VDNetLib::Workloads::TrafficWorkload:1000] [26614] Starting 1 flow(s) from host.[2].vmknic.[1] --> host.[1].vmknic.[1]   flowID:session-20150224-195624-939
+2015-02-24 19:56:51.157 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:629] [26614] Starting traffic tool with mode: server
+2015-02-24 19:56:51.157 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:606] [26614] Traffic server session started.
+2015-02-24 19:56:51.157 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload:566] [26614] Skipping traffic for endpoints on same machine.
+2015-02-24 19:56:51.157 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload::PingTool:300] [26614] PacketInterval not specified with TestDuration. Assuming default interval of 1 pkt/sec.
+2015-02-24 19:56:51.161 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:629] [26614] Starting traffic tool with mode: client
+2015-02-24 19:56:51.161 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:673] [26614] Starting traffic tool client in mode: sync
+2015-02-24 19:56:51.161 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:681] [26614] Checking health of server before launching client...
+2015-02-24 19:56:51.161 - [INFO]  - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:692] [26614] Launching traffic client-1 (vmkping) on 10.144.138.105
+2015-02-24 19:56:51.176 - [INFO]  - [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:694] [26614] with testoptions:  -c 10  -I vmk2  192.168.0.10  -s 100
+2015-02-24 19:56:51.191 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26614] Executing command "vmkping  -c 10  -I vmk2  192.168.0.10  -s 100 " on 10.144.138.105
+2015-02-24 19:57:00.973 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:632] [26614] Traffic client started for session: 0000-host.[1].vmknic.[1]<---0001-host.[2].vmknic.[1]inbound
+2015-02-24 19:57:00.974 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload::PingTool:628] [26614] Stdout of Client-1 from 10.144.138.105 to 10.144.139.139
+2015-02-24 19:57:00.974 - [INFO]  - [@VDNetLib::Workloads::TrafficWorkload::PingTool:694] [26614] Client-1's Ping packet loss is: 0 %
+2015-02-24 19:57:00.995 - [TRACE] - [@VDNetLib::Workloads::TrafficWorkload::Session:1171] [26614] Traffic passed with flying colors for session-20150224-195624-939
+2015-02-24 19:57:00.995 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:864] [26614] PASS session passed
+2015-02-24 19:57:00.995 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload::Session:1565] [26614] Freeing resources occupied by this session object
+2015-02-24 19:57:00.995 - [INFO]  - [@VDNetLib::Workloads::TrafficWorkload:685] [26614] Expected Result: PASS, Final Result: PASS for Combination: 1
+2015-02-24 19:57:01.008 - [DEBUG] - [@VDNetLib::Common::Iterator:553] [26614] No more combinations to iterate on. Returning $VAR1 = {};
+2015-02-24 19:57:01.008 - [TRACE] - [@VDNetLib::Common::Iterator:879] [26614] Closed file handle of /tmp/vdnet/20150224-194847/1_TDS.EsxServer.VMKTCPIP.VMKTCPIP.EEsxReboot/traffic-20150224-195624/IteratorCombo-20150224-195624-26614. Now deleting it...
+2015-02-24 19:57:01.009 - [DEBUG] - [@VDNetLib::Common::Iterator:889] [26614] Deleted Iterator's combination file: /tmp/vdnet/20150224-194847/1_TDS.EsxServer.VMKTCPIP.VMKTCPIP.EEsxReboot/traffic-20150224-195624/IteratorCombo-20150224-195624-26614
+2015-02-24 19:57:01.020 - [INFO]  - [@VDNetLib::Workloads::WorkloadsManager:1069] [26614] Workload PingTraffic return value: PASS
+2015-02-24 19:57:01.036 - [DEBUG] - [@VDNetLib::Workloads::TrafficWorkload:2372] [26614] Final result:PASS of workload PingTraffic 
+2015-02-24 19:57:01.050 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:496] [26614] StackTrace:
+2015-02-24 19:57:01.050 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:498] [26614] Zookeeper handle destroyed:$VAR1 = bless( {
+2015-02-24 19:57:01.087 - [INFO]  - [@VDNetLib::Workloads::WorkloadsManager:1218] [25005] Workload PingTraffic, PID 26614 finished with exit code:0 and exit signal:0
+2015-02-24 19:57:01.111 - [INFO]  - [@VDNetLib::Workloads::WorkloadsManager:688] [25005] Workload results:
+2015-02-24 19:57:01.131 - [DEBUG] - [@VDNetLib::Workloads::Utilities:1415] [25005] Checking if verification logs exists for test case
+2015-02-24 19:57:01.159 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:158] [25005] Zookeeper handle created:$VAR1 = bless( {
+2015-02-24 19:57:01.160 - [DEBUG] - [@VDNetLib::TestSession::TestSession:260] [25005] Skipping cleanup for EEsxReboot
+2015-02-24 19:57:01.160 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:496] [25005] StackTrace:
+2015-02-24 19:57:01.160 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:498] [25005] Zookeeper handle destroyed:$VAR1 = bless( {
+2015-02-24 19:57:01.183 - [DEBUG] - [@VDNetLib::Common::Tasks:84] [25005] Created instance of Task with 30 workers and max timeout 3600
+2015-02-24 19:57:01.183 - [DEBUG] - [@VDNetLib::Common::Tasks:127] [25005] No output file specified, discarding task outputs
+2015-02-24 19:57:01.183 - [DEBUG] - [@VDNetLib::Common::Tasks:149] [25005] Enqueuing taskId: host.1
+2015-02-24 19:57:01.190 - [DEBUG] - [@VDNetLib::Common::Tasks:127] [25005] No output file specified, discarding task outputs
+2015-02-24 19:57:01.190 - [DEBUG] - [@VDNetLib::Common::Tasks:149] [25005] Enqueuing taskId: host.2
+2015-02-24 19:57:01.197 - [DEBUG] - [@VDNetLib::Common::Tasks:188] [25005] Using threads
+2015-02-24 19:57:01.476 - [DEBUG] - [@VDNetLib::Common::Tasks:358] [26634] Starting task host.1
+2015-02-24 19:57:01.721 - [TRACE] - [@VDNetLib::Common::Tasks:368] [26634] Enqueuing 2 for task host.1
+2015-02-24 19:57:01.721 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:547] [26635] Exception thrown while checking handle status:invalid handle at /dbc/w2-dbc201/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/..//VDNetLib/Common/ZooKeeper.pm line 539, <GEN32> line 24.
+2015-02-24 19:57:01.721 - [TRACE] - [@VDNetLib::Common::ZooKeeper:456] [26635] Zookeeper handle is lost, re-creating handle
+2015-02-24 19:57:01.722 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:158] [26635] Zookeeper handle created:$VAR1 = bless( {
+2015-02-24 19:57:01.738 - [DEBUG] - [@VDNetLib::Common::Tasks:358] [26634] Starting task host.2
+2015-02-24 19:57:01.990 - [TRACE] - [@VDNetLib::Common::Tasks:368] [26634] Enqueuing 3 for task host.2
+2015-02-24 19:57:01.990 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:547] [26641] Exception thrown while checking handle status:invalid handle at /dbc/w2-dbc201/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/..//VDNetLib/Common/ZooKeeper.pm line 539, <GEN32> line 24.
+2015-02-24 19:57:01.991 - [TRACE] - [@VDNetLib::Common::ZooKeeper:456] [26641] Zookeeper handle is lost, re-creating handle
+2015-02-24 19:57:01.991 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:158] [26641] Zookeeper handle created:$VAR1 = bless( {
+2015-02-24 19:57:02.015 - [INFO]  - [@VDNetLib::Common::Tasks:377] [26634] Done scheduling all jobs
+2015-02-24 19:57:02.454 - [DEBUG] - [@VDNetLib::Common::Tasks:219] [25005] Joining/Detaching alive worker threads 3600
+2015-02-24 19:57:03.745 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26635] Executing command "ls /var/core" on 10.144.139.139
+2015-02-24 19:57:04.015 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [26641] Executing command "ls /var/core" on 10.144.138.105
+2015-02-24 19:57:04.975 - [DEBUG] - [@VDNetLib::Host::HostOperations:17070] [26641] On host 10.144.138.105 ls /var/core returns $VAR1 = {
+2015-02-24 19:57:04.975 - [INFO]  - [@VDNetLib::Host::HostOperations:17077] [26641] No dump file got generated
+2015-02-24 19:57:04.991 - [DEBUG] - [@VDNetLib::Host::HostOperations:16602] [26641] Host health check and recovery returns "healthy"
+2015-02-24 19:57:04.991 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:496] [26641] StackTrace:
+2015-02-24 19:57:04.991 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:498] [26641] Zookeeper handle destroyed:$VAR1 = bless( {
+2015-02-24 19:57:05.102 - [DEBUG] - [@VDNetLib::Host::HostOperations:17070] [26635] On host 10.144.139.139 ls /var/core returns $VAR1 = {
+2015-02-24 19:57:05.102 - [INFO]  - [@VDNetLib::Host::HostOperations:17077] [26635] No dump file got generated
+2015-02-24 19:57:05.121 - [DEBUG] - [@VDNetLib::Host::HostOperations:16602] [26635] Host health check and recovery returns "healthy"
+2015-02-24 19:57:05.122 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:496] [26635] StackTrace:
+2015-02-24 19:57:05.122 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:498] [26635] Zookeeper handle destroyed:$VAR1 = bless( {
+2015-02-24 19:57:05.478 - [DEBUG] - [@VDNetLib::Common::Tasks:251] [25005] Worker 3 in joinable state
+2015-02-24 19:57:05.488 - [DEBUG] - [@VDNetLib::Common::Tasks:251] [25005] Worker 2 in joinable state
+2015-02-24 19:57:05.497 - [INFO]  - [@VDNetLib::Common::Tasks:316] [25005] Number of pending threads, client: 0 system: 0
+2015-02-24 19:57:05.512 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:547] [25005] Exception thrown while checking handle status:invalid handle at /dbc/w2-dbc201/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/..//VDNetLib/Common/ZooKeeper.pm line 539, <GEN32> line 24.
+2015-02-24 19:57:05.513 - [TRACE] - [@VDNetLib::Common::ZooKeeper:456] [25005] Zookeeper handle is lost, re-creating handle
+2015-02-24 19:57:05.513 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:158] [25005] Zookeeper handle created:$VAR1 = bless( {
+2015-02-24 19:57:05.513 - [INFO]  - [@VDNetLib::Testbed::Testbedv2:6722] [25005] Host health check and recovery is complete.
+2015-02-24 19:57:05.527 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:496] [25005] StackTrace:
+2015-02-24 19:57:05.527 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:498] [25005] Zookeeper handle destroyed:$VAR1 = bless( {
+2015-02-24 19:57:05.539 - [DEBUG] - [@VDNetLib::Common::Tasks:84] [25005] Created instance of Task with 30 workers and max timeout 3600
+2015-02-24 19:57:05.539 - [DEBUG] - [@VDNetLib::Common::Tasks:188] [25005] Using threads
+2015-02-24 19:57:05.800 - [INFO]  - [@VDNetLib::Common::Tasks:377] [26649] Done scheduling all jobs
+2015-02-24 19:57:06.772 - [DEBUG] - [@VDNetLib::Common::Tasks:219] [25005] Joining/Detaching alive worker threads 3600
+2015-02-24 19:57:06.779 - [INFO]  - [@VDNetLib::Common::Tasks:316] [25005] Number of pending threads, client: 0 system: 0
+2015-02-24 19:57:06.798 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:547] [25005] Exception thrown while checking handle status:invalid handle at /dbc/w2-dbc201/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/..//VDNetLib/Common/ZooKeeper.pm line 539, <GEN32> line 24.
+2015-02-24 19:57:06.798 - [TRACE] - [@VDNetLib::Common::ZooKeeper:456] [25005] Zookeeper handle is lost, re-creating handle
+2015-02-24 19:57:06.799 - [DEBUG] - [@VDNetLib::Common::ZooKeeper:158] [25005] Zookeeper handle created:$VAR1 = bless( {
+2015-02-24 19:57:06.799 - [INFO]  - [@VDNetLib::Testbed::Testbedv2:6730] [25005] VM health check and recovery is complete.
+2015-02-24 19:57:06.816 - [PASS]  - [@VDNetLib::TestSession::TestSession:384] [25005] Test EsxServer.VMKTCPIP.VMKTCPIP.EEsxReboot Passed

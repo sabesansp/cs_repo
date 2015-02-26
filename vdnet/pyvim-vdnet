@@ -505,9 +505,21 @@ P : Go through the python apis written by Shashank and replace the staf calls in
    # copy the vdnet test log directory
     # /tmp/vdnet/20150224-194847/1_TDS.EsxServer.VMKTCPIP.VMKTCPIP.EEsxReboot/testcase.log
     # write a python script to parse this log with brackets and reuse the script here  
-
+     # scp ssaidapetpach@10.144.138.31:/tmp/vdnet/20150224-194847/1_TDS.EsxServer.VMKTCPIP.VMKTCPIP.EEsxReboot/testcase.log Algorithms/clrs/sample.log
+     # grep -> binary file (standard input) matches
+     # use grep -a --text instead : 
+       example => "grep -a --text \\[@ sample.log"
+     # use --debug option while executing the test case
+     # learn perl debugger
+      # how do you print the contents of a variable, say $mine inside a perl debugger ?
+      # "x $mine" prints the value of "mine" variable 
+      # neat_technique to step through the code in the debugger mode 
+      # note down all data structures along the way when this code is being  debugged   
+   
 # S26 : Onboarding tasks for Shashank 
 
  # file_bug(1404961)
  # get_vm_by_name errored: AttributeError("'NoneType' object has no attribute 'GetChildEntity'",) 
-
+ # got a successful test case run of EEsxReboot 
+ # task allocated => print all file_names, line numbers for an end-end vdnet test case
+ # 

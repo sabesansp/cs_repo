@@ -1,0 +1,161 @@
+2015-02-24 19:48:47.839 - [INFO]  - [@VDNetLib::Session::Session:2071] [25005] Session's log is available at /tmp/vdnet/20150224-194847/vdnet.log
+2015-02-24 19:48:47.855 - [INFO]  - [@VDNetLib::Session::Session:109] [25005] Executing VDNet from /dbc/w2-dbc201/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main on 10.144.138.31
+2015-02-24 19:48:48.092 - [INFO]  - [@VDNetLib::Session::Session:112] [25005] Current commit id: ce5ef7ee4fdcbdd8ab3404018a061e8aea833bb9
+2015-02-24 19:48:51.026 - [DEBUG] - [@VDNetLib::Session::Session:474] [25005] Shared storage to use: 10.144.136.251:/wdc-fvt-1/wdc-vdnetSharedStorage
+2015-02-24 19:48:51.027 - [WARN]  - [@VDNetLib::Common::GlobalConfig:1539] [25005] VDNet source will be mounted from scm-trees.eng.vmware.com, use src option to export local changes via NFS
+2015-02-24 19:48:51.259 - [INFO]  - [@VDNetLib::Common::GlobalConfig:1564] [25005] Could not find vdnet source dir /trees/vdnet/master/automation associated with branch master, so using /trees/vdnet/main/automation
+2015-02-24 19:48:51.260 - [INFO]  - [@VDNetLib::Session::Session:503] [25005] Setting VM repository as 10.144.136.251:/wdc-protected-02
+2015-02-24 19:48:51.260 - [INFO]  - [@VDNetLib::Session::Session:546] [25005] Using user-defined snapshot directory: /tmp/vdnetsnap/reboot
+2015-02-24 19:48:51.267 - [DEBUG] - [@VDNetLib::Session::Session:667] [25005] Given testbed deployment option is workloadsOnly
+2015-02-24 19:48:51.399 - [INFO]  - [@VDNetLib::Session::Session:710] [25005] Racetrack link generated from yaml options: http://racetrack.eng.vmware.com/result.php?id=2101795
+2015-02-24 19:48:51.422 - [DEBUG] - [@VDNetLib::Session::Session:1235] [25005] Resolving Tds set 'EsxServer.VMKTCPIP.VMKTCPIP' to yaml 'TDS.EsxServer.VMKTCPIP.VMKTCPIP'
+2015-02-24 19:48:51.422 - [DEBUG] - [@VDNetLib::Session::Session:1241] [25005] Using yaml path: TDS/EsxServer/VMKTCPIP/VMKTCPIP
+2015-02-24 19:48:51.422 - [DEBUG] - [@VDNetLib::Session::Session:1245] [25005] Resolved yaml file: /dbc/w2-dbc201/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/../TDS/EsxServer/VMKTCPIP/VMKTCPIPTds.yaml
+2015-02-24 19:48:51.441 - [DEBUG] - [@VDNetLib::Session::Session:1124] [25005] Final test list
+2015-02-24 19:48:51.441 - [DEBUG] - [@VDNetLib::Session::Session:1126] [25005] TDS::EsxServer::VMKTCPIP::VMKTCPIP::EEsxReboot
+2015-02-24 19:48:51.442 - [DEBUG] - [@VDNetLib::Common::Utilities:5684] [25005] Spec of host :$VAR1 = {
+          '[2]' => {
+                     'installtype' => 'pxeinstall',
+                     'vmnic' => {
+                                  '[1-2]' => {
+                                               'network' => 'isolated-01'
+                                             }
+                                },
+                     'password' => 'ca$hc0w',
+                     'ip' => '10.144.138.105',
+                     'username' => 'root'
+                   },
+          '[1]' => {
+                     'installtype' => 'pxeinstall',
+                     'vmnic' => {
+                                  '[1-2]' => {
+                                               'network' => 'isolated-01'
+                                             }
+                                },
+                     'password' => 'ca$hc0w',
+                     'ip' => '10.144.139.139',
+                     'username' => 'root'
+                   }
+        };
+2015-02-24 19:48:51.442 - [DEBUG] - [@VDNetLib::Common::Utilities:5684] [25005] Spec of host.2.vmnic :$VAR1 = {
+          '[1-2]' => {
+                       'network' => 'isolated-01'
+                     }
+        };
+2015-02-24 19:48:51.443 - [DEBUG] - [@VDNetLib::Common::Utilities:5684] [25005] Spec of host.1.vmnic :$VAR1 = {
+          '[1-2]' => {
+                       'network' => 'isolated-01'
+                     }
+        };
+2015-02-24 19:48:51.443 - [TRACE] - [@VDNetLib::Common::Utilities:6101] [25005] installtype is not a component
+2015-02-24 19:48:51.443 - [TRACE] - [@VDNetLib::Common::Utilities:6101] [25005] password is not a component
+2015-02-24 19:48:51.443 - [TRACE] - [@VDNetLib::Common::Utilities:6101] [25005] ip is not a component
+2015-02-24 19:48:51.443 - [TRACE] - [@VDNetLib::Common::Utilities:6101] [25005] username is not a component
+2015-02-24 19:48:51.443 - [TRACE] - [@VDNetLib::Common::Utilities:6101] [25005] installtype is not a component
+2015-02-24 19:48:51.443 - [TRACE] - [@VDNetLib::Common::Utilities:6101] [25005] password is not a component
+2015-02-24 19:48:51.443 - [TRACE] - [@VDNetLib::Common::Utilities:6101] [25005] ip is not a component
+2015-02-24 19:48:51.443 - [TRACE] - [@VDNetLib::Common::Utilities:6101] [25005] username is not a component
+2015-02-24 19:48:51.444 - [DEBUG] - [@VDNetLib::Session::Session:2753] [25005] Testbed deploy command: python /dbc/w2-dbc201/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/../scripts/deployTestbed.py --logdir /tmp/vdnet/20150224-194847 --config /tmp/vdnet/20150224-194847/config.json --no-stdout
+2015-02-24 19:48:51.444 - [INFO]  - [@VDNetLib::Session::Session:2754] [25005] Checking or deploying testbed, please wait.. watch deployment logs at /tmp/vdnet/20150224-194847/deploy_testbed.log
+2015-02-24 19:49:19.185 - [INFO]  - [@VDNetLib::Session::Session:2779] [25005] esx.1 ip address: 10.144.139.139
+2015-02-24 19:49:19.206 - [INFO]  - [@VDNetLib::Session::Session:2779] [25005] esx.2 ip address: 10.144.138.105
+2015-02-24 19:49:19.216 - [DEBUG] - [@VDNetLib::Session::Session:767] [25005] Reference host 10.144.138.105
+2015-02-24 19:49:19.386 - [DEBUG] - [@VDNetLib::Session::Session:2520] [25005] zookeeper started on port 2189
+2015-02-24 19:49:20.435 - [INFO]  - [@VDNetLib::Session::Session:2558] [25005] Starting zookeeper: /tmp/vdnetsnap/reboot/zookeeper-25005/bin/zkServer.sh start 2>&1
+2015-02-24 19:49:20.452 - [DEBUG] - [@VDNetLib::Session::Session:2559] [25005] Starting zookeeper returned:  JMX enabled by default
+Using config: /tmp/vdnetsnap/reboot/zookeeper-25005/bin/../conf/zoo.cfg
+Starting zookeeper ... STARTED
+2015-02-24 19:49:20.729 - [DEBUG] - [@VDNetLib::Session::Session:321] [25005] watchdog PID file name is /tmp/vdnet/20150224-194847/watchdog-pids
+2015-02-24 19:49:20.749 - [DEBUG] - [@VDNetLib::Session::Session:337] [25005] zookeeper PID is 25452
+2015-02-24 19:49:20.773 - [INFO]  - [@VDNetLib::Session::Session:194] [25005] STAF is already running with build: 1479160 
+2015-02-24 19:49:20.788 - [INFO]  - [@VDNetLib::Session::Session:2950] [25005] Running python /dbc/w2-dbc201/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/../pylib/vmware/nsx/install_nsx_sdk.py  --log-dir /tmp/vdnet/20150224-194847 > /tmp/vdnet/20150224-194847/nsx_sdk_install.out 2>&1
+2015-02-24 19:49:38.906 - [INFO]  - [@VDNetLib::Session::Session:2966] [25005] Configured Nsx SDK package: /tmp/vdnet/nsx-sdk/2423348/nsx_python_sdk-0.1-py2.7.egg
+2015-02-24 19:50:07.133 - [DEBUG] - [@VDNetLib::InlinePython::VDNetInterface:161] [25005] Inline logs at /tmp/vdnet/20150224-194847
+2015-02-24 19:50:07.137 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [25005] Executing command "vmware -v" on 10.144.138.105
+2015-02-24 19:50:07.137 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [25005] Executing command: START SHELL COMMAND :9:vmware -v RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.138.105
+2015-02-24 19:50:07.978 - [DEBUG] - [@VDNetLib::Common::Utilities:6197] [25005] ESX Branch = ESX55 Build = 1331820
+2015-02-24 19:50:07.978 - [DEBUG] - [@VDNetLib::Common::STAFHelper:442] [25005] Executing command "vsish -e get /system/version" on 10.144.138.105
+2015-02-24 19:50:07.978 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [25005] Executing command: START SHELL COMMAND :28:vsish -e get /system/version RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.138.105
+2015-02-24 19:50:08.977 - [DEBUG] - [@VDNetLib::Common::Utilities:6213] [25005] BuildType = Release
+2015-02-24 19:50:09.009 - [DEBUG] - [@VDNetLib::Session::Session:277] [25005] Racetrack build info updated.
+2015-02-24 19:50:09.009 - [DEBUG] - [@VDNetLib::Session::Session:2191] [25005] Deleting old files and directory from Master Controller
+2015-02-24 19:50:09.009 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [25005] Executing command: START SHELL COMMAND :113:perl /dbc/w2-dbc201/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/../scripts/cleanup.pl "/tmp/vdnet/*" ASYNC NOTIFY ONEND RETURNSTDOUT RETURNSTDERR on local
+2015-02-24 19:50:17.170 - [DEBUG] - [@VDNetLib::Session::Session:1675] [25005] STAF Classpath directory is /dbc/w2-dbc201/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/bin/staf/lib/
+2015-02-24 19:50:17.170 - [DEBUG] - [@VDNetLib::InlineJava::VDNetInterface:176] [25005] Classpath:/dbc/w2-dbc201/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/bin/staf/lib/lib.jar:/dbc/w2-dbc201/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/bin/staf/lib/vcqa.jar:/dbc/w2-dbc201/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/bin/staf/lib/vc.jar:/dbc/w2-dbc201/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/bin/staf/lib/logback-classic-0.9.18.jar:/dbc/w2-dbc201/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/../VDNetLib/HPQC/qc-connector.jar:/dbc/w2-dbc201/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/main/../VDNetLib/HPQC/:/dbc/w2-dbc201/ssaidapetpach/vdnet_git/src/nsx-qe/vdnet/automation/bin/staf/lib/slf4j-api-1.5.10.jar
+2015-02-24 19:50:17.171 - [DEBUG] - [@VDNetLib::InlineJava::VDNetInterface:184] [25005] J2SDK Path:/build/toolchain/lin32/jdk-1.7.0_13
+2015-02-24 19:50:19.477 - [DEBUG] - [@VDNetLib::Session::Session:1724] [25005] Started Inline Java server on port 7509
+2015-02-24 19:50:19.860 - [DEBUG] - [@VDNetLib::Session::Session:321] [25005] watchdog PID file name is /tmp/vdnet/20150224-194847/watchdog-pids
+2015-02-24 19:50:19.881 - [DEBUG] - [@VDNetLib::Session::Session:360] [25005] JVM PID is 26499
+2015-02-24 19:50:19.881 - [DEBUG] - [@VDNetLib::Session::Session:360] [25005] JVM PID is 26500
+2015-02-24 19:50:19.881 - [INFO]  - [@VDNetLib::Session::Session:3366] [25005] vdNet.pl PID 25005 watchdog PID file name /tmp/vdnet/20150224-194847/watchdog-pids
+2015-02-24 19:50:19.906 - [INFO]  - [@VDNetLib::TestSession::TestSession:113] [25005] Option not to cleanup on failure is provided
+2015-02-24 19:50:19.919 - [DEBUG] - [@VDNetLib::TestSession::TestSession:161] [25005] Running pre-configuration for TDS::EsxServer::VMKTCPIP::VMKTCPIP::EEsxReboot
+2015-02-24 19:50:19.919 - [DEBUG] - [@VDNetLib::TestSession::TestSession:169] [25005] Skipping pre-configuration for TDS::EsxServer::VMKTCPIP::VMKTCPIP::EEsxReboot
+2015-02-24 19:50:19.919 - [INFO]  - [@VDNetLib::TestSession::TestSession:172] [25005] Working on TDS::EsxServer::VMKTCPIP::VMKTCPIP::EEsxReboot
+2015-02-24 19:50:19.940 - [INFO]  - [@VDNetLib::TestSession::TestSession:181] [25005] Logs for TDS::EsxServer::VMKTCPIP::VMKTCPIP::EEsxReboot test are available in /tmp/vdnet/20150224-194847/1_TDS.EsxServer.VMKTCPIP.VMKTCPIP.EEsxReboot/testcase.log
+2015-02-24 19:50:19.966 - [DEBUG] - [@VDNetLib::InlinePython::VDNetInterface:161] [25005] Inline logs at /tmp/vdnet/20150224-194847/1_TDS.EsxServer.VMKTCPIP.VMKTCPIP.EEsxReboot
+2015-02-24 19:50:31.721 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26532] Executing command: START SHELL COMMAND :93:/sbin/esxcli network ip interface ipv4 set -i vmk2  -t static -I 192.168.0.10 -N 255.255.0.0  RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.139.139
+2015-02-24 19:50:33.965 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26532] Executing command: START SHELL COMMAND :27:vim-cmd hostsvc/net/refresh RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.139.139
+2015-02-24 19:51:08.557 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26532] Executing command: START SHELL COMMAND :63:/sbin/esxcli network ip interface ipv6 address list | grep vmk2 RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.139.139
+2015-02-24 19:51:11.152 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26548] Executing command: START SHELL COMMAND :93:/sbin/esxcli network ip interface ipv4 set -i vmk2  -t static -I 192.168.0.11 -N 255.255.0.0  RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.138.105
+2015-02-24 19:51:13.979 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26548] Executing command: START SHELL COMMAND :27:vim-cmd hostsvc/net/refresh RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.138.105
+2015-02-24 19:51:17.737 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26548] Executing command: START SHELL COMMAND :63:/sbin/esxcli network ip interface ipv6 address list | grep vmk2 RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.138.105
+2015-02-24 19:54:31.294 - [DEBUG] - [@VDNetLib::Common::STAFHelper:1836] [26555] Setup service command: DISCONNECT ANCHOR 10.144.139.139:root
+2015-02-24 19:54:31.786 - [DEBUG] - [@VDNetLib::Common::STAFHelper:1762] [26555] Host service command: DISCONNECT ANCHOR 10.144.139.139:root
+2015-02-24 19:54:32.097 - [DEBUG] - [@VDNetLib::Common::STAFHelper:1695] [26555] host:local,VM service command: DISCONNECT ANCHOR 10.144.139.139:root
+2015-02-24 19:54:32.399 - [DEBUG] - [@VDNetLib::Common::STAFHelper:1762] [26555] Host service command:CONNECT AGENT 10.144.139.139 SSL USERID "root" PASSWORD ""
+2015-02-24 19:54:36.872 - [DEBUG] - [@VDNetLib::Common::STAFHelper:1779] [26555] STAF Host command failed with RC: 5169
+2015-02-24 19:54:36.872 - [DEBUG] - [@VDNetLib::Common::STAFHelper:1781] [26555] $VAR1 = {
+          'reqIdStr' => 'local://local:host:73',
+          'errDesc' => 'javax.xml.ws.soap.SOAPFaultException',
+          'rootCause' => undef,
+          'endTime' => '01/07/2015 05:08:23 PM',
+          'errMsg' => 'Cannot complete login due to an incorrect user name or password.',
+          'exception' => 'com.vmware.vc.InvalidLogin',
+          'rootException' => undef,
+          'stkTrace' => 'com.vmware.vcqa.vim.SessionManager.login(SessionManager.java:156) ## com.vmware.qa.staf.vc.common.SessionCache.handleConnection(SessionCache.java:76) ## com.vmware.qa.staf.common.VIMServiceBase.handleConnection(VIMServiceBase.java:398) ## com.vmware.qa.staf.common.VIMServiceBase.handleConnection2(VIMServiceBase.java:436) ## com.vmware.qa.staf.common.VIMServiceBase.handleConnection(VIMServiceBase.java:331) ## com.vmware.qa.staf.vc.host.HostSTAFService.acceptRequest(HostSTAFService.java:558) ## ',
+          'startTime' => '01/07/2015 05:08:23 PM',
+          'dbgInfo' => undef,
+          'result' => undef
+        };
+2015-02-24 19:54:36.873 - [DEBUG] - [@VDNetLib::Common::STAFHelper:1762] [26555] Host service command:CONNECT AGENT 10.144.139.139 SSL USERID "root" PASSWORD "ca\$hc0w"
+2015-02-24 19:55:07.101 - [DEBUG] - [@VDNetLib::Common::STAFHelper:1695] [26555] host:local,VM service command:CONNECT AGENT 10.144.139.139 SSL USERID "root" PASSWORD "ca\$hc0w"
+2015-02-24 19:55:07.354 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26555] Executing command: START SHELL COMMAND :19:ls /tmp/vdnet-26555 RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.139.139
+2015-02-24 19:55:07.585 - [DEBUG] - [@VDNetLib::Common::STAFHelper:1762] [26555] Host service command:SERVICESYSTEM ANCHOR 10.144.139.139:root HOST 10.144.139.139 SERVICENAME TSM-SSH ACTION start
+2015-02-24 19:56:17.203 - [DEBUG] - [@VDNetLib::Common::STAFHelper:1029] [26555] Waiting for STAF to be up and running on 10.144.139.139...
+2015-02-24 19:56:17.584 - [DEBUG] - [@VDNetLib::Common::STAFHelper:1036] [26555] STAF is up and running on 10.144.139.139
+2015-02-24 19:56:26.057 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26614] Executing command: START SHELL COMMAND :63:/sbin/esxcli network ip interface ipv6 address list | grep vmk2 RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.139.139
+2015-02-24 19:56:28.484 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26614] Executing command: START SHELL COMMAND :63:/sbin/esxcli network ip interface ipv6 address list | grep vmk2 RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.139.139
+2015-02-24 19:56:30.380 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26614] Executing command: START SHELL COMMAND :63:/sbin/esxcli network ip interface ipv6 address list | grep vmk2 RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.139.139
+2015-02-24 19:56:32.411 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26614] Executing command: START SHELL COMMAND :63:/sbin/esxcli network ip interface ipv6 address list | grep vmk2 RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.138.105
+2015-02-24 19:56:34.239 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26614] Executing command: START SHELL COMMAND :63:/sbin/esxcli network ip interface ipv6 address list | grep vmk2 RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.138.105
+2015-02-24 19:56:35.217 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26614] Executing command: START SHELL COMMAND :63:/sbin/esxcli network ip interface ipv6 address list | grep vmk2 RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.138.105
+2015-02-24 19:56:36.062 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26614] Executing command: START SHELL COMMAND :38:vmkping  -c 5  -I vmk2  192.168.0.11   RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.139.139
+2015-02-24 19:56:41.179 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26614] Executing command: START SHELL COMMAND :46:vmkping  -c 10  -I vmk2  192.168.0.11  -s 100  RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.139.139
+2015-02-24 19:56:51.191 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26614] Executing command: START SHELL COMMAND :46:vmkping  -c 10  -I vmk2  192.168.0.10  -s 100  RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.138.105
+2015-02-24 19:57:03.742 - [DEBUG] - [@VDNetLib::Common::STAFHelper:1762] [26635] Host service command:CONNECT AGENT 10.144.139.139 SSL USERID "root" PASSWORD "ca$hc0w"
+2015-02-24 19:57:03.745 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26635] Executing command: START SHELL COMMAND :12:ls /var/core RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.139.139
+2015-02-24 19:57:04.012 - [DEBUG] - [@VDNetLib::Common::STAFHelper:1762] [26641] Host service command:CONNECT AGENT 10.144.138.105 SSL USERID "root" PASSWORD "ca$hc0w"
+2015-02-24 19:57:04.015 - [DEBUG] - [@VDNetLib::Common::STAFHelper:214] [26641] Executing command: START SHELL COMMAND :12:ls /var/core RETURNSTDOUT RETURNSTDERR wait 600000 on 10.144.138.105
+2015-02-24 19:57:38.008 - [DEBUG] - [@VDNetLib::Session::Session:3778] [25005] Repro config will be created in /dbc/pa-dbc1113/netfvt/repro/ssaidapetpach
+2015-02-24 19:57:38.142 - [INFO]  - [@main:206] [25005] Final result: 0
+2015-02-24 19:57:38.181 - [DEBUG] - [@VDNetLib::Session::Session:1819] [25005] No session cleanup since test level is workloadsOnly
+2015-02-24 19:57:38.181 - [INFO]  - [@main:227] [25005] Summary:
+------------------------------------------------------------
+Test reuse                                   Duration Result
+1_TDS.EsxServer.VMKTCPIP.VMKTCPIP.EEsxReboot 402 secs PASS  
+
+Total Tests	: 1
+Total Executed	: 1
+Total Passed	: 1
+Total Failed	: 0
+Session log file: /tmp/vdnet/20150224-194847/vdnet.log
+Racetrack link	: http://racetrack.eng.vmware.com/result.php?id=2101795
+Base log dir for this session: /tmp/vdnet/20150224-194847
+
+Debugging tips	: http://goo.gl/Gllc1k
+
+Memory usage of vdNet session 25005 (In kB):
+   time  VmPeak  VmSize   VmHWM   VmRSS  VmData   VmStk   VmExe
+    527  146968  145996  108476  108476  116092     156    1220 
+------------------------------------------------------------
