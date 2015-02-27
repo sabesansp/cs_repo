@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[2766 mins]
+[3093 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -522,4 +522,5 @@ P : Go through the python apis written by Shashank and replace the staf calls in
  # get_vm_by_name errored: AttributeError("'NoneType' object has no attribute 'GetChildEntity'",) 
  # got a successful test case run of EEsxReboot 
  # task allocated => print all file_names, line numbers for an end-end vdnet test case
- # 
+ # EEsx.VMKTCPIP.VMKTCPIP.RFRoute => test_case in TDS to be run for a single iteration (not iterations = 20)
+   
