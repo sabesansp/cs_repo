@@ -514,7 +514,14 @@ P : Go through the python apis written by Shashank and replace the staf calls in
       # how do you print the contents of a variable, say $mine inside a perl debugger ?
       # "x $mine" prints the value of "mine" variable 
       # neat_technique to step through the code in the debugger mode 
-      # note down all data structures along the way when this code is being  debugged   
+      # note down all data structures along the way when this code is being debugged
+      # write a simple test case and have a sample execution through the perl debugger
+       # addvmknic, deletevmknic sequence in the set of workloads
+       # copy  a test case : RFRouteNew 
+       # VDNetLib::TestSession::TestSession.pm => RunTest() 
+       # SetWorkloadManagerObj() => new VDNetLib::Workloads::WorkloadsManager() 
+       # RunWorkload() {in WorkloadsManager class}
+       #      
    
 # S26 : Onboarding tasks for Shashank 
 
