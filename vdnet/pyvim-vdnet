@@ -520,8 +520,7 @@ P : Go through the python apis written by Shashank and replace the staf calls in
        # copy  a test case : RFRouteNew 
        # VDNetLib::TestSession::TestSession.pm => RunTest() 
        # SetWorkloadManagerObj() => new VDNetLib::Workloads::WorkloadsManager() 
-       # RunWorkload() {in WorkloadsManager class}
-       #      
+       # RunWorkload() {in WorkloadsManager class} 
    
 # S26 : Onboarding tasks for Shashank 
 
@@ -540,4 +539,13 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # find all references of migrate-pg and replace it with "host.[1].portgroup.[1]"
   # cleanup code failed to cleanup because the host was already removed from the vc
   # re-initializing the setup for deployment and testing
-  	    
+
+
+# S27 : api_chosen = CreateDC (VCOperation.pm)
+
+ # vc_build = 1312297
+ # change is pretty simple, summarized below :
+  # get the inline python object
+  # got complicated at a certain point
+  # revert to a different plan
+  # need to stay with this => not_a_good_day()  	    
