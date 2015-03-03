@@ -126,4 +126,39 @@
   # pdb_code -> python version 3 {does that affect this thought process design ? => no} 
   # p1 => write a function that takes as arguments the function_name, file_name and returns the line number of the function in the file
    # signature => def find_function(func_name,file_name) : => returns the line no of the function definition in the file
-           
+# MODEL_PROBLEMS
+ # permutations => arrangements/ordering of items {arrangements, tour, sequence, ordering}
+ # subsets => order does not matter but the collection of elements matter {cluster, collection, committee, group, packaging, selection}
+ # trees => hierarchy/dominance relationship/ancestor/descendant relationship/taxonomy
+ # graphs => network, web, circuit, relationship
+ # points => sites,positions,data records, locations
+ # polygons => shapes, regions, configurations, boundaries
+ # strings => text, characters, patterns, labels
+ # modeling your application in terms of well-defined structures and algorithms is the most important step towards a solution
+# REFACTOR_SUBROUTINE_PROBLEM
+ # code :
+
+ while(c != '0') {
+    scanf("%c",&c);
+    if(c == 'A') {
+       if(row-1 >= 0) {
+          temp = b[row-1][col];
+          b[row-1][col] = ' ';
+          b[row][col] = temp;
+          row = row - 1;
+       }
+    }
+    else if(c == 'B') {
+       if(row+1 <= BOARDSIZE-1){
+          temp = b[row+1][col];
+          b[row+1][col] = ' ';
+          b[row][col] = temp;
+          row = row + 1;
+       }
+   } 
+ }
+
+ # function => manipulate_B(char c,int row, int col) { // conditions here } 
+ #  
+
+            

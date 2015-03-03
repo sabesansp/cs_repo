@@ -113,6 +113,23 @@ def addBinaryDigits(A,B) :
    return C
 
 
+## Method to perform selection sort
+## on an array of integers
+
+def selection_sort(int_list) :
+
+   for i in range(0,len(int_list)) :
+      min = i
+      for j in range(i+1,len(int_list)):
+         if int_list[j] < int_list[min] :
+            min = j
+      if min != i :
+ 
+         ## pythonic way of swapping two integers
+         int_list[i],int_list[min] = 
+            int_list[min],int_list[i]       
+      
+
       
       
 
@@ -123,7 +140,13 @@ if __name__ == '__main__' :
    # "data.txt" file exists in the current working directory
    # created through create_dataset api
 
-   #int_list = load_dataset('data.txt')
+   int_list = load_dataset('data.txt')
+
+   t_selection_sort = measure_time(selection_sort,int_list)
+
+   display(int_list)
+
+   print "time_selection_sort = ",t_selection_sort
 
    #t_insertion_sort = measure_time(insertion_sort,int_list)
   
@@ -131,10 +154,10 @@ if __name__ == '__main__' :
 
    #print "time_insertion_sort = ",t_insertion_sort
 
-   A = [1,1,1,0,1,0,1,1,1]
+   #A = [1,1,1,0,1,0,1,1,1]
     
-   B = [1,1,0,1,0,1,1,0,1]
+   #B = [1,1,0,1,0,1,1,0,1]
 
-   C = addBinaryDigits(A,B)
+   #C = addBinaryDigits(A,B)
  
-   display(C)
+   #display(C)

@@ -529,5 +529,15 @@ P : Go through the python apis written by Shashank and replace the staf calls in
  # get_vm_by_name errored: AttributeError("'NoneType' object has no attribute 'GetChildEntity'",) 
  # got a successful test case run of EEsxReboot 
  # task allocated => print all file_names, line numbers for an end-end vdnet test case
- # EEsx.VMKTCPIP.VMKTCPIP.RFRoute => test_case in TDS to be run for a single iteration (not iterations = 20)
-   
+ # EEsx.VMKTCPIP.VMKTCPIP.RFRoute => test_case in TDS to be run for a single iteration (not iterations = 20) 
+ # vdnet/automation/TDS/EsxServer/VDS/VDS/vNicMigration
+ # [ERROR] - Unable to create vswitch migrate-to-net
+  # unable_to_create_vswitch()
+  # vswitch already present
+  # code failed with a different reason first time
+  # reason = "could not find portgroup migrate-pg"
+  # vss portgroup was referenced by name rather than host.[1].portgroup.[1]
+  # find all references of migrate-pg and replace it with "host.[1].portgroup.[1]"
+  # cleanup code failed to cleanup because the host was already removed from the vc
+  # re-initializing the setup for deployment and testing
+  	    

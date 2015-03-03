@@ -1060,6 +1060,11 @@ public class Algorithms
       //al.swap(a,0,2);
       //al.printArray(al.populateArrayList(a));
       try{
+         
+
+
+
+
          //List<Integer> input = al.readFile("QuickSort.txt");
          //al.printArray(input);
          //int a[] = al.toIntArray(input); 
