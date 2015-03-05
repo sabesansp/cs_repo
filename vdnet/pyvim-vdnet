@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[3093 mins]
+[3470 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -548,4 +548,41 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # get the inline python object
   # got complicated at a certain point
   # revert to a different plan
-  # need to stay with this => not_a_good_day()  	    
+  # need to stay with this => not_a_good_day()
+ # problem(_simple) => problem(_complicated) when mind is not aligned with the task
+ # createdatacenter api is invoked on a folder
+ # this info is not captured in the current code explicitly 
+ # when datacenter is being created, where is it being created ?
+  # folder must be specified explicitly but I do not find folder name anywhere in CreateDC
+  # run a sample test case in order to test this code path
+  # deploy a vc with this build 
+  # print the hash => Dumper($result);
+  # what is a better option to print the data structure ?
+   # option_1 => invoke the method createdc alone
+   # option_2 => invoke a test case that calls into one of the callers of the method
+   # option_2 seems more easy at this point
+   # callers = [CreateDCWithHosts, AddDCWithHosts] 
+   # search_caller_in_callers for respective TDSes
+   # CreateDC -> AddDCWithhosts -> VCWorkload.pm -> keys_db_entry {'datacenter'}
+   # problem => find a test_case to run 
+    # test_case should involve the method "AddDCWithHosts" subroutine
+    # key_db_entry{'datacenter'} in VCWorkload.yaml calls this subroutine
+    # reduce(problem) => any testcase that invokes 'datacenter' key in TDS
+    # test_case = Internal.VDNet.Sample.DatacenterPreCheckIn
+   # write the yaml file => ~/yaml/sample_vc.yaml
+   # edit SampleTds.pm but revert the change made later on 
+   # deploy testbed in sample_vc.yaml => threw an error that the yaml could not be parsed which was weird
+   # first deploy the vc if possible and remove the host from the yaml file
+   # failed as expected but vc.1 ip address =  10.144.139.226
+   # deploy esx from reboot.yaml, esx_ip_address = 10.144.139.180
+ # make sure that there is a space before and after ":"
+ # datacenter-name = "/1-folder-875/1-datacenter-875" 
+ # datacenter '1-datacenter-875' created under folder '1-folder-875' under the root folder
+ # problem => write pseudo code for computation for creating data center
+  # dc_name = "/1-folder-875/1-datacenter-875"
+  # calculate the number of slashes = n
+  # if n = 1, => create dc-name after / under root folder
+  # if n>1 => 
+   # get dc-name after the last slash {regex needs to be examined}
+   # create a folder object for the name after the root folder
+   # create a datacenter inside the folder object 	      	    
