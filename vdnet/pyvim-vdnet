@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[3470 mins]
+[3808 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -585,4 +585,32 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # if n>1 => 
    # get dc-name after the last slash {regex needs to be examined}
    # create a folder object for the name after the root folder
-   # create a datacenter inside the folder object 	      	    
+   # create a datacenter inside the folder object
+ # sample perl scripts prototypes
+  # given an input string like "/f1/dc", print the string after the last slash
+   # hardcode the input inside vdnet/sample_scripts.pl
+   # compute the last slash in the string and get the string after that {regex}
+   # split("/","/f1/dc1") = @split_string || last_string = @split_string[$#split_string]
+ # Folder.pm is not present inside the vdnet framework but only exists under InlineJava folder
+ # For now, the solution would be to create the inline python object for the folder inside the "CreateDC" api
+ # folder_pyclass = "vmware.vsphere.vc.folder.folder_facade.FolderFacade"
+ # design_deviation = Shouldn't there be a common Folder perl module like Datacenter to be able to invoke apis ?
+ # leave a note that Folder.pm is not available yet and create the inline python object as is 
+ # postpone the implementation of this api since "Folder" perl module is not present and a hack needs to be deployed
+
+
+
+# S28 : Implement a different api like LISTPORTGROUP
+ # pylib_file = esx/vsswitch/portgroup/api/esx55_crud_impl.py || api = read()
+ # context_switches are the most expensive {whether it be the human_brain or the computer}
+ # vswitch_api_file = VDNetLib/Switch/VSSwitch/PortGroup.pm
+ # function = GetPGProperties
+ # hierarchy => portgroup_facade -> vss_facade -> host_facade
+ # PortgroupFacade(name,vss) || VSSwitchFacade(name,host) 
+ # GetInlinePyObject_Not_Defined() => in both vss and portgroup perl modules
+ # transformations :
+  # t1 => GetInlinePyObject implementation update
+   # use the method in Root.pm, have both Portgroup and VSSwitch inherit from Root.pm
+   # as an example, check logical_switch in nsx manager
+    # two methods => Getid, GetInlinePyObject ($self->{id} : don't know where this property is populated}
+               	      	    
