@@ -612,5 +612,17 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # t1 => GetInlinePyObject implementation update
    # use the method in Root.pm, have both Portgroup and VSSwitch inherit from Root.pm
    # as an example, check logical_switch in nsx manager
-    # two methods => Getid, GetInlinePyObject ($self->{id} : don't know where this property is populated}
+    # two methods => Getid, GetInlinePyObject ($self->{id} : don't know where this property is populated) 
+
+
+
+
+# S29 : timeout for mc {mc_not_reachable}
+ # ip_addr = 10.144.138.31
+ # bookmarked vc ip {10.144.136.10}
+ # no mc found for this ip addr, probably got deleted
+ # deploy ovf template on mc-depository and choose vlan 1360
+ # deployment_in_progress
+
+  
                	      	    
