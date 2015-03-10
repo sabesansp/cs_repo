@@ -20,7 +20,12 @@ if($#split_string == 0) {
    print "first_string = ",$split_string[0],"\n";
    print "last_string = ",$split_string[2],"\n";
 
-} 
+}
+
+## split function
+
+my @temp_ip = split(/\//,"/ser/get");
+print "temp ip[1] = ".$temp_ip[1]."\n"; 
 
 
 

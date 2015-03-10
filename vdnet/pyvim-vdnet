@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[3808 mins]
+[3968 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -623,6 +623,23 @@ P : Go through the python apis written by Shashank and replace the staf calls in
  # no mc found for this ip addr, probably got deleted
  # deploy ovf template on mc-depository and choose vlan 1360
  # deployment_in_progress
+ # check_deployment_status()
+ # vm was not present : need to redeploy the master controller
+ # process_started()
+ # check_vm_ip() : ip_addr = 10.144.139.229
+ # vm ready & operational 
 
+
+# S30 : Common review tasks
+ # https://gitreview.eng.vmware.com:8443/#/c/17218/ 
+  # vnic.pm => Fix GetIpv6Global to not return /mask
+  # files_list = <path>/vnic.pm
+ # https://gitreview.eng.vmware.com:8443/#/c/17161/
+  # some nits => {spell_check, 80_char_limit}
+  # apis related to HostOperations.pm, hypervisor.py, 
+    adapter_interface.py, network_interface.py, esx55_adapter_impl.py,
+    esx55_hypervisor_impl.py, esx55_network_impl.py
+  # 
+       
   
                	      	    
