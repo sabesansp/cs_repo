@@ -639,7 +639,12 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # apis related to HostOperations.pm, hypervisor.py, 
     adapter_interface.py, network_interface.py, esx55_adapter_impl.py,
     esx55_hypervisor_impl.py, esx55_network_impl.py
-  # 
+
+
+# S31 : read perl interpreter assembly code 
+ # otool -tV /usr/bin/perl {prints the entire assembly code}
+ # parse && classify the assembly code
+  
        
   
                	      	    
