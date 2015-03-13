@@ -613,7 +613,7 @@ P : Go through the python apis written by Shashank and replace the staf calls in
    # use the method in Root.pm, have both Portgroup and VSSwitch inherit from Root.pm
    # as an example, check logical_switch in nsx manager
     # two methods => Getid, GetInlinePyObject ($self->{id} : don't know where this property is populated) 
-
+    
 
 
 
@@ -645,6 +645,18 @@ P : Go through the python apis written by Shashank and replace the staf calls in
  # otool -tV /usr/bin/perl {prints the entire assembly code}
  # parse && classify the assembly code
   
+# S32 : setup a meeting for drs related tests with opaque switch
+
+ # go through the opaque switch details 
+
+# S33 : bug triage
+
+ # bug_1413010 => VDNetLib::InlinePython::VDNetInterface:340 -> python method returned an exception "No route to host"
+  # VDNetLib::InlinePython::VDNetInterface: 312 => "no route to host"
+  # VDNetLib::Root:Root:78
+  # target_end_point not reachable {buildweb, host on which modules were being deployed}
+  # 	
+
        
   
                	      	    
