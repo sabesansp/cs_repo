@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[3968 mins]
+[4008 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -655,7 +655,28 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # VDNetLib::InlinePython::VDNetInterface: 312 => "no route to host"
   # VDNetLib::Root:Root:78
   # target_end_point not reachable {buildweb, host on which modules were being deployed}
-  # 	
+  # INCOMPLETE => {analysis not complete with concrete leaves}
+ # bug_1413974 => [@VDNetLib::Workloads::TrafficWorkload::TrafficTool:1667] [4530] Command:netstat -nlp | grep 49171 failed on 10.153.214.118 
+  # testcase => NSXTransformers.L2.L2Sample.L2ESXBasic
+  # which workload failed => CombinedTraffic
+  # closest error in log => Traffic client failed for 0000-vm.[1].vnic.[1]<---0001-vm.[2].vnic.[1]inbound
+  # class_of_problems = "netperf"
+  # launch netserver on 10.153.214.118 : /automation/bin/x86_32/linux/netserver -p 49171 -6 -L 2001:bd6::c:2957:214:118) on 10.153.214.118 with PID: <none>
+  # INCOMPLETE => {analysis not complete with concrete leaves}  
+
+
+# S34 : Product_basics
+
+ # esx_host
+  # no two portgroups can have the same name even if they are on different virtual switches
+
+
+
+# S35 : Patterns 
+
+ # Call GetPGProperties with a portgroup object
+  # Use DeleteVmknic method => get host object, get vswitch obj, get portgroup obj, call GetPGProperties on portgroup obbj
+ #  	
 
        
   
