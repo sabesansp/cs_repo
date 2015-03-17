@@ -1038,33 +1038,81 @@ public class Algorithms
 
    }
 
+   public List<String> readStringFromIn() 
+      throws Exception {
+
+      BufferedReader br = new BufferedReader(
+                          new InputStreamReader(
+                          System.in));
+      List<String> strList = new ArrayList<String>();
+      String line = null;
+      System.out.print("Enter the (src:dest) : ");
+      line = br.readLine();
+      while(!line.equals("")) {
+         System.out.println(line);
+         strList.add(line);
+         System.out.print("\n");
+         System.out.print("Enter the (src:dest) : ");
+         
+         line = br.readLine();
+      }
+      return strList;
+   }       
+   
+
+
+   public void getRoute() 
+      throws Exception {
+
+      // Read the string from keyboard
+
+      List<String> strList = readStringFromIn();
+
+      // Collection of hashmaps
+
+      Map<String,Integer> exSrcMap = new HashMap<String,Integer>();
+
+      Map<String,Integer> exDestMap = new HashMap<String,Integer>();
+
+      Map<String,Integer> srcDestMap = new HashMap<String,Integer>();
+
+      // Loop through the list of strings
+
+      for(String s : strList) {
+
+         // split the string based on ":"
+
+         String[] parts = s.split(":");
+     
+         //    
+
+   }
+
   
 
    // code starts executing from here
    public static void main(String[] args)
    {
       Algorithms al = new Algorithms();
-      // P1 : calculate minimum indices
-      //ArrayList<Integer> array = al.populateArrayList(new int[]{5,-1,3,8,6,4});
-      //al.printArray(al.calculateMinIndices(array,4));
-      //ArrayList<Integer> ls = al.populateArrayList(new int[]{0,0,0,0,0,0});
-      //al.computeLengthOfLongestIncreasingSubsequence(array,ls,5);
-      //al.printArray(ls,5);
-      // P3 : Common ancestor in a binary tree
-      //int a[] = {1,2,3,4,5,6,7};
-      //int index = al.commonAncestor(a,3,4);
-      //System.out.println("The common ancestor = " +  a[index]);
-      //int a[] = {5,4,6,3,2,9,1};
-      // The following code does not work
-      //al.qsort(a,0,6);
-      //al.swap(a,0,2);
-      //al.printArray(al.populateArrayList(a));
       try{
-         
+         al.getRoute();          
 
 
-
-
+         // P1 : calculate minimum indices
+         //ArrayList<Integer> array = al.populateArrayList(new int[]{5,-1,3,8,6,4});
+         //al.printArray(al.calculateMinIndices(array,4));
+         //ArrayList<Integer> ls = al.populateArrayList(new int[]{0,0,0,0,0,0});
+         //al.computeLengthOfLongestIncreasingSubsequence(array,ls,5);
+         //al.printArray(ls,5);
+         // P3 : Common ancestor in a binary tree
+         //int a[] = {1,2,3,4,5,6,7};
+         //int index = al.commonAncestor(a,3,4);
+         //System.out.println("The common ancestor = " +  a[index]);
+         //int a[] = {5,4,6,3,2,9,1};
+         // The following code does not work
+         //al.qsort(a,0,6);
+         //al.swap(a,0,2);
+         //al.printArray(al.populateArrayList(a));
          //List<Integer> input = al.readFile("QuickSort.txt");
          //al.printArray(input);
          //int a[] = al.toIntArray(input); 

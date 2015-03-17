@@ -647,7 +647,8 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   
 # S32 : setup a meeting for drs related tests with opaque switch
 
- # go through the opaque switch details 
+ # go through the opaque switch details
+ # done (March 17, 2015 => 2:30PM - 3:00PM) 
 
 # S33 : bug triage
 
@@ -669,13 +670,14 @@ P : Go through the python apis written by Shashank and replace the staf calls in
 
  # esx_host
   # no two portgroups can have the same name even if they are on different virtual switches
-
+ # opaque_switch
+  #  	
 
 
 # S35 : Patterns 
 
  # Call GetPGProperties with a portgroup object
-  # Use DeleteVmknic method => get host object, get vswitch obj, get portgroup obj, call GetPGProperties on portgroup obbj
+  # Use DeleteVmknic method => get host object, get vswitch obj, get portgroup obj, call GetPGProperties on portgroup obj
  #  	
 
        
