@@ -670,16 +670,58 @@ P : Go through the python apis written by Shashank and replace the staf calls in
 
  # esx_host
   # no two portgroups can have the same name even if they are on different virtual switches
- # opaque_switch
-  #  	
+  #    	
 
 
 # S35 : Patterns 
 
  # Call GetPGProperties with a portgroup object
   # Use DeleteVmknic method => get host object, get vswitch obj, get portgroup obj, call GetPGProperties on portgroup obj
- #  	
+ # while reading a piece of text convert it into a problem thread(goal is to get from point A to point B)   	
 
        
-  
+
+# S36 : Problem - Logging + Result_Reporting
+
+ # requirements(note down the thought process)
+  # req001 - store logs and report to a server which stores it in the db
+  # req002 - ability to manipulate reporting capabilities
+  # req003 - ability to pull down reports on any device (mobile/desktop etc.)
+  # req004 - ability to serve multiple requests
+ # quick prototype to clarify the requirements
+  # python script that writes a string to a log file
+   # file = lrr_prototype.py 
+   # path =  ~/cs_repo/ vdnet/lrr_prototype.py
+   # print a random string "This is a test string"
+   # use a logging library api to push this to a log file
+     [reqd_outcome = string in file] 
+      # import logging module
+      # 
+
+
+# S37 : resolve bug 1415054
+
+ # pt -> lot of DEBUG logging is no-op (remove all unwanted logging)
+  # sample = [@VDNetLib::Common::LogCollector:345] 
+  # Log collection method is GetNSXControllerLog,logobj is nsxcontroller,objTuple is nsxmanager.[-1] 
+  # needinfo() : need a direction for bug resolution
+  # for different products, we need to collect logs which do not work => resolve
+    on a case-by-case basis and not remove unwanted logging statements
+  # direction : remove all invalid combinations
+  # log_collection_method = "GetKVMLog" | log_obj = "kvm" |  objTuple = "nsxmanager.[-1]"
+  # LOGFUNCTIONMAP => contains the object and method to be called for log_collection
+  # kvmLog => {object = 'kvm',method = 'GetKVMLog'} 
+  # collect_logs => "pylib/vmware/kvm/kvm.py" method only has a "pass" in it
+  # U(CollectLog) => VDNetLib/Common/LogCollector.pm
+   # params => $workloadType, $objTuple
+   # workloadsubmap => hash ('kvm' => \@kvm) 
+   # $workloadkey = 'kvm' || $workloadType = 'kvm'
+   # foreach object_tuple in the array of tuples
+    # foreach log_type in @$refLogTypeArr
+   # @$refLogTypeArr = array(kvmLog) 
+   # intuition => @$refLogTypeArray needs to be generated for each object tuple
+   # for object_tuple = nsxcontroller.[-1] => $refLogTypeArray = array(nsxcontrollerlog)
+   # 'CollectLog' probably needs a complete re-write
+   # there must be a map from object tuple to the $refLogTypeArray and then invoke the same
+   #      
                	      	    
