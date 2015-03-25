@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[4008 mins]
+[4088 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -253,7 +253,7 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # git commit --amend <file>
   # post-review <commit-id> -r <review_num> {re-post into the same review_num}
   # git push review HEAD:refs/for/master {push to gerritt -> submit} 
-
+  # git push ssh://rams@gitreview.eng.vmware.com:29418/nsx-qe HEAD:refs/for/master (add it to bash profile or something) 
 
 # S13 : Pick second api to be completed
 
@@ -723,5 +723,27 @@ P : Go through the python apis written by Shashank and replace the staf calls in
    # for object_tuple = nsxcontroller.[-1] => $refLogTypeArray = array(nsxcontrollerlog)
    # 'CollectLog' probably needs a complete re-write
    # there must be a map from object tuple to the $refLogTypeArray and then invoke the same
-   #      
-               	      	    
+   # $refLogTypeArr = ARRAY_REF
+   # insert the trace statement inside each if statement
+   # add to technical debt list
+   # testcase => NSXTransformers.L3.BasicRouting.FunctionalKVM.BasicIPAddressAssignment
+   # yaml_file =>  3kvm_1edge.yaml
+   # received an error, need to get the actual command line to run the test case
+   # git blame => only reports the most recent errors
+  # was able to get it verified and submit but the fix is not getting merged
+  # need to see why this issue occurs  
+
+
+# S38 : research related {shared doc with Jia}
+
+ # list down all the areas that you are interested in
+ #    
+     
+
+
+
+               	      	   
+# S39 : Technical debt 
+
+ # 'CollectLog' subroutine in LogCollector.pm needs to be redesigned 
+ #  
