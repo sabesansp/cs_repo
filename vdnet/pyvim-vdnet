@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[4088 mins]
+[4168 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -746,4 +746,38 @@ P : Go through the python apis written by Shashank and replace the staf calls in
 # S39 : Technical debt 
 
  # 'CollectLog' subroutine in LogCollector.pm needs to be redesigned 
- #  
+ #
+
+
+
+# S40 : resolve bug 1403524
+
+ # problem => --skiptest options is missing from vdnet -help
+ # simple to test this out as the output can be copied from console
+ # look for skiptest option inside the code
+ # files = [main/vdNet.pl,VDNetLib/Session/Session.pm]
+ # file_to_be_modified = VDNetLib/Common/VDNetUsage.pm
+ # insert the skiptests option
+ # send the file out for review
+ # patch submitted  	
+
+
+# S41 : resolve bug 1411545
+
+ # problem => a core dump was detected and the logs were copied onto a specific location
+ # The location to which the logs were copied were not mentioned explicitly
+ # This resulted in data being hidden from the user and affects ease of debugging
+ # DATA_HIDDEN || AFFECTS_EASE_OF_DEBUGGING
+ # file = [VDNetLib::Host::HostOperations:16841]
+ # CopyCoreDumpFile("/scratch/core", CORE_DUMP . "/" . $host);
+ # CORE_DUMP = "coredump"
+ # CORE_DUMP_DIR = "/var/core"
+ # signature => CopyCoreDumpFile(source_directory, destination_directory)
+ # patch submitted to repo 
+
+
+# S42 : resolve bug 123300
+
+ # Problem => vdnet help => list all missing options, default values for optional parameters 
+   to be more verbose and usable to the user
+ #     
