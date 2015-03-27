@@ -5,6 +5,10 @@ from ctypes import c_int,addressof
 import sys
 
 
+from job import Job
+
+
+
 # P1 : Print 'n' numbers in the fibonacci sequence using iteration
  # n = 5 => sequence = [0,1,1,2,3]
   # E1 : l = 0, r = 1,i = 3
@@ -640,8 +644,47 @@ def compute_min(s,a):
       return 1+compute_min(s-compute_max_less_than_element(s,a,0,len(a)-1),a)
 
 
+# Function to print with no new line
+def print_no_new_line(output):
 
+   sys.stdout.write(output)
+   sys.stdout.flush()
+
+# Function to compute the sum of weighted completion times
+def compute_sum_weighted_completion(input_file):
+
+   # open the input file in read mode
+   f = open(input_file,'r')
+
+   # Create a list of jobs
+   jobs_list = []
+
+   try:
+
+      # populate the data into jobs_list data structure
+      for line in f.readlines():
+         str = line.split(" ") 
+         int_list = [int(e) for e in str]
+         if len(int_list) == 2 :
+            j = Job(int_list[0],int_list[1])
+            jobs_list.append(j)
+
+      # print the job details here
+      for j in jobs_list:
+         print_no_new_line(j.getWeight().__str__()+" ")
+         print_no_new_line(j.getLength().__str__()+"\n")
+      
+
+
+
+   finally:
+      f.close() 
+
+
+# Main entry point for code execution
 if __name__== '__main__' :
+  
+   compute_sum_weighted_completion('jobs-sample.txt') 
    #print_fibonacci(1.9) 
    #print_fibonacci_recurse(6.5)
    #l = [-1] * 10
@@ -677,4 +720,4 @@ if __name__== '__main__' :
    #(l,c) = sort_count(numbers)
    #print c
    #print compute_max_less_than_element(12,[5,9,10,11,13,15],0,5)
-   print compute_min(11,[1,2])  
+   #print compute_min(11,[1,2])  
