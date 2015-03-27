@@ -737,7 +737,7 @@ P : Go through the python apis written by Shashank and replace the staf calls in
 # S38 : research related {shared doc with Jia}
 
  # list down all the areas that you are interested in
- #    
+    
      
 
 
@@ -746,7 +746,7 @@ P : Go through the python apis written by Shashank and replace the staf calls in
 # S39 : Technical debt 
 
  # 'CollectLog' subroutine in LogCollector.pm needs to be redesigned 
- #
+ 
 
 
 
@@ -780,4 +780,12 @@ P : Go through the python apis written by Shashank and replace the staf calls in
 
  # Problem => vdnet help => list all missing options, default values for optional parameters 
    to be more verbose and usable to the user
- #     
+ # file to be modified = VDNetLib/Common/VDNetUsage.pm
+ # list all missing options here :
+  # vc, sut, helper,hosts,vms,pswitch,skipsetup,hosted,src,logLevel,consoleLog,vmrepos,
+    shared,options,testbed,testconfig,nocleanup,listkeys,configjson, userspec,nsxsdkbuild
+  # for each of the missing options 
+   # find what the option signifies from the code
+   # formulate the right words for the help description
+  # vc => most-likely endpoint ip of the virtual center server [check]
+  #       
