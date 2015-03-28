@@ -126,7 +126,7 @@ def insertion_sort(list_num) :
       # i moves from 0 to j-1
       while i<=j-1 :
          # i < j => we need to make list_num[i] <= list_num[j]
-         if list_num[j] < list_num[i] :
+         if compare_weight_length_diff(list_num[i],list_num[j])<0 :
             # swap the numbers if the condition list_num[i] <= list_num[j] is not maintained
             tmp = list_num[i] 
             list_num[i] = list_num[j]
@@ -136,7 +136,22 @@ def insertion_sort(list_num) :
       # increment j for the outer loop
       j = j + 1
    # return the list
-   return list_num  
+   return list_num 
+
+
+# Function to sort jobs in decreasing order
+def selection_sort(list_num) :
+   for i in range(0,len(list_num)):
+      for j in range(i+1,len(list_num)):
+         c = compare_weight_length_diff(list_num[i],
+                                        list_num[j])
+         if c<0: 
+            tmp = list_num[i]
+            list_num[i] = list_num[j]
+            list_num[j] = tmp
+
+   return list_num
+ 
 
 
 # P7 : Implement a 2-way merge of numbers sorted in ascending order
@@ -650,6 +665,38 @@ def print_no_new_line(output):
    sys.stdout.write(output)
    sys.stdout.flush()
 
+
+# Function to compare two weights
+# returns 0, when equal
+#         1, when greater
+#        -1, when lesser
+def compare_weight(w1,w2) :
+   if w1>w2 :
+      return 1
+   else :
+      if w1==w2 :
+         return 0
+      else :
+         return -1
+
+
+# Function to compare the difference between weight and length
+def compare_weight_length_diff(j1,j2):
+
+   wl_diff1 = j1.getWeight()-j1.getLength()
+   wl_diff2 = j2.getWeight()-j2.getLength()
+   if wl_diff1>wl_diff2 :
+      return 1
+   else :
+      if wl_diff1==wl_diff2 :
+         return compare_weight(j1.getWeight(),
+                        j2.getWeight())   
+      else :
+         return -1
+   
+
+
+
 # Function to compute the sum of weighted completion times
 def compute_sum_weighted_completion(input_file):
 
@@ -669,11 +716,27 @@ def compute_sum_weighted_completion(input_file):
             j = Job(int_list[0],int_list[1])
             jobs_list.append(j)
 
+   
+      # sort the jobs in the array using insertion sort routine
+      jobs_list = selection_sort(jobs_list)
+
+
       # print the job details here
+      #for j in jobs_list:
+         #print_no_new_line(j.getWeight().__str__()+" ")
+         #print_no_new_line(j.getLength().__str__()+"\n")
+     
+      # compute the sum of weighted completion times
+      sum_weighted_completion = 0
+      completion = 0
       for j in jobs_list:
-         print_no_new_line(j.getWeight().__str__()+" ")
-         print_no_new_line(j.getLength().__str__()+"\n")
+         completion = completion + j.getLength()
+         j.setCompletion(completion)
+         sum_weighted_completion = sum_weighted_completion + \
+                                   j.getWeight()*j.getCompletion() 
       
+      # display the final sum of weighted completion times
+      print sum_weighted_completion
 
 
 
@@ -684,7 +747,7 @@ def compute_sum_weighted_completion(input_file):
 # Main entry point for code execution
 if __name__== '__main__' :
   
-   compute_sum_weighted_completion('jobs-sample.txt') 
+   compute_sum_weighted_completion('jobs-da-2-prog-1-1.txt') 
    #print_fibonacci(1.9) 
    #print_fibonacci_recurse(6.5)
    #l = [-1] * 10

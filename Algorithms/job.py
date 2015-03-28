@@ -22,3 +22,6 @@ class Job:
       return self.completion
 
 
+   def setCompletion(self,
+                     completion):
+      self.completion = completion      
