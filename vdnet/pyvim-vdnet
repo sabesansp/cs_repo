@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[4168 mins]
+[4288 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -776,7 +776,7 @@ P : Go through the python apis written by Shashank and replace the staf calls in
  # patch submitted to repo 
 
 
-# S42 : resolve bug 123300
+# S42 : resolve bug 1233000
 
  # Problem => vdnet help => list all missing options, default values for optional parameters 
    to be more verbose and usable to the user
@@ -787,5 +787,36 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # for each of the missing options 
    # find what the option signifies from the code
    # formulate the right words for the help description
-  # vc => most-likely endpoint ip of the virtual center server [check]
-  #       
+  # vc => most-likely endpoint ip of the virtual center server [optional]
+  # sut => ref(testbedv1.pm) => endpoint ip of the system under test [optional]
+  # helper => ref(testbedv1.pm) => endpoint ip of helper machine [optional]
+  # hosts => (hostlist in Session.pm) => ip addresses /hostnames of hosts [optional]
+  # vms => format = "SUT= helper = "
+  # pswitch => ip address of the physical switch [optional]
+  # skipsetup => do not perform the setup when flag is present [optional]
+  # hosted => boolean flag indicating whether this is a hosted setup or not [optional]
+  # src => vdnet source path format "<server>:<share>" [optional, default = ]
+  # logLevel => 
+  # consoleLog 
+  # vmrepos
+  # shared 
+  # options 
+  # testbed 
+  # testconfig
+  # nocleanup 
+  # listkeys 
+  # configjson 
+  # userspec 
+  # nsxsdkbuild 
+  # reassign to Prabuddh since it has options spanning v1, which ones are irrelevant etc. 
+  # -INCOMPLETE_BUT_REASSIGNED-
+
+
+# S43 : resolve bug 1421918
+
+ # Problem => uninitialized variable in Iterator.pm
+ # check for if defined of the $hashWithMagicKeys->{$keys} 
+ # in the else part, print that the value of $keys is not present in the hash
+ # sent out for review : https://gitreview.eng.vmware.com:8443/#/c/19269/
+ # closed the bug
+        
