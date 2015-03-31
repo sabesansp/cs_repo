@@ -6,7 +6,7 @@ import sys
 
 
 from job import Job
-
+from graph import Graph
 
 
 # P1 : Print 'n' numbers in the fibonacci sequence using iteration
@@ -683,8 +683,8 @@ def compare_weight(w1,w2) :
 # Function to compare the difference between weight and length
 def compare_weight_length_diff(j1,j2):
 
-   wl_diff1 = j1.getWeight()-j1.getLength()
-   wl_diff2 = j2.getWeight()-j2.getLength()
+   wl_diff1 = float(j1.getWeight())/j1.getLength()
+   wl_diff2 = float(j2.getWeight())/j2.getLength()
    if wl_diff1>wl_diff2 :
       return 1
    else :
@@ -744,10 +744,61 @@ def compute_sum_weighted_completion(input_file):
       f.close() 
 
 
+# Function to compute the overall cost of a minimum spanning tree
+def compute_cost_min_spanning_tree(input_file):
+
+   # open the input file in read mode
+   f = open(input_file,'r')
+
+
+   try:
+
+      # v -> no. of vertices
+      v=0
+
+      # e -> no. of edges
+
+      e=0
+
+      # initialize the graph data structure
+
+      g = Graph()
+
+      # populate the data into graph data structure
+      for line in f.readlines():
+         str = line.split(" ") 
+         int_list = [int(e) for e in str]
+         if len(int_list) == 2 :
+            # update the number of nodes and edges
+            v = int_list[0]
+            e = int_list[1]
+         else :
+            if g.getVertex(int_list[0]) is None:
+               g.addVertex(int_list[0])
+            if g.getVertex(int_list[1]) is None:
+               g.addVertex(int_list[1])
+            g.addEdge(int_list[0],
+                      int_list[1],
+                      int_list[2])
+
+      # Print the entire graph data structure
+ 
+      for v in g.getVertices():
+         print g.vertList[v]
+            
+
+   finally:
+      f.close()
+
+
+ 
 # Main entry point for code execution
 if __name__== '__main__' :
-  
-   compute_sum_weighted_completion('jobs-da-2-prog-1-1.txt') 
+
+   #compute_cost_min_spanning_tree('jobs-da-2-prog-1-3.txt') 
+   compute_cost_min_spanning_tree('jobs-sample.txt') 
+   #compute_sum_weighted_completion('jobs-da-2-prog-1-1.txt') 
+   #compute_sum_weighted_completion('jobs-sample.txt') 
    #print_fibonacci(1.9) 
    #print_fibonacci_recurse(6.5)
    #l = [-1] * 10
