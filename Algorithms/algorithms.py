@@ -785,7 +785,51 @@ def compute_cost_min_spanning_tree(input_file):
  
       for v in g.getVertices():
          print g.vertList[v]
+
+
+      # vert_set => list of all vertices in graph
+      # spanned_set => list of all spanned vertices in graph
+
+      vert_set = g.getVertices()
+      print "vert_set = ",vert_set
+      spanned_set = []
+      spanned_set.append(vert_set[0])
+      print "spanned_set = ",spanned_set
+      vert_set.remove(vert_set[0])
+      i=0
+      min_cost = 0
+
+      while vert_set :
+
+         key = spanned_set[i] 
+
+         if key in g.getVertices():
+
+            vert = g.vertList[key]
+
+         print "vertex_key = ",key
+
+         neigh = vert.getNeighborWithMinWeight()
             
+         while neigh in spanned_set :
+
+            neigh = vert.getNeighborWithMinWeight()
+
+         
+         # neigh is not in spanned_set when it reaches this point
+
+         spanned_set.append(neigh)
+
+         if neigh in vert_set :
+
+            vert_set.remove(neigh)
+    
+         min_cost = min_cost + vert.connectedTo[neigh]
+      
+         i = i + 1
+
+      print "Min cost of spanning tree = ",min_cost
+ 
 
    finally:
       f.close()

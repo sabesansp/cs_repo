@@ -39,5 +39,19 @@ class Vertex :
       return self.connectedTo[nbr]
 
 
+   def getNeighborWithMinWeight(self):
+
+      neigh_list = self.getConnections()
+      min = self.connectedTo[neigh_list[0]]
+      ret_val = neigh_list[0]
+      for n in neigh_list :
+         if self.connectedTo[n] < min :
+            min = self.connectedTo[n]
+            ret_val = n
+      return ret_val
+
+          
+
+
 
  
