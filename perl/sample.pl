@@ -29,3 +29,7 @@ if(ref($hash->{$key}) eq "HASH") {
 
    print("Hash and key not defined\n");
 }
+my $vdnetsrc="scm-trees.eng.vmware.com";
+my $vdnetshare = "/trees/vdnet/automation";
+my $folder = "f";
+print("mount point : $vdnetsrc:$vdnetshare/$folder\n");

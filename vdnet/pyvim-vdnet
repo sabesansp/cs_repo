@@ -819,4 +819,18 @@ P : Go through the python apis written by Shashank and replace the staf calls in
  # in the else part, print that the value of $keys is not present in the hash
  # sent out for review : https://gitreview.eng.vmware.com:8443/#/c/19269/
  # closed the bug
-        
+    
+
+# S45 : resolve bug 1345144
+
+ # print smb share info msg when the operation fails
+ # file => VDNetLib/VM/VMOperations.pm
+ # values to consider => vdNetSrc, vdNetShare
+ # default_vdnet_src_server = (vdNetSrc) = scm-trees.eng.vmware.com
+ # (vdNetShare) = default_vdnet_src_dir = /trees/vdnet/main/automation
+ # logs concerning smb must list both vdNetSrc and vdNetShare
+ # or make it something like on "$vdNetSrc:/$vdNetShare" 
+ # resolved and closed the bug
+
+
+    
