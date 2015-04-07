@@ -833,4 +833,13 @@ P : Go through the python apis written by Shashank and replace the staf calls in
  # resolved and closed the bug
 
 
-    
+# S46 : resolve bug 1425944
+
+ # needinfo on Vikram to know what logs to look into
+ # error log line : [@VDNetLib::InlinePython::VDNetInterface:208] [17129] Failed to load module vmware.nsx_api: Error -- 
+   py_eval raised an exception at /bldmnt/trees/vdnet/main/vdnet/automation/main/..//VDNetLib/InlinePython/VDNetInterface.pm line 200.
+ # move the line in the subroutine into a place where "ne SKIP" is present 
+ # link => https://gitreview.eng.vmware.com:8443/19866 
+
+# S47 : resolve bug 1252961
+
