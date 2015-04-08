@@ -843,3 +843,10 @@ P : Go through the python apis written by Shashank and replace the staf calls in
 
 # S47 : resolve bug 1252961
 
+ # tasks to be done as part of this bug :
+  # Print the actual command line used
+  # Print nimbus cloud vc details
+  # Print steps to run repro script
+  # Use LogGroup in deployTestbed
+ # put a needinfo on Giri to know the examples for the cases 
+
