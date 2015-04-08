@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[4288 mins]
+[4368 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -845,8 +845,18 @@ P : Go through the python apis written by Shashank and replace the staf calls in
 
  # tasks to be done as part of this bug :
   # Print the actual command line used
-  # Print nimbus cloud vc details
   # Print steps to run repro script
-  # Use LogGroup in deployTestbed
- # put a needinfo on Giri to know the examples for the cases 
+ # put a needinfo on Giri to know the examples for the cases
+ # transformations :
+  # item #2 :
+   # we print only the absolute path to vdnet in the log but not all command line parameters
+   # sample statement : Executing vdNet from /bldmnt.../main
+   # file -> VDNetLib:Session:Session:109 
+   # build a prototype that takes one option and passed as a parameter
+   #  
+  # item #4 : 
 
+# S48 : resolve bug 1427628
+
+ # Added a defined check for $result
+ # fix is out for review : https://gitreview.eng.vmware.com:8443/#/c/20026/1/vdnet/automation/VDNetLib/Host/HostOperations.pm   	 
