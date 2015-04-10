@@ -1,5 +1,11 @@
 #!/usr/bin/perl
 
+use Getopt::Long;
+use Getopt::Std;
+use Data::Dumper;
+use strict;
+use warnings;
+
 my $array =  [];
 
 
@@ -33,3 +39,24 @@ my $vdnetsrc="scm-trees.eng.vmware.com";
 my $vdnetshare = "/trees/vdnet/automation";
 my $folder = "f";
 print("mount point : $vdnetsrc:$vdnetshare/$folder\n");
+my $check_defined;
+if(defined $check_defined && $check_defined eq "failure") {
+
+   print("check_defined variable is defined\n");
+
+} else {
+
+   print("check_defined variable is not defined\n");
+
+}
+foreach my $item(@ARGV) {
+   print("$item\n");
+}
+my $cli = {};
+GetOptions("this|this=s" => \$cli->{"this"},
+           "that|that=s" => \$cli->{"that"});
+
+# print the hash cli
+print("The cli = " .Dumper($cli)." \n");
+
+	 
