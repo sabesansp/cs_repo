@@ -855,10 +855,10 @@ P : Go through the python apis written by Shashank and replace the staf calls in
    # build a prototype that takes one option and passed as a parameter
    # required statement would be something along the lines of "Executing vdNet <options> from <path"
    # how do you print the options ?
-   #  
   # item #4 : 
 
 # S48 : resolve bug 1427628
 
  # Added a defined check for $result
- # fix is out for review : https://gitreview.eng.vmware.com:8443/#/c/20026/1/vdnet/automation/VDNetLib/Host/HostOperations.pm   	 
+ # fix is out for review : https://gitreview.eng.vmware.com:8443/#/c/20026/1/vdnet/automation/VDNetLib/Host/HostOperations.pm
+ # submitted and closed the bug   	 
