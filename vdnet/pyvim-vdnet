@@ -853,10 +853,11 @@ P : Go through the python apis written by Shashank and replace the staf calls in
    # sample statement : Executing vdNet from /bldmnt.../main
    # file -> VDNetLib:Session:Session:109 
    # build a prototype that takes one option and passed as a parameter
-   #  
+   # <start work on this - 04/09/2015>   
   # item #4 : 
 
 # S48 : resolve bug 1427628
 
  # Added a defined check for $result
- # fix is out for review : https://gitreview.eng.vmware.com:8443/#/c/20026/1/vdnet/automation/VDNetLib/Host/HostOperations.pm   	 
+ # fix is out for review : https://gitreview.eng.vmware.com:8443/#/c/20026/1/vdnet/automation/VDNetLib/Host/HostOperations.pm
+ # submitted and closed the bug   	 
