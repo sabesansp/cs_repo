@@ -854,8 +854,12 @@ P : Go through the python apis written by Shashank and replace the staf calls in
    # file -> VDNetLib:Session:Session:109 
    # build a prototype that takes one option and passed as a parameter
    # required statement would be something along the lines of "Executing vdNet <options> from <path"
-   # how do you print the options ?
+   # how do you print the options ? @ARGV, etc...
+   # review sent : https://gitreview.eng.vmware.com:8443/#/c/20556/
+   # fix was submitted
   # item #4 : 
+   # needinfo on Giri (need to know what to print) 
+   # 
 
 # S48 : resolve bug 1427628
 
@@ -895,4 +899,29 @@ P : Go through the python apis written by Shashank and replace the staf calls in
 
 
 
-#    	 
+# S50 : resolve bug # 1334835
+
+ # https://gitreview.eng.vmware.com:8443/20662
+ # in review at this point
+ # fix was submitted : defined check for "id"  
+
+
+# S51 : resolve bug # 1427511
+
+ # get_latest_vmware_build fails due to IndexError 
+   {list index out of range if no build matches with tuple}
+ # file = pylib/common/build_utilities.py
+ # IndexError:List out of range
+ # prototype_construction
+  # create a list 'l' with no entities
+  # check if l is not empty => if l : 
+ # simple fix, but the question is what is the expected workflow
+   when data_list is empty (or there is no element in it) 
+  # what is the caller of this method ?
+  #  
+
+# S52 : resolve bug # 1426714
+
+# S53 : resolve bug # 1404333
+
+# S54 : resolve bug # 1367272   	 
