@@ -861,4 +861,38 @@ P : Go through the python apis written by Shashank and replace the staf calls in
 
  # Added a defined check for $result
  # fix is out for review : https://gitreview.eng.vmware.com:8443/#/c/20026/1/vdnet/automation/VDNetLib/Host/HostOperations.pm
- # submitted and closed the bug   	 
+ # submitted and closed the bug
+
+
+# S49 : install pre-commit hook
+
+ # instructions :
+
+  # 1. Copy vdnet-dev in all your review requests
+ 
+  # 2. Please ensure pre-commit hook is installed and your review requests contain full commit template
+       https://sites.google.com/a/vmware.com/vdnet/developer-guide/coding-style-and-recommendations#TOC-Style-Checking-Helper
+ 
+  # The commit message should contain the following fields
+    Issue: -
+    Must Review: -
+    Review Due Date: -
+    Test-Time Impact: -
+    Test Run:
+    Is Backport Required: -
+    Backport of Commit: -
+    Follow-Up Work: -
+    Pre-Commit Check Ran on the Committed Code: -
+ 
+  # At the minimum, explain what is the change, why is it done,
+    any impact.
+ 
+  # Test Run should have racetrack link and/or detailed description of tests run.
+ 
+  # "Pass" is not useful data! It is obvious it should have passed.
+
+ # successfully installed everything to get this thing working (pep8, pyflakes) 
+
+
+
+#    	 
