@@ -918,7 +918,11 @@ P : Go through the python apis written by Shashank and replace the staf calls in
  # simple fix, but the question is what is the expected workflow
    when data_list is empty (or there is no element in it) 
   # what is the caller of this method ?
-  #  
+  # irrelevant question : not needed at this time
+ # resent the fix for review
+ # waiting for code review +2
+ # fix submitted
+  
 
 # S52 : resolve bug # 1426714
 
