@@ -926,6 +926,12 @@ P : Go through the python apis written by Shashank and replace the staf calls in
 
 # S52 : resolve bug # 1426714
 
+ # indentation errors in the yaml file specifying the testbed get caught late in the process
+ # construct a prototype for loading the yaml file
+  # core logic of loading yaml file is in vdnet_spec.py
+  # location of vdnet_spec => "vdnet/automation/scripts/yaml_utils/vdnet_spec.py"
+  # <to_be_continued> 
+
 # S53 : resolve bug # 1404333
 
 # S54 : resolve bug # 1367272   	 
