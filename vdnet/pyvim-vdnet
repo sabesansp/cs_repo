@@ -1,6 +1,6 @@
 P : Go through the python apis written by Shashank and replace the staf calls inside vdnet with these apis
 
-[4368 mins]
+[4440 mins]
 
 
 # S1: Download the api mac timer to record the time taken to complete this activity
@@ -503,7 +503,7 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # strategy_1 : dump all function names in the log file
    # deploy 2 esxi hosts using reboot.yaml to prepare for running the test
    # copy the vdnet test log directory
-    # /tmp/vdnet/20150224-194847/1_TDS.EsxServer.VMKTCPIP.VMKTCPIP.EEsxReboot/testcase.log
+    # /tmp/vdnet/20150224-194847/1_TDS.EsxServer.VMKTCPIP.VMKTCPIP.EsxReboot/testcase.log
     # write a python script to parse this log with brackets and reuse the script here  
      # scp ssaidapetpach@10.144.138.31:/tmp/vdnet/20150224-194847/1_TDS.EsxServer.VMKTCPIP.VMKTCPIP.EEsxReboot/testcase.log Algorithms/clrs/sample.log
      # grep -> binary file (standard input) matches
@@ -930,7 +930,14 @@ P : Go through the python apis written by Shashank and replace the staf calls in
  # construct a prototype for loading the yaml file
   # core logic of loading yaml file is in vdnet_spec.py
   # location of vdnet_spec => "vdnet/automation/scripts/yaml_utils/vdnet_spec.py"
-  # <to_be_continued> 
+  # repro the actual problem
+  # need a yaml file with indentation errors which is good for deployment though
+  # copy reboot.yaml into the directory and introduce a malformed reboot.yaml
+  # found a similar error between two versions of reboot.yaml {build is not getting deployed}
+  # find a good build to be deployed {go for the latest build} => vmkernel-main {2669097}
+  # the error message is printed clearly and deployment does not go through.
+  # put a need-info on the reporter to make sure that the bug is actually worth resolving
+  # mostly, this will be resolved as such unless there are good logs to prove otherwise  
 
 # S53 : resolve bug # 1404333
 
