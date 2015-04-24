@@ -938,7 +938,18 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # the error message is printed clearly and deployment does not go through.
   # put a need-info on the reporter to make sure that the bug is actually worth resolving
   # mostly, this will be resolved as such unless there are good logs to prove otherwise  
+  # assigned back to David (for repro) 
 
 # S53 : resolve bug # 1404333
 
-# S54 : resolve bug # 1367272   	 
+ # 
+
+# S54 : resolve bug # 1367272
+
+
+# S55 : resolve bug # 1437207
+ 
+ # Implemented the fix
+ # closed the bug (check $ip returned failure and return FAILURE instead of 
+                   continuing with program execution)  
+ #    	 
