@@ -952,4 +952,13 @@ P : Go through the python apis written by Shashank and replace the staf calls in
  # Implemented the fix
  # closed the bug (check $ip returned failure and return FAILURE instead of 
                    continuing with program execution)  
- #    	 
+
+
+# S56 : look into the issues reported by Alex Tessemer
+
+ # attribute_mapping errror => /tmp/vdnet/20150427-114436 on laumcher 10.144.136.163
+  # issue was fixed and merged
+ # bug # 1438170 => uuid was returned as "None" which causes test failure
+  # pyvpx 6.0 => is this available in the repo ?
+   # how will I figure out if pyvpx 6.0 is loaded into vdnet ?
+   #      	 
