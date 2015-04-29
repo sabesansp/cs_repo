@@ -939,6 +939,7 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # put a need-info on the reporter to make sure that the bug is actually worth resolving
   # mostly, this will be resolved as such unless there are good logs to prove otherwise  
   # assigned back to David (for repro) 
+  # closed as unable to duplicate
 
 # S53 : resolve bug # 1404333
 
@@ -961,4 +962,8 @@ P : Go through the python apis written by Shashank and replace the staf calls in
  # bug # 1438170 => uuid was returned as "None" which causes test failure
   # pyvpx 6.0 => is this available in the repo ?
    # how will I figure out if pyvpx 6.0 is loaded into vdnet ?
-   #      	 
+   # workaround provided
+  # assign bug to Shawn
+
+
+# S57 :  	       	 

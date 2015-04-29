@@ -25,7 +25,9 @@ if($#split_string == 0) {
 ## split function
 
 my @temp_ip = split(/\//,"/ser/get");
-print "temp ip[1] = ".$temp_ip[1]."\n"; 
+print "temp ip[1] = ".$temp_ip[1]."\n";
+my $size = @temp_ip;
+print "size = ".$size; 
 
 
 
