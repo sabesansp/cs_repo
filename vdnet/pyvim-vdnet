@@ -83,7 +83,7 @@ P : Go through the python apis written by Shashank and replace the staf calls in
            "vsphere client for ESXi 5.0.0"))
   # link = "vilib.eng.vmware.com/Binaries"
   # bring_in("latest_vsphere_client_build")
- # vdnet_mc_ip = 10.33.74.138
+ # vdnet_mc_ip = 10.33.75.228
  # find("vdnet_site_page)
   # link = "https://sites.google.com/a/vmware.com/vdnet/" {bookmarked}
 
@@ -943,10 +943,11 @@ P : Go through the python apis written by Shashank and replace the staf calls in
 
 # S53 : resolve bug # 1404333
 
- # 
+ # reassign 
 
 # S54 : resolve bug # 1367272
 
+ # reassign
 
 # S55 : resolve bug # 1437207
  
@@ -963,7 +964,6 @@ P : Go through the python apis written by Shashank and replace the staf calls in
   # pyvpx 6.0 => is this available in the repo ?
    # how will I figure out if pyvpx 6.0 is loaded into vdnet ?
    # workaround provided
-  # assign bug to Shawn
+  # resolve this issue now
 
-
-# S57 :  	       	 
+  	       	 
