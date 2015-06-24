@@ -1084,8 +1084,25 @@ public class Algorithms
 
          String[] parts = s.split(":");
      
-         //    
+         //
+      }    
 
+   }
+
+
+   public void rotateArray(int[] A, int k) {
+
+      for(int i=1; i<=k; ++i) {
+         int temp1 = A[0];
+         int temp2 = A[0];
+         for(int j=1; j<A.length; ++j) {
+            temp2 = A[j];
+            A[j] = temp1;
+            temp1 = temp2;
+         }
+         A[0] = temp1;
+      }
+      printArray(populateArrayList(A));
    }
 
   
@@ -1095,9 +1112,9 @@ public class Algorithms
    {
       Algorithms al = new Algorithms();
       try{
-         al.getRoute();          
-
-
+         int a[] = {5,1,0,2,4,6};
+         al.rotateArray(a,2);
+         //al.getRoute();          
          // P1 : calculate minimum indices
          //ArrayList<Integer> array = al.populateArrayList(new int[]{5,-1,3,8,6,4});
          //al.printArray(al.calculateMinIndices(array,4));
