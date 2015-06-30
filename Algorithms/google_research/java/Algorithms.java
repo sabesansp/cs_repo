@@ -1105,15 +1105,68 @@ public class Algorithms
       printArray(populateArrayList(A));
    }
 
+
+   public void merge(int[] A, int l, int m, int r) {
+
+      int[] L1 = new int[m-l+1];
+      int[] L2 = new int[r-m];
+      for(int i=l,k=0; i<=m; ++i) {
+         L1[k++] = A[i];
+      }
+      for(int i=m+1,k=0;i<=r;++i) {
+         L2[k++] = A[i];
+      }
+      int i=l,j=0,k=0;
+      for(;i<=r;++i) {
+         if(j<m-l+1 && k<r-m) {
+            if(L1[j] < L2[k]) {
+               A[i] = L1[j];
+               j++;
+            } else {
+               A[i] = L2[k];
+               k++;
+            }
+         } else {
+            break;
+         }
+      }
+      if(j < m-l+1) {
+         while(j< m-l+1) {
+            A[i++] = L1[j++];
+         }
+      }
+      if(k < r-m) {
+         while(k < r-m) {
+            A[i++] = L2[k++];
+         }
+      }   
+   }
+         
+
+
+
+   public void mergeSort(int[] A, int l, int r) {
+  
+      if(l<r) {
+         int m = (l+r)/2;
+         mergeSort(A,l,m);
+         mergeSort(A,m+1,r);
+         merge(A,l,m,r);
+      }
+   }       
+ 
+
   
 
    // code starts executing from here
    public static void main(String[] args)
    {
       Algorithms al = new Algorithms();
-      try{
+      try{     
          int a[] = {5,1,0,2,4,6};
-         al.rotateArray(a,2);
+         al.mergeSort(a,0,5);
+         al.printArray(al.populateArrayList(a));
+         //al.rotateArray(a,2);
          //al.getRoute();          
          // P1 : calculate minimum indices
          //ArrayList<Integer> array = al.populateArrayList(new int[]{5,-1,3,8,6,4});
