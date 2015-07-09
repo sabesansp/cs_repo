@@ -1156,16 +1156,26 @@ public class Algorithms
    }       
  
 
-  
+   public int multipleSum(int n) {
+      int s=0;
+      for(int i=1;i<n;++i) {
+         if(i%3 == 0 || 
+            i%5 == 0) {
+            s += i;
+         }
+      }
+      return s;
+   }  
 
    // code starts executing from here
    public static void main(String[] args)
    {
       Algorithms al = new Algorithms();
-      try{     
+      try{ 
+         System.out.println("Multiples Sum = " + al.multipleSum(1000));    
          int a[] = {5,1,0,2,4,6};
-         al.mergeSort(a,0,5);
-         al.printArray(al.populateArrayList(a));
+         //al.mergeSort(a,0,5);
+         //al.printArray(al.populateArrayList(a));
          //al.rotateArray(a,2);
          //al.getRoute();          
          // P1 : calculate minimum indices
