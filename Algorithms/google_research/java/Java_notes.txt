@@ -1,0 +1,80 @@
+Java cheat sheet : [ helpful for interviews ]
+
+// Push 3 elements into a stack <1,6,7> using java.util.Stack
+
+Stack<Integer> s1 = new Stack<Integer>();
+s1.push(1);
+s1.push(6);
+s1.push(7);
+
+// Pop element from stack, expected value = 7
+
+s1.pop(); // returns 7
+s1.peek(); // returns 6 but does not remove 6
+
+
+// Take a look at the java.util.Stack code and see what data structure
+// it uses internally to store the elements
+
+public class Stack<E> extends Vector<E> { 
+
+   ...
+   
+   
+
+}
+
+public class Vector<E> ... {
+
+    ...
+    
+    protected Object[] element;
+    
+
+
+}
+
+// So, it is an array of elements belonging to class "Object" the super type of all
+// types
+
+__________________________________________________________________________________________
+
+// quick sort intuition 
+
+A - <5,7,1,2,0,6>
+
+pivot = 5 
+
+rearrange the elements in the array such that 5 is inserted in the right position
+
+i=1,j=1 p < A[j] => advance j
+i=1,j=2 p > A[j] => swap A[i],A[j] => A - <5,1,7,2,0,6> i=2
+i=2,j=3 p > A[j] => swap A[i],A[j] => A - <5,1,2,7,0,6> i=3
+i=3,j=4 p > A[j] => swap A[i],A[j] => A - <5,1,2,0,7,6> i=4
+i=4,j=5 p < A[j] => advance j
+j=6 => exit
+
+swap A[l],A[i-1] => A - <0,1,2,5,7,6> 
+partition_position = i-1 (return this value from the function) = 3
+_________________________________________________________________________________________
+
+// convert the quick sort intuition into code
+
+public int qsortPartition(int[] A, int l, int r) {
+
+    // error checks here
+   int p = A[l];
+   
+   int i = l+1;
+   
+   for(int j=l+1;j<=r;j++) {
+       if(p > A[j]) {
+          swap(A,i,j);
+          ++i;
+       }
+   }
+   swap(A,l,i-1);
+   return i-1;
+}
+
+    
