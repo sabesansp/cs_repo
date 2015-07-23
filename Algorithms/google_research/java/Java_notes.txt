@@ -77,4 +77,26 @@ public int qsortPartition(int[] A, int l, int r) {
    return i-1;
 }
 
+_________________________________________________________________________________________
+
+To_do list (before the phone screen)
+------------------------------------------ 
+
+# Multithreading/concurrency overview (book + notes)
+# Browse through the library code for collections
+# scjp notes on collections and concurrency
+# trees (balanced binary search trees insertion etc. )
+# from 1:00 PM - 3:00 PM (before start of interview), please have a collection of 5 
+  problems for which I practice writing "clean code" {code with no errors at all}
+  # This should be after lunch [12:30 PM - 1:00 PM] 
+  # 5 mins before interview start, practice stretches
+  # Use google docs for practicing the final set of problems
+    (this will be similar to the experience of editing in collabedit and is bound to
+     be a great practice ground) 
+  # Get the negative test cases out first and push it to code via IllegalArgumentException
+    so we do not have to worry about it later
     
+_________________________________________________________________________________________
+
+
+       
