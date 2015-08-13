@@ -77,4 +77,127 @@ public int qsortPartition(int[] A, int l, int r) {
    return i-1;
 }
 
+_________________________________________________________________________________________
+
+Java memory model concepts
+
+# Class instances (objects) and arrays are stored in heap memory (also known as 
+  shared memory)
+  Ex : ArrayList<Integer> A - <1,2,3,4,5> A lives in heap memory
+# Non-heap memory (Method area) : Stores per-class structures, code for methods and
+  constructors. Per-class structures -> [runtime constansts, static fields]
+# Memory pools are created by Java memory managers during runtime. Memory pool may 
+  belong to either heap or non-heap memory
+# java stack - one per thread <used in place of registers>
+# Memory generations
+  # Young 
+    # Eden - newest 
+    # survivor - when gc happens if an object it still alive, it will be moved
+      to survivor space
+  # Old
+    # Tenured - GC moves live objects from survivor space to tenured generations
+    # PermGen - Stores metadata of the virtual machine, class and method objects
+
+memory leaks 
+
+# When memory footprint increases because of objects that no longer used are
+  not garbage collected
+# When stack grows in size and pops back elements if not nulled explicitly, will 
+  throw will result in memory leaks
+# Putting an object reference in a cache and forgetting to clean them up explicitly 
+  long after they have become obsolete. 
+
+__________________________________________________________________________________________ 
+
+
+To_do list (before the phone screen)
+
+# Multithreading/concurrency overview (book + notes)
+# Browse through the library code for collections
+# scjp notes on collections and concurrency
+# trees (balanced binary search trees insertion etc. )
+# 3-way merge, bfs, dfs, permutation, combination, merge sort, heap sort
+# from 1:00 PM - 3:00 PM (before start of interview), please have a collection of 5 
+  problems for which I practice writing "clean code" {code with no errors at all}
+  # This should be after lunch [12:30 PM - 1:00 PM] 
+  # 5 mins before interview start, practice stretches
+  # Use google docs for practicing the final set of problems
+    (this will be similar to the experience of editing in collabedit and is bound to
+     be a great practice ground) 
+  # Get the negative test cases out first and push it to code via IllegalArgumentException
+    so we do not have to worry about it later
     
+_________________________________________________________________________________________
+
+P : Given a set of intervals [1,2],[2,5],[6.8], output the set of merged intervals
+
+Ex : Interval
+      - Start
+      - End
+     [1,2] [2,5] => [1,5] i2.start = i1.end
+     [1,2] [1,1] => i2.start <= min(i1.end,i2.end) {simple condition to be checked}
+     [1,2] [3,5] => i2.start <= min(2,5) => 3 <= 2 => no, no merge add to result  
+Code : Follow the pattern of analysis and translate into code
+
+________________________________________________________________________________________
+
+P : Find the height of a binary tree
+
+          1
+       2     3
+     4   5  6  7
+    8  9
+    
+    In this example, answer - 3
+    
+    Path = 1 -> 2 -> 4 -> 8
+    (Max. no of edges from the root to the leaf node)
+    Process 1, 1 + max(1.left,1.right)
+     Process 2, 1 + max(2.left,2.right)
+      Process 4, 1 + max(4.left,4.right)
+       Process 8, 1 + max(8.left,8.right)
+        node==null, return 0
+       Process 8, 1 + max(0,8.right)
+        node == null, return 0
+       return min(0,0)
+      Process 4, 1 + max(1,1) return 2
+     Process 2, 1 + max(2,2.right)
+     ...
+     
+     Clean_Code :
+     
+     public int getHeight(BinaryTree node) {
+     
+        if(node == null) return 0;
+        else 
+           return 1+Math.max(getHeight(node.left),getHeight(node.right));
+     }  
+     
+# Take the example of only one root node
+
+   return 1+max(null,null)
+   return 1+0
+   return 1 // but the expected value should be zero because one node has no
+   edges 
+   
+# Make a modification to the above code to the following :
+
+   public int getHeight(BinaryTree node) {
+   
+      if(node == null) return -1;
+      else 
+         return 1 + Math.max(getHeight(node.left),getHeight(node.right));
+   }
+   
+__________________________________________________________________________________________
+
+P : Look at the implementation of Hashtable,HashMap,LinkedHashMap
+
+# Hashtable 
+
+  # variables are marked transient to indicate that they are not meant to be part of
+    the serialized object structure
+  # insert [<1,5>.<2,6> into the hashtable]
+  # Hashtable<Integer,Integer> hash = new Hashtable<Integer,Integer>();
+  <defer this >
+__________________________________________________________________________________________
