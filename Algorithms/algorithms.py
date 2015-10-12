@@ -840,7 +840,7 @@ def compute_cost_min_spanning_tree(input_file):
 if __name__== '__main__' :
 
    #compute_cost_min_spanning_tree('jobs-da-2-prog-1-3.txt') 
-   compute_cost_min_spanning_tree('jobs-sample.txt') 
+   #compute_cost_min_spanning_tree('jobs-sample.txt') 
    #compute_sum_weighted_completion('jobs-da-2-prog-1-1.txt') 
    #compute_sum_weighted_completion('jobs-sample.txt') 
    #print_fibonacci(1.9) 
@@ -872,10 +872,11 @@ if __name__== '__main__' :
    #print abs(8)
    #print min_dist([6,4,3,18,9,45,25]) # runs in O(nlogn) time
    #-----------Programming_Question_Coursera_Design_And_Analysis_of_Algorithms_Part_1-------
-   #with open('Algorithms/IntegerArray.txt','r') as f:
-   #   numbers = [int(x.strip()) for x in f] 
+   with open('IntegerArray.txt','r') as f:
+      numbers = [int(x.strip()) for x in f] 
    #-----------100,000----------------------------------------------------------------------
-   #(l,c) = sort_count(numbers)
-   #print c
+   (l,c) = sort_count(numbers)
+   print c
+   # number of inversions = 2407905288
    #print compute_max_less_than_element(12,[5,9,10,11,13,15],0,5)
    #print compute_min(11,[1,2])  
