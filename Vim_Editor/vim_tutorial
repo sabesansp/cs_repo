@@ -1,9 +1,114 @@
-# P :  Understanding of vim editor
+vim_tutorial
+------------
 
- # Navigate within a line faster
-  # 10l => move 10 cursor spaces to the right
-  # 60h => move 60 cursor spaces to the left
+#1: Getting help
 
- # 
-    
+  #:help,:q,:help user-manual
+
+#2: Closing vim
+
+  #:q(quit vim),:wq(quit with saving),:q!(quit without saving)
+
+#3: Saving a file in vim
+
+  #:w - saves the current file in vim
+  #:w <file-name> - save the file with the filename provided
+  #:saveas <file-name> - save the file with the new name and continue editing with the new name
+  #:<#>,<#> w <file-name> - saves just text between line numbers that you specify
+
+#4: Moving around the document
+
+  #h - moves cursor left
+  #l - moves cursor right
+  #j - moves cursor down
+  #k - moves cursor up
+  #w - moves cursor to the beginning of next word
+  #b - moves cursor to the beginning of previous word
+  #e - moves cursor to the end of next word
+  #ge - moves to the end of previous word
+  #$ - moves cursor to the end of the line
+  #^ - moves cursor to the first non-space character of the line
+  #0 - moves cursor to the absolute beginning of the line    
+  #[number] shift-g => moves you to the specified line number
+  #Ctrl-g => tells you what line you are on
+  #gg => go to the first line of the file
+  #[number]% => moves a certain percentage of the file, example, typing 30% moves you to 30% from the top of the file
+
+  <prefix the command with a number and it is repeated that many number of times>
+
+
+
+#5: Adding text
+
+  #i => enters insert mode, inserting new text before the point of the cursor
+  #Shift-I => moves the cursor to the beginning of the line and enters the insert mode
+  #a => enters the insert mode, inserting/appending the new text after the current point of the cursor
+  #Shift-A => enters insert mode, appending text to the end of the current line
+  #o => opens a line below the cursor and enters insert mode
+  #Shift-o => opens a line above the cursor and enters insert mode
+
+#6: Deleting text 
+
+  #dd - deletes the current line
+  #x - deletes one letter under the cursor
+  #dw - deletes from the cursor to the end of the word including the space
+  #de - deletes from the cursor to the end of the word not including the space
+  #d$ - deletes from cursor to the end of the current line
+
+#7: undo commands
+
+  #u => undo command
+  #U => undo everything on the line
+  #CTRL-r => redo command(after undoing it)
+
+#8: Copy/Paste in Vim or "putting" text
+
+  #p - paste the last deleted text on the line below the cursor
+
+#9: Retrieving and inserting a file into another file
+
+  #:r <file-name> => inserts <file-name> into the current file
+
+#10: Replacing text
+
+  #:r => press the letter "r" and then the letter that you want to replace the letter under the cursor with.
+  #Shift-r => works like the insert key=> allows you to type on top of the text, replacing it => when done, press "ESC" to exit
+  
+#11: Changing text 
+
+  #cw => change the text from the cursor to the end of the word(deletes and goes into insert mode)
+  #c$ => change the text from the cursor to the end of the line
+
+#12: Searching for text
+
+  #/ - search for text in a forward direction
+  #? - search for text in a backwards direction
+  #n - search again in the same direction
+  #Shift-n => search again in the opposite direction
+  #f => press f and another character and then the cursor will move to that character on the current line
+  #Shift-f => like "f" but searches backwards
+  #t => like "f" except that it moves the cursor one character before the specified character
+  #Shift-t => like "t" but in a backwards direction
+  #:set ic => ignore case search
+  #:set hls is => make it a highlighted incremental search
+  #:set nohlsearch => remove highlighting option
+
+#13: Substitute, or find and replace text 
+
+  #:s/old/new => Substitutes "new" for "old" on the current line, but only the first occurrence of the word
+  #:s/old/new/g => Substitutes "new" for "old" every time it appears on the current line
+  #:<n1>,<n2>s/old/new/g => Substitutes "new" for "old" every time it occurs between line numbers
+  #:%s/old/new/g => substitution engaged for the entire file
+  #:%s/old/new/gc => this works like previous example but then asks for confirmation each time text is replaced
+
+#14: Matching parentheses 
+
+  #% => helps you find matching brackets: (,[ and {
+
+
+#15: Executing commands within vim
+
+  #!ls => executes "ls" command and then returns back to the vim env on the press of the "Enter" key
+     
+
           
