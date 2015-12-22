@@ -109,6 +109,15 @@ vim_tutorial
 #15: Executing commands within vim
 
   #!ls => executes "ls" command and then returns back to the vim env on the press of the "Enter" key
-     
 
-          
+#16: Generic collection of commands :
+
+
+  #:echo "Hello" => print output as Hello but is not stored in the list of messages
+  #:echom "Hello again !" => prints output as "Hello again!" and adds this to the list of messages
+  #:set wrap? => checks if wrap is set or not, if set, it makes sure that the line wraps around
+  #:map - x => maps the command 'x' for deleting the character under the cursor to '-'
+  #:map <space> viw => Put cursor on word and press <space-bar> and vim will visually select the word
+  #:map <c-d> dd => Pressing "Ctrl+d" on the keyboard will actually run "dd"
+  #:map <space> viw " Select word	 
+ 
