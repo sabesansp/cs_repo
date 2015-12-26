@@ -120,4 +120,10 @@ vim_tutorial
   #:map <space> viw => Put cursor on word and press <space-bar> and vim will visually select the word
   #:map <c-d> dd => Pressing "Ctrl+d" on the keyboard will actually run "dd"
   #:map <space> viw " Select word	 
+
+#17: python related commands
+
+  #:au BufRead,BufNewFile *.py setlocal textwidth=80
+   # Set column width to 80 characters for python files
+  
  
