@@ -100,6 +100,7 @@ vim_tutorial
   #:<n1>,<n2>s/old/new/g => Substitutes "new" for "old" every time it occurs between line numbers
   #:%s/old/new/g => substitution engaged for the entire file
   #:%s/old/new/gc => this works like previous example but then asks for confirmation each time text is replaced
+  #:%s/\s\+$// => Remove one or more blank spaces at the end of the line and replace with empty string
 
 #14: Matching parentheses 
 
