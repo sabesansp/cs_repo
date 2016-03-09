@@ -127,4 +127,12 @@ vim_tutorial
   #:au BufRead,BufNewFile *.py setlocal textwidth=80
    # Set column width to 80 characters for python files
   
+
+#18 : Setting 80 char limit in vim editor 7.2 
+
+  # Add the following into the .vimrc
+   # highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+   # match OverLength /\%81v.\+/
+
+
  
