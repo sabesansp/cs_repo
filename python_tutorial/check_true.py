@@ -9,7 +9,8 @@ def isTrue(x):
 def main():
 
    if not isTrue(10):
-      print "10 is true"
+      print "Unable to get a valid ipv4 address\
+            yes"
    else:
       print "10 is false"
 
