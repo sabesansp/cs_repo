@@ -4,6 +4,7 @@
 
 from multiprocessing import Process
 import sys
+import traceback
 
 
 # Task1 : Adjust vim editor to make sure that each line does not exceed 90 characters,test
@@ -42,6 +43,42 @@ def call_process():
    print "Calling run_as_process\n",run_as_process('process:sabesan')
 
 
+# Task 5: write a function with kwargs and call function from main
+def func_kwargs(**kwargs):
+   for key,value in kwargs.iteritems():
+      print "%s = %s" % (key,value)
+
+
+# Task 6: write a while loop and throw an exception inside that
+def func_while_exception():
+   try:
+      while True:
+         vm = None
+         if vm.is_valid():
+            print "vm is valid"
+   except:
+      print "Inside except block, caught exception"
+
+
+# Task 7 : Print with an extra pair of braces
+def print_braces():
+   name = 'sabesan'
+   print "My name is : %s" %((name))
+
+# Task 8 : Induce an IndexError and catch the same
+def check_IndexError():
+   try:
+      l = []
+      print 0/0
+   except IndexError as indexerror:
+      print "Failed exception : %s" % indexerror
+   except Exception as exc:
+      #print "exception : %s" % exc
+      print "traceback : %s" % traceback.format_exc()
+      
+      
+
+
 if __name__ == '__main__':
    main()
 
@@ -55,4 +92,21 @@ if __name__ == '__main__':
    # Run the previous function as a process
    p = Process(target=call_process, args=()) 
    p.start()
-   p.join() # this blocks until process terminates 
+   p.join() # this blocks until process terminates
+
+   # Call function with kwarg
+   kwargs = {'name' : 'sabesan', 'age' : '33'}
+   func_kwargs(**kwargs) 
+
+   # Call func_while_exception, check the exception message is printed
+   func_while_exception()
+ 
+   # Induce a syntax error here :
+   if 1==1:
+      print "True"
+
+   # Test print_braces
+   print_braces()
+
+   # Call check_IndexError
+   check_IndexError()
