@@ -78,6 +78,17 @@ def check_IndexError():
       
       
 
+# Task 9 : Split a string based on '-'
+def split(nos_version):
+
+   list = nos_version.split('-')
+   if list[2] == 'danube' :
+      list[2] = list[2] + '-' + list[3] + '-' + list[4]
+      del list[3]
+      del list[3]
+      print list
+   
+
 
 if __name__ == '__main__':
    main()
@@ -110,3 +121,7 @@ if __name__ == '__main__':
 
    # Call check_IndexError
    check_IndexError()
+
+   # Split a string based on '-'
+   split('el6-opt-danube-4.5.3-stable-af72c6727333445115e2ec844d4cb246ffe6a010')
+ 
