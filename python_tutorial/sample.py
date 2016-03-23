@@ -5,8 +5,10 @@
 from multiprocessing import Process
 import sys
 import traceback
-import urllib2
+from urllib2 import urlopen
 import requests
+import re
+
 
 # Task1 : Adjust vim editor to make sure that each line does not exceed 90 characters,test
 def main():
@@ -138,16 +140,27 @@ def split_version(nos_version):
       branch = clist[2]
    print "T13 : branch = ",branch       
 
+
+# Task 15 : Get the contents of the url
+def print_link_contents(url):
+
+   urlpath = urlopen(url)
+   string = urlpath.read().decode('utf-8')
+   pattern = re.compile('\b(.)*.tar.gz')
+   filelist = pattern.findall(string)
+   print "T15 : ", string
+
 if __name__ == '__main__':
-
-
-   # Call split_version
-   split_version('el6-opt-danube-4.5.3-stable-af72c6727333445115e2ec844d4cb246ffe6a010')   
 
 
    # Call form_url with relevant parameters
    url = form_url('master', '000d79ddd02d0e2f93cb3f38ee991bce0c396276', 'opt')
-   
+
+   # Given a link, print its contents
+   print_link_contents(url)
+
+   # Call split_version
+   split_version('el6-opt-danube-4.5.3-stable-af72c6727333445115e2ec844d4cb246ffe6a010')   
 
    # Call url formed above and list all the files in that path
    r = requests.get(url)
