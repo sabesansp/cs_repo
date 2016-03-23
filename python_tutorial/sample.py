@@ -5,7 +5,8 @@
 from multiprocessing import Process
 import sys
 import traceback
-
+import urllib2
+import requests
 
 # Task1 : Adjust vim editor to make sure that each line does not exceed 90 characters,test
 def main():
@@ -89,8 +90,81 @@ def split(nos_version):
       print list
    
 
+# Task 10 : understand the lambda function
+def lambda_func():
+
+   if filter(lambda x: x is None, [2, 3]):
+      print "T10 : None lambda function result"
+   else:
+      print "T10 : valid lambda function result"     
+
+
+# Task 11 : Get all executable names in the cores
+def save_nos_build_links(cores_map):
+  
+   executables_list = ['name1'] 
+   # Assume core_map had "name : <value>" 
+   for name, core_map in cores_map.items():
+      for n in core_map.keys():
+         if n not in executables_list:
+            executables_list.append(n)
+ 
+   # print the executables list here
+   print "T11 : ", executables_list
+
+
+# Task 12 : Form the complete url from base url
+def form_url(branch, commit, build_type):
+
+   base_url = 'http://earth.corp.nutanix.com/builds/nos-builds/'
+   url = base_url + branch + '/' + commit + '/' + build_type
+   return url   
+
+
+# Task 13 : Split the release version based on '-'
+def split_version(nos_version):
+
+   clist = nos_version.split('-')
+   b_type = clist[1]
+   print "T13 : build type = ",b_type
+   size = len(clist)
+   commit = clist[size-1]
+   print "T13 : commit = ",commit
+   if 'danube' in nos_version:
+      branch = clist[2]
+      for i in range(3,size-1):
+         branch = branch + '-' + clist[i]
+   else:
+      branch = clist[2]
+   print "T13 : branch = ",branch       
 
 if __name__ == '__main__':
+
+
+   # Call split_version
+   split_version('el6-opt-danube-4.5.3-stable-af72c6727333445115e2ec844d4cb246ffe6a010')   
+
+
+   # Call form_url with relevant parameters
+   url = form_url('master', '000d79ddd02d0e2f93cb3f38ee991bce0c396276', 'opt')
+   
+
+   # Call url formed above and list all the files in that path
+   r = requests.get(url)
+   print "T14 : ",r.content  
+
+   # create core_map here
+   cores_map = {}
+   core_map = {}
+   core_map['name1'] = 'sabesan'
+   core_map['name2'] = 'jag'
+   cores_map['exec_1'] = core_map
+   save_nos_build_links(cores_map)
+
+
+   # Call lambda function
+   lambda_func()
+
    main()
 
    # Expected value = true
