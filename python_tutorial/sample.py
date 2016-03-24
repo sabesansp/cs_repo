@@ -5,7 +5,7 @@
 from multiprocessing import Process
 import sys
 import traceback
-from urllib2 import urlopen
+import urllib2
 import requests
 import re
 
@@ -141,30 +141,75 @@ def split_version(nos_version):
    print "T13 : branch = ",branch       
 
 
-# Task 15 : Get the contents of the url
+# Task 17 : Write contents of url to a file
 def print_link_contents(url):
 
-   urlpath = urlopen(url)
-   string = urlpath.read().decode('utf-8')
-   pattern = re.compile('\b(.)*.tar.gz')
-   filelist = pattern.findall(string)
-   print "T15 : ", string
+   tar_url_list = []
+   dbg_url_list = []
+   exec_name_list = ['stargate','curator']
+   urlpath = urllib2.urlopen(url+'/tar')
+   response = urlpath.read()
+   str_list = response.split('HREF=')
+   file = None
+   for str in str_list:
+      file_list = re.findall(r'(nutanix_installer.+\.tar\.gz)\">',str)
+      if file_list:
+         file = file_list[0]
+         break
+   # "file" contains the actual link
+   new_url = url + '/tar/' + file
+   if new_url not in tar_url_list:
+      tar_url_list.append(new_url)
+   
+   # Proceed in a similar fashion for the debug symbols list
+   try :
+      dbg_url = url + '/debug_symbols'
+      urlpath = urllib2.urlopen(dbg_url)
+      response = urlpath.read()
+      for exec_name in exec_name_list:
+         newurl = dbg_url+ '/'
+         regex = re.escape(exec_name)+".dbg.gz"
+         s = re.findall(regex, response)
+         if s :
+            newurl = newurl+ s[0]
+            if newurl not in dbg_url_list:
+               dbg_url_list.append(newurl)
+         else :
+            print "No valid link found for executable name %s" % exec_name
+
+   except urllib2.HTTPError as e:
+      print "no debug_symbols directory found in the builds directory"        
+         
+
+   # Write to file
+   with open('nos_build_links.txt','w') as fh:
+      if tar_url_list:
+         fh.write("tar link : \n")
+         for u in tar_url_list:
+            fh.write(u + "\n")
+         fh.write("\n\n")
+      if dbg_url_list:
+         fh.write("debug symbols link : \n")
+         for k in dbg_url_list:
+            fh.write(k + "\n")
+   fh.close()
+
 
 if __name__ == '__main__':
 
 
+
+   print_link_contents('http://earth.corp.nutanix.com/builds/nos-builds/danube-4.5.3-stable/04e3f85e9d43e0b7147d383552fc07e1f3bf5b41/release') 
+
    # Call form_url with relevant parameters
    url = form_url('master', '000d79ddd02d0e2f93cb3f38ee991bce0c396276', 'opt')
-
-   # Given a link, print its contents
-   print_link_contents(url)
 
    # Call split_version
    split_version('el6-opt-danube-4.5.3-stable-af72c6727333445115e2ec844d4cb246ffe6a010')   
 
    # Call url formed above and list all the files in that path
    r = requests.get(url)
-   print "T14 : ",r.content  
+   #print "T14 : ",r.content  
 
    # create core_map here
    cores_map = {}
