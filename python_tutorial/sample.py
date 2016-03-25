@@ -182,16 +182,20 @@ def print_link_contents(url):
          
 
    # Write to file
-   with open('nos_build_links.txt','w') as fh:
+   with open('nos_build_links.html','w') as fh:
+      fh.write("<html>")
+      fh.write("<body>")
       if tar_url_list:
-         fh.write("tar link : \n")
+         fh.write("<p>tar_link : </p><br><br>")
          for u in tar_url_list:
-            fh.write(u + "\n")
-         fh.write("\n\n")
+            fh.write('<A HREF=\"' + u + '\">' + u + '</A><br>')
+         fh.write("<br><br>")
       if dbg_url_list:
-         fh.write("debug symbols link : \n")
+         fh.write("<p>debug symbols link : </p><br><br>")
          for k in dbg_url_list:
-            fh.write(k + "\n")
+            fh.write('<A HREF=\"' + u + '\">' + u + '</A><br>')      
+      fh.write('</html>')
+      fh.write('</body>')
    fh.close()
 
 
@@ -199,7 +203,7 @@ if __name__ == '__main__':
 
 
 
-   print_link_contents('http://earth.corp.nutanix.com/builds/nos-builds/danube-4.5.3-stable/04e3f85e9d43e0b7147d383552fc07e1f3bf5b41/release') 
+   print_link_contents('http://earth.corp.nutanix.com/builds/nos-builds/danube-4.5.3-stable/37dbd452e3cafd2375fdd67e96a487032ffa74da/release/') 
 
    # Call form_url with relevant parameters
    url = form_url('master', '000d79ddd02d0e2f93cb3f38ee991bce0c396276', 'opt')
