@@ -1,10 +1,9 @@
-#You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers
-#and return it as a linked list.
+# You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers
+# and return it as a linked list.
 
-#Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
-#Output: 7 -> 0 -> 8
 
-import pdb
+# Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+# Output: 7 -> 0 -> 8
 
 
 class ListNode(object):
@@ -21,62 +20,79 @@ class ListNode(object):
     print "None"
 
 class Solution(object):
-
+    
   def addTwoNumbers(self, l1, l2):
     """
     :type l1: ListNode
     :type l2: ListNode
     :type l3: ListNode
     """
-
-    carry = 0
-    head = None
+    
+    # Initialize all the required variables
+    l3 = None
     res = None
+    carry = 0
+    s = 0
+        
+    # Iterate through lists l1 and l2 only if l1 and 
+    # l2 have elements to be iterated in conjunction
+    # with each other
     while l1 and l2:
-      sum = l1.val + l2.val + carry
-      carry = sum / 10
-      if sum>9:
-        sum = sum % 10
-      if not head:
-        res = ListNode(sum)
-        head = res
+      s = l1.val + l2.val + carry
+      carry = s / 10
+      if s > 9:
+        s = s % 10
+      curr = res
+      res = ListNode(s)
+      if not l3:
+        l3 = res
       else:
-        curr = res
-        res = ListNode(sum)
         curr.next = res
       l1 = l1.next
       l2 = l2.next
+        
+    # Iterate through list l1
     while l1:
-      sum = l1.val + carry
-      carry = sum / 10
-      if sum>9:
-        sum = sum % 10
-      if not head:
-        res = ListNode(sum)
-        head = res
+      s = l1.val + carry
+      carry = s / 10
+      if s > 9:
+        s = s % 10
+      curr = res
+      res = ListNode(s)
+      if not l3:
+        l3 = res
       else:
-        curr = res
-        res = ListNode(sum)
         curr.next = res
       l1 = l1.next
+    
+    # Iterate through list l2
     while l2:
-      sum = l2.val + carry
-      carry = sum / 10
-      if sum>9:
-        sum = sum % 10
-      if not head:
-        res = ListNode(sum)
-        head = res
+      s = l2.val + carry
+      carry = s / 10
+      if s > 9:
+        s = s % 10
+      curr = res
+      res = ListNode(s)
+      if not l3:
+        l3 = res
       else:
-        curr = res
-        res = ListNode(sum)
         curr.next = res
       l2 = l2.next
-    if carry>0:
-      print "inside carry GT 0"
+     
+    # Only if carry is greater than 
+    # zero we need to consider adding an 
+    # extra node in the linked list
+    if carry > 0:
       n = ListNode(carry)
-      res.next = n
-    return head
+      res.next = n 
+       
+    return l3
+        
+                
+        
+        
+            
+         
 
 if __name__ == '__main__':
  
@@ -87,7 +103,6 @@ if __name__ == '__main__':
   l2 = ListNode(5)
   h = s.addTwoNumbers(o1, l2)    
   h.printVal()
-
 
 
 
