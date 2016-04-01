@@ -25,67 +25,30 @@ class Solution(object):
     """
     :type l1: ListNode
     :type l2: ListNode
-    :type l3: ListNode
+    :type head: ListNode
     """
     
     # Initialize all the required variables
+    l = None
     l3 = None
-    res = None
     carry = 0
-    s = 0
-        
-    # Iterate through lists l1 and l2 only if l1 and 
-    # l2 have elements to be iterated in conjunction
-    # with each other
-    while l1 and l2:
-      s = l1.val + l2.val + carry
-      carry = s / 10
-      if s > 9:
-        s = s % 10
-      curr = res
-      res = ListNode(s)
-      if not l3:
-        l3 = res
-      else:
-        curr.next = res
-      l1 = l1.next
-      l2 = l2.next
-        
-    # Iterate through list l1
-    while l1:
-      s = l1.val + carry
-      carry = s / 10
-      if s > 9:
-        s = s % 10
-      curr = res
-      res = ListNode(s)
-      if not l3:
-        l3 = res
-      else:
-        curr.next = res
-      l1 = l1.next
     
-    # Iterate through list l2
-    while l2:
-      s = l2.val + carry
-      carry = s / 10
-      if s > 9:
-        s = s % 10
-      curr = res
-      res = ListNode(s)
+    while l1 or l2:
+      p1 = l1.val if l1 else 0
+      p2 = l2.val if l2 else 0
+      sum = carry + p1 + p2
+      carry = sum / 10
+      sum = sum % 10 if sum > 9 else sum
+      prev = l
+      l = ListNode(sum)
       if not l3:
-        l3 = res
+        l3 = l
       else:
-        curr.next = res
-      l2 = l2.next
-     
-    # Only if carry is greater than 
-    # zero we need to consider adding an 
-    # extra node in the linked list
-    if carry > 0:
-      n = ListNode(carry)
-      res.next = n 
-       
+        prev.next = l
+      if l1:
+        l1 = l1.next
+      if l2:
+        l2 = l2.next       
     return l3
         
                 
