@@ -199,65 +199,84 @@ def print_link_contents(url):
    fh.close()
 
 
+
+# Task 18 : Given a list of strings, filter strings based on the cluster_type in metadata
+def filter_string(nodes, metadata):
+
+   cluster_type = metadata["cluster_type"]
+   if nodes[cluster_type]:
+      print nodes[cluster_type]
+   else:
+      print "nodes does not contain %s " % cluster_type
+
+
 if __name__ == '__main__':
 
+   
+   # Task 18 : prep here
+   nodes = {}
+   metadata = {}
+   metadata["cluster_type"] = "vsphere"
+   nodes["vsphere"] = "vsphere_node"
+   nodes["kvm"] = "kvm_node"
+   nodes["hyperv"] = "hyperv_node"
+   filter_string(nodes, metadata)
 
-
-   print_link_contents('http://earth.corp.nutanix.com/builds/nos-builds/danube-4.5.3-stable/37dbd452e3cafd2375fdd67e96a487032ffa74da/release/') 
+   #print_link_contents('http://earth.corp.nutanix.com/builds/nos-builds/danube-4.5.3-stable/37dbd452e3cafd2375fdd67e96a487032ffa74da/release/') 
 
    # Call form_url with relevant parameters
-   url = form_url('master', '000d79ddd02d0e2f93cb3f38ee991bce0c396276', 'opt')
+   #url = form_url('master', '000d79ddd02d0e2f93cb3f38ee991bce0c396276', 'opt')
 
    # Call split_version
-   split_version('el6-opt-danube-4.5.3-stable-af72c6727333445115e2ec844d4cb246ffe6a010')   
+   #split_version('el6-opt-danube-4.5.3-stable-af72c6727333445115e2ec844d4cb246ffe6a010')   
 
    # Call url formed above and list all the files in that path
-   r = requests.get(url)
+   #r = requests.get(url)
    #print "T14 : ",r.content  
 
    # create core_map here
-   cores_map = {}
-   core_map = {}
-   core_map['name1'] = 'sabesan'
-   core_map['name2'] = 'jag'
-   cores_map['exec_1'] = core_map
-   save_nos_build_links(cores_map)
+   #cores_map = {}
+   #core_map = {}
+   #core_map['name1'] = 'sabesan'
+   #core_map['name2'] = 'jag'
+   #cores_map['exec_1'] = core_map
+   #save_nos_build_links(cores_map)
 
 
    # Call lambda function
-   lambda_func()
+   #lambda_func()
 
-   main()
+   #main()
 
    # Expected value = true
-   print is_valid_ipv4_addr('10.4.66.239')
+   #print is_valid_ipv4_addr('10.4.66.239')
 
    # Expected value = false
-   print is_valid_ipv4_addr('10.456.34.255')
+   #print is_valid_ipv4_addr('10.456.34.255')
 
 
    # Run the previous function as a process
-   p = Process(target=call_process, args=()) 
-   p.start()
-   p.join() # this blocks until process terminates
+   #p = Process(target=call_process, args=()) 
+   #p.start()
+   #p.join() # this blocks until process terminates
 
    # Call function with kwarg
-   kwargs = {'name' : 'sabesan', 'age' : '33'}
-   func_kwargs(**kwargs) 
+   #kwargs = {'name' : 'sabesan', 'age' : '33'}
+   #func_kwargs(**kwargs) 
 
    # Call func_while_exception, check the exception message is printed
-   func_while_exception()
+   #func_while_exception()
  
    # Induce a syntax error here :
-   if 1==1:
-      print "True"
+   #if 1==1:
+      #print "True"
 
    # Test print_braces
-   print_braces()
+   #print_braces()
 
    # Call check_IndexError
-   check_IndexError()
+   #check_IndexError()
 
    # Split a string based on '-'
-   split('el6-opt-danube-4.5.3-stable-af72c6727333445115e2ec844d4cb246ffe6a010')
+   #split('el6-opt-danube-4.5.3-stable-af72c6727333445115e2ec844d4cb246ffe6a010')
  
