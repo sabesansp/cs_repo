@@ -1,0 +1,6 @@
+Scenario#1: Two sorted arrays nums1 -> [3, 567, 678, 905, 1000], nums2 -> [2, 5, 6, 7] of sizes m=5, n=4 respectively. Find median of the two sorted arrays. The overall complexity 
+should be O(log(m+n)). 
+
+# Combine the two arrays in a sorted order:  nums1, nums2 => nums -> [2, 3, 5, 6, 7, 567, 678, 905, 1000]
+# There are 9 elements in the sorted array nums, median = 5th element from the left. 
+#  

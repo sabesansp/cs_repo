@@ -37,7 +37,7 @@ def main():
     t = '5' if 2<1 else '10'
     print t
     kwargs = {"memory": 5, "cpu_count" : 10}
-    o.form_command(**kwargs) 
+    o.form_command(memory=5, cpu_count=10) 
        
 
 
