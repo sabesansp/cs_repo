@@ -1,6 +1,74 @@
 Scenario#1: Two sorted arrays nums1 -> [3, 567, 678, 905, 1000], nums2 -> [2, 5, 6, 7] of sizes m=5, n=4 respectively. Find median of the two sorted arrays. The overall complexity 
 should be O(log(m+n)). 
 
-# Combine the two arrays in a sorted order:  nums1, nums2 => nums -> [2, 3, 5, 6, 7, 567, 678, 905, 1000]
-# There are 9 elements in the sorted array nums, median = 5th element from the left. 
-#  
+  # Combine the two arrays in a sorted order:  nums1, nums2 => nums -> [2, 3, 5, 6, 7, 567, 678, 905, 1000]
+  # There are 9 elements in the sorted array nums, median = 5th element from the left. 
+  # m1 = 678, m2 = 5.5, m1 > m2 => swap nums1, nums2
+  # nums2 -> [3, 567, 678, 905, 1000], nums1 -> [2, 5, 6, 7] 
+  # m1 = 5.5, m2 = 678 => divide up arrays such that nums1 contains numbers>=m1 and nums2 contains numbers<=m2
+  # nums1 -> [6,7], nums2 -> [3,567,678]
+  # m1 = 6.5, m2 = 567 => divide up arrays such that nums1 contains numbers>=m1 and nums2 contains numbers<=m2
+  # nums1 -> [7] nums2 -> [3,567]
+  # m1 = 7, m2 = 285 => divide up arrays such that nums1 contains numbers>=m1 and nums2 contains numbers<=m2
+  # median = max(nums1[0], num2[0]) => max(3, 7) = 7
+  # condition = return max(nums1[0], nums2[0]), when nums1 has 1 element, nums2 has 2 elements
+  # work through the algorithm for nums1 -> [3,5,7] nums2 -> [2, 4, 6, 8] expected median = 5
+    # m1 = 5, m2 = 5, m1 == m2, return m1 as median
+  # Another example: nums1 = [4, 5, 6, 7] nums2 = [1, 2, 3]
+    # m1 = 5.5, m2 =2, swap(nums1, nums2)
+    # nums1 = [1, 2, 3] nums2 = [4, 5, 6, 7]
+    # m1 = 2, m2 = 5.5, m1 < m2 => divide up arrays such that nums1 contains numbers>=m1 and nums2 contains numbers<=m2
+    # nums1 = [2, 3], nums2 -> [4, 5]
+    # m1 = 2.5, m2 = 4.5 => m1 < m2 => divide up arrays such that nums1 contains numbers>=m1 and nums2 contains numbers<=m2
+    # nums1 = [3], nums2 = [4], => return median(3, 4) = 3.5
+    # The algorithm does not work here, expected median = 4, actual median = 3.5
+  # Tweak the above algorithm little bit as follows:
+    # nums1 = [1,2,3] nums2 = [4,5,6,7]
+    # m1 = 2, m2 = median(5,6) = 5.5, include 6 in nums2, since it was used in the calculation of the median
+    # nums1 -> [2, 3]  nums2 -> [4, 5, 6]
+    # m1 =2.5, m2 =5 => divide up arrays such that nums1 contains numbers>=m1 and nums2 contains numbers<=m2
+    # nums1 -> [3], nums2 -> [4,5]
+    # return max(nums1[0], nums2[0]) => return max(3,4) => return 4
+  # Consider a different example and try the above algorithm:
+    # nums1 -> [2, 9, 10], nums2 -> [4, 5, 6, 9]
+    # m1 = 9, m2 = 5.5 => m1 > m2 => swap(nums1, nums2)
+    # nums1 -> [4,5,6,9], nums2 -> [2, 9, 10]
+    # m1 = 5.5, m2 = 9, m1 < m2 => divide up arrays such that nums1 contains numbers>=m1 and nums2 contains numbers<=m2
+    # nums1 -> [5, 6, 9] nums2 -> [2, 9]
+    # m1 = 6, m2 = 5.5, m1 > m2 => swap(nums1, nums2)
+    # nums1 -> [2, 9], nums2 -> [5,6,9]
+    # m1 < m2 => divide up arrays such that nums1 contains numbers>=m1 and nums2 contains numbers<=m2
+    # nums1 -> [2,9], nums2 -> [6] {choose between 5.5 and 6} 
+    # median = return max(nums1[0], nums2[0]), len(nums1)=2, len(nums2) =1
+  # Consider the same algorithm for nums1->[ ], nums2-> [ ]
+    # return None, if both nums1, nums2 = empty
+  # Another example: nums1 = [0], nums2 = [ ]
+    # return median(nums1), if nums2 is empty and len(nums1) >= 1
+  # return median(nums2), if nums1 is empty and len(nums2) >= 1
+  # Compile the conditions here :
+    # nums1, nums2 = empty => return None
+    # nums1 not empty, nums2 empty => return median(nums1)
+    # nums1 empty, nums2 not empty => return median(nums2)
+    # len(nums1)=1, len(nums2)=1 => return median(nums1[0], nums2[0])
+    # len(nums1) = 1, len(nums2) = 2 => return median(nums1[0], nums2[0]) 
+  # Rewrite the algorithm here as a function here given median function is available:
+    # function f(nums1, nums2):
+      # m=len(nums1), n=len(nums2)
+      # m==0 and n==0, return None
+      # m>n, return f(nums2, nums1)
+      # m==1, n>2
+        # m2 = median(nums2)
+        # return f(nums1, nums2[:n/2+1])
+      # m==2, n==2
+        # return max(nums1[0], nums2[1]) + min(nums1[1], nums2[1]) / 2.0
+      # m=1, n=2
+        # return max(nums1[0], nums2[0])
+      # m>2, n>2
+        # m1 = median(nums1), m2 = median(nums2)
+        # m1 == m2, return m1
+        # m1 > m2, swap(nums1, nums2) without a recursive call
+        # m1 < m2, 
+          # nums1 = filter(lambda x: x>=m1 and x<=m2, nums1)
+          # nums2 = filter(lambda x: x>=m1 and x<=m2, nums2)
+          # return f(nums1, nums2)
+       # return None  
