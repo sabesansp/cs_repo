@@ -1,0 +1,32 @@
+# Find the kth smallest element of two sorted arrays (ascending order) when they are merged
+  # Example : A => [1] | B=> [2, 3, 4, 7, 10, 12] | k=> 5
+  # Answer : 7
+
+
+
+# Drive the algorithm from the test cases and abstract the operations
+  # TC#1 : nums1 -> [5, 6, 7, 8] | nums2 -> [2, 3, 4, 5, 6, 7, 8] | k -> 2
+    # m=4, n=7, l=11, k=2
+    # First split : nums1 -> [5] | nums2 -> [3, 4, 5, 6, 7, 8] | k -> 1
+    # k == 1 => min(nums1[0], nums2[0]) => min(5, 3) => 3
+  
+  # TC#2 : nums1 -> [] | nums2 -> [2, 3, 4, 5, 6, 7, 8] | k -> 5
+    # nums2[k-1] => nums2[4] = 6
+
+  # TC#3 : nums1 -> [1, 2, 3] | nums2 -> [] | k-> 3
+    # nums1[k-1] => nums1[2] = 3
+    
+  # TC#4 : nums1 -> [] | nums2 -> [] | k-> 2
+    # Throw an exception since k>l {l=0}
+    # No need to check for nums1 == [] and nums2 == [] since it is taken care before.
+
+  # TC#5 : nums1 -> [1, 2, 10, 11] | nums2 -> [1, 2, 4, 5] | k -> 2
+    # first split : nums1 -> [2, 10, 11] | nums2 -> [1] | k -> 1
+    # return min(2, 1) => Answer: 1
+    
+   
+
+
+
+   
+
