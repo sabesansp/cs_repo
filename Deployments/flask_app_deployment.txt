@@ -1,0 +1,10 @@
+# Flask application deployment
+ # OS - macosx
+  # link: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
+  # sudo easy_install pip
+  # sudo pip install virtualenv
+  # pointing to localhost:5000 works
+  # sub_problem: point the url to a reachable ip address instead of localhost
+   # insert this line of code: app.run('0.0.0.0')
+   # that should suffice to make this run on an ip address instead of localhost
+   

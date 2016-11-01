@@ -22,9 +22,8 @@
 
   # TC#5 : nums1 -> [1, 2, 10, 11] | nums2 -> [1, 2, 4, 5] | k -> 2
     # first split : nums1 -> [2, 10, 11] | nums2 -> [1] | k -> 1
-    # return min(2, 1) => Answer: 1
-    
-   
+    # return min(2, 1) => Answer: 1	
+      
 
 
 
