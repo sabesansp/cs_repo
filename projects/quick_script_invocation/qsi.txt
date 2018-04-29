@@ -1,0 +1,63 @@
+(p) > write an algorithm for quick script invocation (qsi) using an example
+  (s1) > list down a procedure with abstract entities
+    # let the client machine be c and the server machine be s
+    # problem is to ssh from c to s
+    # login into c and generate ssh key using the following command:
+      --
+      ssh-keygen -t rsa
+      --
+      # this creates id_rsa, id_rsa.pub files in the ~/.ssh directory
+    # create a '.ssh' directory in s if not already present
+    # create a file called 'authorized_keys' and add the id_rsa.pub key 
+    # make sure to set right permissions on '.ssh' directory and 'authorized_keys' file
+    # cmd => ssh <user>@s should be sufficient to login into 's'  	
+  (s2) > write a script in python to input a password automatically when executed on shell
+    # ex: ssh user1@10.4.15.67 is typed on the shell
+    # the shell prompts for a password: script must output the reqd password and move
+      forward
+    # (s2.1) > what is the first step to be taken ?
+      # fix the input to the script
+      # python login.py --ip=<ip> --user=<user> --password=<pwd>
+    # (s2.2) > what is the sequence of actions to be taken in the script ?
+      # get all the three inputs in the code and print all the three {ip, user, password}
+        # invoke script using this cmd => 
+          "python login.py --ip=10.4.15.16 --user=nutanix --password=nutanix/4u" 
+        # actual output of the command when executed:
+          --
+          ip = 10.4.15.16
+          user = nutanix
+          password = nutanix/4u
+          --
+      # {tech_risk}: how will python process open a shell and execute a command ?
+        # why would I use a python process to open a shell ? I can directly use a shell
+          script for doing that: this is called "solution deflection"
+      # get all the three inputs and print them using a shell script called login.sh
+        # invoke script using this cmd => 
+          --
+          ./login.sh -i=0.0.0.0 -u=nutanix -p=nutanix/4u
+          --
+        # actual output
+          -- 
+          ip = 0.0.0.0
+          user = nutanix
+          password = nutanix/4u
+          --
+      # fall back to the solution of using keys: I am able to login into localhost 
+        without using password 
+      # what does the solution look like when sshpass is used ?
+        # install sshpass in 'c': {direct install via Homebrew not available because of 
+          security issues}
+        # cmd > curl -O -L http://downloads.sourceforge.net/project/sshpass/sshpass/1.06/sshpass-1.06.tar.gz && tar xvzf sshpass-1.06.tar.gz
+        # cd sshpass-1.06
+        # ./configure
+        # sudo make install
+      # how do I make this solution available with a simple one-line invocation ?
+        # setup an alias in ~/.bashrc like the following:
+          --
+          alias ssh_localhost=". ~/cs_repo/projects/quick_script_invocation/login.sh -i=localhost -u=research -p=n7s5bh8709"
+          --
+        # after this "source ~/.bashrc" and ssh to localhost will be as simple as:
+          ssh_localhost
+        
+        
+          	
