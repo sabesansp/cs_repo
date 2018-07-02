@@ -1,0 +1,23 @@
+bootstrap table project:
+
+
+
+->(p2) > copy the code in the following link { https://www.bootply.com/JnOYtO9xzn }
+       and experiment with it 
+  # required features for this project:
+    # f1: ability to vertically scroll through rows
+    # f2: header is fixed and static and only the rows are scrollable
+    # f3: checkbox is present as one of the cell entries and also scrolls along with the 
+          row
+  # 
+__________________________________________________________________________________________
+
++ (p1) > start a project in sublime and add bootstrap reference to it
+  # open a html file called bootstrap_table.html 
+    {path = /Users/research/Documents/projects/bootstrap_table}
+  # installation
+    # go to this link 
+      { https://github.com/twbs/bootstrap/releases/download/v3.3.7/bootstrap-3.3.7-dist.zip }
+    # make sure v3.3.7 is chosen at the top of the page to get here 
+      (4.1.x is the latest version)
+    # copy the template already provided in the webpage
