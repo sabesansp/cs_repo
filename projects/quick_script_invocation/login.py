@@ -19,6 +19,9 @@ def parse_options():
 
 if __name__ == '__main__':
   (ip, user, pwd) = parse_options()
+  
+  # Print all the three values 
   print "ip = %s" % ip
   print "user = %s" % user
   print "password = %s" % pwd
+  

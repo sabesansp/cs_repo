@@ -9,7 +9,6 @@ bootstrap table project:
     # f2: header is fixed and static and only the rows are scrollable
     # f3: checkbox is present as one of the cell entries and also scrolls along with the 
           row
-  # 
 __________________________________________________________________________________________
 
 + (p1) > start a project in sublime and add bootstrap reference to it
