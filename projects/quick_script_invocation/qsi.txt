@@ -21,12 +21,12 @@
     # (s2.2) > what is the sequence of actions to be taken in the script ?
       # get all the three inputs in the code and print all the three {ip, user, password}
         # invoke script using this cmd => 
-          "python login.py --ip=10.4.15.16 --user=nutanix --password=nutanix/4u" 
+          "python login.py --ip=10.4.15.16 --user=usr1 --password=1234" 
         # actual output of the command when executed:
           --
           ip = 10.4.15.16
-          user = nutanix
-          password = nutanix/4u
+          user = usr1
+          password = 1234
           --
       # {tech_risk}: how will python process open a shell and execute a command ?
         # why would I use a python process to open a shell ? I can directly use a shell
@@ -34,13 +34,13 @@
       # get all the three inputs and print them using a shell script called login.sh
         # invoke script using this cmd => 
           --
-          ./login.sh -i=0.0.0.0 -u=nutanix -p=nutanix/4u
+          ./login.sh -i=0.0.0.0 -u=usr1 -p=1234
           --
         # actual output
           -- 
           ip = 0.0.0.0
-          user = nutanix
-          password = nutanix/4u
+          user = usr1
+          password = 1234
           --
       # fall back to the solution of using keys: I am able to login into localhost 
         without using password 
@@ -54,7 +54,7 @@
       # how do I make this solution available with a simple one-line invocation ?
         # setup an alias in ~/.bashrc like the following:
           --
-          alias ssh_localhost=". ~/cs_repo/projects/quick_script_invocation/login.sh -i=localhost -u=research -p=n7s5bh8709"
+          alias ssh_localhost=". ~/cs_repo/projects/quick_script_invocation/login.sh -i=localhost -u=ruser -p=1234"
           --
         # after this "source ~/.bashrc" and ssh to localhost will be as simple as:
           ssh_localhost
